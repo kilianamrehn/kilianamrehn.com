@@ -1,0 +1,185 @@
+---
+import '@fontsource-variable/big-shoulders-display';
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import { site } from '../data/site';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const article = {
+  '@context': 'https://schema.org', '@type': 'Article', headline: 'Was bleibt, ist ein Gefühl: Flüchtlingslager in Moldau 2022',
+  author: { '@id': 'https://kilianamrehn.com/#person' }, inLanguage: 'de', about: ['Reportage', 'Dokumentarfotografie', 'Flucht', 'Moldau'],
+};
+---
+<Base title={`${site.newsTitle} · Reportage & Dokumentarfotografie · Kilian Amrehn`} description="Reportage und Dokumentarfotografie von Kilian Amrehn: Flüchtlingslager in Moldau 2022, Black Lives Matter in Köln 2020, Myanmar 2017, Hambacher Forst." bodyClass="news-body" schema={[article]}>
+<div class="ticker mono"><span>+++ Myanmar: Militär an der Macht seit dem Putsch im Februar 2021 +++ Moldau: EU-Beitrittskandidat seit Juni 2022 +++ Köln: 10.000 Menschen bei Black Lives Matter, Juni 2020 +++ Hambacher Forst: 50.000 gegen die Rodung +++</span></div>
+<div class="paper">
+<section class="wrap">
+  <div class="dateline mono"><span>Ausgabe {site.newsIssue}</span><span>Köln, Oktober 2026</span><span>Text und Fotos: Kilian Amrehn</span></div>
+  <h1 class="masthead">{site.newsTitle}<span class="visually-hidden"> · Reportage und Dokumentarfotografie von Kilian Amrehn</span></h1>
+  <div class="rule2"></div>
+  <nav class="sections mono" aria-label="Rubriken"><a href="#moldau">Moldau 2022</a><a href="#koeln">Köln 2020</a><a href="#myanmar">Myanmar 2017</a><a href="#archiv">Hambach · Kairo · Istanbul</a></nav>
+</section>
+
+<section class="wrap front">
+  <a href="#moldau" class="lead">
+    <span class="mono red">Flucht · Aufmacher</span>
+    <span class="hl hl-xl">Das ärmste Land Europas lässt 450.000 Menschen durch</span>
+    <span class="stand">Ein Tag in den Lagern an der ukrainischen Grenze, im Auftrag von Bündnis Entwicklung Hilft.</span>
+    <figure><Img src="moldau-2022-mann-und-kind" alt="Ein Mann und ein Kind vor einer Haustür, Moldau 2022" pos="center 35%" class="f-xl" sizes="(max-width: 900px) 100vw, 66vw" loading="eager" /><figcaption>Moldau, 2022. Ein Mann und ein Kind vor einer Haustür. Foto: Kilian Amrehn</figcaption></figure>
+  </a>
+  <div class="side">
+    <a href="#koeln" class="teaser bordered">
+      <Img src="black-lives-matter-koeln-2020-basketballkorb" alt="Ein Mann steht auf einem Basketballkorb über der Demonstration in Köln" class="f-md" sizes="(max-width: 900px) 100vw, 33vw" />
+      <span class="mono red">Protest · Köln 2020</span>
+      <span class="hl hl-md">10.000 Menschen gegen institutionellen Rassismus</span>
+    </a>
+    <a href="#myanmar" class="teaser">
+      <Img src="myanmar-2017-moenche" alt="Junge Mönche vor einem Tempel in Myanmar" class="f-sm" sizes="(max-width: 900px) 100vw, 33vw" />
+      <span class="mono red">Reise · Myanmar 2017</span>
+      <span class="hl hl-md">Als Fremdkörper durch eine fremde Welt</span>
+      <span>Direkte Blicke in die Kamera, die ich nie vergessen werde.</span>
+    </a>
+  </div>
+</section>
+
+<article id="moldau" class="wrap story">
+  <div class="rule2"></div>
+  <div class="dateline mono"><span>{site.newsIssue} · Flucht</span><span>Text und Fotos: Kilian Amrehn · im Auftrag von Bündnis Entwicklung Hilft</span></div>
+  <div class="st-head">
+    <h2 class="hl hl-xxl">Was bleibt, ist ein Gefühl</h2>
+    <dl class="facts mono">
+      <dt class="red">Steckbrief</dt>
+      <dd>Ort · Republik Moldau, Grenze zur Ukraine</dd>
+      <dd>Zeit · Mai 2022</dd>
+      <dd>Auftrag · Bündnis Entwicklung Hilft</dd>
+      <dd>Veröffentlicht · Kindernothilfe, Tagesspiegel</dd>
+    </dl>
+  </div>
+  <div class="cols">
+    <p><span class="drop">W</span><b class="mono">Moldau, 2022 ·</b> as bleibt, ist ein Gefühl. Das Gefühl, dass wir nicht genug tun und sie nicht genug haben. Nach einem Tag in Flüchtlingslagern, an der Grenze zur Ukraine, in Gesprächen mit Geflüchteten, in Lagerhallen und anderen Einrichtungen bin ich vor allem eines: beeindruckt.</p>
+    <p>Beeindruckt von den Frauen, die die meisten Einrichtungen und Lager leiten. Von der Energie. Von der herzlichen Freundlichkeit in einer Zeit der Not, während ein paar Kilometer weiter Krieg herrscht. Das ärmste Land Europas lässt 450.000 Geflüchtete passieren. Das sind 20 Prozent der gesamten Bevölkerung. Die Republik Moldau hat mich beeindruckt.</p>
+  </div>
+  <div class="g21">
+    <figure><Img src="moldau-2022-zeltlager" alt="Zeltlager für Geflüchtete nahe der ukrainischen Grenze" class="f-lg" sizes="(max-width: 900px) 100vw, 66vw" /><figcaption>Ein Zeltlager für Geflüchtete nahe der ukrainischen Grenze.</figcaption></figure>
+    <figure><Img src="moldau-2022-maedchen-zaun" alt="Ein Mädchen hinter einem Zaun" class="f-lg" sizes="(max-width: 900px) 100vw, 33vw" /><figcaption>Ein Mädchen hinter einem Zaun.</figcaption></figure>
+  </div>
+  <blockquote class="hl">„Wir tun nicht genug,<br>und sie haben nicht genug.“</blockquote>
+  <div class="g111">
+    <figure><Img src="moldau-2022-kind-hilfsgueter" alt="Ein Kind bekommt Hilfsgüter" class="f-sm" sizes="(max-width: 900px) 100vw, 33vw" /><figcaption>Ausgabe von Spielsachen und Hygieneartikeln.</figcaption></figure>
+    <figure><Img src="moldau-2022-helferinnen" alt="Helferinnen in einem Lager" class="f-sm" sizes="(max-width: 900px) 100vw, 33vw" /><figcaption>Die meisten Einrichtungen werden von Frauen geleitet.</figcaption></figure>
+    <figure><Img src="moldau-2022-stop-war" alt="Plakat Stop War am Straßenrand" class="f-sm" sizes="(max-width: 900px) 100vw, 33vw" /><figcaption>Stop War. Plakat am Straßenrand.</figcaption></figure>
+  </div>
+</article>
+
+<article id="koeln" class="wrap story">
+  <div class="rule2"></div>
+  <div class="g12">
+    <div class="st-text">
+      <span class="mono red">Nº 02 · Protest · Köln, Juni 2020</span>
+      <h2 class="hl hl-xl">Black Lives Matter</h2>
+      <p>Ein Zeichen gegen institutionellen Rassismus. 10.000 Menschen demonstrieren im Juni 2020 in Köln.</p>
+    </div>
+    <div class="g11">
+      <Img src="black-lives-matter-koeln-2020-rheinufer" alt="Menschenmenge am Rheinufer vor einer Brücke in Köln" class="f-lg span2" sizes="(max-width: 900px) 100vw, 66vw" />
+      <Img src="black-lives-matter-koeln-2020-polizei" alt="Schilder und Polizei bei der Demonstration" class="f-sm" sizes="(max-width: 900px) 100vw, 33vw" />
+      <Img src="black-lives-matter-koeln-2020-menge" alt="Demonstrierende vor der Brücke" class="f-sm" sizes="(max-width: 900px) 100vw, 33vw" />
+    </div>
+  </div>
+</article>
+
+<article id="myanmar" class="wrap story">
+  <div class="rule2"></div>
+  <div class="g21 top">
+    <div class="st-text">
+      <span class="mono red">Nº 01 · Reise · Myanmar, Malaysia, Thailand · Dezember 2017</span>
+      <h2 class="hl hl-xl">Als Fremdkörper durch eine fremde Welt</h2>
+      <Img src="myanmar-2017-fledermaeuse-fluss" alt="Fledermausschwarm über einem Fluss in der Dämmerung, Myanmar" class="f-lg" sizes="(max-width: 900px) 100vw, 66vw" />
+      <div class="cols">
+        <p><b class="mono">Myanmar, 2017 ·</b> Meine Reise durch Myanmar, Malaysia und Thailand hat viel in mir ausgelöst. Seitdem hinterfrage ich regelmäßig meinen eurozentrischen Blick auf die Welt und möchte diese Fragen auch bei den Betrachtenden auslösen.</p>
+        <p>Ich reise als Fremdkörper durch eine Welt, die mir ihrerseits fremd ist. Ich bin es nicht gewohnt, als Minderheit gesehen zu werden, doch statt Ablehnung und Kälte begegnen mir Offenheit und Interesse. Wir können nicht miteinander sprechen, also funktioniert der Blick durch die Kamera umso besser.</p>
+      </div>
+    </div>
+    <aside class="context">
+      <span class="mono red">Zum Kontext</span>
+      <span class="hl hl-sm">Was danach geschah</span>
+      <p><b>2017</b> · Das Militär geht gegen die Rohingya vor. Hunderttausende fliehen nach Bangladesch.</p>
+      <p><b>2021</b> · Im Februar putscht das Militär gegen die gewählte Regierung.</p>
+      <p><b>Heute</b> · Bürgerkrieg in weiten Teilen des Landes. [Vor Veröffentlichung aktualisieren.]</p>
+    </aside>
+  </div>
+</article>
+
+<section id="archiv" class="wrap story">
+  <div class="rule2"></div>
+  <div class="archive">
+    <div><span class="mono red">Klima · 2018</span><h3 class="hl hl-sm">Hambacher Forst und Gatzweiler</h3><p>Zwei große Proteste. Einer am Hambacher Forst mit 50.000 Menschen und ein kleinerer mit #fridaysforfuture in Gatzweiler. Gegen die Umsiedlung ganzer Dörfer und die Rodung von Wäldern für den Kohleabbau.</p></div>
+    <div><span class="mono red">Reise · Kairo</span><h3 class="hl hl-sm">Ordnung im Chaos</h3><p>Einer meiner größten Träume war es, die Pyramiden zu sehen, das letzte der sieben antiken Weltwunder, das noch steht. Also sind wir hingefahren. In die Wüste, und haben unter den Sternen geschlafen.</p></div>
+    <div><span class="mono red">Reise · Istanbul</span><h3 class="hl hl-sm">Ich will zurück</h3><p>Eine Stadt mit einem Sog, den ich selten erlebt habe. Das Nachtleben, das weite Wasser, das ständige Bergauflaufen, die schönen Menschen und die alten Gebäude.</p></div>
+  </div>
+  <div class="pubs mono"><span class="muted">Auftraggeber und Veröffentlichungen</span><span>Bündnis Entwicklung Hilft · Kindernothilfe · Tagesspiegel</span></div>
+</section>
+</div>
+<div class="wrap back"><a href={base} class="display">Zurück ins Licht →</a></div>
+</Base>
+<style>
+  .ticker { background: var(--news-ink); color: var(--news-paper); white-space: nowrap; overflow: hidden; padding: 10px 0; }
+  .ticker span { display: inline-block; padding-left: 100%; animation: tick 45s linear infinite; }
+  @keyframes tick { to { transform: translateX(-100%); } }
+  .paper { background: var(--news-paper); color: var(--news-ink); padding-top: 28px; padding-bottom: 100px; }
+  .paper a:hover { color: var(--news-ink); }
+  .dateline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; color: var(--news-mute); padding: 12px 0 10px; border-bottom: 1px solid var(--news-ink); }
+  .masthead, .hl { font-family: var(--f-news); font-weight: 900; text-transform: uppercase; letter-spacing: -.005em; }
+  .masthead { font-size: clamp(72px, 16.4vw, 236px); line-height: .9; text-align: center; padding: 10px 0 6px; }
+  .rule2 { border-top: 3px solid var(--news-ink); border-bottom: 1px solid var(--news-ink); height: 3px; }
+  .sections { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 32px; padding: 14px 0; border-bottom: 1px solid var(--news-ink); }
+  .red { color: var(--news-red); }
+  .hl-xxl { font-size: clamp(56px, 8.3vw, 120px); line-height: .9; }
+  .hl-xl { font-size: clamp(48px, 7.2vw, 104px); line-height: .92; }
+  .hl-md { font-size: clamp(32px, 3.2vw, 46px); line-height: .95; }
+  .hl-sm { font-size: clamp(30px, 3vw, 44px); line-height: .95; }
+  figure { display: flex; flex-direction: column; gap: 8px; }
+  figcaption { font-family: var(--f-mono); font-size: 11px; line-height: 1.5; color: var(--news-mute); }
+  .paper :global(img) { width: 100%; object-fit: cover; }
+  .paper :global(.f-xl) { height: clamp(360px, 53vw, 760px); }
+  .paper :global(.f-lg) { height: clamp(300px, 39vw, 560px); }
+  .paper :global(.f-md) { height: clamp(260px, 26vw, 380px); }
+  .paper :global(.f-sm) { height: clamp(220px, 25vw, 360px); }
+  .front { display: grid; grid-template-columns: 2fr 1fr; padding-top: 40px; }
+  .lead { padding-right: 40px; border-right: 1px solid var(--news-ink); display: flex; flex-direction: column; gap: 16px; }
+  .stand { font-size: clamp(18px, 1.6vw, 22px); line-height: 1.4; color: #2b2723; }
+  .side { padding-left: 40px; display: flex; flex-direction: column; gap: 28px; }
+  .teaser { display: flex; flex-direction: column; gap: 10px; }
+  .bordered { padding-bottom: 28px; border-bottom: 1px solid var(--news-ink); }
+  .story { padding-top: clamp(80px, 8vw, 120px); scroll-margin-top: 20px; }
+  .st-head { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; padding-top: 40px; }
+  .facts { border: 1px solid var(--news-ink); padding: 22px; margin: 0; display: flex; flex-direction: column; gap: 10px; align-self: start; line-height: 1.7; }
+  .facts dd { margin: 0; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-top: 40px; font-size: 19px; line-height: 1.65; }
+  .cols b { font-size: 13px; }
+  .drop { float: left; font-family: var(--f-news); font-weight: 900; font-size: 112px; line-height: .8; padding: 8px 12px 0 0; }
+  .g21 { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; padding-top: 56px; }
+  .g21.top { gap: 48px; padding-top: 40px; }
+  .g12 { display: grid; grid-template-columns: 1fr 2fr; gap: 48px; padding-top: 40px; }
+  .g11 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .g11 :global(.span2) { grid-column: span 2; }
+  .g111 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .st-text { display: flex; flex-direction: column; gap: 20px; }
+  .st-text p { font-size: 19px; line-height: 1.6; }
+  blockquote { margin: 72px 0; padding: 36px 0; border-top: 1px solid var(--news-ink); border-bottom: 1px solid var(--news-ink); font-size: clamp(40px, 5.3vw, 76px); line-height: 1; text-align: center; }
+  .context { background: #e2dccf; padding: 26px; display: flex; flex-direction: column; gap: 14px; align-self: start; font-size: 15px; line-height: 1.5; }
+  .archive { display: grid; grid-template-columns: 1fr 1fr 1fr; padding-top: 32px; }
+  .archive > div { display: flex; flex-direction: column; gap: 12px; padding: 0 32px; border-left: 1px solid var(--news-ink); }
+  .archive > div:first-child { padding-left: 0; border-left: 0; }
+  .archive p { font-size: 16px; line-height: 1.55; }
+  .pubs { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; border-top: 1px solid var(--news-ink); margin-top: 100px; padding-top: 18px; }
+  .muted { color: var(--news-mute); }
+  .back { display: flex; justify-content: flex-end; padding-top: 56px; padding-bottom: 24px; }
+  .back a { font-size: clamp(32px, 3.3vw, 48px); }
+  @media (max-width: 900px) {
+    .front, .st-head, .cols, .g21, .g12, .g111, .archive { grid-template-columns: 1fr; }
+    .lead { padding-right: 0; border-right: 0; padding-bottom: 32px; border-bottom: 1px solid var(--news-ink); }
+    .side { padding-left: 0; padding-top: 32px; }
+    .archive > div { padding: 24px 0; border-left: 0; border-top: 1px solid var(--news-ink); }
+    .archive > div:first-child { border-top: 0; }
+    .cols { gap: 16px; }
+  }
+</style>

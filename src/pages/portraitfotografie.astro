@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const service = { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Portraitfotografie', provider: { '@id': 'https://kilianamrehn.com/#business' }, areaServed: 'Köln',
+  hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Portraits', itemListElement: ['Künstlerporträts', 'Musikerfotos und Pressefotos', 'EP- und Albumcover', 'Schauspielporträts und Headshots'].map((n) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: n } })) } };
+---
+<Base title="Portraitfotografie Köln · Musikerfotos, Schauspielporträts & Headshots · Kilian Amrehn" description="Portraitfotografie in Köln für Künstlerinnen und Künstler, Musik und Schauspiel: Pressefotos, EP-Cover, Headshots. Im Studio, draußen oder bei dir." schema={[service]}>
+<section class="wrap top">
+  <h1 class="display">Portraitfotografie Köln</h1>
+  <p class="lead">Für Künstlerinnen und Künstler, Musik und Schauspiel. Pressefotos, EP- und Albumcover, Headshots und freie Porträtreihen.</p>
+</section>
+<section class="wrap split">
+  <Img src="pia-stutzenstein-schauspielportraet" alt="Schauspielporträt von Pia Stutzenstein, Portraitfotografie Köln" sizes="(max-width: 900px) 100vw, 45vw" class="pic" />
+  <div class="text">
+    <p>Als Portraitfotograf begleite ich Künstler:innen, Schauspieler:innen, Musiker:innen und kreative Freigeister auf ihrem Weg. Egal ob du dein Portfolio erweitern willst, neue Headshots brauchst, ein Albumcover shooten willst oder einfach Lust auf gute Bilder hast: Ich arbeite mit offenem Blick und einem sicheren Gespür für den Moment.</p>
+    <p>Portraitfotografie bedeutet für mich, mehr zu zeigen als nur ein Gesicht. Es geht um Nähe, Klarheit und Gefühl. Die Bilder sollen dich zeigen, wie du bist. Ehrlich, authentisch oder komplett inszeniert.</p>
+    <p>Ob draußen, im Studio oder bei dir: Ich fotografiere da, wo du dich wohlfühlst. Jedes Bild entsteht im Dialog, im Vertrauen, im gemeinsamen Moment. Mit Zeit, ohne Druck.</p>
+    <h2 class="mono mute">Was ich fotografiere</h2>
+    <ul class="mono">
+      <li><a href={base + 'kuenstlerportraits/'}>Künstlerporträts →</a></li>
+      <li><a href={base + 'kuenstlerportraits/#morley'}>Musikerfotos und Pressefotos für Bands →</a></li>
+      <li><a href={base + 'kuenstlerportraits/#lea-mende'}>Schauspielporträts und Headshots →</a></li>
+      <li><a href={base + 'kampagnen/'}>Kampagnen und Editorials →</a></li>
+    </ul>
+    <p><a class="u" href={base + 'ueber/#kontakt'}>Anfrage per E-Mail</a>. Preise und Pakete auf Anfrage.</p>
+  </div>
+</section>
+</Base>
+<style>
+  .top { padding-top: 32px; padding-bottom: 64px; }
+  .top h1 { font-size: clamp(56px, 8.3vw, 120px); color: var(--white); }
+  .lead { max-width: 720px; margin-top: 24px; font-size: clamp(18px, 1.6vw, 22px); color: #c9bfb0; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-bottom: 140px; align-items: start; }
+  .split :global(.pic) { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; }
+  .text { display: flex; flex-direction: column; gap: 18px; color: #c9bfb0; font-size: 18px; }
+  .text h2 { font-weight: 400; margin-top: 24px; }
+  ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; color: var(--white); }
+  .u { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+</style>

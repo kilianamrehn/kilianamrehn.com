@@ -1,0 +1,156 @@
+---
+import '@fontsource-variable/big-shoulders-display';
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import { site } from '../data/site';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const u = (p: string) => base + p;
+const looks = [
+  { k: 'weiss', src: 'portraet-weisses-seitenlicht', pos: 'center 32%', bg: '#070605', dot: '#e9e4da', caption: 'Weißes Seitenlicht · Studie', alt: 'Porträt im weißen Seitenlicht, Künstlerporträt Köln', label: 'Weißes Licht' },
+  { k: 'rot', src: 'lea-mende-kuenstlerportraet-koeln-rotlicht', pos: 'center 38%', bg: '#1a0403', dot: '#b8402e', caption: 'Rotlicht · Lea Mende', alt: 'Lea Mende im roten Raum, Künstlerporträt Köln', label: 'Rotes Licht' },
+  { k: 'tuerkis', src: 'trish-portraet-tuerkises-licht', pos: '62% 50%', bg: '#031314', dot: '#2f9e98', caption: 'Türkis · Trish', alt: 'Trish im türkisen Licht', label: 'Türkises Licht' },
+  { k: 'gold', src: 'morley-band-pressefoto-von-oben', pos: 'center 40%', bg: '#150e04', dot: '#c9973f', caption: 'Gold · Morley', alt: 'Morley, Band-Pressefoto von oben', label: 'Goldenes Licht' },
+  { k: 'amber', src: 'pia-stutzenstein-schauspielerin-lampenlicht', pos: 'center 55%', bg: '#140a03', dot: '#d9822b', caption: 'Lampenlicht · Pia Stutzenstein', alt: 'Pia Stutzenstein im Lampenlicht', label: 'Amber Licht' },
+];
+const eyes = [
+  ['morley-band-ep-cover-koeln', 'center 46%', 'Morley'], ['bianca-berding-musikerin-portraet-schwarzweiss', 'center 17%', 'Bianca Berding'],
+  ['slavko-popadic-schauspielportraet', 'center 30%', 'Slavko Popadic'], ['pia-stutzenstein-schauspielportraet', 'center 26%', 'Pia Stutzenstein'], ['lea-mende-kuenstlerportraet-koeln-rotlicht', 'center 28%', 'Lea Mende'],
+];
+const bands = [['Copenhagen Studios', '#6a2a0c'], ['Peek & Cloppenburg x Ellesse', '#2b3020'], ['Rock Fairyland', '#1d1d1d'], ['Scholl', '#3a2f22'], ['AppelrathCüpper', '#26303a']];
+---
+<Base title="Künstlerporträts Köln · Musikerfotos & Schauspielporträts · Kilian Amrehn" description="Kilian Amrehn fotografiert Künstlerinnen und Künstler in Köln: Musikerfotos, Pressefotos, EP-Cover und Schauspielporträts mit gerichtetem, farbigem Licht. Keine Pose." headerOverlay image="/media/making-of-poster.jpg">
+<section class="hero" data-hero style={`background:${looks[0].bg}`}>
+  {looks.map((l, i) => (
+    <div class="look" data-look={l.k} data-bg={l.bg} data-caption={l.caption} hidden={i !== 0}>
+      <Img src={l.src} alt="" pos={l.pos} class="cover base" loading={i === 0 ? 'eager' : 'lazy'} />
+      <Img src={l.src} alt={l.alt} pos={l.pos} class="cover lit" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} />
+    </div>
+  ))}
+  <div class="shade"></div>
+  <div class="hero-text wrap">
+    <div>
+      <h1 class="mono">Künstlerporträts in Köln</h1>
+      <p class="display claim">Licht,<br><span>das sucht.</span></p>
+    </div>
+    <div class="chips-box">
+      <span class="mono caption" data-caption-out>{looks[0].caption}</span>
+      <div class="chips" role="group" aria-label="Licht wählen">
+        {looks.map((l, i) => <button type="button" data-pick={l.k} aria-label={l.label} aria-pressed={i === 0 ? 'true' : 'false'} style={`background:${l.dot}`}></button>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap intro">
+  <p class="runon">Künstlerporträts Köln · Musikporträts · Pressefotos für Bands und Solo-Artists · EP- und Albumcover · Schauspielporträts · <em>gerichtetes Licht</em> · farbiges Licht · Dunkelheit, die etwas verbirgt · <em>ein Blick direkt in die Kamera</em> · eine Bewegung, kurz bevor sie endet · <em>keine Pose</em> · Köln, Berlin, Europa · <b>Morley</b> · <b>Bianca Berding</b> · <b>Lea Mende</b> · Menschen so zeigen, wie sie sich selbst noch nicht gesehen haben.</p>
+</section>
+
+<section class="wrap doors">
+  <a href={u('kuenstlerportraits/')} class="door">
+    <div class="stack">{eyes.map(([s, p, n]) => <Img src={s} alt={`Augen, ${n}`} pos={p} class="strip" sizes="(max-width: 900px) 100vw, 50vw" widths={[480, 800, 1200]} />)}</div>
+    <div class="door-label"><span class="display">Artists</span><span class="mono mute">Musik · Schauspiel · Kunst →</span></div>
+  </a>
+  <a href={u('kampagnen/')} class="door">
+    <div class="stack mono">{bands.map(([n, c]) => <span class="band" style={`background:${c}`}>{n}</span>)}</div>
+    <div class="door-label"><span class="display">Kampagnen</span><span class="mono mute">Marken &amp; Editorial →</span></div>
+  </a>
+</section>
+
+<section class="wrap clip-wrap">
+  <a href={u('reportage/')} class="clip">
+    <div class="clip-top mono"><span>{site.newsIssue} · Köln · Oktober 2026</span><span>Reportage</span></div>
+    <div class="clip-title">{site.newsTitle}</div>
+    <div class="rule2"></div>
+    <div class="clip-body">
+      <Img src="moldau-2022-mann-und-kind" alt="Ein Mann und ein Kind vor einer Haustür, Moldau 2022" pos="center 40%" class="clip-img" sizes="(max-width: 900px) 100vw, 55vw" widths={[480, 800, 1200]} />
+      <div class="clip-text">
+        <span class="mono red">Flucht · Moldau 2022</span>
+        <span class="clip-head">Das ärmste Land Europas lässt 450.000 Menschen durch</span>
+        <p><b class="mono">Moldau, 2022 ·</b> Was bleibt, ist ein Gefühl. Das Gefühl, dass wir nicht genug tun und sie nicht genug haben. Nach einem Tag in Flüchtlingslagern, an der Grenze zur Ukraine, in Gesprächen mit Geflüchteten und in Lagerhallen bin ich vor allem beeindruckt.</p>
+      </div>
+    </div>
+  </a>
+</section>
+</Base>
+
+<style>
+  .hero { position: relative; height: min(920px, 100svh); min-height: 560px; overflow: hidden; cursor: crosshair; transition: background-color .4s; }
+  .look, .look :global(picture) { position: absolute; inset: 0; }
+  .look[hidden] { display: none; }
+  .hero :global(.base) { position: absolute; inset: 0; opacity: .07; }
+  .hero :global(.lit) { position: absolute; inset: 0; -webkit-mask-image: var(--mask); mask-image: var(--mask); }
+  .hero { --mask: radial-gradient(circle 125px at 56% 40%, #000 0%, #000 35%, transparent 100%); }
+  .shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(7,6,5,.6) 0%, rgba(7,6,5,0) 26%, rgba(7,6,5,0) 55%, rgba(7,6,5,.9) 100%); }
+  .hero-text { position: absolute; left: 0; right: 0; bottom: clamp(28px, 5vw, 52px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 28px; pointer-events: none; }
+  .hero h1 { font-weight: 400; color: #c9bfb0; margin-bottom: 18px; }
+  .claim { font-size: clamp(64px, 10.4vw, 150px); line-height: .86; color: var(--white); }
+  .claim span { color: #9a9081; }
+  .chips-box { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; pointer-events: auto; }
+  .caption { color: #d6ccbd; }
+  .chips { display: flex; gap: 12px; }
+  .chips button { width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(244,238,228,.35); padding: 0; cursor: pointer; }
+  .chips button[aria-pressed='true'] { border: 3px solid var(--white); }
+  @media (hover: none) { .hero :global(.lit) { -webkit-mask-image: none; mask-image: none; } .hero { cursor: default; } }
+  @media (max-width: 720px) { .chips-box { align-items: flex-start; } .chips button { width: 48px; height: 48px; } }
+
+  .intro { padding-top: clamp(80px, 10vw, 140px); padding-bottom: clamp(80px, 10vw, 140px); }
+  .doors { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-bottom: 80px; }
+  .door { display: flex; flex-direction: column; gap: 20px; }
+  .stack { display: flex; flex-direction: column; gap: 4px; }
+  .stack :global(.strip) { width: 100%; height: clamp(52px, 5.3vw, 76px); object-fit: cover; }
+  .band { height: clamp(52px, 5.3vw, 76px); display: flex; align-items: center; padding: 0 20px; color: var(--white); }
+  .door-label { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+  .door-label .display { font-size: clamp(44px, 4.4vw, 64px); line-height: 1; }
+  @media (max-width: 900px) { .doors { grid-template-columns: 1fr; gap: 48px; } }
+
+  .clip-wrap { padding-top: 40px; padding-bottom: clamp(100px, 11vw, 160px); }
+  .clip { display: block; transform: rotate(-.8deg); background: var(--news-paper); color: var(--news-ink); box-shadow: 0 30px 60px rgba(0,0,0,.55); padding: 28px clamp(18px, 2.5vw, 36px) 0; overflow: hidden; }
+  .clip:hover { color: var(--news-ink); transform: rotate(-.4deg); transition: transform .3s; }
+  .clip-top { display: flex; justify-content: space-between; gap: 16px; color: var(--news-mute); padding-bottom: 10px; border-bottom: 1px solid var(--news-ink); }
+  .clip-title { font-family: var(--f-news); font-weight: 900; text-transform: uppercase; font-size: clamp(64px, 10.4vw, 150px); line-height: .92; text-align: center; padding: 8px 0 4px; }
+  .rule2 { border-top: 3px solid var(--news-ink); border-bottom: 1px solid var(--news-ink); height: 3px; }
+  .clip-body { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(20px, 2.5vw, 36px); padding-top: 28px; height: 380px; }
+  .clip-body :global(.clip-img) { width: 100%; height: 352px; object-fit: cover; filter: grayscale(1) contrast(1.08); }
+  .clip-text { display: flex; flex-direction: column; gap: 14px; -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%); }
+  .red { color: var(--news-red); }
+  .clip-head { font-family: var(--f-news); font-weight: 900; text-transform: uppercase; font-size: clamp(36px, 3.8vw, 54px); line-height: .95; }
+  .clip-text p { font-size: 17px; line-height: 1.55; }
+  @media (max-width: 900px) { .clip-body { grid-template-columns: 1fr; height: auto; max-height: 640px; } .clip-body :global(.clip-img) { height: 260px; } }
+</style>
+
+<script>
+  const hero = document.querySelector<HTMLElement>('[data-hero]');
+  if (hero) {
+    const start = [{ x: 50, y: 34 }, { x: 53, y: 37 }, { x: 56, y: 40 }];
+    let pts = start.slice();
+    const draw = () => {
+      const n = pts.length;
+      hero.style.setProperty('--mask', pts.map((p, i) => `radial-gradient(circle ${Math.round(30 + 95 * ((i + 1) / n))}px at ${p.x}% ${p.y}%, #000 0%, #000 35%, transparent 100%)`).join(', '));
+    };
+    draw();
+    let raf = 0;
+    hero.addEventListener('pointermove', (e) => {
+      if (e.pointerType === 'touch') return;
+      const r = hero.getBoundingClientRect();
+      const x = Math.round(((e.clientX - r.left) / r.width) * 1000) / 10;
+      const y = Math.round(((e.clientY - r.top) / r.height) * 1000) / 10;
+      const last = pts[pts.length - 1];
+      if (last && Math.abs(last.x - x) + Math.abs(last.y - y) < 1.5) return;
+      pts = pts.concat([{ x, y }]).slice(-28);
+      cancelAnimationFrame(raf); raf = requestAnimationFrame(draw);
+    });
+    const cap = hero.querySelector<HTMLElement>('[data-caption-out]');
+    hero.querySelectorAll<HTMLButtonElement>('[data-pick]').forEach((b) => {
+      b.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const k = b.dataset.pick;
+        hero.querySelectorAll<HTMLElement>('.look').forEach((l) => {
+          const on = l.dataset.look === k; l.hidden = !on;
+          if (on) { hero.style.backgroundColor = l.dataset.bg || ''; if (cap) cap.textContent = l.dataset.caption || ''; }
+        });
+        hero.querySelectorAll('[data-pick]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+        pts = start.slice(); draw();
+      });
+    });
+  }
+</script>

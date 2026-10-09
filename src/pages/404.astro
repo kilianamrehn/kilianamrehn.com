@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+---
+<Base title="Nicht gefunden · Kilian Amrehn" description="Diese Seite gibt es nicht.">
+<section class="wrap" style="padding-top:80px;padding-bottom:160px">
+  <p class="display" style="font-size:clamp(56px,9vw,130px);color:var(--white)">Hier ist kein Licht.</p>
+  <p style="margin-top:32px"><a href={base} class="mono">Zur Startseite →</a></p>
+</section>
+</Base>

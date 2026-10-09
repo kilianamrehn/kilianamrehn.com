@@ -2,7 +2,7 @@
 import '@fontsource-variable/big-shoulders-display';
 import Base from '../layouts/Base.astro';
 import Img from '../components/Img.astro';
-import { site, routes, type Lang } from '../data/site';
+import { site, routes, campaignPath, type Lang } from '../data/site';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
@@ -17,18 +17,18 @@ const T = {
     claim: 'Licht,<br><span>das sucht.</span>',
     chips: 'Licht wählen',
     looks: {
-      rot: { caption: 'Rotlicht · Kelly', alt: 'Kelly im roten Licht über einem Röhrenfernseher, Künstlerporträt Köln', label: 'Rotes Licht' },
-      gold: { caption: 'Gold · Marie, analog', alt: 'Marie in einem goldenen Lichtstreif, analog fotografiert', label: 'Goldenes Licht' },
-      gruen: { caption: 'Grüner Lichtstreif · Parzhuber Trio', alt: 'Parzhuber Trio, Band-Pressefoto zwischen Pflanzen mit grünem Lichtstreif', label: 'Grünes Licht' },
-      tuerkis: { caption: 'Türkis · Paula', alt: 'Paula, DJ, doppelt belichtet im türkisen Licht', label: 'Türkises Licht' },
-      rosa: { caption: 'Rosa und Himmel · Dan O’Clock', alt: 'Dan O’Clock im rosa Fellmantel vor Wolkenhimmel, Musikerporträt', label: 'Rosa Licht' },
+      tuerkis: { caption: 'Türkis · Paula', alt: 'Paula, DJ, in Bewegung im türkisen Licht', label: 'Türkises Licht' },
+      gold: { caption: 'Gold · Morley', alt: 'Morley, drei Musikerinnen von oben auf goldenem Stoff, Band-Pressefoto Köln', label: 'Goldenes Licht' },
+      blick: { caption: 'Ein Blick · Marie', alt: 'Nahaufnahme eines Auges mit dunklem Lidschatten', label: 'Grünes Licht' },
+      rot: { caption: 'Rotlicht · Lea Mende', alt: 'Lea Mende mit den Händen am Kopf im roten Licht, Künstlerporträt Köln', label: 'Rotes Licht' },
+      weiss: { caption: 'Tageslicht · Bianca Berding', alt: 'Bianca Berding mit mintgrünem Hut, Musikerin, Pressefoto', label: 'Weißes Licht' },
     },
     eyes: [
-      'Augen, Kelly, Blick von unten in die Kamera',
-      'Augen, Pia Stutzenstein, zusammengekniffen mit Seitenblick',
-      'Ein Auge, Paula, im orangen Licht',
       'Augen, Slavko Popadic, Blick in die Kamera',
-      'Augen, Parzhuber Trio, im roten Licht',
+      'Augen, Juliette, Blick aus dem Dunkel',
+      'Augen, Paula, im türkisen Licht',
+      'Augen, Jeremiah, mit Haarsträhne über dem Gesicht',
+      'Augen, Lea Mende, im roten Licht',
     ],
     strips: 'Arbeiten auf Negativstreifen',
     stripsHead: ['Arbeiten 2017 bis heute', 'läuft einfach'],
@@ -51,18 +51,18 @@ const T = {
     claim: 'Light<br><span>that searches.</span>',
     chips: 'Choose the light',
     looks: {
-      rot: { caption: 'Red light · Kelly', alt: 'Kelly in red light above a CRT television, artist portrait Cologne', label: 'Red light' },
-      gold: { caption: 'Gold · Marie, on film', alt: 'Marie in a streak of golden light, shot on film', label: 'Golden light' },
-      gruen: { caption: 'Green streak of light · Parzhuber Trio', alt: 'Parzhuber Trio, band press photo among plants with a streak of green light', label: 'Green light' },
-      tuerkis: { caption: 'Turquoise · Paula', alt: 'Paula, DJ, double exposure in turquoise light', label: 'Turquoise light' },
-      rosa: { caption: 'Pink and sky · Dan O’Clock', alt: 'Dan O’Clock in a pink fur coat against a cloudy sky, musician portrait', label: 'Pink light' },
+      tuerkis: { caption: 'Turquoise · Paula', alt: 'Paula, DJ, in motion in turquoise light', label: 'Turquoise light' },
+      gold: { caption: 'Gold · Morley', alt: 'Morley, three musicians seen from above on golden fabric, band press photo Cologne', label: 'Golden light' },
+      blick: { caption: 'One look · Marie', alt: 'Close-up of an eye with dark eyeshadow', label: 'Green light' },
+      rot: { caption: 'Red light · Lea Mende', alt: 'Lea Mende with her hands on her head in red light, artist portrait Cologne', label: 'Red light' },
+      weiss: { caption: 'Daylight · Bianca Berding', alt: 'Bianca Berding in a mint green hat, musician, press photo', label: 'White light' },
     },
     eyes: [
-      'Eyes, Kelly, looking up into the camera',
-      'Eyes, Pia Stutzenstein, narrowed with a sideways glance',
-      'One eye, Paula, in orange light',
       'Eyes, Slavko Popadic, looking into the camera',
-      'Eyes, Parzhuber Trio, in red light',
+      'Eyes, Juliette, looking out of the dark',
+      'Eyes, Paula, in turquoise light',
+      'Eyes, Jeremiah, with a strand of hair across the face',
+      'Eyes, Lea Mende, in red light',
     ],
     strips: 'Work on negative strips',
     stripsHead: ['Work from 2017 to today', 'keeps running'],
@@ -82,21 +82,27 @@ const T = {
 const t = T[lang];
 
 const looks = [
-  { k: 'rot', src: 'kelly-portraet-rotlicht', pos: 'center 30%', bg: '#1a0403', dot: '#b8302a' },
-  { k: 'gold', src: 'marie-portraet-goldenes-licht-analog', pos: 'center 55%', bg: '#150e04', dot: '#f0c65a' },
-  { k: 'gruen', src: 'parzhuber-trio-band-pressefoto-gruenes-licht', pos: 'center 50%', bg: '#0b1206', dot: '#3f8f3a' },
-  { k: 'tuerkis', src: 'paula-dj-portraet-tuerkises-licht', pos: 'center 35%', bg: '#031314', dot: '#2fb8b0' },
-  { k: 'rosa', src: 'dan-oclock-musiker-portraet-rosa', pos: 'center 40%', bg: '#0e1a24', dot: '#f2b3cf' },
+  { k: 'tuerkis', src: 'paula-dj-portraet-tuerkis-bewegung', pos: 'center 30%', bg: '#031314', dot: '#1f8f8a' },
+  { k: 'gold', src: 'morley-band-pressefoto-von-oben-gold', pos: 'center 35%', bg: '#150e04', dot: '#c9973f' },
+  { k: 'blick', src: 'marie-auge-nahaufnahme', pos: 'center 45%', bg: '#0c0d08', dot: '#a9c9b4' },
+  { k: 'rot', src: 'lea-mende-portraet-rotlicht-haende', pos: 'center 30%', bg: '#1a0403', dot: '#a8321f' },
+  { k: 'weiss', src: 'bianca-berding-musikerin-portraet-hut', pos: 'center 35%', bg: '#1c1712', dot: '#efe8dc' },
 ].map((l) => ({ ...l, ...t.looks[l.k as keyof typeof t.looks] }));
-const eyes = ['augen-kelly', 'augen-pia-stutzenstein', 'auge-paula-dj', 'augen-slavko-popadic', 'augen-parzhuber-trio'].map((s, i) => [s, t.eyes[i]]);
-const bands = [['Copenhagen Studios', '#6a2a0c'], ['Peek & Cloppenburg x Ellesse', '#2b3020'], ['Rock Fairyland', '#1d1d1d'], ['Scholl', '#3a2f22'], ['AppelrathCüpper', '#26303a']];
+const eyes = [['slavko-popadic', 'Slavko Popadic'], ['juliette', 'Juliette'], ['paula', 'Paula', 'paula-dj'], ['jeremiah', 'Jeremiah'], ['lea-mende', 'Lea Mende']].map(([id, name, img], i) => ({ id, name, src: 'auge-reveal-' + (img || id), alt: t.eyes[i] }));
+const bands = [
+  { n: 'Copenhagen Studios', c: '#6a2a0c', img: 'copenhagen-studios-kampagne', href: campaignPath('copenhagen-studios', lang), pos: 'center 40%' },
+  { n: 'Peek & Cloppenburg x Ellesse', c: '#2b3020', img: 'peek-cloppenburg-ellesse-kampagne', href: campaignPath('peek-cloppenburg-x-ellesse', lang), pos: 'center 40%' },
+  { n: 'Rock Fairyland', c: '#1d1d1d', img: 'rock-fairyland-editorial', href: campaignPath('rock-fairyland', lang), pos: 'center 35%' },
+  { n: 'Scholl', c: '#3a2f22', img: 'scholl-comfort-kampagne', href: r('campaigns'), pos: 'center 45%' },
+  { n: 'AppelrathCüpper', c: '#26303a', img: 'appelrathcuepper-kampagne-analog', href: r('campaigns'), pos: 'center 30%' },
+];
 ---
 <Base lang={lang} alternate={routes.home[lang === 'de' ? 'en' : 'de']} title={t.title} description={t.description} headerOverlay image="/media/making-of-poster.jpg">
 <section class="hero" data-hero style={`background:${looks[0].bg}`}>
   {looks.map((l, i) => (
     <div class="look" data-look={l.k} data-bg={l.bg} data-caption={l.caption} hidden={i !== 0}>
-      <Img src={l.src} alt="" pos={l.pos} widths={[960, 1440, 1920, 2560]} quality={64} class="cover base" loading={i === 0 ? 'eager' : 'lazy'} />
-      <Img src={l.src} alt={l.alt} pos={l.pos} widths={[960, 1440, 1920, 2560]} quality={64} class="cover lit" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} />
+      <Img src={l.src} alt="" pos={l.pos} widths={[1280, 1920, 2560, 3000]} quality={84} class="cover base" loading={i === 0 ? 'eager' : 'lazy'} />
+      <Img src={l.src} alt={l.alt} pos={l.pos} widths={[1280, 1920, 2560, 3000]} quality={84} class="cover lit" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} />
     </div>
   ))}
   <div class="shade"></div>
@@ -131,14 +137,24 @@ const bands = [['Copenhagen Studios', '#6a2a0c'], ['Peek & Cloppenburg x Ellesse
 </section>
 
 <section class="wrap doors">
-  <a href={u(r('artists'))} class="door">
-    <div class="stack">{eyes.map(([s, a]) => <Img src={s} alt={a} class="strip" sizes="(max-width: 900px) 100vw, 50vw" widths={[480, 800, 1150]} />)}</div>
-    <div class="door-label"><span class="display">{t.doorArtists[0]}</span><span class="mono mute"><Fragment set:html={t.doorArtists[1]} /> <b class="arr">→</b></span></div>
-  </a>
-  <a href={u(r('campaigns'))} class="door">
-    <div class="stack mono">{bands.map(([n, c]) => <span class="band" style={`background:${c}`}>{n}</span>)}</div>
-    <div class="door-label"><span class="display">{t.doorCampaigns[0]}</span><span class="mono mute"><Fragment set:html={t.doorCampaigns[1]} /> <b class="arr">→</b></span></div>
-  </a>
+  <div class="door">
+    <div class="stack">{eyes.map((e) => (
+      <a class="reveal" href={u(r('artists')) + '#' + e.id}>
+        <Img src={e.src} alt={e.alt} sizes="(max-width: 900px) 100vw, 50vw" widths={[480, 800, 1200, 1600]} />
+        <span class="mono rv-name">{e.name} <b class="arr">→</b></span>
+      </a>
+    ))}</div>
+    <a class="door-label" href={u(r('artists'))}><span class="display">{t.doorArtists[0]}</span><span class="mono mute"><Fragment set:html={t.doorArtists[1]} /> <b class="arr">→</b></span></a>
+  </div>
+  <div class="door">
+    <div class="stack mono">{bands.map((b) => (
+      <a class="reveal band" href={u(b.href)} style={`background:${b.c}`}>
+        <Img src={b.img} alt={b.n} pos={b.pos} sizes="(max-width: 900px) 100vw, 50vw" widths={[480, 800, 1200]} />
+        <span class="band-name">{b.n} <b class="arr">→</b></span>
+      </a>
+    ))}</div>
+    <a class="door-label" href={u(r('campaigns'))}><span class="display">{t.doorCampaigns[0]}</span><span class="mono mute"><Fragment set:html={t.doorCampaigns[1]} /> <b class="arr">→</b></span></a>
+  </div>
 </section>
 
 <section class="wrap clip-wrap">
@@ -192,12 +208,28 @@ const bands = [['Copenhagen Studios', '#6a2a0c'], ['Peek & Cloppenburg x Ellesse
   .doors { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-bottom: 80px; }
   .door { display: flex; flex-direction: column; gap: 20px; }
   .stack { display: flex; flex-direction: column; gap: 4px; }
-  .stack :global(.strip) { width: 100%; height: clamp(52px, 5.3vw, 76px); object-fit: cover; }
-  .band { height: clamp(52px, 5.3vw, 76px); display: flex; align-items: center; padding: 0 20px; color: var(--white); }
+  .reveal { --h: clamp(52px, 5.3vw, 76px); position: relative; display: block; height: var(--h); overflow: hidden; transition: height .5s cubic-bezier(.2,.7,.2,1); }
+  .reveal :global(picture) { position: absolute; inset: 0; display: block; }
+  .reveal :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal .arr { color: var(--accent); }
+  .rv-name { position: absolute; left: 16px; bottom: 12px; color: var(--white); opacity: 0; transform: translateY(6px); transition: opacity .3s, transform .3s; text-shadow: 0 1px 12px rgba(0,0,0,.6); }
+  .band { color: var(--white); }
+  .band :global(img) { opacity: 0; transition: opacity .45s, transform .8s cubic-bezier(.2,.7,.2,1); }
+  .band-name { position: absolute; left: 20px; top: calc(var(--h) / 2); transform: translateY(-50%); z-index: 1; transition: top .5s cubic-bezier(.2,.7,.2,1); text-shadow: 0 1px 12px rgba(0,0,0,.5); }
+  .band .arr { opacity: 0; transition: opacity .3s; }
+  @media (hover: hover) {
+    .reveal:hover, .reveal:focus-visible { height: clamp(200px, 19vw, 280px); }
+    .reveal:hover :global(img) { transform: scale(1.03); }
+    .reveal:hover .rv-name, .reveal:focus-visible .rv-name { opacity: 1; transform: none; }
+    .band:hover :global(img), .band:focus-visible :global(img) { opacity: 1; }
+    .band:hover .band-name { top: calc(100% - 28px); }
+    .band:hover .arr { opacity: 1; }
+  }
   .door-label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; }
   .arr { font-weight: 400; color: var(--accent); display: inline-block; transition: transform .25s; }
-  .door:hover .arr { transform: translateX(6px); }
-  .door:hover .display { color: var(--white); }
+  .door-label:hover .arr { transform: translateX(6px); }
+  .door-label .display { transition: color .2s; }
+  .door-label:hover .display { color: var(--accent); }
   .door-label .display { font-size: clamp(44px, 4.4vw, 64px); line-height: 1; }
   @media (max-width: 900px) { .doors { grid-template-columns: 1fr; gap: 48px; } }
 

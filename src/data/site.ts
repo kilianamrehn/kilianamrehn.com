@@ -8,7 +8,7 @@ export const site = {
   mailUser: 'hello',
   mailDomain: 'kilianamrehn.com',
   instagram: 'https://www.instagram.com/casual_kilian/',
-  linkedin: '', // TODO: LinkedIn-URL eintragen
+  linkedin: 'https://www.linkedin.com/in/kilianamrehn/',
   // Name der Zeitungs-Rubrik (noch offen). Adresse bleibt /reportage/ wegen SEO.
   newsTitle: 'Was bleibt',
   newsIssue: 'Nº 03',

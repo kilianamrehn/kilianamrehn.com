@@ -6,15 +6,18 @@ import { site } from '../data/site';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const u = (p: string) => base + p;
 const looks = [
-  { k: 'weiss', src: 'portraet-weisses-seitenlicht', pos: 'center 32%', bg: '#070605', dot: '#e9e4da', caption: 'Weißes Seitenlicht · Studie', alt: 'Porträt im weißen Seitenlicht, Künstlerporträt Köln', label: 'Weißes Licht' },
-  { k: 'rot', src: 'lea-mende-kuenstlerportraet-koeln-rotlicht', pos: 'center 38%', bg: '#1a0403', dot: '#b8402e', caption: 'Rotlicht · Lea Mende', alt: 'Lea Mende im roten Raum, Künstlerporträt Köln', label: 'Rotes Licht' },
-  { k: 'tuerkis', src: 'trish-portraet-tuerkises-licht', pos: '62% 50%', bg: '#031314', dot: '#2f9e98', caption: 'Türkis · Trish', alt: 'Trish im türkisen Licht', label: 'Türkises Licht' },
-  { k: 'gold', src: 'morley-band-pressefoto-von-oben', pos: 'center 40%', bg: '#150e04', dot: '#c9973f', caption: 'Gold · Morley', alt: 'Morley, Band-Pressefoto von oben', label: 'Goldenes Licht' },
-  { k: 'amber', src: 'pia-stutzenstein-schauspielerin-lampenlicht', pos: 'center 55%', bg: '#140a03', dot: '#d9822b', caption: 'Lampenlicht · Pia Stutzenstein', alt: 'Pia Stutzenstein im Lampenlicht', label: 'Amber Licht' },
+  { k: 'rot', src: 'kelly-portraet-rotlicht', pos: 'center 30%', bg: '#1a0403', dot: '#b8302a', caption: 'Rotlicht · Kelly', alt: 'Kelly im roten Licht über einem Röhrenfernseher, Künstlerporträt Köln', label: 'Rotes Licht' },
+  { k: 'gold', src: 'marie-portraet-goldenes-licht-analog', pos: 'center 55%', bg: '#150e04', dot: '#f0c65a', caption: 'Gold · Marie, analog', alt: 'Marie in einem goldenen Lichtstreif, analog fotografiert', label: 'Goldenes Licht' },
+  { k: 'gruen', src: 'parzhuber-trio-band-pressefoto-gruenes-licht', pos: 'center 50%', bg: '#0b1206', dot: '#3f8f3a', caption: 'Grüner Lichtstreif · Parzhuber Trio', alt: 'Parzhuber Trio, Band-Pressefoto zwischen Pflanzen mit grünem Lichtstreif', label: 'Grünes Licht' },
+  { k: 'tuerkis', src: 'paula-dj-portraet-tuerkises-licht', pos: 'center 35%', bg: '#031314', dot: '#2fb8b0', caption: 'Türkis · Paula', alt: 'Paula, DJ, doppelt belichtet im türkisen Licht', label: 'Türkises Licht' },
+  { k: 'rosa', src: 'dan-oclock-musiker-portraet-rosa', pos: 'center 40%', bg: '#0e1a24', dot: '#f2b3cf', caption: 'Rosa und Himmel · Dan O’Clock', alt: 'Dan O’Clock im rosa Fellmantel vor Wolkenhimmel, Musikerporträt', label: 'Rosa Licht' },
 ];
 const eyes = [
-  ['morley-band-ep-cover-koeln', 'center 46%', 'Morley'], ['bianca-berding-musikerin-portraet-schwarzweiss', 'center 17%', 'Bianca Berding'],
-  ['slavko-popadic-schauspielportraet', 'center 30%', 'Slavko Popadic'], ['pia-stutzenstein-schauspielportraet', 'center 26%', 'Pia Stutzenstein'], ['lea-mende-kuenstlerportraet-koeln-rotlicht', 'center 28%', 'Lea Mende'],
+  ['augen-kelly', 'Augen, Kelly, Blick von unten in die Kamera'],
+  ['augen-pia-stutzenstein', 'Augen, Pia Stutzenstein, zusammengekniffen mit Seitenblick'],
+  ['auge-paula-dj', 'Ein Auge, Paula, im orangen Licht'],
+  ['augen-slavko-popadic', 'Augen, Slavko Popadic, Blick in die Kamera'],
+  ['augen-parzhuber-trio', 'Augen, Parzhuber Trio, im roten Licht'],
 ];
 const bands = [['Copenhagen Studios', '#6a2a0c'], ['Peek & Cloppenburg x Ellesse', '#2b3020'], ['Rock Fairyland', '#1d1d1d'], ['Scholl', '#3a2f22'], ['AppelrathCüpper', '#26303a']];
 ---
@@ -41,13 +44,25 @@ const bands = [['Copenhagen Studios', '#6a2a0c'], ['Peek & Cloppenburg x Ellesse
   </div>
 </section>
 
+<section class="strips" aria-label="Arbeiten auf Negativstreifen">
+  <div class="wrap mono strips-head"><span>Arbeiten 2017 bis heute</span><span>läuft einfach</span></div>
+  <div class="strip-rows">
+    {[['kontaktabzug-negativstreifen-1', 'a'], ['kontaktabzug-negativstreifen-2', 'b']].map(([s, d]) => (
+      <div class={`row row-${d}`}>
+        <Img src={s} alt="Negativstreifen mit Porträts und Kampagnen von Kilian Amrehn" class="neg" sizes="(max-width: 720px) 2430px, 4860px" widths={[2430, 4860, 6400]} />
+        <Img src={s} alt="" class="neg" sizes="(max-width: 720px) 2430px, 4860px" widths={[2430, 4860, 6400]} />
+      </div>
+    ))}
+  </div>
+</section>
+
 <section class="wrap intro">
   <p class="runon">Künstlerporträts Köln · Musikporträts · Pressefotos für Bands und Solo-Artists · EP- und Albumcover · Schauspielporträts · <em>gerichtetes Licht</em> · farbiges Licht · Dunkelheit, die etwas verbirgt · <em>ein Blick direkt in die Kamera</em> · eine Bewegung, kurz bevor sie endet · <em>keine Pose</em> · Köln, Berlin, Europa · <b>Morley</b> · <b>Bianca Berding</b> · <b>Lea Mende</b> · Menschen so zeigen, wie sie sich selbst noch nicht gesehen haben.</p>
 </section>
 
 <section class="wrap doors">
   <a href={u('kuenstlerportraits/')} class="door">
-    <div class="stack">{eyes.map(([s, p, n]) => <Img src={s} alt={`Augen, ${n}`} pos={p} class="strip" sizes="(max-width: 900px) 100vw, 50vw" widths={[480, 800, 1200]} />)}</div>
+    <div class="stack">{eyes.map(([s, a]) => <Img src={s} alt={a} class="strip" sizes="(max-width: 900px) 100vw, 50vw" widths={[480, 800, 1150]} />)}</div>
     <div class="door-label"><span class="display">Artists</span><span class="mono mute">Musik · Schauspiel · Kunst →</span></div>
   </a>
   <a href={u('kampagnen/')} class="door">
@@ -80,18 +95,28 @@ const bands = [['Copenhagen Studios', '#6a2a0c'], ['Peek & Cloppenburg x Ellesse
   .hero :global(.base) { position: absolute; inset: 0; opacity: .07; }
   .hero :global(.lit) { position: absolute; inset: 0; -webkit-mask-image: var(--mask); mask-image: var(--mask); }
   .hero { --mask: radial-gradient(circle 125px at 56% 40%, #000 0%, #000 35%, transparent 100%); }
-  .shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(7,6,5,.6) 0%, rgba(7,6,5,0) 26%, rgba(7,6,5,0) 55%, rgba(7,6,5,.9) 100%); }
+  .shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(34,16,15,.6) 0%, rgba(34,16,15,0) 26%, rgba(34,16,15,0) 55%, rgba(34,16,15,.9) 100%); }
   .hero-text { position: absolute; left: 0; right: 0; bottom: clamp(28px, 5vw, 52px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 28px; pointer-events: none; }
-  .hero h1 { font-weight: 400; color: #c9bfb0; margin-bottom: 18px; }
+  .hero h1 { font-weight: 400; color: var(--mute2); margin-bottom: 18px; }
   .claim { font-size: clamp(64px, 10.4vw, 150px); line-height: .86; color: var(--white); }
-  .claim span { color: #9a9081; }
+  .claim span { color: var(--mute); }
   .chips-box { display: flex; flex-direction: column; align-items: flex-end; gap: 14px; pointer-events: auto; }
-  .caption { color: #d6ccbd; }
+  .caption { color: var(--mute2); }
   .chips { display: flex; gap: 12px; }
   .chips button { width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(244,238,228,.35); padding: 0; cursor: pointer; }
   .chips button[aria-pressed='true'] { border: 3px solid var(--white); }
   @media (hover: none) { .hero :global(.lit) { -webkit-mask-image: none; mask-image: none; } .hero { cursor: default; } }
   @media (max-width: 720px) { .chips-box { align-items: flex-start; } .chips button { width: 48px; height: 48px; } }
+
+
+  .strips { overflow: hidden; padding: 34px 0 40px; }
+  .strips-head { display: flex; justify-content: space-between; gap: 24px; color: var(--mute); padding-top: 22px; padding-bottom: 18px; }
+  .strip-rows { display: flex; flex-direction: column; gap: 26px; }
+  .row { display: flex; width: max-content; animation: slide 160s linear infinite; will-change: transform; }
+  .row-b { animation-duration: 190s; animation-direction: reverse; }
+  .row :global(picture) { display: block; flex: none; }
+  .row :global(.neg) { height: clamp(300px, 41.7vw, 600px); width: auto; max-width: none; }
+  @keyframes slide { to { transform: translateX(-50%); } }
 
   .intro { padding-top: clamp(80px, 10vw, 140px); padding-bottom: clamp(80px, 10vw, 140px); }
   .doors { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-bottom: 80px; }

@@ -17,7 +17,7 @@ export const artists: Artist[] = [
       { src: 'bianca-berding-musikerin-pressefoto-studio', alt: 'Bianca Berding, Pressefoto im Studio, Schwarzweiß', pos: 'center 30%' },
     ],
     line: 'Schwarzweiß · <em>Ruhe statt Pose</em> · ein Lächeln, das niemand bestellt hat' },
-  { id: 'slavko-popadic', name: 'Slavko Popadic', meta: 'Schauspiel · 2022', color: '#8f8574', layout: 'full',
+  { id: 'slavko-popadic', name: 'Slavko Popadic', meta: 'Schauspiel · 2022', color: '#a88e86', layout: 'full',
     pics: [{ src: 'slavko-popadic-schauspielportraet', alt: 'Slavko Popadic, Schauspielporträt', pos: 'center 35%' }],
     line: 'Schauspiel · <em>ein Blick, der eine Rolle offen lässt</em>' },
   { id: 'pia-stutzenstein', name: 'Pia Stutzenstein', meta: 'Schauspiel · 2022', color: '#d9822b', layout: 'trio',
@@ -33,7 +33,7 @@ export const artists: Artist[] = [
       { src: 'lea-mende-portraet-bewegung', alt: 'Lea Mende in Bewegungsunschärfe' },
     ],
     line: 'Ein roter Raum · eine Lampe · <em>wie lange man ins Licht sehen kann</em>' },
-  { id: 'david-vormweg', name: 'David Vormweg', meta: 'Schauspiel', color: '#8f8574', layout: 'pair23',
+  { id: 'david-vormweg', name: 'David Vormweg', meta: 'Schauspiel', color: '#a88e86', layout: 'pair23',
     pics: [
       { src: 'david-vormweg-schauspielportraet', alt: 'David Vormweg, Schauspielporträt', pos: 'center 30%' },
       { src: 'david-vormweg-portraet', alt: 'David Vormweg, Porträt', pos: 'center 35%' },
@@ -41,7 +41,7 @@ export const artists: Artist[] = [
 ];
 
 export const more: Artist[] = [
-  { id: 'phiala', name: 'Phiala', meta: 'Musik · 2024', color: '#8f8574', layout: 'single', pics: [{ src: 'phiala-musikportraet', alt: 'Phiala, Musikporträt' }] },
+  { id: 'phiala', name: 'Phiala', meta: 'Musik · 2024', color: '#a88e86', layout: 'single', pics: [{ src: 'phiala-musikportraet', alt: 'Phiala, Musikporträt' }] },
   { id: 'trish', name: 'Trish', meta: 'Freie Serie · 2024', color: '#2f9e98', layout: 'single', pics: [{ src: 'trish-portraet-tuerkises-licht', alt: 'Trish im türkisen Licht', pos: '62% 50%' }] },
-  { id: 'synergy', name: 'Synergy', meta: 'Editorial · 2024', color: '#8f8574', layout: 'single', pics: [{ src: 'synergy-editorial-rabe-schwarzweiss', alt: 'Synergy, Editorial mit Rabe, Schwarzweiß', pos: 'center 35%' }] },
+  { id: 'synergy', name: 'Synergy', meta: 'Editorial · 2024', color: '#a88e86', layout: 'single', pics: [{ src: 'synergy-editorial-rabe-schwarzweiss', alt: 'Synergy, Editorial mit Rabe, Schwarzweiß', pos: 'center 35%' }] },
 ];

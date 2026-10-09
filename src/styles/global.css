@@ -1,10 +1,13 @@
 :root {
-  --ink: #070605;
-  --paper: #ece5d9;
-  --white: #f4eee4;
-  --mute: #8f8574;
-  --dim: #3a352f;
-  --line: #1d1a17;
+  --ink: #22100f;
+  --paper: #f0e4da;
+  --white: #fbf3ea;
+  --mute: #a88e86;
+  --mute2: #d2bfb6;
+  --num: #7a5552;
+  --accent: #e0a85a;
+  --dim: #4a2a2a;
+  --line: #3a1e1e;
   --news-paper: #efeae1;
   --news-ink: #141210;
   --news-red: #b3261e;
@@ -44,15 +47,15 @@ h1, h2, h3, p, figure, blockquote { margin: 0; }
 .lang a[aria-current='true'] { color: var(--paper); }
 
 /* Textblock im Stil der Startseite */
-.runon { font-family: var(--f-display); font-weight: 500; letter-spacing: -0.035em; font-size: clamp(30px, 4vw, 58px); line-height: 1.1; color: #2e2a25; }
+.runon { font-family: var(--f-display); font-weight: 500; letter-spacing: -0.035em; font-size: clamp(30px, 4vw, 58px); line-height: 1.1; color: var(--dim); }
 .runon em { font-style: normal; color: var(--white); }
-.runon b { font-weight: 500; color: #d9a066; }
+.runon b { font-weight: 500; color: var(--accent); }
 
 /* Footer */
 .site-footer { border-top: 1px solid var(--line); color: var(--paper); }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px; padding-top: 72px; padding-bottom: 72px; }
 .mail { background: none; border: 0; padding: 0; cursor: pointer; text-align: left; font-family: var(--f-display); font-weight: 500; letter-spacing: -0.04em; line-height: 1; font-size: clamp(28px, 4.4vw, 56px); color: var(--white); }
-.mail span { color: #5c544a; }
+.mail span { color: var(--num); }
 .mail { overflow-wrap: anywhere; max-width: 100%; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 24px; font-size: 14px; color: var(--mute); }
 

@@ -24,7 +24,9 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 </Base>
 <style>
   .big { font-size: clamp(72px, 11.7vw, 168px); line-height: .86; padding: 32px 0; }
-  .bar { display: flex; flex-wrap: wrap; }
+  .bar { display: flex; flex-wrap: wrap; position: sticky; top: 0; z-index: 5; }
+  .k { scroll-margin-top: 64px; }
+  @media (max-width: 720px) { .bar { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .bar > * { flex: 0 0 auto; min-height: 52px; } .k { scroll-margin-top: 52px; } }
   .bar > * { flex: 1 1 160px; min-height: 64px; display: flex; align-items: center; padding: 0 20px; color: var(--white); }
   .k-in { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end; padding-top: clamp(64px, 8vw, 120px); padding-bottom: clamp(64px, 8vw, 120px); }
   .k-in.rev { flex-direction: row-reverse; }

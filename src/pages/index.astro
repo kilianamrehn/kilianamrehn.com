@@ -63,11 +63,11 @@ const bands = [['Copenhagen Studios', '#6a2a0c'], ['Peek & Cloppenburg x Ellesse
 <section class="wrap doors">
   <a href={u('kuenstlerportraits/')} class="door">
     <div class="stack">{eyes.map(([s, a]) => <Img src={s} alt={a} class="strip" sizes="(max-width: 900px) 100vw, 50vw" widths={[480, 800, 1150]} />)}</div>
-    <div class="door-label"><span class="display">Artists</span><span class="mono mute">Musik · Schauspiel · Kunst →</span></div>
+    <div class="door-label"><span class="display">Artists</span><span class="mono mute">Musik · Schauspiel · Kunst <b class="arr">→</b></span></div>
   </a>
   <a href={u('kampagnen/')} class="door">
     <div class="stack mono">{bands.map(([n, c]) => <span class="band" style={`background:${c}`}>{n}</span>)}</div>
-    <div class="door-label"><span class="display">Kampagnen</span><span class="mono mute">Marken &amp; Editorial →</span></div>
+    <div class="door-label"><span class="display">Kampagnen</span><span class="mono mute">Marken &amp; Editorial <b class="arr">→</b></span></div>
   </a>
 </section>
 
@@ -124,7 +124,10 @@ const bands = [['Copenhagen Studios', '#6a2a0c'], ['Peek & Cloppenburg x Ellesse
   .stack { display: flex; flex-direction: column; gap: 4px; }
   .stack :global(.strip) { width: 100%; height: clamp(52px, 5.3vw, 76px); object-fit: cover; }
   .band { height: clamp(52px, 5.3vw, 76px); display: flex; align-items: center; padding: 0 20px; color: var(--white); }
-  .door-label { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+  .door-label { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 20px; }
+  .arr { font-weight: 400; color: var(--accent); display: inline-block; transition: transform .25s; }
+  .door:hover .arr { transform: translateX(6px); }
+  .door:hover .display { color: var(--white); }
   .door-label .display { font-size: clamp(44px, 4.4vw, 64px); line-height: 1; }
   @media (max-width: 900px) { .doors { grid-template-columns: 1fr; gap: 48px; } }
 

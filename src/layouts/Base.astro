@@ -65,7 +65,7 @@ const ld = [business, person, ...schema];
 <body class={bodyClass}>
 <a class="visually-hidden" href="#inhalt">Zum Inhalt</a>
 <header class:list={['site-header wrap', { overlay: headerOverlay }]}>
-  <a class="brand" href={u('')}>Kilian Amrehn</a>
+  <a class="brand display" href={u('')} aria-label="Kilian Amrehn, Startseite">Kilian</a>
   <nav aria-label="Hauptnavigation">
     {nav.map((n) => <a href={u(n.href)} aria-current={path.startsWith('/' + n.href) ? 'page' : undefined}>{n.label}</a>)}
     <span class="lang"><a href={u('')} aria-current={lang === 'de' ? 'true' : undefined}>DE</a> / <a href={u('en/')} aria-current={lang === 'en' ? 'true' : undefined} hreflang="en">EN</a></span>

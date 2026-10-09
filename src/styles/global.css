@@ -25,10 +25,10 @@ body { overflow-x: clip; }
 body { margin: 0; background: var(--ink); color: var(--paper); font-family: var(--f-text); font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 img, video { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
-a:hover { color: #fff; }
+a:hover { color: var(--accent); }
 button { font: inherit; color: inherit; }
 h1, h2, h3, p, figure, blockquote { margin: 0; }
-:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
 .display { font-family: var(--f-display); font-weight: 500; letter-spacing: -0.04em; line-height: 0.9; }
@@ -40,9 +40,9 @@ h1, h2, h3, p, figure, blockquote { margin: 0; }
 
 /* Header */
 .site-header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 28px; padding-top: 28px; padding-bottom: 28px; font-size: 15px; position: relative; z-index: 3; }
-.site-header .brand { font-weight: 500; }
+.site-header .brand { font-size: clamp(30px, 3vw, 44px); line-height: 1; letter-spacing: -.04em; color: var(--white); }
 .site-header nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 28px; }
-.site-header nav a[aria-current='page'] { text-decoration: underline; text-underline-offset: 6px; }
+.site-header nav a[aria-current='page'] { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 7px; }
 .lang { color: var(--mute); }
 .lang a[aria-current='true'] { color: var(--paper); }
 
@@ -55,7 +55,7 @@ h1, h2, h3, p, figure, blockquote { margin: 0; }
 .site-footer { border-top: 1px solid var(--line); color: var(--paper); }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px; padding-top: 72px; padding-bottom: 72px; }
 .mail { background: none; border: 0; padding: 0; cursor: pointer; text-align: left; font-family: var(--f-display); font-weight: 500; letter-spacing: -0.04em; line-height: 1; font-size: clamp(28px, 4.4vw, 56px); color: var(--white); }
-.mail span { color: var(--num); }
+.mail span { color: var(--accent); }
 .mail { overflow-wrap: anywhere; max-width: 100%; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 24px; font-size: 14px; color: var(--mute); }
 

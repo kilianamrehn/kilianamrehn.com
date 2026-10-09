@@ -95,8 +95,8 @@ const bands = [['Copenhagen Studios', '#6a2a0c'], ['Peek & Cloppenburg x Ellesse
 <section class="hero" data-hero style={`background:${looks[0].bg}`}>
   {looks.map((l, i) => (
     <div class="look" data-look={l.k} data-bg={l.bg} data-caption={l.caption} hidden={i !== 0}>
-      <Img src={l.src} alt="" pos={l.pos} class="cover base" loading={i === 0 ? 'eager' : 'lazy'} />
-      <Img src={l.src} alt={l.alt} pos={l.pos} class="cover lit" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} />
+      <Img src={l.src} alt="" pos={l.pos} widths={[960, 1440, 1920, 2560]} quality={64} class="cover base" loading={i === 0 ? 'eager' : 'lazy'} />
+      <Img src={l.src} alt={l.alt} pos={l.pos} widths={[960, 1440, 1920, 2560]} quality={64} class="cover lit" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} />
     </div>
   ))}
   <div class="shade"></div>
@@ -119,8 +119,8 @@ const bands = [['Copenhagen Studios', '#6a2a0c'], ['Peek & Cloppenburg x Ellesse
   <div class="strip-rows">
     {[['kontaktabzug-negativstreifen-1', 'a'], ['kontaktabzug-negativstreifen-2', 'b']].map(([s, d]) => (
       <div class={`row row-${d}`}>
-        <Img src={s} alt={t.stripAlt} class="neg" sizes="(max-width: 720px) 2430px, 4860px" widths={[2430, 4860, 6400]} />
-        <Img src={s} alt="" class="neg" sizes="(max-width: 720px) 2430px, 4860px" widths={[2430, 4860, 6400]} />
+        <Img src={s} alt={t.stripAlt} class="neg" sizes="(max-width: 720px) 3645px, 7290px" widths={[3645, 7290, 10600]} quality={62} />
+        <Img src={s} alt="" class="neg" sizes="(max-width: 720px) 3645px, 7290px" widths={[3645, 7290, 10600]} quality={62} />
       </div>
     ))}
   </div>

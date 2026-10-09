@@ -1,0 +1,157 @@
+---
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import Mail from '../components/Mail.astro';
+import { flicker } from '../data/flicker';
+import { clients, routes, type Lang } from '../data/site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const en = lang === 'en';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const T = {
+  de: {
+    title: 'Über Kilian Amrehn · Fotograf & App-Entwickler in Köln',
+    description: 'Kilian Amrehn, Fotograf und App-Entwickler aus Köln. Künstlerporträts mit gerichtetem Licht, Kampagnen, Reportage. Making-of und Kontakt.',
+    h1: 'Über · Fotograf und App-Entwickler in Köln',
+    claim: 'Ich baue Licht <span>und warte, bis jemand hineinschaut.</span>',
+    video: 'Making-of eines Shootings',
+    videoCap: 'Making-of, 2025',
+    meAlt: 'Kilian Amrehn, Fotograf in Köln',
+    bio: [
+      'Ich bin Kilian. Ich fotografiere Menschen, die auf Bühnen stehen oder vor Kameras: Musik, Schauspiel, Kunst. Mit gerichtetem, oft farbigem Licht und viel Dunkelheit drumherum.',
+      'Viele Jahre stand ich selbst vor der Kamera. Ich weiß, wie es sich anfühlt, fotografiert zu werden, und wie viel davon abhängt, ob man sich im Raum sicher fühlt.',
+      'Posen inszeniere ich nicht. Mich interessiert der Moment kurz danach, wenn jemand vergisst, dass er gesehen wird.',
+    ],
+    apps: 'Daneben entwickle ich Apps. Mit Verge habe ich das erste Gruppenspiel mit eingebautem Consent-System gebaut. Und manchmal arbeite ich ohne eigenes Licht:',
+    appsLink: 'als Reportage',
+    kicker: 'Acht Jahre, zwölf Bilder pro Sekunde',
+    line: 'Halt es an.',
+    stop: 'Stopp',
+    stopped: 'Angehalten bei',
+    resume: 'Weiter',
+    clients: 'Gearbeitet mit',
+    contact: 'Kontakt',
+    contactId: 'kontakt',
+    where: 'Köln, und wo immer das Licht gebraucht wird.',
+  },
+  en: {
+    title: 'About Kilian · Photographer & App Developer in Cologne',
+    description: 'Kilian Amrehn, photographer and app developer from Cologne. Artist portraits with directed light, campaigns, reportage. Behind the scenes and contact.',
+    h1: 'About · Photographer and app developer in Cologne',
+    claim: 'I build light <span>and wait until someone looks into it.</span>',
+    video: 'Behind the scenes of a shoot',
+    videoCap: 'Behind the scenes, 2025',
+    meAlt: 'Kilian Amrehn, photographer in Cologne',
+    bio: [
+      'I’m Kilian. I photograph people who stand on stages or in front of cameras: music, acting, art. With directed, often colored light and a lot of darkness around it.',
+      'For many years I stood in front of the camera myself. I know what it feels like to be photographed, and how much depends on whether you feel safe in the room.',
+      'I don’t stage poses. What interests me is the moment just after, when someone forgets they are being seen.',
+    ],
+    apps: 'I also develop apps. With Verge I built the first group game with a built-in consent system. And sometimes I work without my own light:',
+    appsLink: 'as reportage',
+    kicker: 'Eight years, twelve frames per second',
+    line: 'Hold it.',
+    stop: 'Stop',
+    stopped: 'Stopped at',
+    resume: 'Resume',
+    clients: 'Worked with',
+    contact: 'Contact',
+    contactId: 'contact',
+    where: 'Cologne, and wherever the light is needed.',
+  },
+};
+const t = T[lang];
+---
+<Base lang={lang} alternate={routes.about[en ? 'de' : 'en']} title={t.title} description={t.description}>
+<section class="wrap top">
+  <h1 class="mono mute">{t.h1}</h1>
+  <p class="display claim" set:html={t.claim} />
+</section>
+<section class="wrap trio">
+  <figure>
+    <video src={base + 'media/making-of.mp4'} poster={base + 'media/making-of-poster.jpg'} autoplay muted loop playsinline preload="metadata" aria-label={t.video}></video>
+    <figcaption class="mono mute">{t.videoCap}</figcaption>
+  </figure>
+  <figure>
+    <Img src="kilian-amrehn-fotograf-koeln" alt={t.meAlt} sizes="(max-width: 900px) 100vw, 33vw" class="me" />
+    <figcaption class="mono mute">Kilian Amrehn</figcaption>
+  </figure>
+  <div class="bio">
+    {t.bio.map((p) => <p>{p}</p>)}
+    <p>{t.apps} <a class="u" href={base + routes.reportage[lang]}>{t.appsLink}</a>.</p>
+  </div>
+</section>
+
+<section class="flick" data-flick data-kicker-text={t.kicker} data-line-text={t.line} data-stop-text={t.stop} data-stopped-text={t.stopped} data-resume-text={t.resume}>
+  <div class="frames">
+    {flicker.map(([s, n], i) => <div class="frame" style={`animation-delay:-${(i * 0.085).toFixed(3)}s`} data-name={n}><Img src={s} alt="" sizes="100vw" widths={[800, 1400]} loading={i < 6 ? 'eager' : 'lazy'} /></div>)}
+  </div>
+  <div class="shade"></div>
+  <div class="wrap fl-ui">
+    <div><span class="mono" data-kicker>{t.kicker}</span><span class="display fl-line" data-line aria-live="polite">{t.line}</span></div>
+    <button type="button" class="stop display" data-toggle>{t.stop}</button>
+  </div>
+</section>
+
+<section class="wrap clients">
+  <h2 class="mono mute">{t.clients}</h2>
+  <p class="runon cl">{clients.map(([n, hi], i) => <>{i > 0 && ' · '}{hi ? <b>{n}</b> : n}</>)}</p>
+</section>
+<section id={t.contactId} class="wrap kontakt">
+  <h2 class="mono mute">{t.contact}</h2>
+  <Mail lang={lang} />
+  <p class="mute">{t.where}</p>
+</section>
+</Base>
+<style>
+  .top { padding-top: 40px; padding-bottom: 80px; }
+  .top h1 { font-weight: 400; margin-bottom: 32px; }
+  .claim { overflow-wrap: anywhere; font-size: clamp(44px, 8.3vw, 120px); line-height: .92; color: var(--white); }
+  .claim :global(span) { color: var(--mute); }
+  .trio { display: grid; grid-template-columns: 380px 380px 1fr; gap: 24px; align-items: start; padding-bottom: 140px; }
+  figure { display: flex; flex-direction: column; gap: 12px; }
+  video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #111; }
+  .trio :global(picture) { display: block; }
+  .trio :global(.me) { width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; object-position: center 25%; }
+  .bio { display: flex; flex-direction: column; gap: 18px; font-size: 18px; line-height: 1.65; color: var(--mute2); padding-top: 8px; }
+  .u { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
+  @media (max-width: 1000px) { .trio { grid-template-columns: 1fr 1fr; } .bio { grid-column: 1 / -1; } }
+  @media (max-width: 600px) { .trio { grid-template-columns: 1fr; } }
+
+  .flick { position: relative; height: min(760px, 90svh); overflow: hidden; }
+  .frame { position: absolute; inset: 0; opacity: 0; animation: flk 2.04s step-end infinite; }
+  .frame :global(picture), .frame :global(img) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+  .flick.stopped .frame { animation: none; opacity: 0; }
+  .flick.stopped .frame.on { opacity: 1; }
+  @keyframes flk { 0% { opacity: 1; } 4.1667% { opacity: 0; } 100% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .frame:first-child { opacity: 1; } }
+  .shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(34,16,15,.15) 0%, rgba(34,16,15,0) 40%, rgba(34,16,15,.85) 100%); }
+  .fl-ui { position: absolute; left: 0; right: 0; bottom: 48px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px; }
+  .fl-ui > div { display: flex; flex-direction: column; gap: 12px; color: var(--mute2); }
+  .fl-line { font-size: clamp(48px, 7.2vw, 104px); color: var(--white); }
+  .stop { width: clamp(110px, 10vw, 150px); aspect-ratio: 1; border-radius: 999px; border: 0; background: var(--white); color: var(--ink); font-size: 22px; letter-spacing: -.02em; cursor: pointer; }
+  .clients { padding-top: 140px; padding-bottom: 100px; }
+  .cl { color: var(--mute); }
+  .clients h2, .kontakt h2 { font-weight: 400; margin-bottom: 24px; }
+  .kontakt { padding-bottom: 140px; display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 40px; }
+  .kontakt :global(.mail) { font-size: clamp(36px, 6.6vw, 96px); }
+</style>
+<script>
+  const box = document.querySelector<HTMLElement>('[data-flick]');
+  const btn = box?.querySelector<HTMLButtonElement>('[data-toggle]');
+  if (box && btn) {
+    const frames = Array.from(box.querySelectorAll<HTMLElement>('.frame'));
+    const kicker = box.querySelector('[data-kicker]')!; const line = box.querySelector('[data-line]')!;
+    const tx = box.dataset;
+    btn.addEventListener('click', () => {
+      if (box.classList.contains('stopped')) {
+        box.classList.remove('stopped'); frames.forEach((f) => f.classList.remove('on'));
+        kicker.textContent = tx.kickerText || ''; line.textContent = tx.lineText || ''; btn.textContent = tx.stopText || '';
+      } else {
+        const f = frames[Math.floor(Math.random() * frames.length)];
+        box.classList.add('stopped'); f.classList.add('on');
+        kicker.textContent = tx.stoppedText || ''; line.textContent = f.dataset.name || ''; btn.textContent = tx.resumeText || '';
+      }
+    });
+  }
+</script>

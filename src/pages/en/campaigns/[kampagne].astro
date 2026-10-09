@@ -1,0 +1,9 @@
+---
+import Kampagne from '../../../views/Kampagne.astro';
+import { kampagnen } from '../../../data/kampagnen';
+export function getStaticPaths() {
+  return kampagnen.map((k, i) => ({ params: { kampagne: k.slug }, props: { k, prev: kampagnen[(i - 1 + kampagnen.length) % kampagnen.length], next: kampagnen[(i + 1) % kampagnen.length] } }));
+}
+const { k, prev, next } = Astro.props;
+---
+<Kampagne lang="en" k={k} prev={prev} next={next} />

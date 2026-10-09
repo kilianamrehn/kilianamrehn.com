@@ -1,9 +1,9 @@
 ---
-import { site } from '../data/site';
-interface Props { class?: string }
-const { class: cls = 'mail' } = Astro.props;
+import { site, type Lang } from '../data/site';
+interface Props { class?: string; lang?: Lang }
+const { class: cls = 'mail', lang = 'de' } = Astro.props;
 ---
-<button type="button" class={cls} data-mail={`${site.mailUser}|${site.mailDomain}`.split('').reverse().join('')} aria-label="E-Mail schreiben">{site.mailUser}<span>[at]</span>{site.mailDomain.replace('.com', '')}<span>.</span>com</button>
+<button type="button" class={cls} data-mail={`${site.mailUser}|${site.mailDomain}`.split('').reverse().join('')} aria-label={lang === 'en' ? 'Write an email' : 'E-Mail schreiben'}>{site.mailUser}<span>[at]</span>{site.mailDomain.replace('.com', '')}<span>.</span>com</button>
 <script>
   document.querySelectorAll<HTMLButtonElement>('[data-mail]').forEach((b) => {
     b.addEventListener('click', () => {

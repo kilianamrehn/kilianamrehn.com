@@ -11,15 +11,37 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/kilianamrehn/',
   // Name der Zeitungs-Rubrik (noch offen). Adresse bleibt /reportage/ wegen SEO.
   newsTitle: 'Was bleibt',
+  newsTitleEn: 'What Remains',
   newsIssue: 'Nº 03',
 };
 
-export const nav = [
-  { label: 'Artists', href: 'kuenstlerportraits/' },
-  { label: 'Kampagnen', href: 'kampagnen/' },
-  { label: site.newsTitle, href: 'reportage/' },
-  { label: 'Über', href: 'ueber/' },
-];
+export type Lang = 'de' | 'en';
+
+// Adressen pro Sprache (ohne Base-Pfad, ohne führenden Slash). Deutsch bleibt wegen SEO unverändert.
+export const routes = {
+  home: { de: '', en: 'en/' },
+  artists: { de: 'kuenstlerportraits/', en: 'en/artists/' },
+  campaigns: { de: 'kampagnen/', en: 'en/campaigns/' },
+  reportage: { de: 'reportage/', en: 'en/reportage/' },
+  about: { de: 'ueber/', en: 'en/about/' },
+} as const;
+// Kampagnen-Projektseiten: deutsch direkt unter /<slug>/ (alte Adressen), englisch unter /en/campaigns/<slug>/
+export const campaignPath = (slug: string, lang: Lang) => (lang === 'de' ? '' : routes.campaigns.en) + slug + '/';
+
+export const nav: Record<Lang, { label: string; href: string }[]> = {
+  de: [
+    { label: 'Artists', href: routes.artists.de },
+    { label: 'Kampagnen', href: routes.campaigns.de },
+    { label: site.newsTitle, href: routes.reportage.de },
+    { label: 'Über', href: routes.about.de },
+  ],
+  en: [
+    { label: 'Artists', href: routes.artists.en },
+    { label: 'Campaigns', href: routes.campaigns.en },
+    { label: 'Reportage', href: routes.reportage.en },
+    { label: 'About', href: routes.about.en },
+  ],
+};
 
 export const clients = [
   ['VW', 1], ['Coca-Cola', 1], ['TikTok', 1], ['Bundesliga', 1], ['Peek & Cloppenburg', 1], ['Ellesse', 0], ['Copenhagen Studios', 0], ['Eres', 0], ['Scholl', 0], ['AppelrathCüpper', 0],

@@ -3,15 +3,23 @@ import '@fontsource-variable/host-grotesk';
 import '@fontsource-variable/geist';
 import '@fontsource-variable/geist-mono';
 import '../styles/global.css';
-import { site, nav } from '../data/site';
+import { site, nav, type Lang } from '../data/site';
 import Mail from '../components/Mail.astro';
 
-interface Props { title: string; description: string; image?: string; lang?: 'de' | 'en'; headerOverlay?: boolean; bodyClass?: string; schema?: object[]; alt?: string }
-const { title, description, image, lang = 'de', headerOverlay = false, bodyClass = '', schema = [], alt } = Astro.props;
+// alternate: Pfad derselben Seite in der anderen Sprache (ohne Base, z. B. 'en/artists/'). Fehlt er, gibt es die Seite nur auf Deutsch.
+interface Props { title: string; description: string; image?: string; lang?: Lang; headerOverlay?: boolean; bodyClass?: string; schema?: object[]; alternate?: string }
+const { title, description, image, lang = 'de', headerOverlay = false, bodyClass = '', schema = [], alternate } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const u = (p: string) => base + p.replace(/^\//, '');
 const canonical = new URL(Astro.url.pathname, site.url).href.replace(/^(https:\/\/[^/]+)\/kilianamrehn\.com/, '$1');
 const path = Astro.url.pathname.replace(base, '/');
+// 404-Seite: kein hreflang, Sprachumschalter zeigt auf die Startseiten
+const is404 = /^\/?404(\/|\.html)?$/.test(path);
+const self = is404 ? '' : path.replace(/^\//, '');
+const dePath = lang === 'de' ? self : alternate ?? '';
+const enPath = lang === 'en' ? self : alternate;
+const abs = (p: string) => site.url + '/' + p;
+const en = lang === 'en';
 const ogImage = image ? new URL(image, Astro.site).href : undefined;
 
 const business = {
@@ -48,8 +56,9 @@ const ld = [business, person, ...schema];
 <title>{title}</title>
 <meta name="description" content={description}>
 <link rel="canonical" href={canonical}>
-<link rel="alternate" hreflang="de" href={site.url + '/'}>
-<link rel="alternate" hreflang="en" href={site.url + '/en/'}>
+{!is404 && <link rel="alternate" hreflang="de" href={abs(dePath)}>}
+{!is404 && enPath !== undefined && <link rel="alternate" hreflang="en" href={abs(enPath)}>}
+{!is404 && <link rel="alternate" hreflang="x-default" href={abs(dePath)}>}
 <meta property="og:type" content="website">
 <meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
@@ -63,12 +72,12 @@ const ld = [business, person, ...schema];
 {ld.map((o) => <script type="application/ld+json" set:html={JSON.stringify(o)} />)}
 </head>
 <body class={bodyClass}>
-<a class="visually-hidden" href="#inhalt">Zum Inhalt</a>
+<a class="visually-hidden" href="#inhalt">{en ? 'Skip to content' : 'Zum Inhalt'}</a>
 <header class:list={['site-header wrap', { overlay: headerOverlay }]}>
-  <a class="brand display" href={u('')} aria-label="Kilian Amrehn, Startseite">Kilian</a>
-  <nav aria-label="Hauptnavigation">
-    {nav.map((n) => <a href={u(n.href)} aria-current={path.startsWith('/' + n.href) ? 'page' : undefined}>{n.label}</a>)}
-    <span class="lang"><a href={u('')} aria-current={lang === 'de' ? 'true' : undefined}>DE</a> / <a href={u('en/')} aria-current={lang === 'en' ? 'true' : undefined} hreflang="en">EN</a></span>
+  <a class="brand display" href={u(en ? 'en/' : '')} aria-label={en ? 'Kilian Amrehn, home' : 'Kilian Amrehn, Startseite'}>Kilian</a>
+  <nav aria-label={en ? 'Main navigation' : 'Hauptnavigation'}>
+    {nav[lang].map((n) => <a href={u(n.href)} aria-current={path.startsWith('/' + n.href) ? 'page' : undefined}>{n.label}</a>)}
+    <span class="lang"><a href={u(dePath)} aria-current={lang === 'de' ? 'true' : undefined} hreflang="de" lang="de">DE</a> / <a href={u(enPath ?? 'en/')} aria-current={lang === 'en' ? 'true' : undefined} hreflang="en" lang="en">EN</a></span>
   </nav>
 </header>
 <main id="inhalt"><slot /></main>
@@ -76,14 +85,14 @@ const ld = [business, person, ...schema];
   <div class="wrap">
     <div style="display:flex;flex-direction:column;gap:14px">
       <span class="mono mute">{lang === 'de' ? 'Kein Formular. Einfach schreiben.' : 'No forms. Just write.'}</span>
-      <Mail />
+      <Mail lang={lang} />
     </div>
     <div class="footer-links">
       <a href={site.instagram} rel="me noopener" target="_blank">Instagram</a>
       {site.linkedin && <a href={site.linkedin} rel="me noopener" target="_blank">LinkedIn</a>}
-      <a href={u('portraitfotografie/')}>Portraitfotografie Köln</a>
-      <a href={u('impressum/')}>Impressum</a>
-      <a href={u('datenschutz/')}>Datenschutz</a>
+      {!en && <a href={u('portraitfotografie/')}>Portraitfotografie Köln</a>}
+      <a href={u('impressum/')} hreflang={en ? 'de' : undefined}>{en ? 'Imprint' : 'Impressum'}</a>
+      <a href={u('datenschutz/')} hreflang={en ? 'de' : undefined}>{en ? 'Privacy' : 'Datenschutz'}</a>
     </div>
   </div>
 </footer>

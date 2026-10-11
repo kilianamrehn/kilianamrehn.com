@@ -106,7 +106,22 @@ const EYES: [string, string, string][] = [
   ['paulus-goerden-2', 'Paulus Goerden', 'paulus-goerden'], ['portraet-koeln-2', '', ''], ['simon-und-quartett-band-2', 'Simon und Quartett', 'simon-und-quartett'],
   ['slavko-popadic-3', 'Slavko Popadic', 'slavko-popadic'], ['portraet-koeln-1', '', ''],
 ];
-const eyes = EYES.map(([f, name, id]) => ({ id, name: name || (lang === 'de' ? 'Porträt' : 'Portrait'), src: 'eyes-' + f, alt: (lang === 'de' ? 'Augen, ' : 'Eyes, ') + (name || (lang === 'de' ? 'Porträt Köln' : 'portrait Cologne')) }));
+// Beim Aufklappen: ganze Bilder (Querformat allein, Hochformat mit weiteren Bildern derselben Person)
+const FULL: Record<string, string[]> = {
+  'lea-mende-3': ['lea-mende-3'], 'flo-wuensche-schauspiel-1': ['flo-wuensche-schauspiel-1'], 'paula-dj-2': ['paula-dj-1', 'paula-dj-2', 'paula-dj-3'],
+  'salome-schauspielerin-1': ['salome-schauspielerin-1'], 'pia-stutzenstein-schauspielerin-2': ['pia-stutzenstein-schauspielerin-2'],
+  'nicole-malerin-kuenstlerinnenportraet-3': ['nicole-malerin-kuenstlerinnenportraet-1', 'nicole-malerin-kuenstlerinnenportraet-3', 'nicole-malerin-kuenstlerinnenportraet-2'],
+  'zahnatzin-dj-2': ['zahnatzin-dj-1', 'zahnatzin-dj-2', 'zahnatzin-dj-3'], 'david-vormweg-schauspieler-1': ['david-vormweg-schauspieler-1', 'david-vormweg-schauspieler-2'],
+  'portraet-koeln-4': ['portraet-koeln-4'], 'parzhuber-trio-band-2': ['parzhuber-trio-band-2'], 'nicole-da-silva-musikerin-1': ['nicole-da-silva-musikerin-1', 'nicole-da-silva-musikerin-2'],
+  'bianca-berding-moderatorin-1': ['bianca-berding-moderatorin-1'], 'paulus-goerden-2': ['paulus-goerden-3', 'paulus-goerden-2', 'paulus-goerden-4'],
+  'portraet-koeln-2': ['portraet-koeln-2'], 'simon-und-quartett-band-2': ['simon-und-quartett-band-2'], 'slavko-popadic-3': ['slavko-popadic-3'], 'portraet-koeln-1': ['portraet-koeln-1'],
+};
+const pmeta = import.meta.glob<{ default: { width: number; height: number } }>('/src/assets/img/p-*.jpg', { eager: true });
+const eyes = EYES.map(([f, name, id]) => {
+  const full = (FULL[f] ?? [f]).map((n) => { const m = pmeta[`/src/assets/img/p-${n}.jpg`].default; return { src: 'p-' + n, ar: m.width / m.height }; });
+  const tot = full.reduce((a, x) => a + x.ar, 0), box = Math.max(tot, 1.5);
+  return { id, name: name || (lang === 'de' ? 'Porträt' : 'Portrait'), src: 'eyes-' + f, full: full.map((x) => ({ ...x, pct: (100 * x.ar) / box })), box, alt: (lang === 'de' ? 'Augen, ' : 'Eyes, ') + (name || (lang === 'de' ? 'Porträt Köln' : 'portrait Cologne')) };
+});
 const ink = (hex: string) => { const n = parseInt(hex.slice(1), 16); const l = (0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255; return l > 0.6; };
 const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).map((n) => ({ n, ar: (meta as any)[n][0] / (meta as any)[n][1] })); return { n: k.title, c: k.band, light: ink(k.band), ims, ar: ims.reduce((a, i) => a + i.ar, 0), href: campaignPath(k.slug, lang) }; });
 ---
@@ -155,8 +170,9 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
 <section class="wrap doors">
   <div class="door">
     <div class="stack">{eyes.map((e) => (
-      <a class="reveal" href={u(r('artists')) + (e.id ? '#' + e.id : '')}>
-        <Img src={e.src} alt={e.alt} sizes="(max-width: 900px) 100vw, 50vw" widths={[480, 800, 1200, 1600]} />
+      <a class="reveal eye" href={u(r('artists')) + (e.id ? '#' + e.id : '')} style={`--ar:${e.box.toFixed(4)}`}>
+        <Img src={e.src} alt={e.alt} sizes="(max-width: 900px) 100vw, 50vw" widths={[480, 800, 1200, 1600]} class="eye-crop" />
+        <span class="eye-full">{e.full.map((x) => <span style={`flex:0 0 ${x.pct.toFixed(3)}%`}><Img src={x.src} alt={e.name} sizes={`(max-width: 900px) ${Math.round(x.pct)}vw, ${Math.round(x.pct / 2)}vw`} widths={[480, 800, 1200]} /></span>)}</span>
         <span class="mono rv-name">{e.name} <b class="arr">→</b></span>
       </a>
     ))}</div>
@@ -257,7 +273,13 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
   .reveal :global(img) { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
   .reveal .arr { color: var(--accent); }
   .rv-name { position: absolute; left: 16px; bottom: 12px; color: var(--white); opacity: 0; transform: translateY(6px); transition: opacity .3s, transform .3s; text-shadow: 0 1px 12px rgba(0,0,0,.6); }
-  .stack.mono { container-type: inline-size; }
+  .stack { container-type: inline-size; }
+  .eye-full { position: absolute; inset: 0; display: flex; justify-content: center; gap: 2px; background: var(--ink); opacity: 0; transition: opacity .45s; }
+  .eye-full > span { position: relative; min-width: 0; }
+  .eye :global(img) { transform: none !important; }
+  .eye.open { height: calc(100cqw / var(--ar)); }
+  .eye.open .eye-full { opacity: 1; }
+  .rv-name { z-index: 2; }
   .band { color: var(--white); }
   .band.light { color: #16110e; }
   .band.light .band-name { text-shadow: none; transition: top .5s cubic-bezier(.2,.7,.2,1), color .3s; }
@@ -279,6 +301,8 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
     .reveal:hover :global(img) { transform: scale(1.03); }
     .reveal:hover .rv-name, .reveal:focus-visible .rv-name { opacity: 1; transform: none; }
     .band:hover, .band:focus-visible { height: calc(100cqw / var(--ar)); }
+    .eye:hover, .eye:focus-visible { height: calc(100cqw / var(--ar)); }
+    .eye:hover .eye-full, .eye:focus-visible .eye-full { opacity: 1; }
     .band:hover :global(img), .band:focus-visible :global(img) { opacity: 1; }
     .band:hover .band-name { top: calc(100% - 28px); }
     .band:hover .arr { opacity: 1; }

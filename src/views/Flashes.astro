@@ -39,7 +39,7 @@ const all = [...imgs, ...vids];
   const torn = () => { const p: string[] = []; for (let s = 0; s < 4; s++) for (let i = 0; i < 34; i++) { const t = (i / 34) * 100, j = R() * 1.1; const q = [[t, j], [100 - j, t], [100 - t, 100 - j], [j, 100 - t]][s]; p.push(`${q[0].toFixed(1)}% ${q[1].toFixed(1)}%`); } return `polygon(${p.join(',')})`; };
   let topZ = 1000;
   function layout() {
-    const mob = innerWidth < 700, W = mob ? 390 : 1440, S = mob ? 0.42 : 1, fs = mob ? 0.55 : 1;
+    const mob = innerWidth < 700, W = mob ? 390 : 1440, S = mob ? 0.52 : 1, fs = mob ? 0.6 : 1;
     const u = mob ? innerWidth / 390 : Math.min(1, innerWidth / 1440);
     const order = items.slice().sort(() => R() - 0.5);
     let y = 20, i = 0, z = 1, maxY = 0;
@@ -57,13 +57,13 @@ const all = [...imgs, ...vids];
     };
     while (i < order.length) {
       const band = U(460, 620) * S;
-      let parts: [number, number][] = [[30 * S, W - 30 * S]];
+      let parts: [number, number][] = [[(mob ? 10 : 30) * S, W - (mob ? 10 : 30) * S]];
       if (!mob && R() < 0.55) { const sp = U(560, 880); parts = [[30, sp], [sp, 1410]]; }
       for (const [x0, x1] of parts) {
         const Wd = x1 - x0, cx = (x0 + x1) / 2, yc = y + band / 2;
         const g = Wd > 900 * S ? pick(['heap', 'diag', 'row', 'arc', 'ring', 'single']) : pick(['heap', 'heap', 'diag', 'single', 'ring']);
         let n = ({ heap: 3 + Math.floor(R() * 4), diag: 3 + Math.floor(R() * 4), row: 4 + Math.floor(R() * 3), arc: 5 + Math.floor(R() * 2), ring: 5 + Math.floor(R() * 3), single: Wd > 900 * S ? 2 : 1 } as any)[g];
-        if (mob) n = Math.min(n, 4);
+        if (mob) n = Math.min(n, 5);
         const ms = order.slice(i, i + n); i += ms.length;
         ms.forEach((m, j) => {
           const t = (j + 0.5) / ms.length;
@@ -75,7 +75,7 @@ const all = [...imgs, ...vids];
           else put(m, U(360, 460), ms.length > 1 ? x0 + t * Wd : cx + U(-Wd * 0.25, Wd * 0.25), yc + U(-40, 40) * S);
         });
       }
-      y += band * U(0.7, 0.82);
+      y += band * (mob ? U(0.6, 0.7) : U(0.7, 0.82));
     }
     board.style.height = `${(maxY + 80) * u}px`;
   }

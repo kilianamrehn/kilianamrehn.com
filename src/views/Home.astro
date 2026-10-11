@@ -219,6 +219,8 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
     .tap-hint .ring { animation: ring 1.6s ease-out infinite; transform-origin: 13px 7px; }
     .hero.painted .tap-hint { opacity: 0; }
     .hero.painting { touch-action: none; }
+    .hero, .hero * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+    :global(html:has(.hero.painting)) { -webkit-user-select: none; user-select: none; }
   }
   @keyframes tap { 0%, 100% { transform: translateY(0); } 15% { transform: translateY(3px); } 30% { transform: translateY(0); } 45% { transform: translateY(3px); } 60% { transform: translateY(0); } }
   @keyframes ring { 0%, 10% { opacity: 0; transform: scale(.4); } 20% { opacity: .9; } 60%, 100% { opacity: 0; transform: scale(1.6); } }
@@ -343,13 +345,17 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
     frameEl.addEventListener('pointerup', (e) => {
       if (e.pointerType !== 'touch') return;
       if (painting) { painting = false; hero.classList.remove('painting'); return; }
-      lastTap = performance.now(); hero.classList.add('painting');
+      lastTap = performance.now(); hero.classList.add('painting'); getSelection()?.removeAllRanges();
       setTimeout(() => { if (!painting) hero.classList.remove('painting'); }, 450);
     });
     frameEl.addEventListener('pointerdown', (e) => {
       if (e.pointerType !== 'touch') return;
       if (performance.now() - lastTap < 450) { painting = true; hero.classList.add('painting', 'painted'); e.preventDefault(); frameEl.setPointerCapture(e.pointerId); }
     });
+    document.addEventListener('selectstart', (e) => { if (painting || performance.now() - lastTap < 600) e.preventDefault(); });
+    frameEl.addEventListener('touchstart', (e) => { if (performance.now() - lastTap < 450) e.preventDefault(); }, { passive: false });
+    frameEl.addEventListener('touchmove', (e) => { if (painting) e.preventDefault(); }, { passive: false });
+    frameEl.addEventListener('contextmenu', (e) => e.preventDefault());
     frameEl.addEventListener('pointercancel', () => { painting = false; hero.classList.remove('painting'); });
     hero.addEventListener('pointermove', (e) => {
       if (e.pointerType === 'touch' && !painting) return;

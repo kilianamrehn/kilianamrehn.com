@@ -230,7 +230,8 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
     .hero-text { position: relative; bottom: auto; padding-top: 22px; padding-bottom: 8px; }
     .shade { background: linear-gradient(180deg, rgba(34,16,15,.55) 0%, rgba(34,16,15,0) 35%); }
     .claim { font-size: clamp(54px, 16vw, 80px); }
-    .chips-box { align-items: flex-start; } .chips { flex-wrap: wrap; } .chips button { width: 40px; height: 40px; }
+    .hero-text { flex-direction: column; align-items: stretch; flex-wrap: nowrap; padding-top: 16px; gap: 34px; }
+    .chips-box { order: -1; align-items: flex-start; gap: 12px; } .chips { flex-wrap: nowrap; justify-content: space-between; width: 100%; gap: 8px; } .chips button { width: 40px; height: 40px; flex: 0 0 auto; }
   }
 
 

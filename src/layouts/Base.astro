@@ -102,6 +102,7 @@ const ld = [business, person, ...schema];
 </footer>
 <div class="darkroom" aria-hidden="true"></div>
 <script>
+  document.querySelectorAll<HTMLElement>('[data-today]').forEach((el) => { el.textContent = new Date().toLocaleDateString(el.dataset.today === 'en' ? 'en-GB' : 'de-DE', { day: 'numeric', month: 'long', year: 'numeric' }); });
   const burger = document.querySelector<HTMLButtonElement>('[data-burger]');
   burger?.addEventListener('click', () => {
     const open = burger.getAttribute('aria-expanded') !== 'true';

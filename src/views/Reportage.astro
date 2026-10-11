@@ -22,7 +22,7 @@ const article = { '@context': 'https://schema.org', '@type': 'Article', headline
 <div class="ticker mono"><span>{t.ticker}</span></div>
 <div class="paper tisch">
 <section class="wrap">
-  <div class="dateline mono"><span>{t.issue} {site.newsIssue}</span><span>{t.place}</span><span>{t.byline}</span></div>
+  <div class="dateline mono"><span>{t.issue} {site.newsIssue}</span><span>{t.place}, <span data-today={lang}>{new Date().toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Berlin' })}</span></span><span>{t.byline}</span></div>
   <h1 class="masthead">{newsTitle}<span class="visually-hidden">{t.h1Hidden}</span></h1>
   <div class="rule2"></div>
   <nav class="sections mono" aria-label={t.sectionsLabel}>{['moldau', 'through-their-eyes', 'thailand', 'malaysia', 'protest', 'kairo'].map((id, i) => <a href={`#${id}`}>{t.sections[i]}</a>)}</nav>

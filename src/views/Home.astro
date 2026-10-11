@@ -42,7 +42,7 @@ const T = {
     runon: '<em>Artistporträts Köln</em> · Musikporträts · Pressefotos für Bands und Solo-Artists · EP- und Albumcover · Schauspielporträts · <em>gerichtetes Licht</em> · farbiges Licht · Dunkelheit, die etwas verbirgt · <em>ein Blick direkt in die Kamera</em> · eine Bewegung, festgehalten, obwohl sie weitergeht · <b>keine Pose</b> · Köln, Berlin, weltweit · <em>Slavko Popadic</em> · <em>Bianca Berding</em> · <em>Peek &amp; Cloppenburg</em> · <em>Copenhagen Studios</em> · <em>Bundesliga</em> · Menschen so zeigen, wie sie sich selbst noch nicht gesehen haben.',
     doorArtists: ['Porträts', 'Porträt · Musik · Schauspiel · Kunst'],
     doorCampaigns: ['Arbeiten', 'Kampagnen &amp; freie Strecken'],
-    clipTop: 'Köln · Oktober 2026',
+    clipTop: 'Köln',
     newsTitle: site.newsTitle,
     clipAlt: 'Eine Mutter mit Baby auf dem Arm und ihrem Kind an der Hand, Moldau 2022',
     clipKicker: 'Flucht · Moldau 2022',
@@ -78,7 +78,7 @@ const T = {
     runon: '<em>Artist portraits Cologne</em> · music portraits · press photos for bands and solo artists · EP and album covers · actor portraits · <em>directed light</em> · coloured light · darkness that hides something · <em>a look straight into the camera</em> · a movement, held still while it carries on · <b>no posing</b> · Cologne, Berlin, worldwide · <em>Slavko Popadic</em> · <em>Bianca Berding</em> · <em>Peek &amp; Cloppenburg</em> · <em>Copenhagen Studios</em> · <em>Bundesliga</em> · showing people the way they have never seen themselves.',
     doorArtists: ['Portraits', 'Portrait · Music · Acting · Art'],
     doorCampaigns: ['Work', 'Campaigns &amp; personal series'],
-    clipTop: 'Cologne · October 2026',
+    clipTop: 'Cologne',
     newsTitle: site.newsTitleEn,
     clipAlt: 'A mother with a baby in her arms and her child by the hand, Moldova 2022',
     clipKicker: 'Refugees · Moldova 2022',
@@ -175,7 +175,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
 
 <section class="wrap clip-wrap">
   <a href={u(r('reportage'))} class="clip">
-    <div class="clip-top mono"><span>{site.newsIssue} · {t.clipTop}</span><span>Reportage</span></div>
+    <div class="clip-top mono"><span>{site.newsIssue} · {t.clipTop} · <span data-today={lang}>{new Date().toLocaleDateString(lang === 'de' ? 'de-DE' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Berlin' })}</span></span><span>Reportage</span></div>
     <div class="clip-title">{t.newsTitle}</div>
     <div class="clip-tick mono"><span>{RT[lang].ticker}</span></div>
     <div class="rule2"></div>

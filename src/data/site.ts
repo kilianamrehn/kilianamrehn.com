@@ -12,7 +12,7 @@ export const site = {
   // Name der Zeitungs-Rubrik (noch offen). Adresse bleibt /reportage/ wegen SEO.
   newsTitle: 'Was bleibt',
   newsTitleEn: 'What Remains',
-  newsIssue: 'Nº 03',
+  newsIssue: 'Nº 01',
 };
 
 export type Lang = 'de' | 'en';

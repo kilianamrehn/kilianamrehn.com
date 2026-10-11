@@ -20,15 +20,16 @@ export const rows = {
   hambi: [r('hambi', 4), r('hambi', 1, 2, 3), r('hambi', 5, 7, 6)],
   garzweiler: [r('gatzweiler', 1, 2, 3), r('gatzweiler', 4, 5, 6)],
   blm: [r('blm', 1, 2), r('blm', 3, 4, 5), r('blm', 6)],
+  kairo: [r('kairo', 11), r('kairo', 1, 2, 3), r('kairo', 6, 8), r('kairo', 7, 10), r('kairo', 4, 5), r('kairo', 9)],
 };
 
 export const T = {
   de: {
     title: 'Was bleibt · Reportage & Dokumentarfotografie · Kilian Amrehn',
-    description: 'Reportage und Dokumentarfotografie von Kilian Amrehn: Through Their Eyes (Myanmar, Thailand, Malaysia 2017), Flüchtlingslager in Moldau 2022, Hambacher Forst, Garzweiler, Black Lives Matter Köln.',
+    description: 'Reportage und Dokumentarfotografie von Kilian Amrehn: Through Their Eyes (Myanmar, Thailand, Malaysia 2017), Flüchtlingslager in Moldau 2022, Hambacher Forst, Garzweiler, Black Lives Matter Köln, Kairo 2023.',
     ticker: '+++ Myanmar: Militär an der Macht seit dem Putsch im Februar 2021 +++ Moldau: EU-Beitrittskandidat seit Juni 2022 +++ Köln: 10.000 Menschen bei Black Lives Matter, Juni 2020 +++ Hambacher Forst: 50.000 gegen die Rodung +++ Thailand: Neuwahl im Februar 2026 +++ Malaysia: 1MDB-Urteil im Dezember 2025 +++',
     issue: 'Ausgabe', place: 'Köln, Oktober 2026', byline: 'Text und Fotos: Kilian Amrehn', h1Hidden: ' · Reportage und Dokumentarfotografie von Kilian Amrehn', sectionsLabel: 'Rubriken',
-    sections: ['Flucht · Moldau', 'Through Their Eyes · Myanmar', 'Thailand', 'Malaysia', 'Protest'],
+    sections: ['Flucht · Moldau', 'Through Their Eyes · Myanmar', 'Thailand', 'Malaysia', 'Protest', 'Kairo'],
     exhibited: 'Ausgestellt 2021',
     ctx: 'Zum Kontext · Stand Oktober 2026',
     lead: { kicker: 'Reise · Myanmar, Thailand, Malaysia 2017', head: 'Through Their Eyes', stand: 'Burma und Thailand, Dezember 2017. Kein gemeinsames Wort, dafür Blicke, die bleiben.' },
@@ -75,14 +76,15 @@ export const T = {
         'Seit 2025 sollen die fünf geretteten Dörfer wieder belebt werden. Von den rund 500 Menschen, die dort einmal gewohnt haben, sind nur wenige geblieben.'],
       src: 'Quellen: RWE und Stadt Erkelenz (2025)',
       blmKicker: 'Köln · 6. Juni 2020', blmHead: 'Black Lives Matter', blmText: 'Ein Zeichen gegen institutionellen Rassismus. 10.000 Menschen demonstrieren im Juni 2020 am Kölner Rheinufer.' },
+    kairo: { kicker: 'Ägypten · 2023', head: 'Ordnung im Chaos', text: 'Einer meiner größten Träume war, die Pyramiden zu sehen. Sie sind das letzte der sieben Weltwunder der Antike, das noch steht. Also sind wir hingefahren. Und dann weiter in die Wüste, und haben unter den Sternen geschlafen.', cap: 'Ägypten 2023' },
     pubs: 'Auftraggeber und Veröffentlichungen', back: 'Zurück ins Licht →', photo: 'Foto: Kilian Amrehn',
   },
   en: {
     title: 'What Remains · Reportage & Documentary Photography · Kilian Amrehn',
-    description: 'Reportage and documentary photography by Kilian Amrehn: Through Their Eyes (Myanmar, Thailand, Malaysia 2017), refugee camps in Moldova 2022, Hambach Forest, Garzweiler, Black Lives Matter Cologne.',
+    description: 'Reportage and documentary photography by Kilian Amrehn: Through Their Eyes (Myanmar, Thailand, Malaysia 2017), refugee camps in Moldova 2022, Hambach Forest, Garzweiler, Black Lives Matter Cologne, Cairo 2023.',
     ticker: '+++ Myanmar: military in power since the coup in February 2021 +++ Moldova: EU candidate country since June 2022 +++ Cologne: 10,000 people at Black Lives Matter, June 2020 +++ Hambach Forest: 50,000 against the clearing +++ Thailand: snap election in February 2026 +++ Malaysia: 1MDB verdict in December 2025 +++',
     issue: 'Issue', place: 'Cologne, October 2026', byline: 'Text and photos: Kilian Amrehn', h1Hidden: ' · Reportage and documentary photography by Kilian Amrehn', sectionsLabel: 'Sections',
-    sections: ['Refuge · Moldova', 'Through Their Eyes · Myanmar', 'Thailand', 'Malaysia', 'Protest'],
+    sections: ['Refuge · Moldova', 'Through Their Eyes · Myanmar', 'Thailand', 'Malaysia', 'Protest', 'Cairo'],
     exhibited: 'Exhibited 2021',
     ctx: 'Context · as of October 2026',
     lead: { kicker: 'Travel · Myanmar, Thailand, Malaysia 2017', head: 'Through Their Eyes', stand: 'Burma and Thailand, December 2017. Not a single shared word, but looks that stay.' },
@@ -129,6 +131,7 @@ export const T = {
         'Since 2025 the five rescued villages are meant to come back to life. Of the roughly 500 people who once lived there, only a few have stayed.'],
       src: 'Sources: RWE and the town of Erkelenz (2025)',
       blmKicker: 'Cologne · 6 June 2020', blmHead: 'Black Lives Matter', blmText: 'Taking a stand against institutional racism. 10,000 people march along the Rhine in Cologne in June 2020.' },
+    kairo: { kicker: 'Egypt · 2023', head: 'Order within chaos', text: 'One of my biggest dreams was to see the pyramids, the last of the seven wonders of the ancient world that is still standing. So we went. And then on into the desert, where we slept under the stars.', cap: 'Egypt 2023' },
     pubs: 'Clients and publications', back: 'Back into the light →', photo: 'Photo: Kilian Amrehn',
   },
 };

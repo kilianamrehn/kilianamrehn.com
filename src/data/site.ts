@@ -24,6 +24,7 @@ export const routes = {
   campaigns: { de: 'kampagnen/', en: 'en/campaigns/' },
   reportage: { de: 'reportage/', en: 'en/reportage/' },
   about: { de: 'ueber/', en: 'en/about/' },
+  flashes: { de: 'flashes/', en: 'en/flashes/' },
 } as const;
 // Kampagnen-Projektseiten: deutsch direkt unter /<slug>/ (alte Adressen), englisch unter /en/campaigns/<slug>/
 export const campaignPath = (slug: string, lang: Lang) => (lang === 'de' ? '' : routes.campaigns.en) + slug + '/';

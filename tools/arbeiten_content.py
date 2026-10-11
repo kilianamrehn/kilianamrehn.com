@@ -12,7 +12,7 @@ p('rock-fairyland','Rock Fairyland','Freie Strecke · Editorial','Personal serie
   [('Produktion','Kilian Amrehn'),('Styling','Jacqueline Tamm'),('Models','Marie Wehder, Louis Joerissen'),('Hair & Make-up','Kathrin Hupertz'),('Veröffentlicht',"First Magazine, New Icons' Club Magazine")],
   edge=('FREIE STRECKE','EDITORIAL'))
 p('ozean-der-stille','Ozean der Stille','Freie Strecke · Mode','Personal series · Fashion','2026','',
-  [S('','',r('ozean-der-stille',1,11))],[('Foto','Kilian Amrehn')],top='ozean-der-stille',edge=('FREIE STRECKE','MODEFOTOGRAFIE'))
+  [S('','',r('ozean-der-stille',1,11))],[('Design','Jonas Braun · Pulpo Productions'),('Foto','Kilian Amrehn'),('Video','Lukas Beilenhoff'),('Video-Assistenz','Dopia Films'),('Assistenz','Alexandra Neufeld, Gereon Schultes, David Heinrichs')],top='ozean-der-stille',edge=('FREIE STRECKE','MODEFOTOGRAFIE'))
 p('scholl-iconic','Scholl','Kampagnen','Campaigns','2021 bis 2023','The Wants Social',
   [S('Scholl iconic · Fuerteventura 2021','Scholl iconic · Fuerteventura 2021',r('scholl',1,6)),
    S('Scholl iconic · Oktober 2021','Scholl iconic · October 2021',r('scholl',7,11)),

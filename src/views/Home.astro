@@ -5,6 +5,7 @@ import Img from '../components/Img.astro';
 import Pic from '../components/Pic.astro';
 import idx from '../data/tisch/arbeiten-index.json';
 import meta from '../data/imgmeta.json';
+import { T as RT } from '../data/reportage';
 import { site, routes, campaignPath, type Lang } from '../data/site';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
@@ -176,8 +177,9 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
   <a href={u(r('reportage'))} class="clip">
     <div class="clip-top mono"><span>{site.newsIssue} · {t.clipTop}</span><span>Reportage</span></div>
     <div class="clip-title">{t.newsTitle}</div>
+    <div class="clip-tick mono"><span>{RT[lang].ticker}</span></div>
     <div class="rule2"></div>
-    <div class="clip-secs mono">{(lang === 'de' ? ['Myanmar', 'Thailand', 'Malaysia', 'Moldau', 'Protest'] : ['Myanmar', 'Thailand', 'Malaysia', 'Moldova', 'Protest']).map((x, i) => <span data-go={['myanmar', 'thailand', 'malaysia', 'moldau', 'protest'][i]}>{x}</span>)}</div>
+    <div class="clip-secs mono">{(lang === 'de' ? ['Moldau', 'Myanmar', 'Thailand', 'Malaysia', 'Protest', 'Kairo'] : ['Moldova', 'Myanmar', 'Thailand', 'Malaysia', 'Protest', 'Cairo']).map((x, i) => <span data-go={['moldau', 'myanmar', 'thailand', 'malaysia', 'protest', 'kairo'][i]}>{x}</span>)}</div>
     <div class="clip-body">
       <Pic name="r-moldau-1" alt={t.clipAlt} class="clip-img" sizes="(max-width: 900px) 100vw, 55vw" />
       <div class="clip-text">
@@ -295,6 +297,10 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
   .rule2 { border-top: 3px solid var(--news-ink); border-bottom: 1px solid var(--news-ink); height: 3px; }
   .clip-body { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(20px, 2.5vw, 36px); padding-top: 28px; padding-bottom: 28px; align-items: start; }
   .clip-body :global(.clip-img) { width: 100%; height: auto; display: block; filter: grayscale(1) contrast(1.08); }
+  .clip-tick { background: var(--news-ink); color: var(--news-paper); white-space: nowrap; overflow: hidden; padding: 8px 0; margin: 6px 0 0; font-size: 12px; letter-spacing: .08em; }
+  .clip-tick span { display: inline-block; padding-left: 100%; animation: cliptick 45s linear infinite; }
+  @keyframes cliptick { to { transform: translateX(-100%); } }
+  @media (prefers-reduced-motion: reduce) { .clip-tick span { animation: none; padding-left: 16px; } }
   .clip-secs { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 28px; padding: 10px 0; border-bottom: 1px solid var(--news-ink); }
   .clip-secs span:hover { color: var(--news-red); }
   .clip-text { display: flex; flex-direction: column; gap: 14px; }

@@ -25,7 +25,7 @@ const article = { '@context': 'https://schema.org', '@type': 'Article', headline
   <div class="dateline mono"><span>{t.issue} {site.newsIssue}</span><span>{t.place}</span><span>{t.byline}</span></div>
   <h1 class="masthead">{newsTitle}<span class="visually-hidden">{t.h1Hidden}</span></h1>
   <div class="rule2"></div>
-  <nav class="sections mono" aria-label={t.sectionsLabel}>{['moldau', 'through-their-eyes', 'thailand', 'malaysia', 'protest'].map((id, i) => <a href={`#${id}`}>{t.sections[i]}</a>)}</nav>
+  <nav class="sections mono" aria-label={t.sectionsLabel}>{['moldau', 'through-their-eyes', 'thailand', 'malaysia', 'protest', 'kairo'].map((id, i) => <a href={`#${id}`}>{t.sections[i]}</a>)}</nav>
 </section>
 
 <section class="wrap front">
@@ -199,6 +199,20 @@ const article = { '@context': 'https://schema.org', '@type': 'Article', headline
     ))}</div>
   ))}
 
+</article>
+
+<article id="kairo" class="wrap story">
+  <div class="rule2"></div>
+  <div class="ch-head"><span class="mono red">{t.kairo.kicker}</span></div>
+  <h2 class="hl hl-xxl">{t.kairo.head}</h2>
+  <p class="lede">{t.kairo.text}</p>
+  {rows.kairo.map((r) => (
+    <div class="jr">{r.map((n) => (
+      <figure class="ph" data-full={full(n)} data-alt={altOf(n, t.kairo.cap)} data-cap={t.kairo.cap} role="button" tabindex="0" style={`flex:${ar(n)} 1 0`}>
+        <Pic name={n} alt={altOf(n, t.kairo.cap)} sizes={`(max-width: 900px) 100vw, ${Math.round(ar(n) * 30)}vw`} />
+      </figure>
+    ))}</div>
+  ))}
 </article>
 
 <section class="wrap">

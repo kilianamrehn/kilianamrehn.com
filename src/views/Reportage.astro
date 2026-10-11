@@ -25,21 +25,22 @@ const article = { '@context': 'https://schema.org', '@type': 'Article', headline
   <div class="dateline mono"><span>{t.issue} {site.newsIssue}</span><span>{t.place}</span><span>{t.byline}</span></div>
   <h1 class="masthead">{newsTitle}<span class="visually-hidden">{t.h1Hidden}</span></h1>
   <div class="rule2"></div>
-  <nav class="sections mono" aria-label={t.sectionsLabel}>{['myanmar', 'thailand', 'malaysia', 'moldau', 'protest'].map((id, i) => <a href={`#${id}`}>{t.sections[i]}</a>)}</nav>
+  <nav class="sections mono" aria-label={t.sectionsLabel}>{['moldau', 'through-their-eyes', 'thailand', 'malaysia', 'protest'].map((id, i) => <a href={`#${id}`}>{t.sections[i]}</a>)}</nav>
 </section>
 
 <section class="wrap front">
-  <a href="#through-their-eyes" class="lead">
-    <span class="mono red">{t.lead.kicker}</span>
-    <span class="hl hl-xl">{t.lead.head}</span>
-    <span class="stand">{t.lead.stand}</span>
-    <figure><Pic name="r-myanmar-1" alt={altOf('r-myanmar-1', 'Myanmar')} sizes="(max-width: 900px) 100vw, 60vw" loading="eager" /><figcaption>{t.exhibited} · {en ? ausgestellt['r-myanmar-1'][2] : ausgestellt['r-myanmar-1'][0]}</figcaption></figure>
+  <a href="#moldau" class="lead">
+    <span class="mono red">{t.teaserMoldau.kicker}</span>
+    <span class="hl hl-xl">{t.teaserMoldau.head}</span>
+    <span class="stand">{t.moldau.lead}</span>
+    <figure><Pic name="r-moldau-12" alt={altOf('r-moldau-12', en ? 'Moldova 2022' : 'Moldau 2022')} sizes="(max-width: 900px) 100vw, 60vw" loading="eager" /><figcaption>{t.moldau.leadCap}</figcaption></figure>
   </a>
   <div class="side">
-    <a href="#moldau" class="teaser bordered">
-      <Pic name="r-moldau-1" alt={altOf('r-moldau-1', en ? 'Moldova 2022' : 'Moldau 2022')} sizes="(max-width: 900px) 100vw, 30vw" />
-      <span class="mono red">{t.teaserMoldau.kicker}</span>
-      <span class="hl hl-md">{t.teaserMoldau.head}</span>
+    <a href="#through-their-eyes" class="teaser bordered">
+      <Pic name="r-myanmar-1" alt={altOf('r-myanmar-1', 'Myanmar')} sizes="(max-width: 900px) 100vw, 30vw" />
+      <span class="mono red">{t.lead.kicker}</span>
+      <span class="hl hl-md">{t.lead.head}</span>
+      <span>{t.lead.stand}</span>
     </a>
     <a href="#protest" class="teaser">
       <Pic name="r-hambi-1" alt={altOf('r-hambi-1', en ? 'Hambach Forest 2018' : 'Hambacher Forst 2018')} sizes="(max-width: 900px) 100vw, 30vw" />
@@ -48,6 +49,32 @@ const article = { '@context': 'https://schema.org', '@type': 'Article', headline
     </a>
   </div>
 </section>
+
+<article id="moldau" class="wrap story">
+  <div class="rule2"></div>
+  <div class="dateline mono"><span>{site.newsIssue} · {t.moldau.kicker}</span><span>{t.moldau.byline}</span></div>
+  <div class="st-head">
+    <h2 class="hl hl-xxl">{t.moldau.head}</h2>
+    <dl class="facts mono">
+      <dt class="red">{t.moldau.factsTitle}</dt>
+      {t.moldau.facts.map((f) => <dd>{f}</dd>)}
+    </dl>
+  </div>
+  <div class="cols">
+    <p><span class="drop">W</span><b class="mono">{t.moldau.place}</b> {t.moldau.p1}</p>
+    <p>{t.moldau.p2}</p>
+  </div>
+  <blockquote class="hl" set:html={t.moldau.quote} />
+  {rows.moldau.map((r) => (
+    <div class="jr">{r.map((n) => (
+      <figure class="ph" data-full={full(n)} data-alt={altOf(n, en ? 'Moldova 2022' : 'Moldau 2022')} data-cap={en ? 'Moldova 2022' : 'Moldau 2022'} role="button" tabindex="0" style={`flex:${ar(n)} 1 0`}>
+        <Pic name={n} alt={altOf(n, en ? 'Moldova 2022' : 'Moldau 2022')} sizes={`(max-width: 900px) 100vw, ${Math.round(ar(n) * 30)}vw`} />
+        {ausgestellt[n] && <figcaption><b class="red">{t.exhibited}</b> · <b>{en ? ausgestellt[n][2] : ausgestellt[n][0]}</b> {en ? ausgestellt[n][3] : ausgestellt[n][1]}</figcaption>}
+      </figure>
+    ))}</div>
+  ))}
+
+</article>
 
 <article id="through-their-eyes" class="wrap story">
   <div class="rule2"></div>
@@ -124,31 +151,7 @@ const article = { '@context': 'https://schema.org', '@type': 'Article', headline
 
 </article>
 
-<article id="moldau" class="wrap story">
-  <div class="rule2"></div>
-  <div class="dateline mono"><span>{site.newsIssue} · {t.moldau.kicker}</span><span>{t.moldau.byline}</span></div>
-  <div class="st-head">
-    <h2 class="hl hl-xxl">{t.moldau.head}</h2>
-    <dl class="facts mono">
-      <dt class="red">{t.moldau.factsTitle}</dt>
-      {t.moldau.facts.map((f) => <dd>{f}</dd>)}
-    </dl>
-  </div>
-  <div class="cols">
-    <p><span class="drop">W</span><b class="mono">{t.moldau.place}</b> {t.moldau.p1}</p>
-    <p>{t.moldau.p2}</p>
-  </div>
-  <blockquote class="hl" set:html={t.moldau.quote} />
-  {rows.moldau.map((r) => (
-    <div class="jr">{r.map((n) => (
-      <figure class="ph" data-full={full(n)} data-alt={altOf(n, en ? 'Moldova 2022' : 'Moldau 2022')} data-cap={en ? 'Moldova 2022' : 'Moldau 2022'} role="button" tabindex="0" style={`flex:${ar(n)} 1 0`}>
-        <Pic name={n} alt={altOf(n, en ? 'Moldova 2022' : 'Moldau 2022')} sizes={`(max-width: 900px) 100vw, ${Math.round(ar(n) * 30)}vw`} />
-        {ausgestellt[n] && <figcaption><b class="red">{t.exhibited}</b> · <b>{en ? ausgestellt[n][2] : ausgestellt[n][0]}</b> {en ? ausgestellt[n][3] : ausgestellt[n][1]}</figcaption>}
-      </figure>
-    ))}</div>
-  ))}
 
-</article>
 
 <article id="protest" class="wrap story">
   <div class="rule2"></div>

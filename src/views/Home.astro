@@ -117,6 +117,7 @@ const bands = (idx as any[]).map((k) => ({ n: k.title, c: k.bg, img: k.d.imgs.fi
     </div>
   ))}
   <div class="shade"></div>
+  <div class="tap-hint" aria-hidden="true"><svg viewBox="0 0 30 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle class="ring" cx="13" cy="7" r="6" /><path d="M13 8v13l-3-3a2 2 0 0 0-3 3l5 6c1.5 2 3 3 6 3h2a6 6 0 0 0 6-6v-6a2 2 0 0 0-4 0v-1a2 2 0 0 0-4 0v-1a2 2 0 0 0-4 0V8a1.5 1.5 0 0 0-3 0" /></svg><span>{lang === 'de' ? '2× tippen, Licht malen' : 'Tap twice, paint light'}</span></div>
   </div>
   <div class="hero-text wrap">
     <div>
@@ -206,7 +207,17 @@ const bands = (idx as any[]).map((k) => ({ n: k.title, c: k.bg, img: k.d.imgs.fi
   .chips { display: flex; gap: 12px; }
   .chips button { width: 44px; height: 44px; border-radius: 999px; border: 1px solid rgba(244,238,228,.35); padding: 0; cursor: pointer; }
   .chips button[aria-pressed='true'] { border: 3px solid var(--white); }
-  @media (hover: none) { .hero :global(.lit) { -webkit-mask-image: none; mask-image: none; } .hero { cursor: default; } }
+  @media (hover: none) { .hero { cursor: default; } }
+  .tap-hint { display: none; }
+  @media (hover: none) {
+    .tap-hint { display: flex; align-items: center; gap: 10px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none; color: var(--white); font: 500 11px/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; text-shadow: 0 1px 10px rgba(0,0,0,.7); transition: opacity .4s; white-space: nowrap; }
+    .tap-hint svg { width: 34px; height: 34px; animation: tap 1.6s ease-in-out infinite; }
+    .tap-hint .ring { animation: ring 1.6s ease-out infinite; transform-origin: 13px 7px; }
+    .hero.painted .tap-hint { opacity: 0; }
+    .hero.painting { touch-action: none; }
+  }
+  @keyframes tap { 0%, 100% { transform: translateY(0); } 15% { transform: translateY(3px); } 30% { transform: translateY(0); } 45% { transform: translateY(3px); } 60% { transform: translateY(0); } }
+  @keyframes ring { 0%, 10% { opacity: 0; transform: scale(.4); } 20% { opacity: .9; } 60%, 100% { opacity: 0; transform: scale(1.6); } }
   @media (max-width: 700px) {
     .hero { height: auto; overflow: visible; }
     .frame { position: relative; left: 0; transform: none; width: 100%; }
@@ -226,6 +237,10 @@ const bands = (idx as any[]).map((k) => ({ n: k.title, c: k.bg, img: k.d.imgs.fi
   .row :global(.neg) { height: clamp(300px, 41.7vw, 600px); width: auto; max-width: none; }
   @keyframes slide { to { transform: translateX(-50%); } }
 
+  .intro :global(.runon em), .intro :global(.runon b) { color: var(--dim); transition: color 1.2s ease; }
+  .intro :global(.runon em.lit) { color: var(--white); }
+  .intro :global(.runon b.lit) { color: var(--accent); }
+  @media (prefers-reduced-motion: reduce) { .intro :global(.runon em) { color: var(--white); } .intro :global(.runon b) { color: var(--accent); } }
   .intro { padding-top: clamp(80px, 10vw, 140px); padding-bottom: clamp(80px, 10vw, 140px); }
   .doors { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-bottom: 80px; }
   .door { display: flex; flex-direction: column; gap: 20px; }
@@ -239,6 +254,11 @@ const bands = (idx as any[]).map((k) => ({ n: k.title, c: k.bg, img: k.d.imgs.fi
   .band :global(img) { opacity: 0; transition: opacity .45s, transform .8s cubic-bezier(.2,.7,.2,1); }
   .band-name { position: absolute; left: 20px; top: calc(var(--h) / 2); transform: translateY(-50%); z-index: 1; transition: top .5s cubic-bezier(.2,.7,.2,1); text-shadow: 0 1px 12px rgba(0,0,0,.5); }
   .band .arr { opacity: 0; transition: opacity .3s; }
+  .reveal.open { height: clamp(200px, 50vw, 280px); }
+  .reveal.open .rv-name { opacity: 1; transform: none; }
+  .band.open :global(img) { opacity: 1; }
+  .band.open .band-name { top: calc(100% - 28px); }
+  .band.open .arr { opacity: 1; }
   @media (hover: hover) {
     .reveal:hover, .reveal:focus-visible { height: clamp(200px, 19vw, 280px); }
     .reveal:hover :global(img) { transform: scale(1.03); }
@@ -273,6 +293,18 @@ const bands = (idx as any[]).map((k) => ({ n: k.title, c: k.bg, img: k.d.imgs.fi
 </style>
 
 <script>
+  // Handy: erster Tipp klappt den Streifen auf, zweiter Tipp öffnet die Seite
+  if (matchMedia('(hover: none)').matches) {
+    document.querySelectorAll<HTMLAnchorElement>('.reveal').forEach((a) => a.addEventListener('click', (e) => {
+      if (a.classList.contains('open')) return;
+      e.preventDefault();
+      document.querySelectorAll('.reveal.open').forEach((x) => x.classList.remove('open'));
+      a.classList.add('open');
+    }));
+  }
+  // Lauftext: Hervorhebungen leuchten erst auf, wenn man darüber scrollt
+  const io2 = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('lit'); io2.unobserve(e.target); } }), { rootMargin: '0px 0px -38% 0px', threshold: 1 });
+  document.querySelectorAll('.runon em, .runon b').forEach((el) => io2.observe(el));
   document.querySelectorAll<HTMLElement>('[data-go]').forEach((el) => el.addEventListener('click', (e) => {
     e.preventDefault(); const a = el.closest('a'); if (a) location.href = a.href + '#' + el.dataset.go;
   }));
@@ -282,18 +314,33 @@ const bands = (idx as any[]).map((k) => ({ n: k.title, c: k.bg, img: k.d.imgs.fi
     let pts = start.slice();
     const draw = () => {
       const n = pts.length;
-      hero.style.setProperty('--mask', pts.map((p, i) => `radial-gradient(circle ${Math.round(30 + 95 * ((i + 1) / n))}px at ${p.x}% ${p.y}%, #000 0%, #000 35%, transparent 100%)`).join(', '));
+      const k = matchMedia('(max-width: 700px)').matches ? 0.45 : 1;
+      hero.style.setProperty('--mask', pts.map((p, i) => `radial-gradient(circle ${Math.round((30 + 95 * ((i + 1) / n)) * k)}px at ${p.x}% ${p.y}%, #000 0%, #000 35%, transparent 100%)`).join(', '));
     };
     draw();
     let raf = 0;
+    // Handy: zweimal tippen, Finger liegen lassen und Licht malen; loslassen = wieder scrollen
+    let painting = false, lastTap = 0;
+    const frameEl = (hero.querySelector('.frame') as HTMLElement) || hero;
+    frameEl.addEventListener('pointerup', (e) => {
+      if (e.pointerType !== 'touch') return;
+      if (painting) { painting = false; hero.classList.remove('painting'); return; }
+      lastTap = performance.now(); hero.classList.add('painting');
+      setTimeout(() => { if (!painting) hero.classList.remove('painting'); }, 450);
+    });
+    frameEl.addEventListener('pointerdown', (e) => {
+      if (e.pointerType !== 'touch') return;
+      if (performance.now() - lastTap < 450) { painting = true; hero.classList.add('painting', 'painted'); e.preventDefault(); frameEl.setPointerCapture(e.pointerId); }
+    });
+    frameEl.addEventListener('pointercancel', () => { painting = false; hero.classList.remove('painting'); });
     hero.addEventListener('pointermove', (e) => {
-      if (e.pointerType === 'touch') return;
-      const r = (hero.querySelector('.frame') as HTMLElement || hero).getBoundingClientRect();
+      if (e.pointerType === 'touch' && !painting) return;
+      const r = frameEl.getBoundingClientRect();
       const x = Math.round(((e.clientX - r.left) / r.width) * 1000) / 10;
       const y = Math.round(((e.clientY - r.top) / r.height) * 1000) / 10;
       const last = pts[pts.length - 1];
       if (last && Math.abs(last.x - x) + Math.abs(last.y - y) < 1.5) return;
-      pts = pts.concat([{ x, y }]).slice(-28);
+      pts = pts.concat([{ x, y }]).slice(e.pointerType === 'touch' ? -60 : -28);
       cancelAnimationFrame(raf); raf = requestAnimationFrame(draw);
     });
     const cap = hero.querySelector<HTMLElement>('[data-caption-out]');

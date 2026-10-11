@@ -137,8 +137,8 @@ const bands = (idx as any[]).map((k) => ({ n: k.title, c: k.bg, img: k.d.imgs.fi
   <div class="strip-rows">
     {[['kontaktabzug-negativstreifen-1', 'a'], ['kontaktabzug-negativstreifen-2', 'b']].map(([s, d]) => (
       <div class={`row row-${d}`}>
-        <Img src={s} alt={t.stripAlt} class="neg" sizes="(max-width: 720px) 3645px, 7290px" widths={[3645, 7290, 10600]} quality={62} />
-        <Img src={s} alt="" class="neg" sizes="(max-width: 720px) 3645px, 7290px" widths={[3645, 7290, 10600]} quality={62} />
+        <Img src={s} alt={t.stripAlt} class="neg" sizes="(max-width: 720px) 3000px, 6000px" widths={[3000, 6000, 12000]} quality={62} />
+        <Img src={s} alt="" class="neg" sizes="(max-width: 720px) 3000px, 6000px" widths={[3000, 6000, 12000]} quality={62} />
       </div>
     ))}
   </div>

@@ -31,13 +31,13 @@ export const campaignPath = (slug: string, lang: Lang) => (lang === 'de' ? '' : 
 export const nav: Record<Lang, { label: string; href: string }[]> = {
   de: [
     { label: 'Porträts', href: routes.artists.de },
-    { label: 'Kampagnen', href: routes.campaigns.de },
+    { label: 'Arbeiten', href: routes.campaigns.de },
     { label: site.newsTitle, href: routes.reportage.de },
     { label: 'Über', href: routes.about.de },
   ],
   en: [
     { label: 'Portraits', href: routes.artists.en },
-    { label: 'Campaigns', href: routes.campaigns.en },
+    { label: 'Work', href: routes.campaigns.en },
     { label: 'Reportage', href: routes.reportage.en },
     { label: 'About', href: routes.about.en },
   ],

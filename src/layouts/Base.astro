@@ -74,7 +74,10 @@ const ld = [business, person, ...schema];
 <body class={bodyClass}>
 <a class="visually-hidden" href="#inhalt">{en ? 'Skip to content' : 'Zum Inhalt'}</a>
 <header class:list={['site-header wrap', { overlay: headerOverlay }]}>
-  <a class="brand display" href={u(en ? 'en/' : '')} aria-label={en ? 'Kilian Amrehn, home' : 'Kilian Amrehn, Startseite'}>Kilian</a>
+  <a class="brand" href={u(en ? 'en/' : '')} aria-label={en ? 'Kilian Amrehn, home' : 'Kilian Amrehn, Startseite'}><img src={u('media/kilian-logo.png')} alt="KILIAN" width="729" height="148"></a>
+  <a class:list={['lamp', { on: path.startsWith('/flashes') }]} href={u('flashes/')} data-lamp aria-label="Flashes" title="Flashes">
+    <svg viewBox="0 0 40 120" aria-hidden="true"><line x1="20" y1="0" x2="20" y2="70" /><rect x="14" y="66" width="12" height="14" rx="2" /><circle class="bulb" cx="20" cy="94" r="15" /><path class="fil" d="M14 94 q3 -6 6 0 q3 6 6 0" /></svg>
+  </a>
   <nav aria-label={en ? 'Main navigation' : 'Hauptnavigation'}>
     {nav[lang].map((n) => <a href={u(n.href)} aria-current={path.startsWith('/' + n.href) ? 'page' : undefined}>{n.label}</a>)}
     <span class="lang"><a href={u(dePath)} aria-current={lang === 'de' ? 'true' : undefined} hreflang="de" lang="de">DE</a> / <a href={u(enPath ?? 'en/')} aria-current={lang === 'en' ? 'true' : undefined} hreflang="en" lang="en">EN</a></span>
@@ -96,6 +99,14 @@ const ld = [business, person, ...schema];
     </div>
   </div>
 </footer>
+<div class="darkroom" aria-hidden="true"></div>
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('[data-lamp]').forEach((a) => a.addEventListener('click', (e) => {
+    if (a.classList.contains('on')) return;
+    e.preventDefault(); a.classList.add('on'); document.documentElement.classList.add('in-darkroom');
+    setTimeout(() => { location.href = a.href; }, matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 700);
+  }));
+</script>
 </body>
 </html>
 <style>

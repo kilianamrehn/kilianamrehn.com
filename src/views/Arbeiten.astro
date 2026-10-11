@@ -1,0 +1,54 @@
+---
+// Arbeiten: Kampagnen und freie Strecken. Farbleiste oben, jede Arbeit auf einem Bogen in ihrer Farbe.
+import Base from '../layouts/Base.astro';
+import Tisch from '../components/Tisch.astro';
+import Lightbox from '../components/Lightbox.astro';
+import idx from '../data/tisch/arbeiten-index.json';
+import { routes, campaignPath, type Lang } from '../data/site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const en = lang === 'en';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const T = en
+  ? { title: 'Campaign, Fashion & Editorial Photography Cologne · Work · Kilian Amrehn', desc: "Campaigns and personal series by Kilian Amrehn, Cologne: Scholl, Copenhagen Studios, Peek & Cloppenburg x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club, Rock Fairyland.", h1: 'Work', sub: 'Campaigns & personal series', view: 'View →' }
+  : { title: 'Kampagnen-, Mode- und Editorial-Fotografie Köln · Arbeiten · Kilian Amrehn', desc: "Kampagnen und freie Strecken von Kilian Amrehn, Köln: Scholl, Copenhagen Studios, Peek & Cloppenburg x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club, Rock Fairyland.", h1: 'Arbeiten', sub: 'Kampagnen & freie Strecken', view: 'Ansehen →' };
+const list = idx as any[];
+---
+<Base lang={lang} alternate={routes.campaigns[en ? 'de' : 'en']} title={T.title} description={T.desc}>
+<section class="wrap ar-head">
+  <h1 class="display big">{T.h1}</h1>
+  <span class="mono sub">{T.sub}</span>
+</section>
+<nav class="bar mono" aria-label={T.h1}>
+  {list.map((k) => <a href={`#${k.slug}`} style={`background:${k.bg}`}>{k.title}</a>)}
+</nav>
+{list.map((k) => (
+  <article id={k.slug} class="ar">
+    <a class="ar-top" href={base + campaignPath(k.slug, lang)} style={`background:${k.bg}`}>
+      <span class="wrap ar-t">
+        <span class="display ar-name">{k.title}</span>
+        <span class="mono ar-meta">{en ? k.kindEn : k.kind} · {k.year}</span>
+        <span class="mono ar-cta">{T.view}</span>
+      </span>
+    </a>
+    <Tisch sheets={[{ bg: k.bg, d: k.d, m: k.m, href: base + campaignPath(k.slug, lang) }]} lang={lang} alt={(n, i) => `${k.title}, ${en ? k.kindEn : k.kind}, ${en ? 'photographed by' : 'fotografiert von'} Kilian Amrehn`} />
+  </article>
+))}
+<Lightbox lang={lang} />
+</Base>
+<style>
+  .ar-head { padding-top: 32px; padding-bottom: 32px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 32px; }
+  .big { font-size: clamp(72px, 11.7vw, 168px); line-height: .86; margin: 0; }
+  .sub { color: var(--mute); letter-spacing: .16em; text-transform: uppercase; font-size: 12px; }
+  .bar { display: flex; flex-wrap: wrap; position: sticky; top: 0; z-index: 60; }
+  .bar > * { flex: 1 1 140px; min-height: 52px; display: flex; align-items: center; padding: 0 16px; color: var(--white); font-size: 12px; }
+  @media (max-width: 720px) { .bar { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .bar > * { flex: 0 0 auto; } }
+  .ar { scroll-margin-top: 52px; position: relative; }
+  .ar-top { display: block; position: relative; z-index: 50; color: var(--white); text-decoration: none; }
+  .ar-t { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 28px; padding-top: 44px; padding-bottom: 8px; }
+  .ar-name { font-size: clamp(40px, 6vw, 96px); line-height: .9; }
+  .ar-meta { color: rgba(240,228,218,.75); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; }
+  .ar-cta { margin-left: auto; padding: 8px 14px; border: 1px solid rgba(240,228,218,.6); border-radius: 999px; font-size: 12px; }
+  .ar :global(.sheet .band) { top: 0 !important; box-shadow: none !important; transform: none !important; }
+  .ar :global(.ph) { cursor: pointer; }
+</style>

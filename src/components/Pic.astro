@@ -1,0 +1,15 @@
+---
+// Bild aus public/img (vorgerechnete WebP-Größen, siehe tools/). name ohne Endung.
+import meta from '../data/imgmeta.json';
+interface Props { name: string; alt: string; sizes?: string; style?: string; class?: string; loading?: 'lazy' | 'eager' }
+const { name, alt, sizes = '100vw', style, class: cls, loading = 'lazy' } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const m = (meta as Record<string, [number, number, number[]]>)[name];
+if (!m) throw new Error('Bild fehlt: ' + name);
+const [W, H, ws] = m;
+// Flashes wurden nach der langen Seite skaliert, alle anderen nach der Breite
+const realW = (w: number) => (name.startsWith('f-') ? Math.min(W, Math.round((W * w) / Math.max(W, H))) : Math.min(W, w));
+const srcset = ws.map((w) => `${base}img/${name}-${w}.webp ${realW(w)}w`).join(', ');
+const src = `${base}img/${name}-${ws[Math.min(1, ws.length - 1)]}.webp`;
+---
+<img src={src} srcset={srcset} sizes={sizes} alt={alt} width={W} height={H} loading={loading} decoding="async" style={style} class={cls} />

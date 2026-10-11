@@ -1,0 +1,76 @@
+---
+// Eine Arbeit (Kampagne oder freie Strecke): Titel, ggf. Film oben, Bögen mit Bildern, Abspann, Vor/Zurück.
+import Base from '../layouts/Base.astro';
+import Tisch from '../components/Tisch.astro';
+import Lightbox from '../components/Lightbox.astro';
+import { routes, campaignPath, type Lang } from '../data/site';
+import vm from '../data/vidmeta.json';
+interface Props { lang: Lang; p: any; prev: any; next: any; data: any }
+const { lang, p, prev, next, data } = Astro.props;
+const en = lang === 'en';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const roleEn: Record<string, string> = { Produktion: 'Production', Regie: 'Director', Fotoassistenz: 'Photo assistant', Foto: 'Photography', 'Veröffentlicht': 'Published in', Agentur: 'Agency', Auftrag: 'Client', Tiertrainerin: 'Animal trainer', Kollektiv: 'Collective', 'Art Direction, Foto': 'Art direction, photography' };
+const kind = en ? p.kindEn : p.kind;
+const meta = [kind, p.year, p.client].filter(Boolean).join(' · ');
+const text = en ? p.textEn : p.textDe;
+const T = en
+  ? { suffix: 'Kilian Amrehn Photography', by: 'photographed by Kilian Amrehn', credits: 'Credits', prev: '← Previous', all: 'All work', next: 'Next →', more: 'More work', film: 'Film' }
+  : { suffix: 'Kilian Amrehn Fotografie', by: 'fotografiert von Kilian Amrehn', credits: 'Abspann', prev: '← Vorherige', all: 'Alle Arbeiten', next: 'Nächste →', more: 'Weitere Arbeiten', film: 'Film' };
+const isKi = (n: string) => n.includes('-ki-');
+const alt = (n: string, i: number) => isKi(n)
+  ? `${p.title}, ${en ? 'AI-animated video from the photos' : 'KI-animiertes Video aus den Fotos'}`
+  : n === 'silent-escape-bts' ? `${p.title}, Behind the Scenes` : `${p.title}, ${kind}, ${T.by}, ${en ? 'image' : 'Bild'} ${i + 1}`;
+const desc = en
+  ? `${p.title}: ${meta}. ${kind} photographed by Kilian Amrehn, Cologne.`
+  : `${p.title}: ${meta}. ${kind} fotografiert von Kilian Amrehn, Köln.`;
+const top = p.top ? (vm as any)[p.top] : null;
+---
+<Base lang={lang} alternate={campaignPath(p.slug, en ? 'de' : 'en')} title={`${p.title} · ${kind} · ${T.suffix}`} description={desc}>
+<section class="a-head" style={`background:${p.color}`}>
+  <div class="wrap a-in">
+    <span class="mono kick">{meta}</span>
+    <h1 class="display a-title">{p.title}</h1>
+    {text && <p class="a-text">{text}</p>}
+  </div>
+  {top && (
+    <div class="wrap film">
+      <video data-autoplay src={`${base}media/video/${p.top}.mp4`} poster={`${base}img/v-${p.top}.webp`} muted loop playsinline controls preload="metadata" width={top[0]} height={top[1]} aria-label={`${p.title}, ${T.film}`}></video>
+    </div>
+  )}
+</section>
+<Tisch sheets={data.sheets} lang={lang} alt={alt} caption={p.title} first />
+<Lightbox lang={lang} />
+{p.credits.length > 0 && (
+<section class="abspann" style={`background:${p.color}`}>
+  <div class="ab-in">
+    <div class="mono ab-title">{T.credits}</div>
+    {p.credits.map(([r, n]: [string, string]) => <div class="row"><span class="mono">{en ? roleEn[r] ?? r : r}</span><span class="display">{n}</span></div>)}
+  </div>
+</section>
+)}
+<nav class="pn" aria-label={T.more}>
+  <a href={base + campaignPath(prev.slug, lang)} style={`background:${prev.color}`}><span class="mono">{T.prev}</span><span class="display">{prev.title}</span></a>
+  <a class="all mono" href={base + routes.campaigns[lang]}>{T.all}</a>
+  <a href={base + campaignPath(next.slug, lang)} style={`background:${next.color};text-align:right;align-items:flex-end`}><span class="mono">{T.next}</span><span class="display">{next.title}</span></a>
+</nav>
+</Base>
+<style>
+  .a-head { position: relative; padding: clamp(56px, 8vw, 110px) 0 clamp(40px, 5vw, 70px); }
+  .a-in { display: flex; flex-direction: column; gap: 22px; }
+  .kick { color: rgba(240,228,218,.75); letter-spacing: .16em; text-transform: uppercase; font-size: 12px; }
+  .a-title { font-size: clamp(52px, 9vw, 140px); line-height: .88; color: var(--white); margin: 0; text-wrap: balance; }
+  .a-text { max-width: 60ch; margin: 0; color: rgba(240,228,218,.9); font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; }
+  .film { margin-top: clamp(32px, 5vw, 64px); }
+  .film video { width: 100%; height: auto; display: block; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
+  .abspann { color: var(--white); }
+  .ab-in { max-width: 1100px; margin: 0 auto; padding: 120px var(--pad); display: flex; flex-direction: column; gap: 28px; }
+  .ab-title { text-align: center; letter-spacing: .3em; padding-bottom: 16px; text-transform: uppercase; color: rgba(240,228,218,.75); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: baseline; }
+  .row .mono { text-align: right; color: rgba(240,228,218,.7); }
+  .row .display { font-size: clamp(22px, 2.4vw, 34px); line-height: 1.15; }
+  .pn { display: flex; flex-wrap: wrap; }
+  .pn a { flex: 1 1 320px; display: flex; flex-direction: column; gap: 10px; padding: 48px var(--pad); color: var(--white); }
+  .pn .display { font-size: clamp(32px, 4vw, 56px); line-height: 1; }
+  .pn .all { flex: 0 1 240px; align-items: center; justify-content: center; background: #111; }
+  @media (max-width: 720px) { .row { grid-template-columns: 1fr; gap: 4px; } .row .mono { text-align: left; } }
+</style>

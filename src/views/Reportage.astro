@@ -1,253 +1,228 @@
 ---
 import '@fontsource-variable/big-shoulders-display';
 import Base from '../layouts/Base.astro';
-import Img from '../components/Img.astro';
+import Pic from '../components/Pic.astro';
+import Lightbox from '../components/Lightbox.astro';
+import meta from '../data/imgmeta.json';
 import { site, routes, type Lang } from '../data/site';
+import { T as TT, rows, ausgestellt } from '../data/reportage';
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const en = lang === 'en';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const T = {
-  de: {
-    newsTitle: site.newsTitle,
-    title: `${site.newsTitle} · Reportage & Dokumentarfotografie · Kilian Amrehn`,
-    description: 'Reportage und Dokumentarfotografie von Kilian Amrehn: Flüchtlingslager in Moldau 2022, Black Lives Matter in Köln 2020, Myanmar 2017, Hambacher Forst.',
-    headline: 'Was bleibt, ist ein Gefühl: Flüchtlingslager in Moldau 2022',
-    about: ['Reportage', 'Dokumentarfotografie', 'Flucht', 'Moldau'],
-    ticker: '+++ Myanmar: Militär an der Macht seit dem Putsch im Februar 2021 +++ Moldau: EU-Beitrittskandidat seit Juni 2022 +++ Köln: 10.000 Menschen bei Black Lives Matter, Juni 2020 +++ Hambacher Forst: 50.000 gegen die Rodung +++',
-    issue: 'Ausgabe',
-    place: 'Köln, Oktober 2026',
-    byline: 'Text und Fotos: Kilian Amrehn',
-    h1Hidden: ' · Reportage und Dokumentarfotografie von Kilian Amrehn',
-    sectionsLabel: 'Rubriken',
-    sections: ['Moldau 2022', 'Köln 2020', 'Myanmar 2017', 'Hambach · Kairo · Istanbul'],
-    leadKicker: 'Flucht · Aufmacher',
-    leadHead: 'Das ärmste Land Europas lässt 450.000 Menschen durch',
-    leadStand: 'Ein Tag in den Lagern an der ukrainischen Grenze, im Auftrag von Bündnis Entwicklung Hilft.',
-    leadAlt: 'Ein Mann und ein Kind vor einer Haustür, Moldau 2022',
-    leadCaption: 'Moldau, 2022. Ein Mann und ein Kind vor einer Haustür. Foto: Kilian Amrehn',
-    koelnTeaserAlt: 'Ein Mann steht auf einem Basketballkorb über der Demonstration in Köln',
-    koelnTeaserKicker: 'Protest · Köln 2020',
-    koelnTeaserHead: '10.000 Menschen gegen institutionellen Rassismus',
-    myanmarTeaserAlt: 'Junge Mönche vor einem Tempel in Myanmar',
-    myanmarTeaserKicker: 'Reise · Myanmar 2017',
-    myanmarHead: 'Als Fremdkörper durch eine fremde Welt',
-    myanmarTeaserText: 'Direkte Blicke in die Kamera, die ich nie vergessen werde.',
-    moldauKicker: 'Flucht',
-    moldauByline: 'Text und Fotos: Kilian Amrehn · im Auftrag von Bündnis Entwicklung Hilft',
-    moldauHead: 'Was bleibt, ist ein Gefühl',
-    factsTitle: 'Steckbrief',
-    facts: ['Ort · Republik Moldau, Grenze zur Ukraine', 'Zeit · Mai 2022', 'Auftrag · Bündnis Entwicklung Hilft', 'Veröffentlicht · Kindernothilfe, Tagesspiegel'],
-    moldauPlace: 'Moldau, 2022 ·',
-    moldauP1: 'as bleibt, ist ein Gefühl. Das Gefühl, dass wir nicht genug tun und sie nicht genug haben. Nach einem Tag in Flüchtlingslagern, an der Grenze zur Ukraine, in Gesprächen mit Geflüchteten, in Lagerhallen und anderen Einrichtungen bin ich vor allem eines: beeindruckt.',
-    moldauP2: 'Beeindruckt von den Frauen, die die meisten Einrichtungen und Lager leiten. Von der Energie. Von der herzlichen Freundlichkeit in einer Zeit der Not, während ein paar Kilometer weiter Krieg herrscht. Das ärmste Land Europas lässt 450.000 Geflüchtete passieren. Das sind 20 Prozent der gesamten Bevölkerung. Die Republik Moldau hat mich beeindruckt.',
-    zeltAlt: 'Zeltlager für Geflüchtete nahe der ukrainischen Grenze', zeltCap: 'Ein Zeltlager für Geflüchtete nahe der ukrainischen Grenze.',
-    zaunAlt: 'Ein Mädchen hinter einem Zaun', zaunCap: 'Ein Mädchen hinter einem Zaun.',
-    quote: '„Wir tun nicht genug,<br>und sie haben nicht genug.“',
-    kindAlt: 'Ein Kind bekommt Hilfsgüter', kindCap: 'Ausgabe von Spielsachen und Hygieneartikeln.',
-    helferAlt: 'Helferinnen in einem Lager', helferCap: 'Die meisten Einrichtungen werden von Frauen geleitet.',
-    stopAlt: 'Plakat Stop War am Straßenrand', stopCap: 'Stop War. Plakat am Straßenrand.',
-    koelnKicker: 'Nº 02 · Protest · Köln, Juni 2020',
-    koelnText: 'Ein Zeichen gegen institutionellen Rassismus. 10.000 Menschen demonstrieren im Juni 2020 in Köln.',
-    rheinAlt: 'Menschenmenge am Rheinufer vor einer Brücke in Köln',
-    polizeiAlt: 'Schilder und Polizei bei der Demonstration',
-    mengeAlt: 'Demonstrierende vor der Brücke',
-    myanmarKicker: 'Nº 01 · Reise · Myanmar, Malaysia, Thailand · Dezember 2017',
-    batsAlt: 'Fledermausschwarm über einem Fluss in der Dämmerung, Myanmar',
-    myanmarPlace: 'Myanmar, 2017 ·',
-    myanmarP1: 'Meine Reise durch Myanmar, Malaysia und Thailand hat viel in mir ausgelöst. Seitdem hinterfrage ich regelmäßig meinen eurozentrischen Blick auf die Welt und möchte diese Fragen auch bei den Betrachtenden auslösen.',
-    myanmarP2: 'Ich reise als Fremdkörper durch eine Welt, die mir ihrerseits fremd ist. Ich bin es nicht gewohnt, als Minderheit gesehen zu werden, doch statt Ablehnung und Kälte begegnen mir Offenheit und Interesse. Wir können nicht miteinander sprechen, also funktioniert der Blick durch die Kamera umso besser.',
-    contextKicker: 'Zum Kontext',
-    contextHead: 'Was danach geschah',
-    context: [
-      ['2017', 'Das Militär geht gegen die Rohingya vor. Hunderttausende fliehen nach Bangladesch.'],
-      ['2021', 'Im Februar putscht das Militär gegen die gewählte Regierung.'],
-      ['Heute', 'Bürgerkrieg in weiten Teilen des Landes. [Vor Veröffentlichung aktualisieren.]'],
-    ],
-    archive: [
-      ['Klima · 2018', 'Hambacher Forst und Gatzweiler', 'Zwei große Proteste. Einer am Hambacher Forst mit 50.000 Menschen und ein kleinerer mit #fridaysforfuture in Gatzweiler. Gegen die Umsiedlung ganzer Dörfer und die Rodung von Wäldern für den Kohleabbau.'],
-      ['Reise · Kairo', 'Ordnung im Chaos', 'Einer meiner größten Träume war es, die Pyramiden zu sehen, das letzte der sieben antiken Weltwunder, das noch steht. Also sind wir hingefahren. In die Wüste, und haben unter den Sternen geschlafen.'],
-      ['Reise · Istanbul', 'Ich will zurück', 'Eine Stadt mit einem Sog, den ich selten erlebt habe. Das Nachtleben, das weite Wasser, das ständige Bergauflaufen, die schönen Menschen und die alten Gebäude.'],
-    ],
-    pubs: 'Auftraggeber und Veröffentlichungen',
-    back: 'Zurück ins Licht →',
-  },
-  en: {
-    newsTitle: site.newsTitleEn,
-    title: `${site.newsTitleEn} · Reportage & Documentary Photography · Kilian Amrehn`,
-    description: 'Reportage and documentary photography by Kilian Amrehn: refugee camps in Moldova 2022, Black Lives Matter in Cologne 2020, Myanmar 2017, Hambach Forest.',
-    headline: 'What remains is a feeling: refugee camps in Moldova 2022',
-    about: ['Reportage', 'Documentary photography', 'Refugees', 'Moldova'],
-    ticker: '+++ Myanmar: military in power since the coup in February 2021 +++ Moldova: EU candidate country since June 2022 +++ Cologne: 10,000 people at Black Lives Matter, June 2020 +++ Hambach Forest: 50,000 against the clearing +++',
-    issue: 'Issue',
-    place: 'Cologne, October 2026',
-    byline: 'Text and photos: Kilian Amrehn',
-    h1Hidden: ' · Reportage and documentary photography by Kilian Amrehn',
-    sectionsLabel: 'Sections',
-    sections: ['Moldova 2022', 'Cologne 2020', 'Myanmar 2017', 'Hambach · Cairo · Istanbul'],
-    leadKicker: 'Refugees · Lead story',
-    leadHead: 'Europe’s poorest country lets 450,000 people through',
-    leadStand: 'A day in the camps on the Ukrainian border, commissioned by Bündnis Entwicklung Hilft.',
-    leadAlt: 'A man and a child in front of a front door, Moldova 2022',
-    leadCaption: 'Moldova, 2022. A man and a child in front of a front door. Photo: Kilian Amrehn',
-    koelnTeaserAlt: 'A man standing on a basketball hoop above the protest in Cologne',
-    koelnTeaserKicker: 'Protest · Cologne 2020',
-    koelnTeaserHead: '10,000 people against institutional racism',
-    myanmarTeaserAlt: 'Young monks in front of a temple in Myanmar',
-    myanmarTeaserKicker: 'Travel · Myanmar 2017',
-    myanmarHead: 'A stranger in a strange world',
-    myanmarTeaserText: 'Looks straight into the camera that I will never forget.',
-    moldauKicker: 'Refugees',
-    moldauByline: 'Text and photos: Kilian Amrehn · commissioned by Bündnis Entwicklung Hilft',
-    moldauHead: 'What remains is a feeling',
-    factsTitle: 'Fact box',
-    facts: ['Place · Republic of Moldova, border with Ukraine', 'Date · May 2022', 'Client · Bündnis Entwicklung Hilft', 'Published in · Kindernothilfe, Tagesspiegel'],
-    moldauPlace: 'Moldova, 2022 ·',
-    moldauP1: 'hat remains is a feeling. The feeling that we are not doing enough and they do not have enough. After a day in refugee camps, at the border with Ukraine, talking with refugees, in warehouses and other facilities, I am above all one thing: impressed.',
-    moldauP2: 'Impressed by the women who run most of the facilities and camps. By the energy. By the warm kindness in a time of need, while a few kilometers away there is war. Europe’s poorest country lets 450,000 refugees pass through. That is 20 percent of its entire population. The Republic of Moldova impressed me.',
-    zeltAlt: 'Tent camp for refugees near the Ukrainian border', zeltCap: 'A tent camp for refugees near the Ukrainian border.',
-    zaunAlt: 'A girl behind a fence', zaunCap: 'A girl behind a fence.',
-    quote: '“We are not doing enough,<br>and they do not have enough.”',
-    kindAlt: 'A child receiving aid supplies', kindCap: 'Handing out toys and hygiene items.',
-    helferAlt: 'Volunteers in a camp', helferCap: 'Most facilities are run by women.',
-    stopAlt: 'Stop War poster by the roadside', stopCap: 'Stop War. A poster by the roadside.',
-    koelnKicker: 'Nº 02 · Protest · Cologne, June 2020',
-    koelnText: 'Taking a stand against institutional racism. 10,000 people march in Cologne in June 2020.',
-    rheinAlt: 'Crowd on the bank of the Rhine in front of a bridge in Cologne',
-    polizeiAlt: 'Signs and police at the protest',
-    mengeAlt: 'Protesters in front of the bridge',
-    myanmarKicker: 'Nº 01 · Travel · Myanmar, Malaysia, Thailand · December 2017',
-    batsAlt: 'A swarm of bats over a river at dusk, Myanmar',
-    myanmarPlace: 'Myanmar, 2017 ·',
-    myanmarP1: 'My journey through Myanmar, Malaysia and Thailand set a lot in motion for me. Since then I regularly question my Eurocentric view of the world, and I want to raise the same questions in the people looking at these pictures.',
-    myanmarP2: 'I travel as a stranger through a world that is just as strange to me. I am not used to being seen as a minority, but instead of rejection and coldness I meet openness and curiosity. We cannot talk to each other, so looking through the camera works all the better.',
-    contextKicker: 'Context',
-    contextHead: 'What happened next',
-    context: [
-      ['2017', 'The military cracks down on the Rohingya. Hundreds of thousands flee to Bangladesh.'],
-      ['2021', 'In February the military stages a coup against the elected government.'],
-      ['Today', 'Civil war across large parts of the country. [Update before publishing.]'],
-    ],
-    archive: [
-      ['Climate · 2018', 'Hambach Forest and Gatzweiler', 'Two large protests. One at Hambach Forest with 50,000 people and a smaller one with #fridaysforfuture in Gatzweiler. Against the relocation of entire villages and the clearing of forests for coal mining.'],
-      ['Travel · Cairo', 'Order in chaos', 'One of my biggest dreams was to see the pyramids, the last of the seven wonders of the ancient world still standing. So we went. Into the desert, and slept under the stars.'],
-      ['Travel · Istanbul', 'I want to go back', 'A city with a pull I have rarely felt. The nightlife, the wide water, the constant walking uphill, the beautiful people and the old buildings.'],
-    ],
-    pubs: 'Clients and publications',
-    back: 'Back into the light →',
-  },
-};
-const t = T[lang];
-const article = {
-  '@context': 'https://schema.org', '@type': 'Article', headline: t.headline,
-  author: { '@id': 'https://kilianamrehn.com/#person' }, inLanguage: lang, about: t.about,
-};
+const t = TT[lang];
+const M = meta as Record<string, [number, number, number[]]>;
+const ar = (n: string) => M[n][0] / M[n][1];
+const full = (n: string) => `${base}img/${n}-${M[n][2][M[n][2].length - 1]}.webp`;
+const altOf = (n: string, ch: string) => { const a = ausgestellt[n]; return a ? (en ? a[2] : a[0]) + ' ' + (en ? a[3] : a[1]) : `${ch}, ${t.photo}`; };
+const newsTitle = en ? site.newsTitleEn : site.newsTitle;
+const article = { '@context': 'https://schema.org', '@type': 'Article', headline: `${newsTitle}: ${t.lead.head}`, author: { '@id': 'https://kilianamrehn.com/#person' }, inLanguage: lang, about: ['Reportage', en ? 'Documentary photography' : 'Dokumentarfotografie', 'Myanmar', 'Moldau', 'Hambacher Forst'] };
 ---
 <Base lang={lang} alternate={routes.reportage[en ? 'de' : 'en']} title={t.title} description={t.description} bodyClass="news-body" schema={[article]}>
 <div class="ticker mono"><span>{t.ticker}</span></div>
-<div class="paper">
+<div class="paper tisch">
 <section class="wrap">
   <div class="dateline mono"><span>{t.issue} {site.newsIssue}</span><span>{t.place}</span><span>{t.byline}</span></div>
-  <h1 class="masthead">{t.newsTitle}<span class="visually-hidden">{t.h1Hidden}</span></h1>
+  <h1 class="masthead">{newsTitle}<span class="visually-hidden">{t.h1Hidden}</span></h1>
   <div class="rule2"></div>
-  <nav class="sections mono" aria-label={t.sectionsLabel}><a href="#moldau">{t.sections[0]}</a><a href="#koeln">{t.sections[1]}</a><a href="#myanmar">{t.sections[2]}</a><a href="#archiv">{t.sections[3]}</a></nav>
+  <nav class="sections mono" aria-label={t.sectionsLabel}>{['myanmar', 'thailand', 'malaysia', 'moldau', 'protest'].map((id, i) => <a href={`#${id}`}>{t.sections[i]}</a>)}</nav>
 </section>
 
 <section class="wrap front">
-  <a href="#moldau" class="lead">
-    <span class="mono red">{t.leadKicker}</span>
-    <span class="hl hl-xl">{t.leadHead}</span>
-    <span class="stand">{t.leadStand}</span>
-    <figure><Img src="moldau-2022-mann-und-kind" alt={t.leadAlt} pos="center 35%" class="f-xl" sizes="(max-width: 900px) 100vw, 66vw" loading="eager" /><figcaption>{t.leadCaption}</figcaption></figure>
+  <a href="#through-their-eyes" class="lead">
+    <span class="mono red">{t.lead.kicker}</span>
+    <span class="hl hl-xl">{t.lead.head}</span>
+    <span class="stand">{t.lead.stand}</span>
+    <figure><Pic name="r-myanmar-1" alt={altOf('r-myanmar-1', 'Myanmar')} sizes="(max-width: 900px) 100vw, 60vw" loading="eager" /><figcaption>{t.exhibited} · {en ? ausgestellt['r-myanmar-1'][2] : ausgestellt['r-myanmar-1'][0]}</figcaption></figure>
   </a>
   <div class="side">
-    <a href="#koeln" class="teaser bordered">
-      <Img src="black-lives-matter-koeln-2020-basketballkorb" alt={t.koelnTeaserAlt} class="f-md" sizes="(max-width: 900px) 100vw, 33vw" />
-      <span class="mono red">{t.koelnTeaserKicker}</span>
-      <span class="hl hl-md">{t.koelnTeaserHead}</span>
+    <a href="#moldau" class="teaser bordered">
+      <Pic name="r-moldau-1" alt={altOf('r-moldau-1', en ? 'Moldova 2022' : 'Moldau 2022')} sizes="(max-width: 900px) 100vw, 30vw" />
+      <span class="mono red">{t.teaserMoldau.kicker}</span>
+      <span class="hl hl-md">{t.teaserMoldau.head}</span>
     </a>
-    <a href="#myanmar" class="teaser">
-      <Img src="myanmar-2017-moenche" alt={t.myanmarTeaserAlt} class="f-sm" sizes="(max-width: 900px) 100vw, 33vw" />
-      <span class="mono red">{t.myanmarTeaserKicker}</span>
-      <span class="hl hl-md">{t.myanmarHead}</span>
-      <span>{t.myanmarTeaserText}</span>
+    <a href="#protest" class="teaser">
+      <Pic name="r-hambi-1" alt={altOf('r-hambi-1', en ? 'Hambach Forest 2018' : 'Hambacher Forst 2018')} sizes="(max-width: 900px) 100vw, 30vw" />
+      <span class="mono red">{t.teaserProtest.kicker}</span>
+      <span class="hl hl-md">{t.teaserProtest.head}</span>
     </a>
   </div>
 </section>
 
-<article id="moldau" class="wrap story">
+<article id="through-their-eyes" class="wrap story">
   <div class="rule2"></div>
-  <div class="dateline mono"><span>{site.newsIssue} · {t.moldauKicker}</span><span>{t.moldauByline}</span></div>
-  <div class="st-head">
-    <h2 class="hl hl-xxl">{t.moldauHead}</h2>
-    <dl class="facts mono">
-      <dt class="red">{t.factsTitle}</dt>
-      {t.facts.map((f) => <dd>{f}</dd>)}
-    </dl>
-  </div>
+  <div class="dateline mono"><span>{site.newsIssue} · {t.lead.kicker}</span><span>{t.byline}</span></div>
+  <h2 class="hl hl-xxl tte">{t.lead.head}</h2>
   <div class="cols">
-    <p><span class="drop">W</span><b class="mono">{t.moldauPlace}</b> {t.moldauP1}</p>
-    <p>{t.moldauP2}</p>
-  </div>
-  <div class="g21">
-    <figure><Img src="moldau-2022-zeltlager" alt={t.zeltAlt} class="f-lg" sizes="(max-width: 900px) 100vw, 66vw" /><figcaption>{t.zeltCap}</figcaption></figure>
-    <figure><Img src="moldau-2022-maedchen-zaun" alt={t.zaunAlt} class="f-lg" sizes="(max-width: 900px) 100vw, 33vw" /><figcaption>{t.zaunCap}</figcaption></figure>
-  </div>
-  <blockquote class="hl" set:html={t.quote} />
-  <div class="g111">
-    <figure><Img src="moldau-2022-kind-hilfsgueter" alt={t.kindAlt} class="f-sm" sizes="(max-width: 900px) 100vw, 33vw" /><figcaption>{t.kindCap}</figcaption></figure>
-    <figure><Img src="moldau-2022-helferinnen" alt={t.helferAlt} class="f-sm" sizes="(max-width: 900px) 100vw, 33vw" /><figcaption>{t.helferCap}</figcaption></figure>
-    <figure><Img src="moldau-2022-stop-war" alt={t.stopAlt} class="f-sm" sizes="(max-width: 900px) 100vw, 33vw" /><figcaption>{t.stopCap}</figcaption></figure>
-  </div>
-</article>
-
-<article id="koeln" class="wrap story">
-  <div class="rule2"></div>
-  <div class="g12">
-    <div class="st-text">
-      <span class="mono red">{t.koelnKicker}</span>
-      <h2 class="hl hl-xl">Black Lives Matter</h2>
-      <p>{t.koelnText}</p>
-    </div>
-    <div class="g11">
-      <Img src="black-lives-matter-koeln-2020-rheinufer" alt={t.rheinAlt} class="f-lg span2" sizes="(max-width: 900px) 100vw, 66vw" />
-      <Img src="black-lives-matter-koeln-2020-polizei" alt={t.polizeiAlt} class="f-sm" sizes="(max-width: 900px) 100vw, 33vw" />
-      <Img src="black-lives-matter-koeln-2020-menge" alt={t.mengeAlt} class="f-sm" sizes="(max-width: 900px) 100vw, 33vw" />
-    </div>
+    <p><span class="drop">{t.tte.intro2[0]}</span>{t.tte.intro2.slice(1)}</p>
+    <div class="col2"><p>{t.tte.intro1}</p><p>{t.tte.intro3}</p></div>
   </div>
 </article>
 
 <article id="myanmar" class="wrap story">
-  <div class="rule2"></div>
-  <div class="g21 top">
-    <div class="st-text">
-      <span class="mono red">{t.myanmarKicker}</span>
-      <h2 class="hl hl-xl">{t.myanmarHead}</h2>
-      <Img src="myanmar-2017-fledermaeuse-fluss" alt={t.batsAlt} class="f-lg" sizes="(max-width: 900px) 100vw, 66vw" />
-      <div class="cols">
-        <p><b class="mono">{t.myanmarPlace}</b> {t.myanmarP1}</p>
-        <p>{t.myanmarP2}</p>
-      </div>
-    </div>
-    <aside class="context">
-      <span class="mono red">{t.contextKicker}</span>
-      <span class="hl hl-sm">{t.contextHead}</span>
-      {t.context.map(([y, s]) => <p><b>{y}</b> · {s}</p>)}
-    </aside>
-  </div>
+  <div class="rule1"></div>
+  <div class="ch-head"><span class="mono red">{t.myanmar.kicker}</span><span class="mono muted">{t.myanmar.place}</span></div>
+  <blockquote class="hl">{t.myanmar.quote}</blockquote>
+  {rows.myanmar.map((r) => (
+    <div class="jr">{r.map((n) => (
+      <figure class="ph" data-full={full(n)} data-alt={altOf(n, 'Myanmar 2017')} data-cap={'Myanmar 2017'} role="button" tabindex="0" style={`flex:${ar(n)} 1 0`}>
+        <Pic name={n} alt={altOf(n, 'Myanmar 2017')} sizes={`(max-width: 900px) 100vw, ${Math.round(ar(n) * 30)}vw`} />
+        {ausgestellt[n] && <figcaption><b class="red">{t.exhibited}</b> · <b>{en ? ausgestellt[n][2] : ausgestellt[n][0]}</b> {en ? ausgestellt[n][3] : ausgestellt[n][1]}</figcaption>}
+      </figure>
+    ))}</div>
+  ))}
+
+  <aside class="context">
+    <span class="mono red">{t.ctx}</span>
+    <span class="hl hl-sm">{t.myanmar.ctxHead}</span>
+    {t.myanmar.ctx.map((p) => <p>{p}</p>)}
+    <span class="mono src">{t.myanmar.src}</span>
+  </aside>
+
 </article>
 
-<section id="archiv" class="wrap story">
+<article id="thailand" class="wrap story">
+  <div class="rule1"></div>
+  <div class="ch-head"><span class="mono red">{t.thailand.kicker}</span><span class="mono muted">{t.thailand.place}</span></div>
+  <p class="lede">{t.thailand.text}</p>
+  {rows.thailand.map((r) => (
+    <div class="jr">{r.map((n) => (
+      <figure class="ph" data-full={full(n)} data-alt={altOf(n, 'Thailand 2017')} data-cap={'Thailand 2017'} role="button" tabindex="0" style={`flex:${ar(n)} 1 0`}>
+        <Pic name={n} alt={altOf(n, 'Thailand 2017')} sizes={`(max-width: 900px) 100vw, ${Math.round(ar(n) * 30)}vw`} />
+        {ausgestellt[n] && <figcaption><b class="red">{t.exhibited}</b> · <b>{en ? ausgestellt[n][2] : ausgestellt[n][0]}</b> {en ? ausgestellt[n][3] : ausgestellt[n][1]}</figcaption>}
+      </figure>
+    ))}</div>
+  ))}
+
+  <aside class="context">
+    <span class="mono red">{t.ctx}</span>
+    <span class="hl hl-sm">{t.thailand.ctxHead}</span>
+    {t.thailand.ctx.map((p) => <p>{p}</p>)}
+    <span class="mono src">{t.thailand.src}</span>
+  </aside>
+
+</article>
+
+<article id="malaysia" class="wrap story">
+  <div class="rule1"></div>
+  <div class="ch-head"><span class="mono red">{t.malaysia.kicker}</span><span class="mono muted">{t.malaysia.place}</span></div>
+  {rows.malaysia.map((r) => (
+    <div class="jr">{r.map((n) => (
+      <figure class="ph" data-full={full(n)} data-alt={altOf(n, 'Malaysia 2017')} data-cap={'Malaysia 2017'} role="button" tabindex="0" style={`flex:${ar(n)} 1 0`}>
+        <Pic name={n} alt={altOf(n, 'Malaysia 2017')} sizes={`(max-width: 900px) 100vw, ${Math.round(ar(n) * 30)}vw`} />
+        {ausgestellt[n] && <figcaption><b class="red">{t.exhibited}</b> · <b>{en ? ausgestellt[n][2] : ausgestellt[n][0]}</b> {en ? ausgestellt[n][3] : ausgestellt[n][1]}</figcaption>}
+      </figure>
+    ))}</div>
+  ))}
+
+  <aside class="context">
+    <span class="mono red">{t.ctx}</span>
+    <span class="hl hl-sm">{t.malaysia.ctxHead}</span>
+    {t.malaysia.ctx.map((p) => <p>{p}</p>)}
+    <span class="mono src">{t.malaysia.src}</span>
+  </aside>
+
+</article>
+
+<article id="moldau" class="wrap story">
   <div class="rule2"></div>
-  <div class="archive">
-    {t.archive.map(([k, h, p]) => <div><span class="mono red">{k}</span><h3 class="hl hl-sm">{h}</h3><p>{p}</p></div>)}
+  <div class="dateline mono"><span>{site.newsIssue} · {t.moldau.kicker}</span><span>{t.moldau.byline}</span></div>
+  <div class="st-head">
+    <h2 class="hl hl-xxl">{t.moldau.head}</h2>
+    <dl class="facts mono">
+      <dt class="red">{t.moldau.factsTitle}</dt>
+      {t.moldau.facts.map((f) => <dd>{f}</dd>)}
+    </dl>
   </div>
-  <div class="pubs mono"><span class="muted">{t.pubs}</span><span>Bündnis Entwicklung Hilft · Kindernothilfe · Tagesspiegel</span></div>
+  <div class="cols">
+    <p><span class="drop">W</span><b class="mono">{t.moldau.place}</b> {t.moldau.p1}</p>
+    <p>{t.moldau.p2}</p>
+  </div>
+  <blockquote class="hl" set:html={t.moldau.quote} />
+  {rows.moldau.map((r) => (
+    <div class="jr">{r.map((n) => (
+      <figure class="ph" data-full={full(n)} data-alt={altOf(n, en ? 'Moldova 2022' : 'Moldau 2022')} data-cap={en ? 'Moldova 2022' : 'Moldau 2022'} role="button" tabindex="0" style={`flex:${ar(n)} 1 0`}>
+        <Pic name={n} alt={altOf(n, en ? 'Moldova 2022' : 'Moldau 2022')} sizes={`(max-width: 900px) 100vw, ${Math.round(ar(n) * 30)}vw`} />
+        {ausgestellt[n] && <figcaption><b class="red">{t.exhibited}</b> · <b>{en ? ausgestellt[n][2] : ausgestellt[n][0]}</b> {en ? ausgestellt[n][3] : ausgestellt[n][1]}</figcaption>}
+      </figure>
+    ))}</div>
+  ))}
+
+</article>
+
+<article id="protest" class="wrap story">
+  <div class="rule2"></div>
+  <div class="ch-head"><span class="mono red">{t.protest.kicker}</span></div>
+  <h2 class="hl hl-xxl">{t.protest.head}</h2>
+  <p class="lede">{t.protest.text}</p>
+  <span class="mono sub">{t.protest.hambi}</span>
+  {rows.hambi.map((r) => (
+    <div class="jr">{r.map((n) => (
+      <figure class="ph" data-full={full(n)} data-alt={altOf(n, en ? 'Hambach Forest 2018' : 'Hambacher Forst 2018')} data-cap={en ? 'Hambach Forest 2018' : 'Hambacher Forst 2018'} role="button" tabindex="0" style={`flex:${ar(n)} 1 0`}>
+        <Pic name={n} alt={altOf(n, en ? 'Hambach Forest 2018' : 'Hambacher Forst 2018')} sizes={`(max-width: 900px) 100vw, ${Math.round(ar(n) * 30)}vw`} />
+        {ausgestellt[n] && <figcaption><b class="red">{t.exhibited}</b> · <b>{en ? ausgestellt[n][2] : ausgestellt[n][0]}</b> {en ? ausgestellt[n][3] : ausgestellt[n][1]}</figcaption>}
+      </figure>
+    ))}</div>
+  ))}
+
+  <span class="mono sub">{t.protest.garz}</span>
+  <p class="lede small">{t.protest.garzCap}</p>
+  {rows.garzweiler.map((r) => (
+    <div class="jr">{r.map((n) => (
+      <figure class="ph" data-full={full(n)} data-alt={altOf(n, 'Garzweiler 2019')} data-cap={'Garzweiler 2019'} role="button" tabindex="0" style={`flex:${ar(n)} 1 0`}>
+        <Pic name={n} alt={altOf(n, 'Garzweiler 2019')} sizes={`(max-width: 900px) 100vw, ${Math.round(ar(n) * 30)}vw`} />
+        {ausgestellt[n] && <figcaption><b class="red">{t.exhibited}</b> · <b>{en ? ausgestellt[n][2] : ausgestellt[n][0]}</b> {en ? ausgestellt[n][3] : ausgestellt[n][1]}</figcaption>}
+      </figure>
+    ))}</div>
+  ))}
+
+  <aside class="context">
+    <span class="mono red">{t.ctx}</span>
+    <span class="hl hl-sm">{t.protest.ctxHead}</span>
+    {t.protest.ctx.map((p) => <p>{p}</p>)}
+    <span class="mono src">{t.protest.src}</span>
+  </aside>
+
+  <div class="rule1 gap"></div>
+  <div class="ch-head"><span class="mono red">{t.protest.blmKicker}</span></div>
+  <h3 class="hl hl-xl">{t.protest.blmHead}</h3>
+  <p class="lede">{t.protest.blmText}</p>
+  {rows.blm.map((r) => (
+    <div class="jr">{r.map((n) => (
+      <figure class="ph" data-full={full(n)} data-alt={altOf(n, en ? 'Black Lives Matter, Cologne 2020' : 'Black Lives Matter, Köln 2020')} data-cap={en ? 'Black Lives Matter, Cologne 2020' : 'Black Lives Matter, Köln 2020'} role="button" tabindex="0" style={`flex:${ar(n)} 1 0`}>
+        <Pic name={n} alt={altOf(n, en ? 'Black Lives Matter, Cologne 2020' : 'Black Lives Matter, Köln 2020')} sizes={`(max-width: 900px) 100vw, ${Math.round(ar(n) * 30)}vw`} />
+        {ausgestellt[n] && <figcaption><b class="red">{t.exhibited}</b> · <b>{en ? ausgestellt[n][2] : ausgestellt[n][0]}</b> {en ? ausgestellt[n][3] : ausgestellt[n][1]}</figcaption>}
+      </figure>
+    ))}</div>
+  ))}
+
+</article>
+
+<section class="wrap">
+  <div class="pubs mono"><span class="muted">{t.pubs}</span><span>Bündnis Entwicklung Hilft · Kindernothilfe · Tagesspiegel · Staatspreis Manufactum 2021</span></div>
 </section>
 </div>
+<Lightbox lang={lang} />
 <div class="wrap back"><a href={base + routes.home[lang]} class="display">{t.back}</a></div>
 </Base>
 <style>
+  .jr { display: flex; gap: 14px; padding-top: 14px; align-items: flex-start; }
+  .jr figure { margin: 0; min-width: 0; cursor: zoom-in; }
+  .jr :global(img), .front :global(img) { width: 100%; height: auto; display: block; }
+  .ch-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 18px; }
+  .rule1 { border-top: 1px solid var(--news-ink); }
+  .rule1.gap { margin-top: 72px; }
+  .tte { padding-top: 32px; }
+  .col2 { display: flex; flex-direction: column; gap: 1em; }
+  .col2 p, .cols p { margin: 0; }
+  .lede { max-width: 62ch; font-size: 19px; line-height: 1.6; margin: 24px 0 18px; }
+  .lede.small { font-size: 15px; margin: 6px 0 4px; color: #2b2723; }
+  .sub { display: block; margin-top: 40px; color: var(--news-mute); text-transform: uppercase; letter-spacing: .14em; font-size: 12px; }
+  .context { margin-top: 40px; }
+  .context p { margin: 0; }
+  .src { font-size: 11px; color: var(--news-mute); }
+  @media (max-width: 700px) { .jr { flex-wrap: wrap; } .jr figure { flex: 1 1 100% !important; } }
+
   .ticker { background: var(--news-ink); color: var(--news-paper); white-space: nowrap; overflow: hidden; padding: 10px 0; }
   .ticker span { display: inline-block; padding-left: 100%; animation: tick 45s linear infinite; }
   @keyframes tick { to { transform: translateX(-100%); } }
@@ -265,11 +240,6 @@ const article = {
   .hl-sm { font-size: clamp(30px, 3vw, 44px); line-height: .95; }
   figure { display: flex; flex-direction: column; gap: 8px; }
   figcaption { font-family: var(--f-mono); font-size: 11px; line-height: 1.5; color: var(--news-mute); }
-  .paper :global(img) { width: 100%; object-fit: cover; }
-  .paper :global(.f-xl) { height: clamp(360px, 53vw, 760px); }
-  .paper :global(.f-lg) { height: clamp(300px, 39vw, 560px); }
-  .paper :global(.f-md) { height: clamp(260px, 26vw, 380px); }
-  .paper :global(.f-sm) { height: clamp(220px, 25vw, 360px); }
   .front { display: grid; grid-template-columns: 2fr 1fr; padding-top: 40px; }
   .lead { padding-right: 40px; border-right: 1px solid var(--news-ink); display: flex; flex-direction: column; gap: 16px; }
   .stand { font-size: clamp(18px, 1.6vw, 22px); line-height: 1.4; color: #2b2723; }

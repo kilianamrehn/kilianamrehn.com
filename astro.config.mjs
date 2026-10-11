@@ -25,6 +25,8 @@ const redirects = {
   '/scholl-comfort': '/scholl-iconic/',
   '/scholl-comfort-2': '/scholl-iconic/',
   '/mood-2': '/',
+  '/new-icons-club-magazine-2': '/new-icons-club-magazine/',
+  '/en/campaigns/new-icons-club-magazine-2': '/en/campaigns/new-icons-club-magazine/',
 };
 
 export default defineConfig({

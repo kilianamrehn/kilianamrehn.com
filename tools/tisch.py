@@ -151,6 +151,7 @@ def paper_of(names, fixed=None):
 def build_arbeiten():
     P = json.load(open(D('tools/arbeiten_content.json')))
     for pi, p in enumerate(P):
+        pi = p.get('seed', pi)
         marks = Marks(1000 + pi)
         sheets = []
         for si, s in enumerate(p['sections']):
@@ -163,12 +164,13 @@ def build_arbeiten():
     # Übersicht: pro Arbeit ein kleiner Bogen mit drei Bildern
     idx = []
     for pi, p in enumerate(P):
+        pi = p.get('seed', pi)
         allimg = [n for s in p['sections'] for n in s['items'] if n in IM]
         r = random.Random(500 + pi); prev = [allimg[0]] + r.sample(allimg[1:], min(2, len(allimg) - 1))
         marks = Marks(3000 + pi)
         dd = sheet(prev, p['color'], 700 + pi, False, marks, p['edge'], label=False, cnt=2, maxh=430)
         mm = sheet(prev[:2], p['color'], 800 + pi, True, Marks(4000 + pi), p['edge'], label=False, cnt=1, maxh=300)
-        idx.append({'slug': p['slug'], 'title': p['title'], 'kind': p['kind'], 'kindEn': p['kindEn'], 'year': p['year'], 'bg': p['color'], 'd': dd, 'm': mm})
+        idx.append({'slug': p['slug'], 'title': p['title'], 'kind': p['kind'], 'kindEn': p['kindEn'], 'year': p['year'], 'bg': p['color'], 'band': p['band'], 'bandImgs': p['bandImgs'], 'd': dd, 'm': mm})
     json.dump(idx, open(os.path.join(OUT, 'arbeiten-index.json'), 'w'), ensure_ascii=False)
     json.dump(P, open(D('src/data/arbeiten.json'), 'w'), ensure_ascii=False)
     print('arbeiten', len(P))

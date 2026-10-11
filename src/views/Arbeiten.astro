@@ -13,6 +13,7 @@ const T = en
   ? { title: 'Campaign, Fashion & Editorial Photography Cologne · Work · Kilian Amrehn', desc: "Campaigns and personal series by Kilian Amrehn, Cologne: Scholl, Copenhagen Studios, Peek & Cloppenburg x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club, Rock Fairyland.", h1: 'Work', sub: 'Campaigns & personal series', view: 'View →' }
   : { title: 'Kampagnen-, Mode- und Editorial-Fotografie Köln · Arbeiten · Kilian Amrehn', desc: "Kampagnen und freie Strecken von Kilian Amrehn, Köln: Scholl, Copenhagen Studios, Peek & Cloppenburg x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club, Rock Fairyland.", h1: 'Arbeiten', sub: 'Kampagnen & freie Strecken', view: 'Ansehen →' };
 const list = idx as any[];
+const isLight = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };
 ---
 <Base lang={lang} alternate={routes.campaigns[en ? 'de' : 'en']} title={T.title} description={T.desc}>
 <section class="wrap ar-head">
@@ -20,7 +21,7 @@ const list = idx as any[];
   <span class="mono sub">{T.sub}</span>
 </section>
 <nav class="bar mono" aria-label={T.h1}>
-  {list.map((k) => <a href={`#${k.slug}`} style={`background:${k.bg}`}>{k.title}</a>)}
+  {list.map((k) => <a href={`#${k.slug}`} style={`background:${k.band};color:${isLight(k.band) ? '#16110e' : 'var(--white)'}`}>{k.title}</a>)}
 </nav>
 {list.map((k) => (
   <article id={k.slug} class="ar">

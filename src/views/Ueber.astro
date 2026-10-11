@@ -16,7 +16,7 @@ const T = {
     claim: 'Ich baue Licht <span>und warte, bis jemand hineinschaut.</span>',
     video: 'Making-of eines Shootings',
     videoCap: 'Making-of, 2025',
-    meAlt: 'Kilian Amrehn, Fotograf in Köln',
+    meAlt: 'Kilian Amrehn, Fotograf in Köln, auf einem rosa Stuhl',
     bio: [
       'Ich bin Kilian. Ich fotografiere Menschen, die auf Bühnen stehen oder vor Kameras: Musik, Schauspiel, Kunst. Mit gerichtetem, oft farbigem Licht und viel Dunkelheit drumherum.',
       'Viele Jahre stand ich selbst vor der Kamera. Ich weiß, wie es sich anfühlt, fotografiert zu werden, und wie viel davon abhängt, ob man sich im Raum sicher fühlt.',
@@ -41,7 +41,7 @@ const T = {
     claim: 'I build light <span>and wait until someone looks into it.</span>',
     video: 'Behind the scenes of a shoot',
     videoCap: 'Behind the scenes, 2025',
-    meAlt: 'Kilian Amrehn, photographer in Cologne',
+    meAlt: 'Kilian Amrehn, photographer in Cologne, on a pink chair',
     bio: [
       'I’m Kilian. I photograph people who stand on stages or in front of cameras: music, acting, art. With directed, often colored light and a lot of darkness around it.',
       'For many years I stood in front of the camera myself. I know what it feels like to be photographed, and how much depends on whether you feel safe in the room.',
@@ -112,7 +112,7 @@ const t = T[lang];
   figure { display: flex; flex-direction: column; gap: 12px; }
   video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #111; }
   .trio :global(picture) { display: block; }
-  .trio :global(.me) { width: 100%; height: auto; aspect-ratio: 9 / 16; object-fit: cover; object-position: center 25%; }
+  .trio :global(.me) { width: 100%; height: auto; display: block; }
   .bio { display: flex; flex-direction: column; gap: 18px; font-size: 18px; line-height: 1.65; color: var(--mute2); padding-top: 8px; }
   .u { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
   @media (max-width: 1000px) { .trio { grid-template-columns: 1fr 1fr; } .bio { grid-column: 1 / -1; } }

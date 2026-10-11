@@ -324,7 +324,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
     }));
   }
   // Lauftext: Hervorhebungen leuchten erst auf, wenn man darüber scrollt
-  const io2 = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('lit'); io2.unobserve(e.target); } }), { rootMargin: '0px 0px -38% 0px', threshold: 1 });
+  const io2 = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('lit'); io2.unobserve(e.target); } }), { rootMargin: matchMedia('(max-width: 700px)').matches ? '0px 0px -12% 0px' : '0px 0px -38% 0px', threshold: 1 });
   document.querySelectorAll('.runon em, .runon b').forEach((el) => io2.observe(el));
   document.querySelectorAll<HTMLElement>('[data-go]').forEach((el) => el.addEventListener('click', (e) => {
     e.preventDefault(); const a = el.closest('a'); if (a) location.href = a.href + '#' + el.dataset.go;

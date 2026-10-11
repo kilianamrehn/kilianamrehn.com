@@ -1,0 +1,268 @@
+---
+// Porträts: Blätter auf dem Tisch. Layout kommt fertig aus dem Generator (src/data/portraits.json),
+// alle Maße sind in var(--u) angegeben: 1u = 1px bei 1440 breit (Desktop) bzw. 390 breit (Handy).
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import Base from '../layouts/Base.astro';
+import Img from '../components/Img.astro';
+import sheets from '../data/portraits.json';
+import { routes, site, type Lang } from '../data/site';
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const en = lang === 'en';
+const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const all = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/*.jpg', { eager: true });
+
+const T = {
+  de: {
+    title: 'Porträtfotografie Köln · Musik, Schauspiel, Kunst · Kilian Amrehn',
+    description: 'Porträtfotografie aus Köln: Musikporträts, DJ-Porträts, Pressefotos für Bands, Album- und Plattencover, Schauspielporträts und Künstlerporträts von Kilian Amrehn.',
+    kicker: 'Porträts · Musik · Schauspiel · Kunst',
+    h1: 'Gesichter, die ich nicht vergesse.', h2: 'Momente, die nicht vergehen.',
+    shuffle: '↻ neu mischen',
+    seo: 'Porträtfotografie Köln · Musikporträts für Musikerinnen, Musiker und Bands · DJ-Porträts · Pressefotos · Album- und Plattencover · Schauspielporträts · Moderationsporträts · Künstlerinnenporträts · Porträts für Websites · Köln, Berlin, weltweit',
+    book: 'Mein Buch, meine Preise', write: 'Schreib mir', home: 'In Köln unterwegs, in der Welt zu Hause.',
+    prev: 'Vorheriges Bild', next: 'Nächstes Bild', close: 'Schließen', by: 'fotografiert von Kilian Amrehn, Köln', anon: 'Porträtfotografie Kilian Amrehn, Köln',
+  },
+  en: {
+    title: 'Portrait Photography Cologne · Music, Acting, Art · Kilian Amrehn',
+    description: 'Portrait photography from Cologne: music portraits, DJ portraits, band press photos, album and record covers, actor portraits and artist portraits by Kilian Amrehn.',
+    kicker: 'Portraits · Music · Acting · Art',
+    h1: 'Faces I don’t forget.', h2: 'Moments that don’t pass.',
+    shuffle: '↻ shuffle',
+    seo: 'Portrait photography Cologne · Music portraits for musicians and bands · DJ portraits · Press photos · Album and record covers · Actor portraits · Presenter portraits · Artist portraits · Portraits for websites · Cologne, Berlin, worldwide',
+    book: 'My book, my prices', write: 'Write to me', home: 'Out and about in Cologne, at home in the world.',
+    prev: 'Previous image', next: 'Next image', close: 'Close', by: 'photographed by Kilian Amrehn, Cologne', anon: 'portrait photography Kilian Amrehn, Cologne',
+  },
+};
+const t = T[lang];
+const CAT_EN: Record<string, string> = {
+  'Albumcover': 'Album cover', 'DJ-Porträt': 'DJ portrait', 'Moderationsporträt': 'Presenter portrait', 'Pressefoto für Bands': 'Band press photo',
+  'Musikporträt': 'Music portrait', 'Schauspielporträt': 'Actor portrait', 'Künstlerinnenporträt': 'Artist portrait', 'Porträt': 'Portrait',
+};
+const EDGE_EN: Record<string, string> = {
+  'MODERATIONSPORTRÄTS': 'PRESENTER PORTRAITS', 'PORTRÄTS FÜR WEBSITES': 'PORTRAITS FOR WEBSITES', 'DJ-PORTRÄTS': 'DJ PORTRAITS', 'PLATTENCOVER': 'RECORD COVERS',
+  'GERICHTETES LICHT': 'DIRECTED LIGHT', 'PORTRÄTFOTOGRAFIE KÖLN': 'PORTRAIT PHOTOGRAPHY COLOGNE', 'FARBIGES LICHT': 'COLOURED LIGHT', 'KEINE POSE': 'NO POSE',
+  'MUSIKPORTRÄTS': 'MUSIC PORTRAITS', 'PRESSEFOTOS': 'PRESS PHOTOS', 'SCHAUSPIELPORTRÄTS': 'ACTOR PORTRAITS', 'PRESSEFOTOS FÜR BANDS': 'BAND PRESS PHOTOS',
+  'ARTISTPORTRÄTS KÖLN': 'ARTIST PORTRAITS COLOGNE', 'KÜNSTLERINNENPORTRÄTS': 'ARTIST PORTRAITS',
+};
+const fix = (s: string) => s.replaceAll('__B__', base).replaceAll("'Geist Mono'", "'Geist Mono Variable','Geist Mono'");
+type I = (typeof sheets)[number]['d']['imgs'][number];
+const alt = (i: I) => {
+  const cat = en ? CAT_EN[i.cat] ?? 'Portrait' : i.cat;
+  return i.named ? `${i.nm}, ${cat}, ${t.by} ${i.year}` : `${cat}, ${t.anon} ${i.year}`;
+};
+const edge = (i: I, k: 0 | 1) => {
+  if (!en || !i.e) return k ? i.t2 : i.t1;
+  return k ? `${(i.fnum ?? 0) + 1}  ◂  ${EDGE_EN[i.e[1]] ?? i.e[1]}` : `${i.fnum}A  ▸  ${EDGE_EN[i.e[0]] ?? i.e[0]}`;
+};
+// große Fassung für die Vollansicht
+const full: Record<string, string> = {};
+for (const s of sheets) for (const i of s.d.imgs) {
+  if (full[i.slug]) continue;
+  const mod = all[`/src/assets/img/${i.slug}.jpg`];
+  if (!mod) throw new Error('Bild fehlt: ' + i.slug);
+  const g = await getImage({ src: mod.default, width: Math.min(2000, mod.default.width), format: 'webp', quality: 82 });
+  full[i.slug] = g.src;
+}
+const num = (s: string, re: RegExp) => Number((s.match(re) || [])[1] || 0);
+const sizes = (d: string, m: string) => {
+  const wd = num(d, /width:calc\(([\d.]+)\*var/); const wm = num(m, /width:calc\(([\d.]+)\*var/);
+  return `(max-width: 699px) ${Math.ceil((wm / 390) * 100)}vw, ${Math.ceil(wd)}px`;
+};
+const persons = [...new Set(sheets.flatMap((s) => s.d.imgs.filter((i) => i.named).map((i) => i.nm)))];
+const gallery = {
+  '@context': 'https://schema.org', '@type': 'CollectionPage', name: t.title, description: t.description,
+  about: persons.map((name) => ({ '@type': 'Person', name })), author: { '@id': site.url + '/#person' },
+};
+const pdf = base + 'media/kilian-amrehn-buch-preise-portraet.pdf';
+const vid = base + 'media/portraits/himoya-band-video.mp4';
+---
+<Base lang={lang} alternate={routes.artists[en ? 'de' : 'en']} title={t.title} description={t.description} schema={[gallery]}>
+<section class="wrap p-head">
+  <div class="p-kicker">{t.kicker}</div>
+  <h1 class="p-hl"><span>{t.h1}</span><span class="p-hl2">{t.h2}</span></h1>
+  <button type="button" class="p-shuffle" data-shuffle>{t.shuffle}</button>
+</section>
+
+<div class="p-sheets" data-sheets>
+{sheets.map((s, si) => {
+  const mm = s.m.imgs;
+  return (
+  <section class="sheet" data-top={s.top ? '1' : undefined} data-bg={s.bg} style={`--bg:${s.bg};--paper:url(${base}media/portraits/paper.png)`}>
+    {s.anchors.map((a) => <span id={a} class="p-anchor"></span>)}
+    <div class="band"></div>
+    {(['d', 'm'] as const).map((L) => {
+      const lay = s[L];
+      return (
+      <div class={`lay ${L}`} style={`height:calc(${lay.h}*var(--u))`}>
+        {lay.back.map((b) => <div style={fix(b.s)}>{b.t}</div>)}
+        {lay.imgs.map((i, k) => (
+          <div class="ph" style={fix(i.wrap)} data-full={full[i.slug]} data-alt={alt(i)} data-cap={i.cap} data-video={i.video ? vid : undefined} role="button" tabindex="0">
+            <div style={fix(i.s1)}>{edge(i, 0)}</div>
+            {i.video
+              ? <video data-src={vid} poster={full[i.slug]} muted loop playsinline preload="none" style={fix(i.is) + 'object-fit:cover;'} aria-label={alt(i)}></video>
+              : <Img src={i.slug} alt={alt(i)} style={fix(i.is) + 'object-fit:cover;'} sizes={sizes((L === 'd' ? i : s.d.imgs.find((x) => x.slug === i.slug) ?? i).is, (L === 'm' ? i : mm.find((x) => x.slug === i.slug) ?? i).is)} widths={[480, 800, 1200, 1600, 2000]} />}
+            <div style={fix(i.s2)}>{edge(i, 1)}</div>
+          </div>
+        ))}
+        {lay.front.map((f) => <div style={fix(f.s)}>{f.t}</div>)}
+      </div>);
+    })}
+  </section>);
+})}
+</div>
+<script is:inline>
+(function () {
+  var box = document.querySelector('[data-sheets]');
+  if (!box) return;
+  function mix() {
+    var S = Array.prototype.slice.call(box.children);
+    var bg = function (el) { return el.getAttribute('data-bg'); };
+    for (var i = S.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = S[i]; S[i] = S[j]; S[j] = t; }
+    var tops = S.filter(function (el) { return el.hasAttribute('data-top'); });
+    var first = tops[Math.floor(Math.random() * tops.length)];
+    S.splice(S.indexOf(first), 1); S.unshift(first);
+    for (var a = 1; a < S.length; a++) {
+      if (bg(S[a]) === bg(S[a - 1])) for (var b = a + 1; b < S.length; b++) if (bg(S[b]) !== bg(S[a - 1])) { var x = S[a]; S[a] = S[b]; S[b] = x; break; }
+    }
+    S.forEach(function (el) { box.appendChild(el); });
+  }
+  mix();
+  window.__portraitMix = mix;
+})();
+</script>
+
+<section class="wrap p-outro">
+  <p class="p-seo">{t.seo}</p>
+  <div class="p-btns">
+    <a class="p-btn p-btn-a" href={pdf} target="_blank" rel="noopener">{t.book} <span>↗</span></a>
+    <button type="button" class="p-btn p-btn-b" data-mail={`${site.mailUser}|${site.mailDomain}`.split('').reverse().join('')}>{t.write} <span>→</span></button>
+  </div>
+  <p class="p-home">{t.home}</p>
+</section>
+
+<div class="lb" data-lb hidden>
+  <div class="lb-stage" data-lb-stage></div>
+  <button type="button" class="lb-prev" data-lb-prev aria-label={t.prev}>‹</button>
+  <button type="button" class="lb-next" data-lb-next aria-label={t.next}>›</button>
+  <button type="button" class="lb-close" data-lb-close aria-label={t.close}>×</button>
+  <div class="lb-cap"><span data-lb-cap></span><span data-lb-num></span></div>
+</div>
+</Base>
+
+<script>
+  const box = document.querySelector<HTMLElement>('[data-sheets]')!;
+  const mq = window.matchMedia('(max-width: 699px)');
+  const layer = () => (mq.matches ? 'm' : 'd');
+  // Videos laden und laufen nur, wenn sie zu sehen sind
+  const io = new IntersectionObserver((es) => es.forEach((e) => {
+    const v = e.target as HTMLVideoElement;
+    if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src || ''; v.currentTime = 0; v.play().catch(() => {}); } else v.pause();
+  }), { threshold: 0.4 });
+  document.querySelectorAll<HTMLVideoElement>('video[data-src]').forEach((v) => io.observe(v));
+
+  document.querySelector('[data-shuffle]')?.addEventListener('click', () => {
+    (window as any).__portraitMix?.();
+    box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // Vollansicht
+  const lb = document.querySelector<HTMLElement>('[data-lb]')!;
+  const stage = lb.querySelector<HTMLElement>('[data-lb-stage]')!;
+  const cap = lb.querySelector<HTMLElement>('[data-lb-cap]')!;
+  const numEl = lb.querySelector<HTMLElement>('[data-lb-num]')!;
+  let list: HTMLElement[] = [];
+  let cur = 0;
+  const collect = () => {
+    const L = layer();
+    list = [...box.querySelectorAll<HTMLElement>(`.lay.${L} .ph`)].sort((a, b) => {
+      const ra = a.getBoundingClientRect(), rb = b.getBoundingClientRect();
+      return Math.abs(ra.top - rb.top) > 40 ? ra.top - rb.top : ra.left - rb.left;
+    });
+  };
+  const show = (k: number) => {
+    cur = (k + list.length) % list.length;
+    const el = list[cur];
+    stage.innerHTML = '';
+    if (el.dataset.video) {
+      const v = document.createElement('video');
+      v.src = el.dataset.video; v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true; v.setAttribute('aria-label', el.dataset.alt || '');
+      stage.appendChild(v);
+    } else {
+      const im = document.createElement('img');
+      im.src = el.dataset.full || ''; im.alt = el.dataset.alt || '';
+      stage.appendChild(im);
+    }
+    cap.textContent = el.dataset.cap || '';
+    numEl.textContent = `${cur + 1} / ${list.length}`;
+  };
+  const open = (el: HTMLElement) => { collect(); lb.hidden = false; document.documentElement.style.overflow = 'hidden'; show(Math.max(0, list.indexOf(el))); };
+  const close = () => { lb.hidden = true; stage.innerHTML = ''; document.documentElement.style.overflow = ''; };
+  box.addEventListener('click', (e) => { const el = (e.target as HTMLElement).closest<HTMLElement>('.ph'); if (el) open(el); });
+  box.addEventListener('keydown', (e) => { const el = (e.target as HTMLElement).closest<HTMLElement>('.ph'); if (el && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); open(el); } });
+  lb.querySelector('[data-lb-next]')!.addEventListener('click', (e) => { e.stopPropagation(); show(cur + 1); });
+  lb.querySelector('[data-lb-prev]')!.addEventListener('click', (e) => { e.stopPropagation(); show(cur - 1); });
+  lb.querySelector('[data-lb-close]')!.addEventListener('click', close);
+  stage.addEventListener('click', (e) => { e.stopPropagation(); show(cur + 1); });
+  lb.addEventListener('click', close);
+  window.addEventListener('keydown', (e) => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') show(cur + 1);
+    if (e.key === 'ArrowLeft') show(cur - 1);
+  });
+  let sx = 0;
+  lb.addEventListener('touchstart', (e) => { sx = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', (e) => { const dx = e.changedTouches[0].clientX - sx; if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1)); });
+</script>
+
+<style>
+  .p-head { padding-top: clamp(40px, 8vw, 90px); padding-bottom: clamp(56px, 9vw, 120px); }
+  .p-kicker { font: 500 12px/1 var(--f-mono); letter-spacing: 0.24em; text-transform: uppercase; color: var(--mute); margin-bottom: 30px; }
+  .p-hl { margin: 0; font-family: var(--f-display); font-weight: 500; letter-spacing: -0.04em; line-height: 1.02; font-size: clamp(38px, 5.4vw, 86px); }
+  .p-hl span { display: block; text-wrap: balance; }
+  .p-hl2 { margin-top: 0.08em; color: var(--mute); }
+  @media (min-width: 760px) { .p-hl span { white-space: nowrap; } .p-hl2 { padding-left: 2.15em; } }
+  .p-shuffle { margin-top: 36px; background: var(--accent); color: var(--ink); border: 0; border-radius: 999px; padding: 10px 18px; font: 500 14px/1.2 var(--f-text); cursor: pointer; }
+
+  .p-sheets { position: relative; }
+  .sheet { position: relative; }
+  .sheet + .sheet .band { top: calc(-14 * var(--u)); box-shadow: 0 -1px 2px rgba(0,0,0,0.3), 0 -10px 26px rgba(0,0,0,0.28); }
+  .sheet:nth-child(even) .band { transform: rotate(-0.16deg); }
+  .sheet:nth-child(3n) .band { transform: rotate(0.12deg); }
+  .band { position: absolute; left: -2%; width: 104%; top: 0; bottom: 0; background-color: var(--bg); background-image: var(--paper); background-size: 512px 512px; background-blend-mode: soft-light; }
+  .p-anchor { position: absolute; top: 0; scroll-margin-top: 20px; }
+  .lay { position: relative; margin: 0 auto; }
+  .lay.d { --u: min(1px, calc(100vw / 1440)); width: calc(1440 * var(--u)); }
+  .lay.m { --u: calc(100vw / 390); width: calc(390 * var(--u)); display: none; }
+  .sheet { --u: min(1px, calc(100vw / 1440)); }
+  @media (max-width: 699px) {
+    .lay.d { display: none; }
+    .lay.m { display: block; }
+    .sheet { --u: calc(100vw / 390); }
+  }
+  .ph { position: absolute; cursor: zoom-in; }
+  .ph:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .ph :global(picture) { display: contents; }
+
+  .p-outro { padding-top: clamp(70px, 10vw, 140px); padding-bottom: 40px; }
+  .p-seo { margin: 0 0 40px; max-width: 900px; font: 500 11px/1.9 var(--f-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute); }
+  .p-btns { display: flex; flex-wrap: wrap; gap: 18px; }
+  .p-btn { display: inline-flex; align-items: center; gap: 14px; padding: clamp(14px, 3vw, 22px) clamp(20px, 4vw, 30px); border-radius: 999px; font-family: var(--f-display); font-weight: 500; font-size: clamp(18px, 4.6vw, 26px); letter-spacing: -0.02em; text-decoration: none; cursor: pointer; line-height: 1.1; }
+  .p-btn-a { background: var(--accent); color: var(--ink); border: 0; }
+  .p-btn-b { background: transparent; color: var(--paper); border: 1.5px solid var(--paper); }
+  .p-home { margin: 60px 0 0; color: var(--mute); font-size: 14px; }
+
+  .lb { position: fixed; inset: 0; z-index: 1000; background: rgba(12,10,9,0.95); display: flex; align-items: center; justify-content: center; }
+  .lb[hidden] { display: none; }
+  .lb-stage { display: contents; }
+  .lb-stage :global(img), .lb-stage :global(video) { max-width: 90%; max-height: 82%; width: auto; height: auto; display: block; box-shadow: 0 30px 80px rgba(0,0,0,0.6); cursor: pointer; }
+  .lb button { position: absolute; background: none; border: 0; color: var(--white); cursor: pointer; padding: 12px; font-family: var(--f-text); }
+  .lb-prev, .lb-next { top: 50%; transform: translateY(-50%); font-size: clamp(34px, 5vw, 54px); }
+  .lb-prev { left: clamp(4px, 2vw, 28px); }
+  .lb-next { right: clamp(4px, 2vw, 28px); }
+  .lb-close { right: clamp(8px, 2vw, 28px); top: clamp(8px, 2vw, 24px); font-size: 30px; }
+  .lb-cap { position: absolute; left: clamp(16px, 3vw, 40px); bottom: clamp(14px, 3vw, 30px); right: 80px; display: flex; gap: 18px; align-items: baseline; color: var(--mute); font: 500 12px/1 var(--f-mono); letter-spacing: 0.18em; text-transform: uppercase; }
+  .lb-cap span:first-child { color: var(--white); }
+</style>

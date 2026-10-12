@@ -65,6 +65,11 @@ for (const s of sheets) for (const i of s.d.imgs) {
   const g = await getImage({ src: mod.default, width: Math.min(2000, mod.default.width), format: 'webp', quality: 82 });
   full[i.slug] = g.src;
 }
+const pslug = (i: I) => (i.named ? i.nm.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') : undefined);
+const SEOLINK: Record<string, string> = {
+  'Porträtfotografie Köln': 'portraitfotografie/', 'Musikporträts für Musikerinnen, Musiker und Bands': 'musikfotografie-koeln/', 'Pressefotos': 'musikfotografie-koeln/',
+  'Schauspielporträts': 'schauspielfotografie-koeln/', 'Moderationsporträts': 'moderatorenfotografie-koeln/',
+};
 const num = (s: string, re: RegExp) => Number((s.match(re) || [])[1] || 0);
 const sizes = (d: string, m: string) => {
   const wd = num(d, /width:calc\(([\d.]+)\*var/); const wm = num(m, /width:calc\(([\d.]+)\*var/);
@@ -98,7 +103,7 @@ const vid = base + 'media/portraits/himoya-band-video.mp4';
       <div class={`lay ${L}`} style={`height:calc(${lay.h}*var(--u))`}>
         {lay.back.map((b) => <div style={fix(b.s)}>{b.t}</div>)}
         {lay.imgs.map((i, k) => (
-          <div class="ph" style={fix(i.wrap)} data-full={full[i.slug]} data-alt={alt(i)} data-cap={i.cap} data-video={i.video ? vid : undefined} role="button" tabindex="0">
+          <div class="ph" style={fix(i.wrap)} data-p={pslug(i)} data-full={full[i.slug]} data-alt={alt(i)} data-cap={i.cap} data-video={i.video ? vid : undefined} role="button" tabindex="0">
             <div style={fix(i.s1)}>{edge(i, 0)}</div>
             {i.video
               ? <video data-src={vid} poster={full[i.slug]} muted loop playsinline preload="none" style={fix(i.is) + 'object-fit:cover;'} aria-label={alt(i)}></video>
@@ -130,11 +135,23 @@ const vid = base + 'media/portraits/himoya-band-video.mp4';
   }
   mix();
   window.__portraitMix = mix;
+  // Sprung auf die Person selbst, nicht nur auf ihren Bogen
+  function jump() {
+    var h = decodeURIComponent(location.hash.slice(1)); if (!h) return;
+    var c = box.querySelectorAll('.ph[data-p="' + h + '"]');
+    for (var k = 0; k < c.length; k++) if (c[k].offsetParent !== null) {
+      var r = c[k].getBoundingClientRect();
+      window.scrollTo({ top: window.scrollY + r.top - Math.max(20, (window.innerHeight - r.height) / 2), behavior: 'instant' });
+      return;
+    }
+  }
+  if (location.hash) { requestAnimationFrame(jump); window.addEventListener('load', jump); }
+  window.addEventListener('hashchange', jump);
 })();
 </script>
 
 <section class="wrap p-outro">
-  <p class="p-seo">{t.seo}</p>
+  <p class="p-seo">{t.seo.split(' · ').map((w, k) => { const h = SEOLINK[w]; return <>{k > 0 && ' · '}{h && !en ? <a href={base + h}>{w}</a> : w}</>; })}</p>
   <div class="p-btns">
     <a class="p-btn p-btn-a" href={pdf} target="_blank" rel="noopener">{t.book} <span>↗</span></a>
     <button type="button" class="p-btn p-btn-b" data-mail={`${site.mailUser}|${site.mailDomain}`.split('').reverse().join('')}>{t.write} <span>→</span></button>
@@ -247,6 +264,7 @@ const vid = base + 'media/portraits/himoya-band-video.mp4';
   .ph :global(picture) { display: contents; }
 
   .p-outro { padding-top: clamp(70px, 10vw, 140px); padding-bottom: 40px; }
+  .p-seo a { color: inherit; text-decoration: underline; text-decoration-color: rgba(255,255,255,.25); text-underline-offset: 3px; }
   .p-seo { margin: 0 0 40px; max-width: 900px; font: 500 11px/1.9 var(--f-mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--mute); }
   .p-btns { display: flex; flex-wrap: wrap; gap: 18px; }
   .p-btn { display: inline-flex; align-items: center; gap: 14px; padding: clamp(14px, 3vw, 22px) clamp(20px, 4vw, 30px); border-radius: 999px; font-family: var(--f-display); font-weight: 500; font-size: clamp(18px, 4.6vw, 26px); letter-spacing: -0.02em; text-decoration: none; cursor: pointer; line-height: 1.1; }

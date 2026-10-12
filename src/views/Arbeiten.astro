@@ -37,6 +37,7 @@ const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,
     <Tisch sheets={[{ bg: k.bg, d: k.d, m: k.m, href: base + campaignPath(k.slug, lang) }]} lang={lang} alt={(n, i) => `${k.title}, ${en ? k.kindEn : k.kind}, ${en ? 'photographed by' : 'fotografiert von'} Kilian Amrehn`} />
   </article>
 ))}
+{!en && <p class="wrap mono ar-seo"><a href={base + 'kampagnenfotografie-koeln/'}>Kampagnenfotografie Köln →</a></p>}
 <Lightbox lang={lang} />
 </Base>
 <style>
@@ -56,4 +57,6 @@ const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,
   .ar-cta { margin-left: auto; padding: 8px 14px; border: 1px solid var(--tx2, rgba(240,228,218,.6)); border-radius: 999px; font-size: 12px; }
   .ar :global(.sheet .band) { top: 0 !important; box-shadow: none !important; transform: none !important; }
   .ar :global(.ph) { cursor: pointer; }
+  .ar-seo { padding-top: 48px; padding-bottom: 8px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
+  .ar-seo a { color: var(--mute); }
 </style>

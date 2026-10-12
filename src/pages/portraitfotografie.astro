@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Img from '../components/Img.astro';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const service = { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Portraitfotografie', provider: { '@id': 'https://kilianamrehn.com/#business' }, areaServed: 'Köln',
-  hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Portraits', itemListElement: ['Porträts für Artists', 'Musikfotos und Pressefotos', 'EP- und Albumcover', 'Schauspielporträts und Headshots'].map((n) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: n } })) } };
+  hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Portraits', itemListElement: ['Porträts für Artists', 'Musikfotos und Pressefotos', 'EP- und Albumcover', 'Schauspielporträts und Headshots', 'Pressefotos für Moderation'].map((n) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: n } })) } };
 ---
 <Base title="Portraitfotografie Köln · Musikfotos, Schauspielporträts & Headshots · Kilian Amrehn" description="Portraitfotografie in Köln für Artists, Musik und Schauspiel: Pressefotos, EP-Cover, Headshots. Im Studio, draußen oder bei dir." schema={[service]}>
 <section class="wrap top">
@@ -14,7 +14,7 @@ const service = { '@context': 'https://schema.org', '@type': 'Service', serviceT
   <Img src="p-paula-dj-3" alt="Paula, DJ, schwarzweiß, Hände im Haar, Portraitfotografie Köln" sizes="(max-width: 900px) 100vw, 45vw" class="pic" />
   <div class="text">
     <p>Ich fotografiere Artists in Köln und überall, wo sie gerade sind. Musik, Schauspiel, Kunst, Moderation. Für Pressefotos, EP- und Albumcover, Headshots für Agenturen und Castings oder eine Porträtreihe, die zeigt, wer du gerade bist.</p>
-    <p>Mein Werkzeug ist Licht. Gerichtet, oft farbig, mit viel Dunkelheit drumherum. Es sucht sich die Stelle, um die es geht, und lässt den Rest weg. So entstehen Bilder, die nicht nach Fotostudio aussehen, sondern nach dir.</p>
+    <p>Mein Werkzeug ist Licht. Gerichtet, manchmal farbig, mit viel Dunkelheit drumherum. Es sucht sich die Stelle, um die es geht, und lässt den Rest weg. So entstehen Bilder, die nicht nach Fotostudio aussehen, sondern nach dir.</p>
     <p>Posen gibt es bei mir nicht. Zehn Jahre stand ich selbst vor der Kamera und weiß, wie es sich anfühlt, angeschaut zu werden. Deshalb nehmen wir uns Zeit. Die besten Bilder entstehen meistens kurz danach, wenn du vergisst, dass die Kamera noch da ist.</p>
     <p>Im Studio, draußen in Köln oder bei dir. Vorher sprechen wir über Idee, Licht und Ort.</p>
     <h2 class="mono mute">Was ich fotografiere</h2>
@@ -23,6 +23,7 @@ const service = { '@context': 'https://schema.org', '@type': 'Service', serviceT
       <li><a href={base + 'musikfotografie-koeln/'}>Musikfotos und Pressefotos für Bands →</a></li>
       <li><a href={base + 'kuenstlerportraits/#nicole-da-silva'}>EP- und Albumcover →</a></li>
       <li><a href={base + 'schauspielfotografie-koeln/'}>Schauspielporträts und Headshots →</a></li>
+      <li><a href={base + 'moderatorenfotografie-koeln/'}>Pressefotos für Moderation und Speaker →</a></li>
       <li><a href={base + 'kampagnenfotografie-koeln/'}>Kampagnen und Editorials →</a></li>
     </ul>
     <p class="cta"><a class="u" href={base + 'ueber/#kontakt'}>Schreib mir, was du vorhast.</a></p>

@@ -68,8 +68,8 @@
  {
   "slug": "copenhagen-studios",
   "title": "Copenhagen Studios",
-  "kind": "Kampagnen",
-  "kindEn": "Campaigns",
+  "kind": "Kampagne",
+  "kindEn": "Campaign",
   "year": "2021 bis 2022",
   "client": "The Wants Social",
   "sections": [
@@ -118,7 +118,7 @@
     "The Wants Social"
    ],
    [
-    "Creative Director",
+    "Creative Direction",
     "Karla Jenders"
    ],
    [
@@ -383,8 +383,8 @@
      "w-synergy-4",
      "w-synergy-5"
     ],
-    "note": "Kein KI-Bild. Ein Model, ein Rabe namens Hitchcock, ein Hahn namens Michelangelo und ein Studio. Genau so fotografiert.",
-    "noteEn": "Not an AI image. A model, a raven called Hitchcock, a rooster called Michelangelo and a studio. Photographed exactly like this."
+    "note": "Ein Model, ein Rabe namens Hitchcock, ein Hahn namens Michelangelo, ein Studio. Genau so fotografiert.",
+    "noteEn": "A model, a raven called Hitchcock, a rooster called Michelangelo, a studio. Photographed exactly like this."
    },
    {
     "label": "KI-animiert aus diesen Fotos",
@@ -431,7 +431,7 @@
   "color": "#2f6f58",
   "edge": [
    "FREIE STRECKE",
-   "KEIN KI-BILD"
+   "EDITORIAL"
   ],
   "seed": 5,
   "band": "#2f6f58",
@@ -474,7 +474,7 @@
     "Mariann Reitz"
    ],
    [
-    "Creative Director",
+    "Creative Direction",
     "Alexandra Specht"
    ],
    [
@@ -613,15 +613,11 @@
   ],
   "credits": [
    [
-    "Second Hand",
-    "Kleiderei, MatchYourStyle"
-   ],
-   [
     "Produktion",
     "Kilian Amrehn"
    ],
    [
-    "Creative Director",
+    "Creative Direction",
     "Ann-Kathrin Templin"
    ],
    [
@@ -639,6 +635,10 @@
    [
     "Fotoassistenz",
     "Fabian Podzuweit"
+   ],
+   [
+    "Second Hand",
+    "Kleiderei, MatchYourStyle"
    ]
   ],
   "textDe": "",
@@ -661,8 +661,8 @@
  {
   "slug": "silent-escape",
   "title": "Silent Escape",
-  "kind": "Kampagne · JEREMIAH",
-  "kindEn": "Campaign · JEREMIAH",
+  "kind": "Kampagne",
+  "kindEn": "Campaign",
   "year": "2024",
   "client": "JEREMIAH",
   "sections": [
@@ -718,13 +718,13 @@
     "Natalie Arslan"
    ]
   ],
-  "textDe": "Eine Wüste unter vollem Mond, zwei Menschen stehen still. Sie trägt die Erwartungen der anderen, er die Unsichtbarkeit. Für einen Moment sind beide nicht mehr gefangen. Sie stehen still, und sind doch längst unterwegs.",
+  "textDe": "Eine Wüste unter vollem Mond, zwei Menschen stehen still. Sie trägt die Erwartungen der anderen, er die Unsichtbarkeit. Für einen Moment sind beide nicht mehr gefangen. Sie stehen still und sind doch längst unterwegs.",
   "textEn": "A desert under a full moon, two people standing still. She carries the expectations of others, he carries invisibility. For a moment, neither of them is trapped. They stand still, yet their spirits are already running free.",
   "top": null,
   "color": "#2e4f56",
   "edge": [
-   "SCHMUCKFOTOGRAFIE",
-   "KAMPAGNE"
+   "KAMPAGNE",
+   "MODEFOTOGRAFIE"
   ],
   "seed": 6,
   "band": "#2e4f56",
@@ -767,7 +767,7 @@
     "Ischtar Isik"
    ],
    [
-    "Creative Director",
+    "Creative Direction",
     "Ischtar Isik"
    ],
    [
@@ -807,8 +807,8 @@
  {
   "slug": "scholl-iconic",
   "title": "Scholl",
-  "kind": "Kampagnen",
-  "kindEn": "Campaigns",
+  "kind": "Kampagne",
+  "kindEn": "Campaign",
   "year": "2021 bis 2023",
   "client": "The Wants Social",
   "sections": [
@@ -960,8 +960,8 @@
  {
   "slug": "pnts",
   "title": "PNTS",
-  "kind": "Kampagnen",
-  "kindEn": "Campaigns",
+  "kind": "Kampagne",
+  "kindEn": "Campaign",
   "year": "2022 bis 2023",
   "client": "The Wants Social",
   "sections": [
@@ -1086,7 +1086,7 @@
     "Anna Siepenkötter"
    ],
    [
-    "Creative Director",
+    "Creative Direction",
     "Karla Jenders"
    ],
    [
@@ -1188,8 +1188,8 @@
  {
   "slug": "bundesliga",
   "title": "Bundesliga",
-  "kind": "Sport · DFL",
-  "kindEn": "Sport · DFL",
+  "kind": "Sport · Bundesliga",
+  "kindEn": "Sport · Bundesliga",
   "year": "2023 bis 2025",
   "client": "DFL",
   "sections": [
@@ -1241,8 +1241,8 @@
     "Kilian Amrehn"
    ]
   ],
-  "textDe": "Für die DFL war ich in vielen Stadien und durfte Spiele direkt vom Spielfeldrand erleben. Stadien sind beeindruckende Orte. Der Sport auch, vor allem so nah dran.",
-  "textEn": "Working for the DFL has taken me to many stadiums, where I had the chance to experience matches right from the sidelines. Stadiums are impressive places, and so is the sport itself, especially when you are that close to the action.",
+  "textDe": "Für die DFL in den Stadien, direkt am Spielfeldrand. Beeindruckende Orte. Und der Sport erst, so nah dran.",
+  "textEn": "For the DFL in the stadiums, right at the sideline. Impressive places. And the game even more so, this close.",
   "top": null,
   "color": "#3a3a38",
   "edge": [

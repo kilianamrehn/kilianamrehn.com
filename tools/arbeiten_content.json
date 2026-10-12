@@ -57,67 +57,11 @@
    "EDITORIAL"
   ],
   "seed": 0,
-  "band": "#6a1a44",
+  "band": "#95c5b9",
   "bandImgs": [
-   "w-rock-fairyland-2",
-   "w-rock-fairyland-6",
-   "w-rock-fairyland-8"
-  ]
- },
- {
-  "slug": "trish-reflections-of-identity",
-  "title": "Reflections of Identity",
-  "kind": "Freie Strecke · Porträt",
-  "kindEn": "Personal series · Portrait",
-  "year": "2024",
-  "client": "Studio Zehn70",
-  "sections": [
-   {
-    "label": "",
-    "labelEn": "",
-    "items": [
-     "w-trish-reflections-of-identity-1",
-     "w-trish-reflections-of-identity-2",
-     "w-trish-reflections-of-identity-3",
-     "w-trish-reflections-of-identity-4",
-     "w-trish-reflections-of-identity-5",
-     "w-trish-reflections-of-identity-6",
-     "w-trish-reflections-of-identity-7"
-    ],
-    "note": null,
-    "noteEn": null
-   }
-  ],
-  "credits": [
-   [
-    "Art Direction, Foto",
-    "Kilian Amrehn"
-   ],
-   [
-    "Produktion",
-    "Pia Unterstell"
-   ],
-   [
-    "Model",
-    "Trish · PARS Management"
-   ],
-   [
-    "Hair & Make-up",
-    "Serife Cigdem Güney"
-   ]
-  ],
-  "textDe": "Vier Szenen, eine Person. Stark in der Mode, weich in der Beauty, fremd vor einem offenen Kühlschrank, nackt im Schwarzweiß.",
-  "textEn": "Four scenes, one person. Strong in fashion, soft in beauty, strange in front of an open fridge, bare in black and white.",
-  "top": null,
-  "color": null,
-  "edge": [
-   "FREIE STRECKE",
-   "GERICHTETES LICHT"
-  ],
-  "seed": 7,
-  "band": "#0a8389",
-  "bandImgs": [
-   "w-trish-reflections-of-identity-6"
+   "w-rock-fairyland-1",
+   "w-rock-fairyland-4",
+   "w-rock-fairyland-2"
   ]
  },
  {
@@ -268,8 +212,132 @@
   "band": "#d0592b",
   "bandImgs": [
    "w-scholl-3",
-   "w-scholl-4",
-   "w-scholl-1"
+   "w-scholl-5",
+   "w-scholl-9"
+  ]
+ },
+ {
+  "slug": "trish-reflections-of-identity",
+  "title": "Reflections of Identity",
+  "kind": "Freie Strecke · Porträt",
+  "kindEn": "Personal series · Portrait",
+  "year": "2024",
+  "client": "Studio Zehn70",
+  "sections": [
+   {
+    "label": "",
+    "labelEn": "",
+    "items": [
+     "w-trish-reflections-of-identity-1",
+     "w-trish-reflections-of-identity-2",
+     "w-trish-reflections-of-identity-3",
+     "w-trish-reflections-of-identity-4",
+     "w-trish-reflections-of-identity-5",
+     "w-trish-reflections-of-identity-6",
+     "w-trish-reflections-of-identity-7"
+    ],
+    "note": null,
+    "noteEn": null
+   }
+  ],
+  "credits": [
+   [
+    "Art Direction, Foto",
+    "Kilian Amrehn"
+   ],
+   [
+    "Produktion",
+    "Pia Unterstell"
+   ],
+   [
+    "Model",
+    "Trish · PARS Management"
+   ],
+   [
+    "Hair & Make-up",
+    "Serife Cigdem Güney"
+   ]
+  ],
+  "textDe": "Vier Szenen, eine Person. Stark in der Mode, weich in der Beauty, fremd vor einem offenen Kühlschrank, nackt im Schwarzweiß.",
+  "textEn": "Four scenes, one person. Strong in fashion, soft in beauty, strange in front of an open fridge, bare in black and white.",
+  "top": null,
+  "color": null,
+  "edge": [
+   "FREIE STRECKE",
+   "GERICHTETES LICHT"
+  ],
+  "seed": 7,
+  "band": "#0a8389",
+  "bandImgs": [
+   "w-trish-reflections-of-identity-6"
+  ]
+ },
+ {
+  "slug": "phiala",
+  "title": "Phiala",
+  "kind": "Kampagne",
+  "kindEn": "Campaign",
+  "year": "2024",
+  "client": "Phiala",
+  "sections": [
+   {
+    "label": "",
+    "labelEn": "",
+    "items": [
+     "w-phiala-1",
+     "w-phiala-2",
+     "w-phiala-3",
+     "w-phiala-4",
+     "w-phiala-5",
+     "w-phiala-6",
+     "w-phiala-7",
+     "w-phiala-8",
+     "w-phiala-9"
+    ],
+    "note": null,
+    "noteEn": null
+   }
+  ],
+  "credits": [
+   [
+    "Produktion",
+    "Ischtar Isik"
+   ],
+   [
+    "Creative Director",
+    "Ischtar Isik"
+   ],
+   [
+    "Models",
+    "Lael Schunter, Nicole Handy"
+   ],
+   [
+    "Hair & Make-up",
+    "Sara Cassel"
+   ],
+   [
+    "Styling",
+    "Henni Schaefer"
+   ],
+   [
+    "Foto",
+    "Kilian Amrehn"
+   ]
+  ],
+  "textDe": "",
+  "textEn": "",
+  "top": null,
+  "color": null,
+  "edge": [
+   "KAMPAGNE",
+   "SCHMUCKFOTOGRAFIE"
+  ],
+  "seed": 9,
+  "band": "#ceb57d",
+  "bandImgs": [
+   "w-phiala-8",
+   "w-phiala-4",
+   "w-phiala-2"
   ]
  },
  {
@@ -359,76 +427,8 @@
   "band": "#2f5878",
   "bandImgs": [
    "w-pnts-3",
-   "w-pnts-4",
-   "w-pnts-5"
-  ]
- },
- {
-  "slug": "phiala",
-  "title": "Phiala",
-  "kind": "Kampagne",
-  "kindEn": "Campaign",
-  "year": "2024",
-  "client": "Phiala",
-  "sections": [
-   {
-    "label": "",
-    "labelEn": "",
-    "items": [
-     "w-phiala-1",
-     "w-phiala-2",
-     "w-phiala-3",
-     "w-phiala-4",
-     "w-phiala-5",
-     "w-phiala-6",
-     "w-phiala-7",
-     "w-phiala-8",
-     "w-phiala-9"
-    ],
-    "note": null,
-    "noteEn": null
-   }
-  ],
-  "credits": [
-   [
-    "Produktion",
-    "Ischtar Isik"
-   ],
-   [
-    "Creative Director",
-    "Ischtar Isik"
-   ],
-   [
-    "Models",
-    "Lael Schunter, Nicole Handy"
-   ],
-   [
-    "Hair & Make-up",
-    "Sara Cassel"
-   ],
-   [
-    "Styling",
-    "Henni Schaefer"
-   ],
-   [
-    "Foto",
-    "Kilian Amrehn"
-   ]
-  ],
-  "textDe": "",
-  "textEn": "",
-  "top": null,
-  "color": null,
-  "edge": [
-   "KAMPAGNE",
-   "SCHMUCKFOTOGRAFIE"
-  ],
-  "seed": 9,
-  "band": "#ceb57d",
-  "bandImgs": [
-   "w-phiala-6",
-   "w-phiala-8",
-   "w-phiala-9"
+   "w-pnts-10",
+   "w-pnts-4"
   ]
  },
  {
@@ -497,9 +497,11 @@
    "MODEFOTOGRAFIE"
   ],
   "seed": 16,
-  "band": "#562b38",
+  "band": "#af7a56",
   "bandImgs": [
-   "w-the-wants-4"
+   "w-the-wants-3",
+   "w-the-wants-5",
+   "w-the-wants-8"
   ]
  },
  {
@@ -748,6 +750,82 @@
   ]
  },
  {
+  "slug": "silent-escape",
+  "title": "Silent Escape",
+  "kind": "Kampagne · JEREMIAH",
+  "kindEn": "Campaign · JEREMIAH",
+  "year": "2024",
+  "client": "JEREMIAH",
+  "sections": [
+   {
+    "label": "",
+    "labelEn": "",
+    "items": [
+     "w-silent-escape-1",
+     "w-silent-escape-2",
+     "w-silent-escape-3",
+     "w-silent-escape-4",
+     "w-silent-escape-5"
+    ],
+    "note": null,
+    "noteEn": null
+   },
+   {
+    "label": "KI-animiert aus diesen Fotos",
+    "labelEn": "AI-animated from these photos",
+    "items": [
+     "jeremiah-ki-1",
+     "jeremiah-ki-2",
+     "jeremiah-ki-3"
+    ],
+    "note": null,
+    "noteEn": null
+   },
+   {
+    "label": "Behind the Scenes",
+    "labelEn": "Behind the scenes",
+    "items": [
+     "silent-escape-bts"
+    ],
+    "note": null,
+    "noteEn": null
+   }
+  ],
+  "credits": [
+   [
+    "Design",
+    "JEREMIAH"
+   ],
+   [
+    "Produktion",
+    "Kilian Amrehn"
+   ],
+   [
+    "Models",
+    "Marie Lange, Ricardo Alverez"
+   ],
+   [
+    "Hair & Make-up",
+    "Natalie Arslan"
+   ]
+  ],
+  "textDe": "Eine Wüste unter vollem Mond, zwei Menschen stehen still. Sie trägt die Erwartungen der anderen, er die Unsichtbarkeit. Für einen Moment sind beide nicht mehr gefangen. Sie stehen still, und sind doch längst unterwegs.",
+  "textEn": "A desert under a full moon, two people standing still. She carries the expectations of others, he carries invisibility. For a moment, neither of them is trapped. They stand still, yet their spirits are already running free.",
+  "top": null,
+  "color": null,
+  "edge": [
+   "SCHMUCKFOTOGRAFIE",
+   "KAMPAGNE"
+  ],
+  "seed": 6,
+  "band": "#2e4f56",
+  "bandImgs": [
+   "w-silent-escape-5",
+   "w-silent-escape-1",
+   "vid:jeremiah-ki-2"
+  ]
+ },
+ {
   "slug": "copenhagen-studios",
   "title": "Copenhagen Studios",
   "kind": "Kampagnen",
@@ -841,82 +919,6 @@
   ]
  },
  {
-  "slug": "silent-escape",
-  "title": "Silent Escape",
-  "kind": "Kampagne · JEREMIAH",
-  "kindEn": "Campaign · JEREMIAH",
-  "year": "2024",
-  "client": "JEREMIAH",
-  "sections": [
-   {
-    "label": "",
-    "labelEn": "",
-    "items": [
-     "w-silent-escape-1",
-     "w-silent-escape-2",
-     "w-silent-escape-3",
-     "w-silent-escape-4",
-     "w-silent-escape-5"
-    ],
-    "note": null,
-    "noteEn": null
-   },
-   {
-    "label": "KI-animiert aus diesen Fotos",
-    "labelEn": "AI-animated from these photos",
-    "items": [
-     "jeremiah-ki-1",
-     "jeremiah-ki-2",
-     "jeremiah-ki-3"
-    ],
-    "note": null,
-    "noteEn": null
-   },
-   {
-    "label": "Behind the Scenes",
-    "labelEn": "Behind the scenes",
-    "items": [
-     "silent-escape-bts"
-    ],
-    "note": null,
-    "noteEn": null
-   }
-  ],
-  "credits": [
-   [
-    "Design",
-    "JEREMIAH"
-   ],
-   [
-    "Produktion",
-    "Kilian Amrehn"
-   ],
-   [
-    "Models",
-    "Marie Lange, Ricardo Alverez"
-   ],
-   [
-    "Hair & Make-up",
-    "Natalie Arslan"
-   ]
-  ],
-  "textDe": "Eine Wüste unter vollem Mond, zwei Menschen stehen still. Sie trägt die Erwartungen der anderen, er die Unsichtbarkeit. Für einen Moment sind beide nicht mehr gefangen. Sie stehen still, und sind doch längst unterwegs.",
-  "textEn": "A desert under a full moon, two people standing still. She carries the expectations of others, he carries invisibility. For a moment, neither of them is trapped. They stand still, yet their spirits are already running free.",
-  "top": null,
-  "color": null,
-  "edge": [
-   "SCHMUCKFOTOGRAFIE",
-   "KAMPAGNE"
-  ],
-  "seed": 6,
-  "band": "#2e4f56",
-  "bandImgs": [
-   "w-silent-escape-1",
-   "w-silent-escape-2",
-   "w-silent-escape-5"
-  ]
- },
- {
   "slug": "bundesliga",
   "title": "Bundesliga",
   "kind": "Sport · DFL",
@@ -981,9 +983,11 @@
    "BUNDESLIGA"
   ],
   "seed": 17,
-  "band": "#d9b42c",
+  "band": "#3a3a38",
   "bandImgs": [
-   "w-bundesliga-23"
+   "w-bundesliga-13",
+   "w-bundesliga-7",
+   "w-bundesliga-18"
   ]
  },
  {
@@ -1191,7 +1195,7 @@
   "bandImgs": [
    "w-synergy-1",
    "w-synergy-2",
-   "w-synergy-3"
+   "vid:untamed-ki-1"
   ]
  },
  {
@@ -1209,7 +1213,6 @@
      "w-new-icons-club-magazine-1",
      "w-new-icons-club-magazine-2",
      "w-new-icons-club-magazine-3",
-     "w-new-icons-club-magazine-4",
      "w-new-icons-club-magazine-5",
      "w-new-icons-club-magazine-6",
      "w-new-icons-club-magazine-7",
@@ -1283,8 +1286,8 @@
   "seed": 12,
   "band": "#c8182e",
   "bandImgs": [
-   "w-new-icons-club-magazine-5",
-   "w-new-icons-club-magazine-2-6",
+   "w-new-icons-club-magazine-12",
+   "w-new-icons-club-magazine-9",
    "w-new-icons-club-magazine-2-9"
   ]
  }

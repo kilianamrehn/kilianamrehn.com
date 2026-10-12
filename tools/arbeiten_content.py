@@ -51,7 +51,7 @@ p('phiala','Phiala','Kampagne','Campaign','2024','Phiala',[S('','',r('phiala',1,
 p('monano-schmuck','Monano Schmuckmanufaktur','Kampagne','Campaign','2024','Monano',[S('','',r('monano-schmuck',1,6))],
   [('Produktion','Kilian Amrehn'),('Styling','Jacqueline Tamm'),('Hair & Make-up','Hanna Fuchs'),('Models','Ronja Stevens, Hella Kornatzki'),('Fotoassistenz','Eno de Witt')],edge=('SCHMUCKFOTOGRAFIE','KAMPAGNE'))
 p('new-icons-club-magazine',"New Icons' Club Magazine",'Editorial · Magazin','Editorial · Magazine','2023 bis 2024',"New Icons' Club",
-  [S('Ausgabe 1 · 2023','Issue 1 · 2023',r('new-icons-club-magazine',1,13)),S('2nd Hand · 2024','2nd Hand · 2024',r('new-icons-club-magazine-2',1,10))],
+  [S('Ausgabe 1 · 2023','Issue 1 · 2023',[x for x in r('new-icons-club-magazine',1,13) if x!='w-new-icons-club-magazine-4']),S('2nd Hand · 2024','2nd Hand · 2024',r('new-icons-club-magazine-2',1,10))],
   [('Second Hand','Kleiderei, MatchYourStyle'),('Produktion','Kilian Amrehn'),('Creative Director','Ann-Kathrin Templin'),('Styling','Jacqueline Tamm'),('Hair & Make-up','Serife Maria Rosewood, Hanna Fuchs'),('Models','Marie, Louis, Lia, Paulus, Elisabeth, Linda, Nika, Lasse'),('Fotoassistenz','Fabian Podzuweit')],edge=('EDITORIAL','MAGAZIN'))
 p('pnts','PNTS','Kampagnen','Campaigns','2022 bis 2023','The Wants Social',
   [S('2022','2022',r('pnts',1,7)),S('Noordwijk 2023','Noordwijk 2023',r('pnts',8,16))],
@@ -70,11 +70,11 @@ p('bundesliga','Bundesliga','Sport · DFL','Sport · DFL','2023 bis 2025','DFL',
 
 # Farbe des Bands (mit Farbpipette aus den Bildern der Arbeit genommen) und Bild(er) beim Aufklappen.
 # Reihenfolge so, dass nie zwei ähnliche Farben nebeneinander stehen.
-BAND=[('rock-fairyland','#6a1a44',[2,6,8]),('trish-reflections-of-identity','#0a8389',[6]),('scholl-iconic','#d0592b',['scholl-3','scholl-4','scholl-1']),
- ('pnts','#2f5878',[3,4,5]),('phiala','#ceb57d',[6,8,9]),('the-wants','#562b38',[4]),('peek-cloppenburg-x-ellesse','#99b4bc',[1]),
- ('ozean-der-stille','#5a1f1b',[11]),('monano-schmuck','#9eccd4',[5]),('niewiederleise','#6f6f41',['vid:niewiederleise-kampagne']),('copenhagen-studios','#e8603e',[11,'vid:cph-schal-loop',12]),
- ('silent-escape','#2e4f56',[1,2,5]),('bundesliga','#d9b42c',[23]),('appelrathcuepper','#0d3a78',[2]),('marie-dahmen','#9a5530',[5]),
- ('synergy','#2f6f58',[1,2,3]),('new-icons-club-magazine','#c8182e',['new-icons-club-magazine-5','new-icons-club-magazine-2-6','new-icons-club-magazine-2-9'])]
+BAND=[('rock-fairyland','#95c5b9',[1,4,2]),('scholl-iconic','#d0592b',['scholl-3','scholl-5','scholl-9']),('trish-reflections-of-identity','#0a8389',[6]),
+ ('phiala','#ceb57d',[8,4,2]),('pnts','#2f5878',[3,10,4]),('the-wants','#af7a56',[3,5,8]),('peek-cloppenburg-x-ellesse','#99b4bc',[1]),
+ ('ozean-der-stille','#5a1f1b',[11]),('monano-schmuck','#9eccd4',[5]),('niewiederleise','#6f6f41',['vid:niewiederleise-kampagne']),('silent-escape','#2e4f56',[5,1,'vid:jeremiah-ki-2']),
+ ('copenhagen-studios','#e8603e',[11,'vid:cph-schal-loop',12]),('bundesliga','#3a3a38',[13,7,18]),('appelrathcuepper','#0d3a78',[2]),('marie-dahmen','#9a5530',[5]),
+ ('synergy','#2f6f58',[1,2,'vid:untamed-ki-1']),('new-icons-club-magazine','#c8182e',['new-icons-club-magazine-12','new-icons-club-magazine-9','new-icons-club-magazine-2-9'])]
 for i,x in enumerate(P): x['seed']=[0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17][i]  # alte Position, damit die Bögen gleich bleiben
 byslug={x['slug']:x for x in P}
 assert len(BAND)==len(P), (len(BAND),len(P))

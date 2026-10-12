@@ -68,6 +68,8 @@ const ld = [business, person, ...schema];
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#22100f">
 <link rel="icon" href={u('favicon.svg')} type="image/svg+xml">
+<link rel="icon" href={u('favicon-32.png')} type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href={u('favicon-180.png')}>
 <link rel="sitemap" href={u('sitemap-index.xml')}>
 {ld.map((o) => <script type="application/ld+json" set:html={JSON.stringify(o)} />)}
 </head>

@@ -26,7 +26,7 @@ const all = [...imgs, ...vids];
       <i class="sp t"></i><span class="e t"></span>
       {x.v
         ? <video data-src={`${base}media/video/${x.n}.mp4`} poster={`${base}img/v-${x.n}.webp`} muted loop playsinline preload="none" aria-hidden="true"></video>
-        : <Pic name={x.n} alt={altText(x.n, en, en ? 'Flash, photo by Kilian Amrehn' : 'Flash, Foto von Kilian Amrehn', 'flash')} sizes="(max-width: 699px) 45vw, 460px" />}
+        : <Pic name={x.n} alt={altText(x.n, en, en ? 'Flash, photo by Kilian Amrehn' : 'Flash, Foto von Kilian Amrehn', 'flash')} sizes="(max-width: 699px) 70vw, 800px" />}
       <span class="e b"></span><i class="sp b"></i>
     </div>
   ))}
@@ -42,12 +42,12 @@ const all = [...imgs, ...vids];
   const torn = () => { const p: string[] = []; for (let s = 0; s < 4; s++) for (let i = 0; i < 34; i++) { const t = (i / 34) * 100, j = R() * 1.1; const q = [[t, j], [100 - j, t], [100 - t, 100 - j], [j, 100 - t]][s]; p.push(`${q[0].toFixed(1)}% ${q[1].toFixed(1)}%`); } return `polygon(${p.join(',')})`; };
   let topZ = 1000;
   function layout() {
-    const mob = innerWidth < 700, W = mob ? 390 : 1440, S = mob ? 0.52 : 1, fs = mob ? 0.6 : 1;
+    const mob = innerWidth < 700, W = mob ? 390 : 1440, S = mob ? 0.52 : 1, fs = mob ? 0.6 : 1, K = mob ? 1.5 : 1.75;
     const u = mob ? innerWidth / 390 : Math.min(1, innerWidth / 1440);
     const order = items.slice().sort(() => R() - 0.5);
     let y = 20, i = 0, z = 1, maxY = 0;
     const put = (el: HTMLElement, ls: number, x: number, yy: number) => {
-      const w0 = +el.dataset.w!, h0 = +el.dataset.h!, sc = (ls * S) / Math.max(w0, h0);
+      const w0 = +el.dataset.w!, h0 = +el.dataset.h!, sc = (ls * S * K) / Math.max(w0, h0);
       const w = Math.round(w0 * sc), ih = Math.round(h0 * sc);
       const kd = el.querySelector('video') ? pick(['plain', 'plain', 'border']) : pick(KS);
       const [px, pt, pb] = FR[kd].map((v) => Math.round(v * fs));
@@ -59,14 +59,14 @@ const all = [...imgs, ...vids];
       maxY = Math.max(maxY, yy + fh / 2);
     };
     while (i < order.length) {
-      const band = U(460, 620) * S;
+      const band = U(460, 620) * S * K;
       let parts: [number, number][] = [[(mob ? 10 : 30) * S, W - (mob ? 10 : 30) * S]];
-      if (!mob && R() < 0.55) { const sp = U(560, 880); parts = [[30, sp], [sp, 1410]]; }
+      if (!mob && R() < 0.3) { const sp = U(620, 820); parts = [[30, sp], [sp, 1410]]; }
       for (const [x0, x1] of parts) {
         const Wd = x1 - x0, cx = (x0 + x1) / 2, yc = y + band / 2;
         const g = Wd > 900 * S ? pick(['heap', 'diag', 'row', 'arc', 'ring', 'single']) : pick(['heap', 'heap', 'diag', 'single', 'ring']);
         let n = ({ heap: 3 + Math.floor(R() * 4), diag: 3 + Math.floor(R() * 4), row: 4 + Math.floor(R() * 3), arc: 5 + Math.floor(R() * 2), ring: 5 + Math.floor(R() * 3), single: Wd > 900 * S ? 2 : 1 } as any)[g];
-        if (mob) n = Math.min(n, 5);
+        n = Math.max(1, Math.round(n / K)); if (mob) n = Math.min(n, 4);
         const ms = order.slice(i, i + n); i += ms.length;
         ms.forEach((m, j) => {
           const t = (j + 0.5) / ms.length;

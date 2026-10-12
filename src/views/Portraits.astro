@@ -68,7 +68,7 @@ for (const s of sheets) for (const i of s.d.imgs) {
 const pslug = (i: I) => (i.named ? i.nm.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') : undefined);
 const SEOLINK: Record<string, string> = {
   'Porträtfotografie Köln': 'portraitfotografie/', 'Musikporträts für Musikerinnen, Musiker und Bands': 'musikfotografie-koeln/', 'Pressefotos': 'musikfotografie-koeln/',
-  'Schauspielporträts': 'schauspielfotografie-koeln/', 'Moderationsporträts': 'moderatorenfotografie-koeln/',
+  'Schauspielporträts': 'schauspielfotografie-koeln/', 'Moderationsporträts': 'moderationsfotografie-koeln/',
 };
 const num = (s: string, re: RegExp) => Number((s.match(re) || [])[1] || 0);
 const sizes = (d: string, m: string) => {

@@ -59,7 +59,9 @@
   "seed": 0,
   "band": "#6a1a44",
   "bandImgs": [
-   "w-rock-fairyland-7"
+   "w-rock-fairyland-2",
+   "w-rock-fairyland-6",
+   "w-rock-fairyland-8"
   ]
  },
  {
@@ -265,7 +267,9 @@
   "seed": 2,
   "band": "#d0592b",
   "bandImgs": [
-   "w-scholl-6"
+   "w-scholl-3",
+   "w-scholl-4",
+   "w-scholl-1"
   ]
  },
  {
@@ -354,7 +358,9 @@
   "seed": 13,
   "band": "#2f5878",
   "bandImgs": [
-   "w-pnts-15"
+   "w-pnts-3",
+   "w-pnts-4",
+   "w-pnts-5"
   ]
  },
  {
@@ -569,7 +575,7 @@
   "seed": 4,
   "band": "#99b4bc",
   "bandImgs": [
-   "w-peek-cloppenburg-x-ellesse-6"
+   "w-peek-cloppenburg-x-ellesse-1"
   ]
  },
  {
@@ -831,9 +837,8 @@
   "seed": 3,
   "band": "#f09a9e",
   "bandImgs": [
-   "w-copenhagen-studios-2",
-   "w-copenhagen-studios-12",
-   "w-copenhagen-studios-9"
+   "w-copenhagen-studios-5",
+   "w-copenhagen-studios-4"
   ]
  },
  {
@@ -1279,9 +1284,9 @@
   "seed": 12,
   "band": "#c8182e",
   "bandImgs": [
-   "w-new-icons-club-magazine-2-3",
-   "w-new-icons-club-magazine-6",
-   "w-new-icons-club-magazine-2-7"
+   "w-new-icons-club-magazine-5",
+   "w-new-icons-club-magazine-2-6",
+   "w-new-icons-club-magazine-2-9"
   ]
  }
 ]

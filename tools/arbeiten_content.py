@@ -70,11 +70,11 @@ p('bundesliga','Bundesliga','Sport · DFL','Sport · DFL','2023 bis 2025','DFL',
 
 # Farbe des Bands (mit Farbpipette aus den Bildern der Arbeit genommen) und Bild(er) beim Aufklappen.
 # Reihenfolge so, dass nie zwei ähnliche Farben nebeneinander stehen.
-BAND=[('rock-fairyland','#6a1a44',[7]),('trish-reflections-of-identity','#0a8389',[6]),('scholl-iconic','#d0592b',['scholl-6']),
- ('pnts','#2f5878',[15]),('phiala','#ceb57d',[6,8,9]),('the-wants','#562b38',[4]),('peek-cloppenburg-x-ellesse','#99b4bc',[6]),
- ('ozean-der-stille','#5a1f1b',[11]),('monano-schmuck','#9eccd4',[5]),('niewiederleise','#6f6f41',[4,5,8]),('copenhagen-studios','#f09a9e',[2,12,9]),
+BAND=[('rock-fairyland','#6a1a44',[2,6,8]),('trish-reflections-of-identity','#0a8389',[6]),('scholl-iconic','#d0592b',['scholl-3','scholl-4','scholl-1']),
+ ('pnts','#2f5878',[3,4,5]),('phiala','#ceb57d',[6,8,9]),('the-wants','#562b38',[4]),('peek-cloppenburg-x-ellesse','#99b4bc',[1]),
+ ('ozean-der-stille','#5a1f1b',[11]),('monano-schmuck','#9eccd4',[5]),('niewiederleise','#6f6f41',[4,5,8]),('copenhagen-studios','#f09a9e',[5,4]),
  ('silent-escape','#2e4f56',[1,2,5]),('bundesliga','#d9b42c',[23]),('appelrathcuepper','#0d3a78',[2]),('marie-dahmen','#9a5530',[5]),
- ('synergy','#2f6f58',[1,2,3]),('new-icons-club-magazine','#c8182e',['new-icons-club-magazine-2-3','new-icons-club-magazine-6','new-icons-club-magazine-2-7'])]
+ ('synergy','#2f6f58',[1,2,3]),('new-icons-club-magazine','#c8182e',['new-icons-club-magazine-5','new-icons-club-magazine-2-6','new-icons-club-magazine-2-9'])]
 for i,x in enumerate(P): x['seed']=[0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17][i]  # alte Position, damit die Bögen gleich bleiben
 byslug={x['slug']:x for x in P}
 assert len(BAND)==len(P), (len(BAND),len(P))

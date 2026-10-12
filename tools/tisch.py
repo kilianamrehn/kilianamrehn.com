@@ -166,7 +166,8 @@ def build_arbeiten():
     for pi, p in enumerate(P):
         pi = p.get('seed', pi)
         allimg = [n for s in p['sections'] for n in s['items'] if n in IM]
-        r = random.Random(500 + pi); prev = [allimg[0]] + r.sample(allimg[1:], min(2, len(allimg) - 1))
+        # Übersicht zeigt Kilians Bildwahl (dieselbe wie im aufgeklappten Band)
+        prev = [b[4:] if b.startswith('vid:') else b for b in p.get('bandImgs', [])] or [allimg[0]]
         marks = Marks(3000 + pi)
         dd = sheet(prev, p['color'], 700 + pi, False, marks, p['edge'], label=False, cnt=2, maxh=430)
         mm = sheet(prev[:2], p['color'], 800 + pi, True, Marks(4000 + pi), p['edge'], label=False, cnt=1, maxh=300)

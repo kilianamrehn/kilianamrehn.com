@@ -67,22 +67,26 @@ def pick_kind(name, rnd, allow_torn=False):
     ks = ['plain'] * 7 + ['border'] * 4 + ['polaroid'] * 4 + ['negative'] * 4 + (['torn'] * 2 if allow_torn else [])
     return rnd.choice(ks)
 
-def layout_rows(names, kinds, rnd, mobile, top0, maxh=None):
+def layout_rows(names, kinds, rnd, mobile, top0, maxh=None, tight=False):
     W = 390 if mobile else 1440; M = 14 if mobile else 44; avail = W - 2 * M
     asp = [size(n)[0] / size(n)[1] for n in names]; n = len(names)
     rows, i = [], 0
+    if tight and not mobile and sum(asp) > 3.2:
+        k = min(range(1, n), key=lambda k: abs(sum(asp[:k]) - sum(asp[k:])))
+        rows = [list(range(k)), list(range(k, n))]; i = n
     while i < n:
         if mobile:
             if i + 1 < n and asp[i] < 1 and asp[i + 1] < 1 and rnd.random() < 0.55: rows.append([i, i + 1]); i += 2
             else: rows.append([i]); i += 1
             continue
-        cap = rnd.uniform(1.6, 2.5); r, s = [], 0
+        cap = (99 if sum(asp) <= 3.2 else sum(asp) / 2 + 0.1) if tight else rnd.uniform(1.6, 2.5); r, s = [], 0
         while i < n and (not r or s + asp[i] <= cap): r.append(i); s += asp[i]; i += 1
         rows.append(r)
     rects = [None] * n; y = top0
     for r in rows:
         gap = rnd.uniform(14, 22) if mobile else rnd.uniform(26, 48)
         fill = (rnd.uniform(0.9, 1.0) if len(r) > 1 else rnd.uniform(0.8, 0.96)) if mobile else (rnd.uniform(0.86, 0.97) if len(r) > 1 else rnd.uniform(0.6, 0.8))
+        if tight: fill = max(fill, 0.92 if len(r) > 1 else 0.82)
         pads = sum(2 * FR[kinds[ii]][0] for ii in r)
         kf = {ii: (1.28 if asp[ii] < 1 and len(r) > 1 and any(asp[jj] >= 1 for jj in r) else 1.0) for ii in r}
         h = (avail * fill - gap * (len(r) - 1) - pads) / sum(asp[ii] * kf[ii] for ii in r)
@@ -96,8 +100,8 @@ def layout_rows(names, kinds, rnd, mobile, top0, maxh=None):
             w, ih = sizes[j]; px, pt, pb = FR[kinds[ii]]; x += free * ws[j] / tw
             dy = rnd.uniform(0, 20 if mobile else 50); fw, fh = round(w) + 2 * px, round(ih) + pt + pb
             rects[ii] = (round(x), round(y + dy), round(w), round(ih)); x += fw + gap; rowh = max(rowh, dy + fh)
-        y += rowh + (rnd.uniform(22, 38) if mobile else rnd.uniform(36, 70))
-    return rects, y + (30 if mobile else 60)
+        y += rowh + (rnd.uniform(22, 38) if mobile else rnd.uniform(36, 70)) * (0.6 if tight else 1)
+    return rects, y + ((30 if mobile else 60) if not tight else (12 if mobile else 24))
 
 class Marks:
     def __init__(self, seed):
@@ -126,11 +130,11 @@ def add_marks(back, rects_px, hues, rnd, mobile, marks, cnt):
             lx = x + rnd.uniform(-0.4, 0.6) * fw; ly = y + rnd.choice([fh + rnd.uniform(-30, -6) * SC, rnd.uniform(0.1, 0.9) * fh])
             back.append(mask(key + '.png', paint, lx, ly, lw, lh, 4, f'opacity:{op:.2f};transform:rotate({rnd.uniform(-4, 4):.1f}deg){fl};'))
 
-def sheet(names, paper, rnd_seed, mobile, marks, edge, label=False, cnt=None, allow_torn=False, maxh=None):
+def sheet(names, paper, rnd_seed, mobile, marks, edge, label=False, cnt=None, allow_torn=False, maxh=None, tight=False):
     rnd = random.Random(rnd_seed)
     kinds = [pick_kind(n, rnd, allow_torn) for n in names]
-    top0 = (60 if mobile else 110) + ((40 if mobile else 50) if label else 0)
-    rects, H = layout_rows(names, kinds, rnd, mobile, top0, maxh)
+    top0 = ((60 if mobile else 110) if not tight else (24 if mobile else 40)) + ((40 if mobile else 50) if label else 0)
+    rects, H = layout_rows(names, kinds, rnd, mobile, top0, maxh, tight)
     imgs, back = [], []
     for k, (n, kd) in enumerate(zip(names, kinds)):
         x, y, w, ih = rects[k]
@@ -169,8 +173,8 @@ def build_arbeiten():
         # Übersicht zeigt Kilians Bildwahl (dieselbe wie im aufgeklappten Band)
         prev = [b[4:] if b.startswith('vid:') else b for b in p.get('bandImgs', [])] + p.get('overviewExtra', []) or [allimg[0]]
         marks = Marks(3000 + pi)
-        dd = sheet(prev, p['color'], 700 + pi, False, marks, p['edge'], label=False, cnt=2, maxh=430)
-        mm = sheet(prev[:2], p['color'], 800 + pi, True, Marks(4000 + pi), p['edge'], label=False, cnt=1, maxh=300)
+        dd = sheet(prev, p['color'], 700 + pi, False, marks, p['edge'], label=False, cnt=2, maxh=700, tight=True)
+        mm = sheet(prev, p['color'], 800 + pi, True, Marks(4000 + pi), p['edge'], label=False, cnt=1, maxh=520, tight=True)
         idx.append({'slug': p['slug'], 'title': p['title'], 'kind': p['kind'], 'kindEn': p['kindEn'], 'year': p['year'], 'bg': p['color'], 'band': p['band'], 'bandImgs': p['bandImgs'], 'd': dd, 'm': mm})
     json.dump(idx, open(os.path.join(OUT, 'arbeiten-index.json'), 'w'), ensure_ascii=False)
     json.dump(P, open(D('src/data/arbeiten.json'), 'w'), ensure_ascii=False)

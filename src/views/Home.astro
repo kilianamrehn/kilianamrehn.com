@@ -350,7 +350,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
     }));
   }
   // Lauftext: Hervorhebungen leuchten erst auf, wenn man darüber scrollt
-  const io2 = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('lit'); io2.unobserve(e.target); } }), { rootMargin: matchMedia('(max-width: 700px)').matches ? '0px 0px -12% 0px' : '0px 0px -38% 0px', threshold: 1 });
+  const io2 = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('lit'); io2.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px', threshold: 1 });
   document.querySelectorAll('.runon em, .runon b').forEach((el) => io2.observe(el));
   document.querySelectorAll<HTMLElement>('[data-go]').forEach((el) => el.addEventListener('click', (e) => {
     e.preventDefault(); const a = el.closest('a'); if (a) location.href = a.href + '#' + el.dataset.go;
@@ -360,8 +360,11 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
     // Licht: Spur glimmt nach und verblasst in gut 3 Sekunden, um den Finger bzw. die Maus ein weicher Hof
     type P = { x: number; y: number; t: number | null };
     const LIFE = 3200;
-    const start: P[] = [{ x: 47, y: 33, t: null }, { x: 50, y: 35, t: null }, { x: 53, y: 37, t: null }, { x: 56, y: 40, t: null }];
-    let pts: P[] = start.slice(), cur: P = { x: 56, y: 40, t: null };
+    // Startpunkt des Lichts je Startbild: immer auf einem Gesicht
+    const FACE: Record<string, [number, number]> = { rock: [41, 52], scholl: [47, 19], pc: [48, 31], trish: [39, 43], bianca: [55, 50], morley: [48, 31], slavko: [52, 36] };
+    const startFor = (k: string): P[] => { const [fx, fy] = FACE[k] ?? [50, 40]; return [-9, -6, -3, 0].map((d) => ({ x: fx + d, y: fy + d * 0.6, t: null })); };
+    let lookK = (hero.querySelector('.look:not([hidden])') as HTMLElement | null)?.dataset.look || 'rock';
+    let pts: P[] = startFor(lookK), cur: P = { ...pts[pts.length - 1] };
     const glow = hero.querySelector<HTMLElement>('.glow');
     let raf = 0;
     const draw = (now: number) => {
@@ -414,7 +417,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
           if (on) { hero.style.backgroundColor = l.dataset.bg || ''; if (cap) cap.textContent = l.dataset.caption || ''; }
         });
         hero.querySelectorAll('[data-pick]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-        pts = start.slice(); cur = { x: 56, y: 40, t: null }; kick();
+        lookK = k || 'rock'; pts = startFor(lookK); cur = { ...pts[pts.length - 1] }; kick();
       });
     });
   }

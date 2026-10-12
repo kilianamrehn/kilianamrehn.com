@@ -11,7 +11,9 @@ import Pic from '../components/Pic.astro';
 import im from '../data/imgmeta.json';
 import vm from '../data/vidmeta.json';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const imgs = Object.entries(im as Record<string, [number, number, number[]]>).filter(([n]) => n.startsWith('f-')).map(([n, v]) => ({ n, w: v[0], h: v[1], v: false }));
+// Von Kilian aus Flashes genommen
+const OUT = ['f-229'];
+const imgs = Object.entries(im as Record<string, [number, number, number[]]>).filter(([n]) => n.startsWith('f-') && !OUT.includes(n)).map(([n, v]) => ({ n, w: v[0], h: v[1], v: false }));
 const vids = Object.entries(vm as Record<string, number[]>).filter(([n]) => n.startsWith('flash-')).map(([n, v]) => ({ n, w: v[0], h: v[1], v: true }));
 const all = [...imgs, ...vids];
 ---

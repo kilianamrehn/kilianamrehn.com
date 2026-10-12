@@ -62,7 +62,7 @@ const T = {
 };
 const t = T[lang];
 ---
-<Base lang={lang} alternate={routes.about[en ? 'de' : 'en']} title={t.title} description={t.description}>
+<Base lang={lang} image="/media/og/ueber.jpg" alternate={routes.about[en ? 'de' : 'en']} title={t.title} description={t.description}>
 <section class="wrap top">
   <h1 class="mono mute">{t.h1}</h1>
   <p class="display claim" set:html={t.claim} />

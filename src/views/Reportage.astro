@@ -19,7 +19,7 @@ const altOf = (n: string, ch: string) => { const a = ausgestellt[n]; return altT
 const newsTitle = en ? site.newsTitleEn : site.newsTitle;
 const article = { '@context': 'https://schema.org', '@type': 'Article', headline: `${newsTitle}: ${t.lead.head}`, author: { '@id': 'https://kilianamrehn.com/#person' }, inLanguage: lang, about: ['Reportage', en ? 'Documentary photography' : 'Dokumentarfotografie', 'Myanmar', 'Moldau', 'Hambacher Forst'] };
 ---
-<Base lang={lang} alternate={routes.reportage[en ? 'de' : 'en']} title={t.title} description={t.description} bodyClass="news-body" schema={[article]}>
+<Base lang={lang} image="/media/og/wasbleibt.jpg" alternate={routes.reportage[en ? 'de' : 'en']} title={t.title} description={t.description} bodyClass="news-body" schema={[article]}>
 <div class="ticker mono"><span>{t.ticker}</span></div>
 <div class="paper tisch">
 <section class="wrap">

@@ -18,7 +18,7 @@ const isLight = (hex: string) => { const n = parseInt(hex.slice(1), 16); return 
 const lightOf = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };
 const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,14,.72);--tx3:rgba(22,17,14,.5)' : '';
 ---
-<Base lang={lang} alternate={routes.campaigns[en ? 'de' : 'en']} title={T.title} description={T.desc}>
+<Base lang={lang} image="/media/og/arbeiten.jpg" alternate={routes.campaigns[en ? 'de' : 'en']} title={T.title} description={T.desc}>
 <section class="wrap ar-head">
   <h1 class="display big">{T.h1}</h1>
   <span class="mono sub">{T.sub}</span>

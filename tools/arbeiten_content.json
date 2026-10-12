@@ -577,7 +577,6 @@
     "labelEn": "Issue 1 · 2023",
     "items": [
      "w-new-icons-club-magazine-1",
-     "w-new-icons-club-magazine-2",
      "w-new-icons-club-magazine-3",
      "w-new-icons-club-magazine-5",
      "w-new-icons-club-magazine-6",
@@ -793,7 +792,7 @@
   "color": "#ceb57d",
   "edge": [
    "KAMPAGNE",
-   "SCHMUCKFOTOGRAFIE"
+   "DESSOUSFOTOGRAFIE"
   ],
   "seed": 9,
   "band": "#ceb57d",
@@ -1222,7 +1221,6 @@
      "w-bundesliga-23",
      "w-bundesliga-24",
      "w-bundesliga-25",
-     "w-bundesliga-26",
      "w-bundesliga-27",
      "w-bundesliga-28",
      "w-bundesliga-29"

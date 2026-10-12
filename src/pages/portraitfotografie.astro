@@ -5,7 +5,7 @@ const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const service = { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Portraitfotografie', provider: { '@id': 'https://kilianamrehn.com/#business' }, areaServed: 'Köln',
   hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Portraits', itemListElement: ['Porträts für Artists', 'Musikfotos und Pressefotos', 'EP- und Albumcover', 'Schauspielporträts und Headshots', 'Pressefotos für Moderation'].map((n) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: n } })) } };
 ---
-<Base title="Portraitfotografie Köln · Musik, Schauspiel, Moderation · Kilian Amrehn" description="Portraitfotografie in Köln für Artists, Musik und Schauspiel: Pressefotos, EP-Cover, Headshots. Im Studio, draußen oder bei dir." schema={[service]}>
+<Base image="/media/og/portraitfotografie.jpg" title="Portraitfotografie Köln · Musik, Schauspiel, Moderation · Kilian Amrehn" description="Portraitfotografie in Köln für Artists, Musik und Schauspiel: Pressefotos, EP-Cover, Headshots. Im Studio, draußen oder bei dir." schema={[service]}>
 <section class="wrap top">
   <h1 class="display">Portraitfotografie Köln</h1>
   <p class="lead">Porträts für alle, die gesehen werden wollen. Auf der Bühne, vor der Kamera, auf dem Cover.</p>

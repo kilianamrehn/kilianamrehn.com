@@ -20,7 +20,9 @@ const dePath = lang === 'de' ? self : alternate ?? '';
 const enPath = lang === 'en' ? self : alternate;
 const abs = (p: string) => site.url + '/' + p;
 const en = lang === 'en';
-const ogImage = new URL(image ?? '/media/og-kilian-amrehn.jpg', Astro.site).href;
+// In der Vorschau auf github.io liegen die Bilder unter dem Unterpfad, sonst sieht man beim Teilen nichts
+const ogBase = import.meta.env.BASE_URL !== '/' ? 'https://kilianamrehn.github.io' + import.meta.env.BASE_URL.replace(/\/$/, '') + '/' : Astro.site;
+const ogImage = new URL((image ?? '/media/og-kilian-amrehn.jpg').replace(/^\//, ''), ogBase).href;
 
 const business = {
   '@context': 'https://schema.org',

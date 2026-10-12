@@ -47,11 +47,11 @@ p('trish-reflections-of-identity','Reflections of Identity','Freie Strecke · Po
   edge=('FREIE STRECKE','GERICHTETES LICHT'))
 p('niewiederleise','#niewiederleise','Kampagne','Campaign','2024','',[S('','',r('niewiederleise',1,9))],[('Foto','Kilian Amrehn')],top='niewiederleise-kampagne',edge=('KAMPAGNE','#NIEWIEDERLEISE'))
 p('phiala','Phiala','Kampagne','Campaign','2024','Phiala',[S('','',r('phiala',1,9))],
-  [('Produktion','Ischtar Isik'),('Creative Direction','Ischtar Isik'),('Models','Lael Schunter, Nicole Handy'),('Hair & Make-up','Sara Cassel'),('Styling','Henni Schaefer'),('Foto','Kilian Amrehn')],edge=('KAMPAGNE','SCHMUCKFOTOGRAFIE'))
+  [('Produktion','Ischtar Isik'),('Creative Direction','Ischtar Isik'),('Models','Lael Schunter, Nicole Handy'),('Hair & Make-up','Sara Cassel'),('Styling','Henni Schaefer'),('Foto','Kilian Amrehn')],edge=('KAMPAGNE','DESSOUSFOTOGRAFIE'))
 p('monano-schmuck','Monano Schmuckmanufaktur','Kampagne','Campaign','2024','Monano',[S('','',r('monano-schmuck',1,6))],
   [('Produktion','Kilian Amrehn'),('Styling','Jacqueline Tamm'),('Hair & Make-up','Hanna Fuchs'),('Models','Ronja Stevens, Hella Kornatzki'),('Fotoassistenz','Eno de Witt')],edge=('SCHMUCKFOTOGRAFIE','KAMPAGNE'))
 p('new-icons-club-magazine',"New Icons' Club Magazine",'Editorial · Magazin','Editorial · Magazine','2023 bis 2024',"New Icons' Club",
-  [S('Ausgabe 1 · 2023','Issue 1 · 2023',[x for x in r('new-icons-club-magazine',1,13) if x!='w-new-icons-club-magazine-4']),S('2nd Hand · 2024','2nd Hand · 2024',r('new-icons-club-magazine-2',1,10))],
+  [S('Ausgabe 1 · 2023','Issue 1 · 2023',[x for x in r('new-icons-club-magazine',1,13) if x not in ('w-new-icons-club-magazine-4','w-new-icons-club-magazine-2')]),S('2nd Hand · 2024','2nd Hand · 2024',r('new-icons-club-magazine-2',1,10))],
   [('Produktion','Kilian Amrehn'),('Creative Direction','Ann-Kathrin Templin'),('Styling','Jacqueline Tamm'),('Hair & Make-up','Serife Maria Rosewood, Hanna Fuchs'),('Models','Marie, Louis, Lia, Paulus, Elisabeth, Linda, Nika, Lasse'),('Fotoassistenz','Fabian Podzuweit'),('Second Hand','Kleiderei, MatchYourStyle')],edge=('EDITORIAL','MAGAZIN'))
 p('pnts','PNTS','Kampagne','Campaign','2022 bis 2023','The Wants Social',
   [S('2022','2022',r('pnts',1,7)),S('Noordwijk 2023','Noordwijk 2023',r('pnts',8,16))],
@@ -63,7 +63,7 @@ p('marie-dahmen','Marie','Freie Strecke · Porträt','Personal series · Portrai
   [('Produktion','Kilian Amrehn'),('Model','Marie Dahmen'),('Styling','Jacqueline Tamm'),('Hair & Make-up','Ilknur Gelme'),('Fotoassistenz','Fabian Podzuweit')],edge=('FREIE STRECKE','ANALOG UND DIGITAL'))
 p('the-wants','The Wants','Kampagne','Campaign','2020','The Wants Social',[S('','',r('the-wants',1,10))],
   [('Agentur','The Wants Social'),('Produktion','Anna Siepenkötter'),('Creative Direction','Karla Jenders'),('Model','Mona Lillian'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Fabian Podzuweit'),('Foto','Kilian Amrehn')])
-p('bundesliga','Bundesliga','Sport · Bundesliga','Sport · Bundesliga','2023 bis 2025','DFL',[S('','',r('bundesliga',1,29))],[('Auftrag','DFL'),('Foto','Kilian Amrehn')],
+p('bundesliga','Bundesliga','Sport · Bundesliga','Sport · Bundesliga','2023 bis 2025','DFL',[S('','',[x for x in r('bundesliga',1,29) if x!='w-bundesliga-26'])],[('Auftrag','DFL'),('Foto','Kilian Amrehn')],
   'Für die DFL in den Stadien, direkt am Spielfeldrand. Beeindruckende Orte. Und der Sport erst, so nah dran.',
   'For the DFL in the stadiums, right at the sideline. Impressive places. And the game even more so, this close.',
   edge=('SPORTFOTOGRAFIE','BUNDESLIGA'))

@@ -1,5 +1,6 @@
 ---
 import '@fontsource-variable/big-shoulders-display';
+import { altOf as altText } from '../data/alts';
 import Base from '../layouts/Base.astro';
 import Img from '../components/Img.astro';
 import Pic from '../components/Pic.astro';
@@ -174,7 +175,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
     <div class="stack">{eyes.map((e) => (
       <a class="reveal eye" href={u(r('artists')) + (e.id ? '#' + e.id : '')} style={`--ar:${e.box.toFixed(4)}`}>
         <Img src={e.src} alt={e.alt} sizes="(max-width: 900px) 100vw, 50vw" widths={[480, 800, 1200, 1600]} class="eye-crop" />
-        <span class="eye-full">{e.full.map((x) => <span style={`flex:0 0 ${x.pct.toFixed(3)}%`}><Img src={x.src} alt={e.name} sizes={`(max-width: 900px) ${Math.round(x.pct)}vw, ${Math.round(x.pct / 2)}vw`} widths={[480, 800, 1200]} /></span>)}</span>
+        <span class="eye-full">{e.full.map((x) => <span style={`flex:0 0 ${x.pct.toFixed(3)}%`}><Img src={x.src} alt={altText(x.src, lang === 'en', e.name)} sizes={`(max-width: 900px) ${Math.round(x.pct)}vw, ${Math.round(x.pct / 2)}vw`} widths={[480, 800, 1200]} /></span>)}</span>
         <span class="mono rv-name">{e.name} <b class="arr">→</b></span>
       </a>
     ))}</div>
@@ -183,7 +184,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
   <div class="door">
     <div class="stack mono">{bands.map((b) => (
       <a class={`reveal band${b.light ? ' light' : ''}`} href={u(b.href)} style={`background:${b.c};--ar:${b.ar.toFixed(4)}`}>
-        <span class="band-imgs">{b.ims.map((i) => <span style={`flex:${i.ar.toFixed(4)}`}>{i.v ? <video class="band-vid" data-src={`${base}media/video/${i.v}.mp4`} poster={`${base}img/v-${i.v}.webp`} muted loop playsinline preload="none" aria-label={b.n}></video> : <Pic name={i.n} alt={b.n} sizes={`(max-width: 900px) ${Math.round(100 * i.ar / b.ar)}vw, ${Math.round(50 * i.ar / b.ar)}vw`} />}</span>)}</span>
+        <span class="band-imgs">{b.ims.map((i) => <span style={`flex:${i.ar.toFixed(4)}`}>{i.v ? <video class="band-vid" data-src={`${base}media/video/${i.v}.mp4`} poster={`${base}img/v-${i.v}.webp`} muted loop playsinline preload="none" aria-label={b.n}></video> : <Pic name={i.n} alt={altText(i.n, lang === 'en', b.n)} sizes={`(max-width: 900px) ${Math.round(100 * i.ar / b.ar)}vw, ${Math.round(50 * i.ar / b.ar)}vw`} />}</span>)}</span>
         <span class="band-name">{b.n} <b class="arr">→</b></span>
       </a>
     ))}</div>

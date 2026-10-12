@@ -1,5 +1,6 @@
 ---
 // Arbeiten: Kampagnen und freie Strecken. Farbleiste oben, jede Arbeit auf einem Bogen in ihrer Farbe.
+import { altOf as altText } from '../data/alts';
 import Base from '../layouts/Base.astro';
 import Tisch from '../components/Tisch.astro';
 import Lightbox from '../components/Lightbox.astro';
@@ -34,7 +35,7 @@ const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,
         <span class="mono ar-cta">{T.view}</span>
       </span>
     </a>
-    <Tisch sheets={[{ bg: k.bg, d: k.d, m: k.m, href: base + campaignPath(k.slug, lang) }]} lang={lang} alt={(n, i) => `${k.title}, ${en ? k.kindEn : k.kind}, ${en ? 'photographed by' : 'fotografiert von'} Kilian Amrehn`} />
+    <Tisch sheets={[{ bg: k.bg, d: k.d, m: k.m, href: base + campaignPath(k.slug, lang) }]} lang={lang} alt={(n, i) => altText(n, en, `${k.title}, ${en ? k.kindEn : k.kind}, ${en ? 'photographed by' : 'fotografiert von'} Kilian Amrehn`)} />
   </article>
 ))}
 {!en && <p class="wrap mono ar-seo"><a href={base + 'kampagnenfotografie-koeln/'}>Kampagnenfotografie Köln →</a></p>}

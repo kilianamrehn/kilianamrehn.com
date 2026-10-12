@@ -1,5 +1,6 @@
 ---
 import '@fontsource-variable/big-shoulders-display';
+import { altOf as altText } from '../data/alts';
 import Base from '../layouts/Base.astro';
 import Pic from '../components/Pic.astro';
 import Lightbox from '../components/Lightbox.astro';
@@ -14,7 +15,7 @@ const t = TT[lang];
 const M = meta as Record<string, [number, number, number[]]>;
 const ar = (n: string) => M[n][0] / M[n][1];
 const full = (n: string) => `${base}img/${n}-${M[n][2][M[n][2].length - 1]}.webp`;
-const altOf = (n: string, ch: string) => { const a = ausgestellt[n]; return a ? (en ? a[2] : a[0]) + ' ' + (en ? a[3] : a[1]) : `${ch}, ${t.photo}`; };
+const altOf = (n: string, ch: string) => { const a = ausgestellt[n]; return altText(n, en, a ? (en ? a[2] : a[0]) + ' ' + (en ? a[3] : a[1]) : `${ch}, ${t.photo}`, 'reportage'); };
 const newsTitle = en ? site.newsTitleEn : site.newsTitle;
 const article = { '@context': 'https://schema.org', '@type': 'Article', headline: `${newsTitle}: ${t.lead.head}`, author: { '@id': 'https://kilianamrehn.com/#person' }, inLanguage: lang, about: ['Reportage', en ? 'Documentary photography' : 'Dokumentarfotografie', 'Myanmar', 'Moldau', 'Hambacher Forst'] };
 ---

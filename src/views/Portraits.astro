@@ -3,6 +3,7 @@
 // alle Maße sind in var(--u) angegeben: 1u = 1px bei 1440 breit (Desktop) bzw. 390 breit (Handy).
 import { getImage } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import { altOf as altText } from '../data/alts';
 import Base from '../layouts/Base.astro';
 import Img from '../components/Img.astro';
 import sheets from '../data/portraits.json';
@@ -50,7 +51,7 @@ const fix = (s: string) => s.replaceAll('__B__', base).replaceAll("'Geist Mono'"
 type I = (typeof sheets)[number]['d']['imgs'][number];
 const alt = (i: I) => {
   const cat = en ? CAT_EN[i.cat] ?? 'Portrait' : i.cat;
-  return i.named ? `${i.nm}, ${cat}, ${t.by} ${i.year}` : `${cat}, ${t.anon} ${i.year}`;
+  return altText(i.slug, en, i.named ? `${i.nm}, ${cat}, ${t.by} ${i.year}` : `${cat}, ${t.anon} ${i.year}`);
 };
 const edge = (i: I, k: 0 | 1) => {
   if (!en || !i.e) return k ? i.t2 : i.t1;

@@ -2,6 +2,7 @@
 // Flashes: versteckte Seite, Zugang über die rote Lampe im Header.
 // Alle Bilder und Videos liegen in Rahmen auf ochsenblutrotem Papier, bei jedem Öffnen neu gemischt.
 // Desktop: greifen und verschieben. Handy: doppeltippen, halten, schieben, loslassen = wieder scrollen. Kein Großklicken.
+import { altOf as altText } from '../data/alts';
 import Base from '../layouts/Base.astro';
 import { routes, type Lang } from '../data/site';
 interface Props { lang: Lang }
@@ -25,7 +26,7 @@ const all = [...imgs, ...vids];
       <i class="sp t"></i><span class="e t"></span>
       {x.v
         ? <video data-src={`${base}media/video/${x.n}.mp4`} poster={`${base}img/v-${x.n}.webp`} muted loop playsinline preload="none" aria-hidden="true"></video>
-        : <Pic name={x.n} alt={en ? 'Flash, photo by Kilian Amrehn' : 'Flash, Foto von Kilian Amrehn'} sizes="(max-width: 699px) 45vw, 460px" />}
+        : <Pic name={x.n} alt={altText(x.n, en, en ? 'Flash, photo by Kilian Amrehn' : 'Flash, Foto von Kilian Amrehn', 'flash')} sizes="(max-width: 699px) 45vw, 460px" />}
       <span class="e b"></span><i class="sp b"></i>
     </div>
   ))}

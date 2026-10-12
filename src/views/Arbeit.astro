@@ -1,5 +1,6 @@
 ---
 // Eine Arbeit (Kampagne oder freie Strecke): Titel, ggf. Film oben, Bögen mit Bildern, Abspann, Vor/Zurück.
+import { altOf as altText } from '../data/alts';
 import Base from '../layouts/Base.astro';
 import Tisch from '../components/Tisch.astro';
 import Lightbox from '../components/Lightbox.astro';
@@ -19,7 +20,7 @@ const T = en
 const isKi = (n: string) => n.includes('-ki-');
 const alt = (n: string, i: number) => isKi(n)
   ? `${p.title}, ${en ? 'AI-animated video from the photos' : 'KI-animiertes Video aus den Fotos'}`
-  : n === 'silent-escape-bts' ? `${p.title}, Behind the Scenes` : `${p.title}, ${kind}, ${T.by}, ${en ? 'image' : 'Bild'} ${i + 1}`;
+  : n === 'silent-escape-bts' ? `${p.title}, Behind the Scenes` : altText(n, en, `${p.title}, ${kind}, ${T.by}, ${en ? 'image' : 'Bild'} ${i + 1}`);
 const kindT = kind.split(' · ').filter((x: string) => x !== p.title).join(' · ');
 const yr = en ? String(p.year).replace(' bis ', ' to ') : p.year;
 const desc = ((en ? (p.textEn || '') : (p.textDe || '')).split('. ')[0].replace(/\.$/, '') + (text ? '. ' : '') + (en

@@ -1,5 +1,6 @@
 ---
 import Leistung from '../views/Leistung.astro';
+import { FAQ_PRICE, FAQ_TIME, FAQ_SPEED, FAQ_USE, FAQ_STUDIO, FAQ_HMU, FAQ_WEAR, FAQ_UNFOTOGEN } from '../data/leistung';
 ---
 <Leistung
   og="/media/og/musik.jpg"
@@ -16,4 +17,9 @@ import Leistung from '../views/Leistung.astro';
   ]}
   links={[['Bandfotos', 'kuenstlerportraits/#parzhuber-trio'], ['Solo-Artists', 'kuenstlerportraits/#mario-nyeky'], ['Cover', 'kuenstlerportraits/#nicole-da-silva'], ['DJs', 'kuenstlerportraits/#zahnatzin'], ['Alle Porträts', 'kuenstlerportraits/'], ['Moderationsfotografie Köln', 'moderationsfotografie-koeln/']]}
   service="Musikfotografie" offers={['Pressefotos für Bands', 'Porträts für Solo-Artists', 'EP- und Albumcover', 'DJ-Porträts']}
+  examples={[{ src: 'p-parzhuber-trio-band-1', label: 'Bandfotos', href: 'kuenstlerportraits/#parzhuber-trio' }, { src: 'p-mario-nyeky-musiker-2', label: 'Solo-Artists', href: 'kuenstlerportraits/#mario-nyeky' }, { src: 'p-nicole-da-silva-musikerin-1', label: 'Cover', href: 'kuenstlerportraits/#nicole-da-silva' }, { src: 'p-zahnatzin-dj-1', label: 'DJs', href: 'kuenstlerportraits/#zahnatzin' }]}
+  faq={[FAQ_PRICE,
+    ['Was ist bei Bandfotos anders als bei Einzelporträts?', 'Je mehr Menschen auf einem Bild sind, desto mehr müssen sich gleichzeitig wohlfühlen. Deshalb machen wir an jedem Ort mehr Bilder, damit am Ende eins dabei ist, auf dem alle so aussehen, wie sie sich selbst sehen.'],
+    ['Wie entsteht ein Albumcover?', 'Entweder habt ihr schon eine klare Vorstellung, dann setze ich sie um. Oder ihr schickt mir die Musik und wir entwickeln das Konzept daraus. Das Cover denke ich von Anfang an im Quadrat und mit Platz für Schrift.'],
+    FAQ_TIME, FAQ_USE, FAQ_STUDIO, FAQ_HMU, FAQ_SPEED]}
 />

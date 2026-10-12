@@ -1,5 +1,6 @@
 ---
 import Leistung from '../views/Leistung.astro';
+import { FAQ_PRICE, FAQ_TIME, FAQ_SPEED, FAQ_USE, FAQ_STUDIO, FAQ_HMU, FAQ_WEAR, FAQ_UNFOTOGEN } from '../data/leistung';
 ---
 <Leistung
   og="/media/og/personal-branding.jpg"
@@ -16,4 +17,6 @@ import Leistung from '../views/Leistung.astro';
   ]}
   links={[['Alle Porträts', 'kuenstlerportraits/'], ['Moderationsfotografie Köln', 'moderationsfotografie-koeln/'], ['Portraitfotografie Köln', 'portraitfotografie/'], ['Porträts für Kunst und Literatur', 'portraets-kunst-literatur-koeln/']]}
   service="Personal Branding Fotografie" offers={['Porträts für Gründer:innen', 'Speaker-Fotos', 'Porträts für Website und LinkedIn', 'Pressefotos für Selbstständige']}
+  examples={[{ src: 'p-portraet-koeln-4', label: 'Porträts', href: 'kuenstlerportraits/' }, { src: 'p-portraet-koeln-2', label: 'Porträts', href: 'kuenstlerportraits/' }, { src: 'p-bianca-berding-moderatorin-1', label: 'Bianca Berding', href: 'kuenstlerportraits/#bianca-berding' }, { src: 'p-portraet-koeln-8', label: 'Porträts', href: 'kuenstlerportraits/' }]}
+  faq={[['Was unterscheidet deine Bilder von einem Business-Headshot?', 'Ich habe gelernt, wie in Mode, Kampagnen und Werbung Licht gesetzt wird. Deshalb geht bei mir von Hochglanz bis künstlerisch sehr viel. Gerade im Personal Branding ist es spannend, nicht wie das hundertste Business-Porträt im Anzug auszusehen.'], ['Fotografierst du auch im Büro oder auf der Bühne?', 'Ja. Ich fotografiere Menschen überall, auch an deinem Arbeitsplatz oder bei einem Vortrag.'], FAQ_PRICE, FAQ_TIME, FAQ_SPEED, FAQ_USE, FAQ_HMU, FAQ_WEAR, FAQ_UNFOTOGEN]}
 />

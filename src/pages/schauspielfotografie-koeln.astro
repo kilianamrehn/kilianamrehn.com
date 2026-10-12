@@ -1,5 +1,6 @@
 ---
 import Leistung from '../views/Leistung.astro';
+import { FAQ_PRICE, FAQ_TIME, FAQ_SPEED, FAQ_USE, FAQ_STUDIO, FAQ_HMU, FAQ_WEAR, FAQ_UNFOTOGEN } from '../data/leistung';
 ---
 <Leistung
   og="/media/og/schauspiel.jpg"
@@ -16,4 +17,7 @@ import Leistung from '../views/Leistung.astro';
   ]}
   links={[['Slavko Popadić', 'kuenstlerportraits/#slavko-popadic'], ['Pia Stutzenstein', 'kuenstlerportraits/#pia-stutzenstein'], ['David Vormweg', 'kuenstlerportraits/#david-vormweg'], ['Lea Mende', 'kuenstlerportraits/#lea-mende'], ['Alle Porträts', 'kuenstlerportraits/'], ['Moderationsfotografie Köln', 'moderationsfotografie-koeln/']]}
   service="Schauspielfotografie" offers={['Headshots für Agenturen', 'Casting-Fotos', 'Schauspielporträts']}
+  examples={[{ src: 'p-pia-stutzenstein-schauspielerin-1', label: 'Pia Stutzenstein', href: 'kuenstlerportraits/#pia-stutzenstein' }, { src: 'p-david-vormweg-schauspieler-1', label: 'David Vormweg', href: 'kuenstlerportraits/#david-vormweg' }, { src: 'p-lea-mende-1', label: 'Lea Mende', href: 'kuenstlerportraits/#lea-mende' }, { src: 'p-slavko-popadic-4', label: 'Slavko Popadić', href: 'kuenstlerportraits/#slavko-popadic' }]}
+  faq={[['Was braucht eine Agentur?', 'Vor allem klare, kaum bearbeitete Bilder, auf denen man genau sieht, wie du aussiehst. Darüber hinaus fühlen sich die Leute bei mir schnell wohl. Deshalb sehen sie auf den Bildern aus wie sie selbst, auch auf denen mit mehr Licht und Haltung.'],
+    FAQ_PRICE, FAQ_TIME, FAQ_SPEED, FAQ_USE, FAQ_STUDIO, FAQ_HMU, FAQ_UNFOTOGEN]}
 />

@@ -1,15 +1,25 @@
 ---
-// Landingpage für einen Suchbegriff (Köln): ein Bild, eigener Text, Links in die passenden Teile der Seite.
+// Landingpage für einen Suchbegriff (Köln): Bild und Text, Beispiele, Ablauf, häufige Fragen, Links in die passenden Teile der Seite.
 import Base from '../layouts/Base.astro';
 import Img from '../components/Img.astro';
 import Pic from '../components/Pic.astro';
-interface Props { title: string; description: string; h1: string; lead: string; img: { src: string; alt: string; pic?: boolean }; text: string[]; links: [string, string][]; service: string; offers: string[]; og?: string }
-const { title, description, h1, lead, img, text, links, service, offers, og } = Astro.props;
+import { altOf } from '../data/alts';
+import meta from '../data/imgmeta.json';
+import type { ImageMetadata } from 'astro';
+import { STEPS, FAQ_BASE, type QA, type Step } from '../data/leistung';
+type Ex = { src: string; label: string; href: string; pic?: boolean };
+interface Props { title: string; description: string; h1: string; lead: string; img: { src: string; alt: string; pic?: boolean }; text: string[]; links: [string, string][]; service: string; offers: string[]; og?: string; examples?: Ex[]; steps?: Step[]; faq?: QA[]; linksHead?: string }
+const all = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/*.jpg', { eager: true });
+const arOf = (e: { src: string; pic?: boolean }) => { if (e.pic) { const m = (meta as any)[e.src]; return m ? m[0] / m[1] : 1; } const d = all[`/src/assets/img/${e.src}.jpg`]?.default; return d ? d.width / d.height : 1; };
+const { title, description, h1, lead, img, text, links, service, offers, og, examples = [], steps = STEPS, faq = FAQ_BASE, linksHead = 'Auch interessant' } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
+const html = (s: string) => s.replaceAll('__B__', base);
+const plain = (s: string) => s.replace(/<[^>]+>/g, '');
 const schema = { '@context': 'https://schema.org', '@type': 'Service', serviceType: service, provider: { '@id': 'https://kilianamrehn.com/#business' }, areaServed: 'Köln',
   hasOfferCatalog: { '@type': 'OfferCatalog', name: service, itemListElement: offers.map((n) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: n } })) } };
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: plain(a) } })) };
 ---
-<Base title={title} description={description} image={og} schema={[schema]}>
+<Base title={title} description={description} image={og} schema={[schema, faqSchema]}>
 <section class="wrap top">
   <h1 class="display">{h1}</h1>
   <p class="lead">{lead}</p>
@@ -18,22 +28,71 @@ const schema = { '@context': 'https://schema.org', '@type': 'Service', serviceTy
   {img.pic ? <Pic name={img.src} alt={img.alt} sizes="(max-width: 900px) 100vw, 45vw" class="pic" /> : <Img src={img.src} alt={img.alt} sizes="(max-width: 900px) 100vw, 45vw" class="pic" />}
   <div class="text">
     {text.map((t) => <p>{t}</p>)}
-    <h2 class="mono mute">Mehr dazu</h2>
-    <ul class="mono">{links.map(([l, h]) => <li><a href={base + h}>{l} →</a></li>)}</ul>
     <p class="cta"><a class="u" href={base + 'ueber/#kontakt'}>Schreib mir, was du vorhast.</a></p>
   </div>
+</section>
+
+{examples.length > 0 && (
+<section class="wrap block">
+  <h2 class="display h2">Beispiele</h2>
+  <div class="ex">
+    {examples.map((e) => (
+      <a href={base + e.href} style={`--ar:${arOf(e).toFixed(4)}`}>
+        {e.pic ? <Pic name={e.src} alt={altOf(e.src, false, e.label)} sizes="(max-width: 700px) 50vw, 25vw" /> : <Img src={e.src} alt={altOf(e.src, false, e.label)} sizes="(max-width: 700px) 50vw, 25vw" widths={[400, 700, 1000]} />}
+        <span class="mono">{e.label} →</span>
+      </a>
+    ))}
+  </div>
+</section>
+)}
+
+<section class="wrap block">
+  <h2 class="display h2">So läuft ein Shooting</h2>
+  <ol class="steps">{steps.map(([t, d]) => <li><b>{t}</b><span>{d}</span></li>)}</ol>
+</section>
+
+<section class="wrap block faq">
+  <h2 class="display h2">Häufige Fragen</h2>
+  {faq.map(([q, a], i) => <details open={i === 0}><summary>{q}</summary><p set:html={html(a)} /></details>)}
+</section>
+
+<section class="wrap block last">
+  <h2 class="mono mute">{linksHead}</h2>
+  <ul class="mono">{links.map(([l, h]) => <li><a href={base + h}>{l} →</a></li>)}</ul>
+  <p class="cta"><a class="u" href={base + 'ueber/#kontakt'}>Schreib mir, was du vorhast.</a></p>
 </section>
 </Base>
 <style>
   .top { padding-top: 32px; padding-bottom: 64px; }
   .top h1 { font-size: clamp(34px, 9.4vw, 120px); color: var(--white); overflow-wrap: anywhere; }
   .lead { max-width: 720px; margin-top: 24px; font-size: clamp(18px, 1.6vw, 22px); color: var(--mute2); }
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-bottom: 140px; align-items: start; }
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-bottom: 120px; align-items: start; }
   .split :global(.pic) { width: 100%; height: auto; display: block; }
-  .text { display: flex; flex-direction: column; gap: 18px; color: var(--mute2); font-size: 18px; }
-  .text h2 { font-weight: 400; margin-top: 24px; }
+  .text { display: flex; flex-direction: column; gap: 18px; color: var(--mute2); font-size: 18px; min-width: 0; }
+  .block { display: flex; flex-direction: column; gap: 32px; padding-bottom: 120px; }
+  .h2 { font-size: clamp(34px, 5.4vw, 72px); color: var(--white); margin: 0; }
+  .ex { display: flex; gap: 16px; align-items: flex-start; }
+  .ex a { display: flex; flex-direction: column; gap: 10px; color: var(--white); text-decoration: none; min-width: 0; flex: var(--ar) 1 0; }
+  .ex :global(img) { width: 100%; height: auto; display: block; }
+  .ex a:hover span, .ex a:focus-visible span { color: var(--accent); }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; counter-reset: s; }
+  .steps li { display: flex; flex-direction: column; gap: 8px; color: var(--mute2); font-size: 17px; min-width: 0; }
+  .steps li::before { counter-increment: s; content: counter(s); font-family: var(--f-display); font-size: 48px; line-height: 1; color: var(--accent); }
+  .steps b { color: var(--white); font-weight: 500; font-size: 20px; }
+  .faq { max-width: 900px; gap: 0; }
+  .faq .h2 { margin-bottom: 24px; }
+  details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+  summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 20px; color: var(--white); font-size: 20px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; color: var(--accent); font-family: var(--f-mono); }
+  details[open] summary::after { content: '−'; }
+  details p { margin: 12px 0 0; color: var(--mute2); font-size: 17px; max-width: 70ch; }
+  details :global(a) { color: var(--white); text-decoration: underline; text-underline-offset: 3px; }
+  .last { gap: 18px; }
+  .last h2 { font-weight: 400; margin: 0; }
   ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; color: var(--white); }
   .u { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
   .cta { margin-top: 12px; font-size: 22px; }
-  @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) { .split { grid-template-columns: 1fr; } .steps { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } .ex { flex-wrap: wrap; gap: 20px 10px; } .ex a { flex: var(--ar) 1 calc(var(--ar) * 150px); max-width: calc(var(--ar) * 240px); } }
 </style>

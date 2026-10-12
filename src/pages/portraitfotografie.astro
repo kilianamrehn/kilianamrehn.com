@@ -1,47 +1,21 @@
 ---
-import Base from '../layouts/Base.astro';
-import Img from '../components/Img.astro';
-const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const service = { '@context': 'https://schema.org', '@type': 'Service', serviceType: 'Portraitfotografie', provider: { '@id': 'https://kilianamrehn.com/#business' }, areaServed: 'Köln',
-  hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Portraits', itemListElement: ['Porträts für Artists', 'Musikfotos und Pressefotos', 'EP- und Albumcover', 'Schauspielporträts und Headshots', 'Pressefotos für Moderation'].map((n) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: n } })) } };
+import Leistung from '../views/Leistung.astro';
 ---
-<Base image="/media/og/portraitfotografie.jpg" title="Portraitfotografie Köln · Musik, Schauspiel, Moderation · Kilian Amrehn" description="Portraitfotografie in Köln für Artists, Musik und Schauspiel: Pressefotos, EP-Cover, Headshots. Im Studio, draußen oder bei dir." schema={[service]}>
-<section class="wrap top">
-  <h1 class="display">Portraitfotografie Köln</h1>
-  <p class="lead">Porträts für alle, die gesehen werden wollen. Auf der Bühne, vor der Kamera, auf dem Cover.</p>
-</section>
-<section class="wrap split">
-  <Img src="p-paula-dj-3" alt="Paula, DJ, schwarzweiß, Hände im Haar, Portraitfotografie Köln" sizes="(max-width: 900px) 100vw, 45vw" class="pic" />
-  <div class="text">
-    <p>Ich fotografiere Artists in Köln und überall, wo sie gerade sind. Musik, Schauspiel, Kunst, Moderation. Für Pressefotos, EP- und Albumcover, Headshots für Agenturen und Castings oder eine Porträtreihe, die zeigt, wer du gerade bist.</p>
-    <p>Mein Werkzeug ist Licht. Gerichtet, manchmal farbig, mit viel Dunkelheit drumherum. Es sucht sich die Stelle, um die es geht, und lässt den Rest weg. So entstehen Bilder, die nicht nach Fotostudio aussehen, sondern nach dir.</p>
-    <p>Posen gibt es bei mir nicht. Zehn Jahre stand ich selbst vor der Kamera und weiß, wie es sich anfühlt, angeschaut zu werden. Deshalb nehmen wir uns Zeit. Die besten Bilder entstehen meistens kurz danach, wenn du vergisst, dass die Kamera noch da ist.</p>
-    <p>Im Studio, draußen in Köln oder bei dir. Vorher sprechen wir über Idee, Licht und Ort.</p>
-    <h2 class="mono mute">Was ich fotografiere</h2>
-    <ul class="mono">
-      <li><a href={base + 'kuenstlerportraits/'}>Porträts für Artists →</a></li>
-      <li><a href={base + 'musikfotografie-koeln/'}>Musikfotos und Pressefotos für Bands →</a></li>
-      <li><a href={base + 'kuenstlerportraits/#nicole-da-silva'}>EP- und Albumcover →</a></li>
-      <li><a href={base + 'schauspielfotografie-koeln/'}>Schauspielporträts und Headshots →</a></li>
-      <li><a href={base + 'moderationsfotografie-koeln/'}>Pressefotos für Moderation und Speaker →</a></li>
-      <li><a href={base + 'personal-branding-fotografie-koeln/'}>Personal Branding für Gründer:innen und Speaker →</a></li>
-      <li><a href={base + 'portraets-kunst-literatur-koeln/'}>Porträts für Kunst und Literatur →</a></li>
-      <li><a href={base + 'kampagnenfotografie-koeln/'}>Kampagnen und Editorials →</a></li>
-    </ul>
-    <p class="cta"><a class="u" href={base + 'ueber/#kontakt'}>Schreib mir, was du vorhast.</a></p>
-  </div>
-</section>
-</Base>
-<style>
-  .top { padding-top: 32px; padding-bottom: 64px; }
-  .top h1 { font-size: clamp(34px, 9.4vw, 120px); color: var(--white); overflow-wrap: anywhere; }
-  .lead { max-width: 720px; margin-top: 24px; font-size: clamp(18px, 1.6vw, 22px); color: var(--mute2); }
-  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-bottom: 140px; align-items: start; }
-  .split :global(.pic) { width: 100%; height: auto; display: block; }
-  .cta { margin-top: 12px; font-size: 22px; }
-  .text { display: flex; flex-direction: column; gap: 18px; color: var(--mute2); font-size: 18px; }
-  .text h2 { font-weight: 400; margin-top: 24px; }
-  ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; color: var(--white); }
-  .u { color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
-  @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
-</style>
+<Leistung
+  og="/media/og/portraitfotografie.jpg"
+  title="Portraitfotografie Köln · Musik, Schauspiel, Moderation · Kilian Amrehn"
+  description="Portraitfotografie in Köln für Artists, Musik und Schauspiel: Pressefotos, EP-Cover, Headshots. Im Studio, draußen oder bei dir."
+  h1="Portraitfotografie Köln"
+  lead="Porträts für alle, die gesehen werden wollen. Auf der Bühne, vor der Kamera, auf dem Cover."
+  img={{ src: 'p-paula-dj-3', alt: 'Paula, DJ, schwarzweiß, Hände im Haar, Portraitfotografie Köln' }}
+  text={[
+    'Ich fotografiere Artists in Köln und überall, wo sie gerade sind. Musik, Schauspiel, Kunst, Moderation. Für Pressefotos, EP- und Albumcover, Headshots für Agenturen und Castings oder eine Porträtreihe, die zeigt, wer du gerade bist.',
+    'Mein Werkzeug ist Licht. Gerichtet, manchmal farbig, manchmal ganz hell. Es sucht sich die Stelle, um die es geht, und lässt den Rest weg. So entstehen Bilder, die nicht nach Fotostudio aussehen, sondern nach dir.',
+    'Posen gibt es bei mir nicht. Zehn Jahre stand ich selbst vor der Kamera und weiß, wie es sich anfühlt, angeschaut zu werden. Deshalb nehmen wir uns Zeit. Die besten Bilder entstehen meistens kurz danach, wenn du vergisst, dass die Kamera noch da ist.',
+    'Im Studio, draußen in Köln oder bei dir. Vorher sprechen wir über Idee, Licht und Ort.',
+  ]}
+  linksHead="Was ich fotografiere"
+  links={[['Porträts für Artists', 'kuenstlerportraits/'], ['Musikfotos und Pressefotos für Bands', 'musikfotografie-koeln/'], ['EP- und Albumcover', 'kuenstlerportraits/#nicole-da-silva'], ['Schauspielporträts und Headshots', 'schauspielfotografie-koeln/'], ['Pressefotos für Moderation und Speaker', 'moderationsfotografie-koeln/'], ['Personal Branding für Gründer:innen und Speaker', 'personal-branding-fotografie-koeln/'], ['Porträts für Kunst und Literatur', 'portraets-kunst-literatur-koeln/'], ['Kampagnen und Editorials', 'kampagnenfotografie-koeln/']]}
+  examples={[{ src: 'p-parzhuber-trio-band-1', label: 'Musik', href: 'musikfotografie-koeln/' }, { src: 'p-slavko-popadic-3', label: 'Schauspiel', href: 'schauspielfotografie-koeln/' }, { src: 'p-bianca-berding-moderatorin-1', label: 'Moderation', href: 'moderationsfotografie-koeln/' }, { src: 'p-nicole-malerin-kuenstlerinnenportraet-3', label: 'Kunst', href: 'portraets-kunst-literatur-koeln/' }]}
+  service="Portraitfotografie" offers={['Porträts für Artists', 'Musikfotos und Pressefotos', 'EP- und Albumcover', 'Schauspielporträts und Headshots', 'Pressefotos für Moderation']}
+/>

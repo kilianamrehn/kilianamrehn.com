@@ -1,5 +1,6 @@
 ---
 import Leistung from '../views/Leistung.astro';
+import { FAQ_PRICE, FAQ_TIME, FAQ_SPEED, FAQ_USE, FAQ_STUDIO, FAQ_HMU, FAQ_WEAR, FAQ_UNFOTOGEN } from '../data/leistung';
 ---
 <Leistung
   og="/media/og/kunst-literatur.jpg"
@@ -16,4 +17,8 @@ import Leistung from '../views/Leistung.astro';
   ]}
   links={[['Nicole, Malerin', 'kuenstlerportraits/#nicole'], ['Alle Porträts', 'kuenstlerportraits/'], ['Personal Branding Fotografie Köln', 'personal-branding-fotografie-koeln/'], ['Portraitfotografie Köln', 'portraitfotografie/']]}
   service="Porträts für Kunst und Literatur" offers={['Porträts für Malerei und Bildhauerei', 'Fotos für Buchumschlag und Verlag', 'Porträts für Katalog und Galerie']}
+  examples={[{ src: 'p-nicole-malerin-kuenstlerinnenportraet-1', label: 'Nicole, Malerin', href: 'kuenstlerportraits/#nicole' }, { src: 'p-nicole-malerin-kuenstlerinnenportraet-4', label: 'Nicole, Malerin', href: 'kuenstlerportraits/#nicole' }, { src: 'p-portraet-koeln-6', label: 'Alle Porträts', href: 'kuenstlerportraits/' }]}
+  faq={[['Fotografierst du lieber im Atelier oder im Studio?', 'Ich liebe Ateliers. Aber auch ein Studio wird schnell zum Atelier, wenn ein paar Werke und deine Werkzeuge mitkommen.'],
+    ['Fotografierst du auch Werke und Ausstellungen?', 'Ja, auch Werke und Ausstellungen.'],
+    FAQ_PRICE, FAQ_TIME, FAQ_SPEED, FAQ_USE, FAQ_UNFOTOGEN]}
 />

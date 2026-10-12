@@ -72,7 +72,7 @@ p('bundesliga','Bundesliga','Sport · DFL','Sport · DFL','2023 bis 2025','DFL',
 # Reihenfolge so, dass nie zwei ähnliche Farben nebeneinander stehen.
 BAND=[('rock-fairyland','#6a1a44',[2,6,8]),('trish-reflections-of-identity','#0a8389',[6]),('scholl-iconic','#d0592b',['scholl-3','scholl-4','scholl-1']),
  ('pnts','#2f5878',[3,4,5]),('phiala','#ceb57d',[6,8,9]),('the-wants','#562b38',[4]),('peek-cloppenburg-x-ellesse','#99b4bc',[1]),
- ('ozean-der-stille','#5a1f1b',[11]),('monano-schmuck','#9eccd4',[5]),('niewiederleise','#6f6f41',[4,5,8]),('copenhagen-studios','#f09a9e',[5,4]),
+ ('ozean-der-stille','#5a1f1b',[11]),('monano-schmuck','#9eccd4',[5]),('niewiederleise','#6f6f41',['vid:niewiederleise-kampagne']),('copenhagen-studios','#e8603e',[11,'vid:cph-schal-loop',12]),
  ('silent-escape','#2e4f56',[1,2,5]),('bundesliga','#d9b42c',[23]),('appelrathcuepper','#0d3a78',[2]),('marie-dahmen','#9a5530',[5]),
  ('synergy','#2f6f58',[1,2,3]),('new-icons-club-magazine','#c8182e',['new-icons-club-magazine-5','new-icons-club-magazine-2-6','new-icons-club-magazine-2-9'])]
 for i,x in enumerate(P): x['seed']=[0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17][i]  # alte Position, damit die Bögen gleich bleiben
@@ -81,7 +81,7 @@ assert len(BAND)==len(P), (len(BAND),len(P))
 P=[]
 for slug,col,ims in BAND:
     x=byslug[slug]; x['band']=col
-    x['bandImgs']=[('w-'+i if isinstance(i,str) else f'w-{slug}-{i}') for i in ims]
+    x['bandImgs']=[(i if isinstance(i,str) and i.startswith('vid:') else 'w-'+i if isinstance(i,str) else f'w-{slug}-{i}') for i in ims]
     P.append(x)
 json.dump(P,open(os.path.join(H,'arbeiten_content.json'),'w'),ensure_ascii=False,indent=1)
 print(len(P))

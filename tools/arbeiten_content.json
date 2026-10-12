@@ -744,9 +744,7 @@
   "seed": 8,
   "band": "#6f6f41",
   "bandImgs": [
-   "w-niewiederleise-4",
-   "w-niewiederleise-5",
-   "w-niewiederleise-8"
+   "vid:niewiederleise-kampagne"
   ]
  },
  {
@@ -835,10 +833,11 @@
    "MODEFOTOGRAFIE"
   ],
   "seed": 3,
-  "band": "#f09a9e",
+  "band": "#e8603e",
   "bandImgs": [
-   "w-copenhagen-studios-5",
-   "w-copenhagen-studios-4"
+   "w-copenhagen-studios-11",
+   "vid:cph-schal-loop",
+   "w-copenhagen-studios-12"
   ]
  },
  {

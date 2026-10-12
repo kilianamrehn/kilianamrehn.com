@@ -5,6 +5,7 @@ import Img from '../components/Img.astro';
 import Pic from '../components/Pic.astro';
 import idx from '../data/tisch/arbeiten-index.json';
 import meta from '../data/imgmeta.json';
+import vmeta from '../data/vidmeta.json';
 import { T as RT } from '../data/reportage';
 import { site, routes, campaignPath, type Lang } from '../data/site';
 interface Props { lang: Lang }
@@ -123,7 +124,7 @@ const eyes = EYES.map(([f, name, id]) => {
   return { id, name: name || (lang === 'de' ? 'Porträt' : 'Portrait'), src: 'eyes-' + f, full: full.map((x) => ({ ...x, pct: (100 * x.ar) / box })), box, alt: (lang === 'de' ? 'Augen, ' : 'Eyes, ') + (name || (lang === 'de' ? 'Porträt Köln' : 'portrait Cologne')) };
 });
 const ink = (hex: string) => { const n = parseInt(hex.slice(1), 16); const l = (0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255; return l > 0.6; };
-const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).map((n) => ({ n, ar: (meta as any)[n][0] / (meta as any)[n][1] })); return { n: k.title, c: k.band, light: ink(k.band), ims, ar: ims.reduce((a, i) => a + i.ar, 0), href: campaignPath(k.slug, lang) }; });
+const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).map((n) => { const v = n.startsWith('vid:') ? n.slice(4) : ''; const m = v ? (vmeta as any)[v] : (meta as any)[n]; return { n, v, ar: m[0] / m[1] }; }); return { n: k.title, c: k.band, light: ink(k.band), ims, ar: ims.reduce((a, i) => a + i.ar, 0), href: campaignPath(k.slug, lang) }; });
 ---
 <Base lang={lang} alternate={routes.home[lang === 'de' ? 'en' : 'de']} title={t.title} description={t.description} headerOverlay>
 <section class="hero" data-hero style={`background:${looks[0].bg}`}>
@@ -182,7 +183,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
   <div class="door">
     <div class="stack mono">{bands.map((b) => (
       <a class={`reveal band${b.light ? ' light' : ''}`} href={u(b.href)} style={`background:${b.c};--ar:${b.ar.toFixed(4)}`}>
-        <span class="band-imgs">{b.ims.map((i) => <span style={`flex:${i.ar.toFixed(4)}`}><Pic name={i.n} alt={b.n} sizes={`(max-width: 900px) ${Math.round(100 * i.ar / b.ar)}vw, ${Math.round(50 * i.ar / b.ar)}vw`} /></span>)}</span>
+        <span class="band-imgs">{b.ims.map((i) => <span style={`flex:${i.ar.toFixed(4)}`}>{i.v ? <video class="band-vid" data-src={`${base}media/video/${i.v}.mp4`} poster={`${base}img/v-${i.v}.webp`} muted loop playsinline preload="none" aria-label={b.n}></video> : <Pic name={i.n} alt={b.n} sizes={`(max-width: 900px) ${Math.round(100 * i.ar / b.ar)}vw, ${Math.round(50 * i.ar / b.ar)}vw`} />}</span>)}</span>
         <span class="band-name">{b.n} <b class="arr">→</b></span>
       </a>
     ))}</div>
@@ -289,6 +290,8 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
   .band :global(img) { transform: none !important; }
   .band-imgs { position: absolute; inset: 0; display: flex; gap: 2px; }
   .band-imgs > span { position: relative; min-width: 0; }
+  .band-vid { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity .45s; }
+  .band.open .band-vid { opacity: 1; }
   .band :global(img) { opacity: 0; transition: opacity .45s, transform .8s cubic-bezier(.2,.7,.2,1); }
   .band-name { position: absolute; left: 20px; top: calc(var(--h) / 2); transform: translateY(-50%); z-index: 1; transition: top .5s cubic-bezier(.2,.7,.2,1); text-shadow: 0 1px 12px rgba(0,0,0,.5); }
   .band .arr { opacity: 0; transition: opacity .3s; }
@@ -305,7 +308,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
     .band:hover, .band:focus-visible { height: calc(100cqw / var(--ar)); }
     .eye:hover, .eye:focus-visible { height: calc(100cqw / var(--ar)); }
     .eye:hover .eye-full, .eye:focus-visible .eye-full { opacity: 1; }
-    .band:hover :global(img), .band:focus-visible :global(img) { opacity: 1; }
+    .band:hover :global(img), .band:focus-visible :global(img), .band:hover .band-vid, .band:focus-visible .band-vid { opacity: 1; }
     .band:hover .band-name { top: calc(100% - 28px); }
     .band:hover .arr { opacity: 1; }
     .band.light:hover .band-name, .band.light:focus-visible .band-name { color: var(--white); text-shadow: 0 1px 12px rgba(0,0,0,.5); }
@@ -340,6 +343,16 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
 </style>
 
 <script>
+  // Videos in den Bändern laufen nur, solange das Band offen ist (Maus drüber oder angetippt)
+  document.querySelectorAll<HTMLElement>('.band').forEach((b) => {
+    const vids = [...b.querySelectorAll<HTMLVideoElement>('video.band-vid')];
+    if (!vids.length) return;
+    const play = () => vids.forEach((v) => { if (!v.getAttribute('src') && v.dataset.src) v.src = v.dataset.src; v.play().catch(() => {}); });
+    const pause = () => vids.forEach((v) => v.pause());
+    b.addEventListener('mouseenter', play); b.addEventListener('mouseleave', pause);
+    b.addEventListener('focus', play); b.addEventListener('blur', pause);
+    new MutationObserver(() => (b.classList.contains('open') ? play() : pause())).observe(b, { attributes: true, attributeFilter: ['class'] });
+  });
   // Handy: erster Tipp klappt den Streifen auf, zweiter Tipp öffnet die Seite
   if (matchMedia('(hover: none)').matches) {
     document.querySelectorAll<HTMLAnchorElement>('.reveal').forEach((a) => a.addEventListener('click', (e) => {

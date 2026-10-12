@@ -41,9 +41,11 @@ const isLight = (hex: string) => { const n = parseInt(hex.slice(1), 16); return 
   .ar-head { padding-top: 32px; padding-bottom: 32px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 32px; }
   .big { font-size: clamp(72px, 11.7vw, 168px); line-height: .86; margin: 0; }
   .sub { color: var(--mute); letter-spacing: .16em; text-transform: uppercase; font-size: 12px; }
-  .bar { display: flex; flex-wrap: wrap; position: sticky; top: 0; z-index: 60; }
-  .bar > * { flex: 1 1 140px; min-height: 52px; display: flex; align-items: center; padding: 0 16px; color: var(--white); font-size: 12px; }
-  @media (max-width: 720px) { .bar { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .bar > * { flex: 0 0 auto; } }
+  /* alle Felder gleich breit, Reihen möglichst gleich voll (17 Arbeiten: 9 + 8 oder 6 + 6 + 5) */
+  .bar { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); position: sticky; top: 0; z-index: 60; }
+  .bar > * { min-height: 52px; display: flex; align-items: center; padding: 0 16px; color: var(--white); font-size: 12px; }
+  @media (max-width: 1600px) { .bar { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+  @media (max-width: 720px) { .bar { display: flex; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .bar > * { flex: 0 0 auto; } }
   .ar { scroll-margin-top: 52px; position: relative; }
   .ar-top { display: block; position: relative; z-index: 50; color: var(--white); text-decoration: none; }
   .ar-t { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 28px; padding-top: 44px; padding-bottom: 8px; }

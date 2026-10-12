@@ -17,7 +17,7 @@ const imgs = Object.entries(im as Record<string, [number, number, number[]]>).fi
 const vids = Object.entries(vm as Record<string, number[]>).filter(([n]) => n.startsWith('flash-')).map(([n, v]) => ({ n, w: v[0], h: v[1], v: true }));
 const all = [...imgs, ...vids];
 ---
-<Base lang={lang} alternate={routes.flashes[en ? 'de' : 'en']} title="Flashes · Kilian Amrehn" description={en ? 'Flashes: pictures from real life by Kilian Amrehn. Travels, friends, analogue film, phone pictures.' : 'Flashes: Bilder aus dem echten Leben von Kilian Amrehn. Reisen, Freunde, Analogfilme, Handyfotos.'} bodyClass="fl-body">
+<Base lang={lang} alternate={routes.flashes[en ? 'de' : 'en']} title={en ? 'Flashes · Pictures from real life · Kilian Amrehn' : 'Flashes · Bilder aus dem echten Leben · Kilian Amrehn'} description={en ? 'Flashes: pictures from real life by Kilian Amrehn. Travels, friends, analogue film, phone pictures.' : 'Flashes: Bilder aus dem echten Leben von Kilian Amrehn. Reisen, Freunde, Analogfilme, Handyfotos.'} bodyClass="fl-body">
 <section class="fl-top wrap"><h1 class="mono fl-h">Flashes</h1><span class="mono fl-hint"><span class="d">{en ? 'Sort them yourself' : 'Selber sortieren'}</span><span class="t">{en ? 'Double-tap, hold, drag' : 'Doppeltippen, halten, schieben'}</span></span></section>
 <div class="fl-board" data-board data-city={en ? 'COLOGNE' : 'KÖLN'} style={`--paper:url(${base}media/marks/paper.png);--sprocket:url(${base}media/marks/sprocket.png)`}>
   {all.map((x) => (

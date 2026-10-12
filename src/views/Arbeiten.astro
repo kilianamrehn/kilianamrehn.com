@@ -14,6 +14,8 @@ const T = en
   : { title: 'Kampagnen-, Mode- und Editorial-Fotografie Köln · Arbeiten · Kilian Amrehn', desc: "Kampagnen und freie Strecken von Kilian Amrehn, Köln: Scholl, Copenhagen Studios, Peek & Cloppenburg x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club, Rock Fairyland.", h1: 'Arbeiten', sub: 'Kampagnen & freie Strecken', view: 'Ansehen →' };
 const list = idx as any[];
 const isLight = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };
+const lightOf = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };
+const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,14,.72);--tx3:rgba(22,17,14,.5)' : '';
 ---
 <Base lang={lang} alternate={routes.campaigns[en ? 'de' : 'en']} title={T.title} description={T.desc}>
 <section class="wrap ar-head">
@@ -25,7 +27,7 @@ const isLight = (hex: string) => { const n = parseInt(hex.slice(1), 16); return 
 </nav>
 {list.map((k) => (
   <article id={k.slug} class="ar">
-    <a class="ar-top" href={base + campaignPath(k.slug, lang)} style={`background:${k.bg}`}>
+    <a class="ar-top" href={base + campaignPath(k.slug, lang)} style={`background:${k.bg}${inkVars(k.bg)}`}>
       <span class="wrap ar-t">
         <span class="display ar-name">{k.title}</span>
         <span class="mono ar-meta">{en ? k.kindEn : k.kind} · {k.year}</span>
@@ -47,11 +49,11 @@ const isLight = (hex: string) => { const n = parseInt(hex.slice(1), 16); return 
   @media (max-width: 1600px) { .bar { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
   @media (max-width: 720px) { .bar { display: flex; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .bar > * { flex: 0 0 auto; } }
   .ar { scroll-margin-top: 52px; position: relative; }
-  .ar-top { display: block; position: relative; z-index: 50; color: var(--white); text-decoration: none; }
+  .ar-top { display: block; position: relative; z-index: 50; color: var(--tx, var(--white)); text-decoration: none; }
   .ar-t { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 28px; padding-top: 44px; padding-bottom: 8px; }
   .ar-name { font-size: clamp(40px, 6vw, 96px); line-height: .9; }
-  .ar-meta { color: rgba(240,228,218,.75); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; }
-  .ar-cta { margin-left: auto; padding: 8px 14px; border: 1px solid rgba(240,228,218,.6); border-radius: 999px; font-size: 12px; }
+  .ar-meta { color: var(--tx2, rgba(240,228,218,.75)); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; }
+  .ar-cta { margin-left: auto; padding: 8px 14px; border: 1px solid var(--tx2, rgba(240,228,218,.6)); border-radius: 999px; font-size: 12px; }
   .ar :global(.sheet .band) { top: 0 !important; box-shadow: none !important; transform: none !important; }
   .ar :global(.ph) { cursor: pointer; }
 </style>

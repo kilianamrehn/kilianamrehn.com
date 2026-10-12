@@ -92,7 +92,7 @@ byslug={x['slug']:x for x in P}
 assert len(BAND)==len(P), (len(BAND),len(P))
 P=[]
 for slug,col,ims in BAND:
-    x=byslug[slug]; x['band']=col
+    x=byslug[slug]; x['band']=col; x['color']=col  # Hintergrund der Arbeit = Bandfarbe
     x['bandImgs']=[(i if isinstance(i,str) and i.startswith('vid:') else 'w-'+i if isinstance(i,str) else f'w-{slug}-{i}') for i in ims]
     P.append(x)
 

@@ -78,7 +78,7 @@ const T = {
     stripsHead: ['Excerpts', ''],
     stripAlt: 'Negative strips with portraits and campaigns by Kilian Amrehn',
     runon: '<em>Artist portraits Cologne</em> · music portraits · press photos for bands and solo artists · EP and album covers · actor portraits · <em>directed light</em> · coloured light · darkness that hides something · <em>a look straight into the camera</em> · a movement, held still while it carries on · <b>no posing</b> · Cologne, Berlin, worldwide · <em>Slavko Popadic</em> · <em>Bianca Berding</em> · <em>Peek &amp; Cloppenburg</em> · <em>Copenhagen Studios</em> · <em>Bundesliga</em> · showing people the way they have never seen themselves.',
-    doorArtists: ['Portraits', 'Portrait · Music · Acting · Art'],
+    doorArtists: ['Portraits', 'Music · Acting · Art · Presenting'],
     doorCampaigns: ['Work', 'Campaigns &amp; personal series'],
     clipTop: 'Cologne',
     newsTitle: site.newsTitleEn,
@@ -172,6 +172,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
 
 <section class="wrap doors">
   <div class="door">
+    <a class="door-label" href={u(r('artists'))}><span class="display">{t.doorArtists[0]}</span><span class="mono mute"><Fragment set:html={t.doorArtists[1]} /> <b class="arr">→</b></span></a>
     <div class="stack">{eyes.map((e) => (
       <a class="reveal eye" href={u(r('artists')) + (e.id ? '#' + e.id : '')} style={`--ar:${e.box.toFixed(4)}`}>
         <Img src={e.src} alt={e.alt} sizes="(max-width: 900px) 100vw, 50vw" widths={[480, 800, 1200, 1600]} class="eye-crop" />
@@ -179,16 +180,15 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
         <span class="mono rv-name">{e.name} <b class="arr">→</b></span>
       </a>
     ))}</div>
-    <a class="door-label" href={u(r('artists'))}><span class="display">{t.doorArtists[0]}</span><span class="mono mute"><Fragment set:html={t.doorArtists[1]} /> <b class="arr">→</b></span></a>
   </div>
   <div class="door">
+    <a class="door-label" href={u(r('campaigns'))}><span class="display">{t.doorCampaigns[0]}</span><span class="mono mute"><Fragment set:html={t.doorCampaigns[1]} /> <b class="arr">→</b></span></a>
     <div class="stack mono">{bands.map((b) => (
       <a class={`reveal band${b.light ? ' light' : ''}`} href={u(b.href)} style={`background:${b.c};--ar:${b.ar.toFixed(4)}`}>
         <span class="band-imgs">{b.ims.map((i) => <span style={`flex:${i.ar.toFixed(4)}`}>{i.v ? <video class="band-vid" data-src={`${base}media/video/${i.v}.mp4`} poster={`${base}img/v-${i.v}.webp`} muted loop playsinline preload="none" aria-label={b.n}></video> : <Pic name={i.n} alt={altText(i.n, lang === 'en', b.n)} sizes={`(max-width: 900px) ${Math.round(100 * i.ar / b.ar)}vw, ${Math.round(50 * i.ar / b.ar)}vw`} />}</span>)}</span>
         <span class="band-name">{b.n} <b class="arr">→</b></span>
       </a>
     ))}</div>
-    <a class="door-label" href={u(r('campaigns'))}><span class="display">{t.doorCampaigns[0]}</span><span class="mono mute"><Fragment set:html={t.doorCampaigns[1]} /> <b class="arr">→</b></span></a>
   </div>
 </section>
 

@@ -391,9 +391,7 @@
     "labelEn": "AI-animated from these photos",
     "items": [
      "untamed-ki-1",
-     "untamed-ki-2",
-     "untamed-ki-3",
-     "untamed-ki-4"
+     "untamed-ki-3"
     ],
     "note": null,
     "noteEn": null
@@ -683,7 +681,6 @@
     "labelEn": "AI-animated from these photos",
     "items": [
      "jeremiah-ki-1",
-     "jeremiah-ki-2",
      "jeremiah-ki-3"
     ],
     "note": null,
@@ -730,7 +727,7 @@
   "bandImgs": [
    "w-silent-escape-5",
    "w-silent-escape-1",
-   "vid:jeremiah-ki-2"
+   "vid:jeremiah-ki-3"
   ],
   "overviewExtra": []
  },

@@ -1,0 +1,27 @@
+---
+import Base from '../../layouts/Base.astro';
+import Mail from '../../components/Mail.astro';
+---
+<Base lang="en" alternate="impressum/" title="Legal Notice · Kilian Amrehn" description="Legal notice for kilianamrehn.com.">
+<section class="wrap legal">
+  <h1 class="display">Legal notice</h1>
+  <h2>Information pursuant to § 5 DDG</h2>
+  <p>Kilian Amrehn<br>Photography<br>Jülicher Str. 24<br>50674 Cologne, Germany</p>
+  <h2>Contact</h2>
+  <p><Mail lang="en" class="inline-mail" /><br>Phone: +49 (0)176 89000605</p>
+  <h2>Responsible for content</h2>
+  <p>Kilian Amrehn, address as above</p>
+  <h2>Copyright</h2>
+  <p>All photographs and texts on this website are protected by copyright. Any use beyond the limits of copyright law requires prior written consent.</p>
+  <h2>Consumer dispute resolution</h2>
+  <p>I am neither willing nor obliged to take part in dispute resolution proceedings before a consumer arbitration board.</p>
+  <p class="mute">The German version of this page is legally binding.</p>
+</section>
+</Base>
+<style>
+  .legal { max-width: 760px; margin: 0; padding-top: 40px; padding-bottom: 120px; }
+  .legal h1 { font-size: clamp(56px, 7vw, 96px); margin-bottom: 40px; }
+  .legal h2 { font-family: var(--f-mono); font-size: 12px; font-weight: 400; text-transform: uppercase; color: var(--mute); margin: 36px 0 8px; }
+  .legal :global(.inline-mail) { background: none; border: 0; padding: 0; cursor: pointer; color: var(--white); text-decoration: underline; text-underline-offset: 4px; }
+  .legal :global(.inline-mail span) { color: inherit; }
+</style>

@@ -1,0 +1,19 @@
+---
+import Leistung from '../../views/Leistung.astro';
+import { FAQ_PRICE_EN, FAQ_TIME_EN, FAQ_SPEED_EN, FAQ_USE_EN, FAQ_STUDIO_EN, FAQ_HMU_EN, FAQ_WEAR_EN, FAQ_UNFOTOGEN_EN } from '../../data/leistung';
+---
+<Leistung
+  lang="en"
+  alternate="personal-branding-fotografie-koeln/"
+  og="/media/og/personal-branding.jpg"
+  title="Personal Branding Photography Cologne · Kilian Amrehn"
+  description="Personal branding photography in Cologne: portraits for founders, speakers, coaches and freelancers. For your website, LinkedIn, press and stage."
+  h1="Personal Branding Photography Cologne"
+  lead="Portraits for founders, speakers and everyone whose face stands for something."
+  img={{ src: 'p-portraet-koeln-1', alt: 'Woman with white hair in a pinstripe suit, chin resting on her hand, personal branding photography Cologne' }}
+  text={['If you stand for an idea, a company or a cause, people meet you through a picture first. On your website, on LinkedIn, in a conference programme, next to an interview. That picture should look like you and no one else.', 'I photograph founders, speakers, coaches and freelancers in Cologne the way I photograph artists: with time, with directed and sometimes coloured light, and with an eye for what makes you you.', 'You get a series for every channel: a clear portrait for press and profiles, pictures with room for text for your website and talks, and a few that tell more.', 'In a studio, at your office, in your workshop or outdoors in Cologne. Beforehand we talk about what you stand for and where the pictures are going.']}
+  links={[['All portraits', 'en/artists/'], ['Presenter photography Cologne', 'en/presenter-photography-cologne/'], ['Portrait photography Cologne', 'en/portrait-photography-cologne/'], ['Portraits for art and literature', 'en/art-literature-portraits-cologne/']]}
+  examples={[{ src: 'p-portraet-koeln-4', label: 'Portraits', href: 'en/artists/' }, { src: 'p-portraet-koeln-2', label: 'Portraits', href: 'en/artists/' }, { src: 'p-bianca-berding-moderatorin-1', label: 'Bianca Berding', href: 'en/artists/#bianca-berding' }, { src: 'p-portraet-koeln-8', label: 'Portraits', href: 'en/artists/' }]}
+  faq={[['How are your pictures different from a business headshot?', 'I learned how light is set in fashion, campaigns and advertising. So I can go anywhere from high gloss to fine art. Especially in personal branding, it is exciting not to look like the hundredth business portrait in a suit.'], ['Do you also shoot at offices or on stage?', 'Yes. I photograph people anywhere, at your workplace or during a talk too.'], FAQ_PRICE_EN, FAQ_TIME_EN, FAQ_SPEED_EN, FAQ_USE_EN, FAQ_HMU_EN, FAQ_WEAR_EN, FAQ_UNFOTOGEN_EN]}
+  service="Personal branding photography" offers={['Portraits for founders', 'Speaker photos', 'Portraits for website and LinkedIn', 'Press photos for freelancers']}
+/>

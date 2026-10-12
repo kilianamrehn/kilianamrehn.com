@@ -1,0 +1,19 @@
+---
+import Leistung from '../../views/Leistung.astro';
+import { FAQ_PRICE_EN, FAQ_TIME_EN, FAQ_SPEED_EN, FAQ_USE_EN, FAQ_STUDIO_EN, FAQ_HMU_EN, FAQ_WEAR_EN, FAQ_UNFOTOGEN_EN } from '../../data/leistung';
+---
+<Leistung
+  lang="en"
+  alternate="portraets-kunst-literatur-koeln/"
+  og="/media/og/kunst-literatur.jpg"
+  title="Portraits for Art and Literature Cologne · Kilian Amrehn"
+  description="Portraits for painters, sculptors and authors in Cologne: photos for book jackets, publishers, catalogues, galleries and press. In the studio or at the desk."
+  h1="Portraits for Art and Literature"
+  lead="Photos for painting, sculpture, books and anything people make themselves."
+  img={{ src: 'p-nicole-malerin-kuenstlerinnenportraet-3', alt: 'Painter Nicole in a white shirt holding brushes, portrait for art, Cologne' }}
+  text={['A book needs a photo for the jacket, an exhibition one for the catalogue, a reading one for the poster. I photograph painters, authors and anyone who makes things, in Cologne.', 'Ideally where the work happens. In the studio, at the desk, between the canvases. The light is the light that is already there, only directed.', 'You get a clear portrait for publishers, press and galleries, plus pictures that show how you work.', 'Beforehand we talk about your work, your space and what the pictures are needed for.']}
+  links={[['Nicole, painter', 'en/artists/#nicole'], ['All portraits', 'en/artists/'], ['Personal branding photography Cologne', 'en/personal-branding-photography-cologne/'], ['Portrait photography Cologne', 'en/portrait-photography-cologne/']]}
+  examples={[{ src: 'p-nicole-malerin-kuenstlerinnenportraet-1', label: 'Nicole, painter', href: 'en/artists/#nicole' }, { src: 'p-nicole-malerin-kuenstlerinnenportraet-4', label: 'Nicole, painter', href: 'en/artists/#nicole' }, { src: 'p-portraet-koeln-6', label: 'All portraits', href: 'en/artists/' }]}
+  faq={[['Do you prefer shooting in the artist’s studio or a photo studio?', 'I love artists’ studios. But a photo studio quickly turns into one when a few works and your tools come along.'], ['Do you also photograph artworks and exhibitions?', 'Yes, artworks and exhibitions too.'], FAQ_PRICE_EN, FAQ_TIME_EN, FAQ_SPEED_EN, FAQ_USE_EN, FAQ_UNFOTOGEN_EN]}
+  service="Portraits for art and literature" offers={['Portraits for painters and sculptors', 'Photos for book jackets and publishers', 'Portraits for catalogues and galleries']}
+/>

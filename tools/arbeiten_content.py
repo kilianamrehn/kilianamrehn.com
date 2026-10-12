@@ -29,7 +29,7 @@ p('peek-cloppenburg-x-ellesse','Peek & Cloppenburg x Ellesse','Kampagne','Campai
   [S('','',r('peek-cloppenburg-x-ellesse',1,7))],
   [('Produktion','Feelming'),('Regie','Mario Bürger'),('1st AD','Nico Pékar'),('DOP','Pasindu Goldmann'),('Styling','Peninah Amanda'),('Hair & Make-up','Kristin Belger'),('Movement','Tim Schmitz'),('Talents','Nora Nova, Rowdy Eyez, Mecnun'),('Foto','Kilian Amrehn')])
 p('synergy','Untamed','Freie Strecke · Editorial','Personal series · Editorial','2024','',
-  [S('','',r('synergy',1,5),'Ein Model, ein Rabe namens Hitchcock, ein Hahn namens Michelangelo, ein Studio. Genau so fotografiert.','A model, a raven called Hitchcock, a rooster called Michelangelo, a studio. Photographed exactly like this.'),
+  [S('','',r('synergy',1,5),'Ein Model, ein Rabe namens Hitchcock, ein Hahn namens Michelangelo, ein Studio. Genau so fotografiert.','A model, a raven called Hitchcock, a cockerel called Michelangelo, a studio. Photographed exactly as you see it.'),
    S('KI-animiert aus diesen Fotos','AI-animated from these photos',['untamed-ki-1','untamed-ki-3'])],
   [('Art Direction, Foto','Kilian Amrehn'),('Produktion','Pia Unterstell'),('Model','Jóna Gudmundsdóttir · MIRRRS Models'),('Tiertrainerin','Fränze Lüttich'),('Hair & Make-up','Tini Sager'),('Kollektiv','Artistpool')],
   edge=('FREIE STRECKE','EDITORIAL'))
@@ -37,13 +37,13 @@ p('silent-escape','Silent Escape','Kampagne','Campaign','2024','JEREMIAH',
   [S('','',r('silent-escape',1,5)),S('KI-animiert aus diesen Fotos','AI-animated from these photos',['jeremiah-ki-1','jeremiah-ki-3']),S('Behind the Scenes','Behind the scenes',['silent-escape-bts'])],
   [('Design','JEREMIAH'),('Produktion','Kilian Amrehn'),('Models','Marie Lange, Ricardo Alverez'),('Hair & Make-up','Natalie Arslan')],
   'Eine Wüste unter vollem Mond, zwei Menschen stehen still. Sie trägt die Erwartungen der anderen, er die Unsichtbarkeit. Für einen Moment sind beide nicht mehr gefangen. Sie stehen still und sind doch längst unterwegs.',
-  'A desert under a full moon, two people standing still. She carries the expectations of others, he carries invisibility. For a moment, neither of them is trapped. They stand still, yet their spirits are already running free.',
+  'A desert under a full moon, two people standing still. She carries other people’s expectations, he carries being unseen. For a moment, neither of them is trapped. They stand still, and yet they are already on their way.',
   edge=('KAMPAGNE','MODEFOTOGRAFIE'))
 p('trish-reflections-of-identity','Reflections of Identity','Freie Strecke · Porträt','Personal series · Portrait','2024','Studio Zehn70',
   [S('','',r('trish-reflections-of-identity',1,7))],
   [('Art Direction, Foto','Kilian Amrehn'),('Produktion','Pia Unterstell'),('Model','Trish · PARS Management'),('Hair & Make-up','Serife Cigdem Güney')],
   'Vier Szenen, eine Person. Stark in der Mode, weich in der Beauty, fremd vor einem offenen Kühlschrank, nackt im Schwarzweiß.',
-  'Four scenes, one person. Strong in fashion, soft in beauty, strange in front of an open fridge, bare in black and white.',
+  'Four scenes, one person. Strong in fashion, soft in beauty, out of place in front of an open fridge, bare in black and white.',
   edge=('FREIE STRECKE','GERICHTETES LICHT'))
 p('niewiederleise','#niewiederleise','Kampagne','Campaign','2024','',[S('','',r('niewiederleise',1,9))],[('Foto','Kilian Amrehn')],top='niewiederleise-kampagne',edge=('KAMPAGNE','#NIEWIEDERLEISE'))
 p('phiala','Phiala','Kampagne','Campaign','2024','Phiala',[S('','',r('phiala',1,9))],
@@ -65,7 +65,7 @@ p('the-wants','The Wants','Kampagne','Campaign','2020','The Wants Social',[S('',
   [('Agentur','The Wants Social'),('Produktion','Anna Siepenkötter'),('Creative Direction','Karla Jenders'),('Model','Mona Lillian'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Fabian Podzuweit'),('Foto','Kilian Amrehn')])
 p('bundesliga','Bundesliga','Sport · Bundesliga','Sport · Bundesliga','2023 bis 2025','DFL',[S('','',[x for x in r('bundesliga',1,29) if x!='w-bundesliga-26'])],[('Auftrag','DFL'),('Foto','Kilian Amrehn')],
   'Für die DFL in den Stadien, direkt am Spielfeldrand. Beeindruckende Orte. Und der Sport erst, so nah dran.',
-  'For the DFL in the stadiums, right at the sideline. Impressive places. And the game even more so, this close.',
+  'For the DFL in the stadiums, right on the touchline. Impressive places. And the football even more so, this close up.',
   edge=('SPORTFOTOGRAFIE','BUNDESLIGA'))
 
 # Farbe des Bands (mit Farbpipette aus den Bildern der Arbeit genommen) und Bild(er) beim Aufklappen.

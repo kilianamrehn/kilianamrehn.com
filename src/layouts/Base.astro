@@ -66,7 +66,7 @@ const ld = [business, person, ...schema];
 <meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
 <meta property="og:url" content={canonical}>
-<meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'en_US'}>
+<meta property="og:locale" content={lang === 'de' ? 'de_DE' : 'en_GB'}>
 <meta property="og:image" content={ogImage}>
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -95,9 +95,10 @@ const ld = [business, person, ...schema];
 <main id="inhalt"><slot /></main>
 <footer class="site-footer">
   {!en && <nav class="wrap seo-links mono" aria-label="Leistungen"><a href={u('portraitfotografie/')}>Portraitfotografie Köln</a><a href={u('musikfotografie-koeln/')}>Musikfotografie Köln</a><a href={u('schauspielfotografie-koeln/')}>Schauspielfotografie Köln</a><a href={u('moderationsfotografie-koeln/')}>Moderationsfotografie Köln</a><a href={u('personal-branding-fotografie-koeln/')}>Personal Branding Fotografie Köln</a><a href={u('portraets-kunst-literatur-koeln/')}>Porträts für Kunst und Literatur</a><a href={u('kampagnenfotografie-koeln/')}>Kampagnenfotografie Köln</a></nav>}
+  {en && <nav class="wrap seo-links mono" aria-label="Services"><a href={u('en/portrait-photography-cologne/')}>Portrait photography Cologne</a><a href={u('en/music-photography-cologne/')}>Music photography Cologne</a><a href={u('en/actor-headshots-cologne/')}>Actor headshots Cologne</a><a href={u('en/presenter-photography-cologne/')}>Presenter photography Cologne</a><a href={u('en/personal-branding-photography-cologne/')}>Personal branding photography Cologne</a><a href={u('en/art-literature-portraits-cologne/')}>Portraits for art and literature</a><a href={u('en/campaign-photography-cologne/')}>Campaign photography Cologne</a></nav>}
   <div class="wrap">
     <div style="display:flex;flex-direction:column;gap:14px">
-      <span class="mono mute">{lang === 'de' ? 'Einfach schreiben.' : 'Just write.'}</span>
+      <span class="mono mute">{lang === 'de' ? 'Einfach schreiben.' : 'Drop me a line.'}</span>
       <Mail lang={lang} />
     </div>
     <div class="footer-links">
@@ -105,8 +106,8 @@ const ld = [business, person, ...schema];
         <a href={site.instagram} rel="me noopener" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor"/></svg></a>
         {site.linkedin && <a href={site.linkedin} rel="me noopener" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="3" fill="currentColor"/><path d="M6.4 9.6h2.6V18H6.4zM7.7 5.6a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM10.8 9.6h2.5v1.2c.4-.7 1.3-1.4 2.6-1.4 2.7 0 3.2 1.8 3.2 4V18h-2.6v-4c0-1 0-2.2-1.4-2.2s-1.6 1-1.6 2.1V18h-2.7z" fill="var(--ink)"/></svg></a>}
       </span>
-      <a href={u('impressum/')} hreflang={en ? 'de' : undefined}>{en ? 'Imprint' : 'Impressum'}</a>
-      <a href={u('datenschutz/')} hreflang={en ? 'de' : undefined}>{en ? 'Privacy' : 'Datenschutz'}</a>
+      <a href={u(en ? 'en/legal-notice/' : 'impressum/')}>{en ? 'Legal notice' : 'Impressum'}</a>
+      <a href={u(en ? 'en/privacy/' : 'datenschutz/')}>{en ? 'Privacy' : 'Datenschutz'}</a>
     </div>
   </div>
 </footer>

@@ -1,0 +1,19 @@
+---
+import Leistung from '../../views/Leistung.astro';
+import { FAQ_PRICE_EN, FAQ_TIME_EN, FAQ_SPEED_EN, FAQ_USE_EN, FAQ_STUDIO_EN, FAQ_HMU_EN, FAQ_WEAR_EN, FAQ_UNFOTOGEN_EN } from '../../data/leistung';
+---
+<Leistung
+  lang="en"
+  alternate="musikfotografie-koeln/"
+  og="/media/og/musik.jpg"
+  title="Music Photography Cologne · Band Photos & Album Covers · Kilian Amrehn"
+  description="Music photography in Cologne: press photos for bands and solo artists, EP and album covers, DJ portraits. Directed light, no stiff posing."
+  h1="Music Photography Cologne"
+  lead="Press photos, covers and portraits for bands, solo artists and DJs."
+  img={{ src: 'p-parzhuber-trio-band-1', alt: 'Parzhuber Trio laughing, band photo, music photography Cologne' }}
+  text={['A release needs a picture people recognise at once. For press kits, Spotify, posters and the cover. I photograph bands, solo artists and DJs in Cologne and wherever your music is made.', 'With bands, it is about what happens between you. Who laughs first, who stands at the edge, who holds the others together. That is what the photo should show, rather than four people in a row.', 'For covers I think square from the start, with room for type. Light and colour come from the music: a song that sounds like night does not get daylight.', 'In a studio, the rehearsal room, outdoors in Cologne or on stage. Beforehand we listen together and talk about the idea, the light and the place.']}
+  links={[['All portraits', 'en/artists/'], ['Portrait photography Cologne', 'en/portrait-photography-cologne/'], ['Presenter photography Cologne', 'en/presenter-photography-cologne/']]}
+  examples={[{ src: 'p-parzhuber-trio-band-1', label: 'Band photos', href: 'en/artists/#parzhuber-trio' }, { src: 'p-mario-nyeky-musiker-2', label: 'Solo artists', href: 'en/artists/#mario-nyeky' }, { src: 'p-nicole-da-silva-musikerin-1', label: 'Covers', href: 'en/artists/#nicole-da-silva' }, { src: 'p-zahnatzin-dj-1', label: 'DJs', href: 'en/artists/#zahnatzin' }]}
+  faq={[FAQ_PRICE_EN, ['How are band photos different from single portraits?', 'The more people in a picture, the more of them need to feel at ease at the same moment. So we take more pictures at each location, to make sure there is one where everyone looks the way they see themselves.'], ['How does an album cover come about?', 'Either you already have a clear idea, and I make it happen. Or you send me the music and we build the concept from it. I plan the cover square from the start, with room for type.'], FAQ_TIME_EN, FAQ_USE_EN, FAQ_STUDIO_EN, FAQ_HMU_EN, FAQ_SPEED_EN]}
+  service="Music photography" offers={['Band press photos', 'Portraits for solo artists', 'EP and album covers', 'DJ portraits']}
+/>

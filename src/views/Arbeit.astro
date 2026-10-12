@@ -10,7 +10,7 @@ interface Props { lang: Lang; p: any; prev: any; next: any; data: any }
 const { lang, p, prev, next, data } = Astro.props;
 const en = lang === 'en';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
-const roleEn: Record<string, string> = { Produktion: 'Production', Regie: 'Director', Fotoassistenz: 'Photo assistant', Foto: 'Photography', 'Veröffentlicht': 'Published in', Agentur: 'Agency', Auftrag: 'Client', Tiertrainerin: 'Animal trainer', Kollektiv: 'Collective', 'Art Direction, Foto': 'Art direction, photography', 'Video-Assistenz': 'Video assistant', Assistenz: 'Assistants' };
+const roleEn: Record<string, string> = { Produktion: 'Production', Regie: 'Director', Fotoassistenz: 'Photo assistance', Foto: 'Photography', 'Veröffentlicht': 'Published in', Agentur: 'Agency', Auftrag: 'Client', Tiertrainerin: 'Animal trainer', Kollektiv: 'Collective', 'Art Direction, Foto': 'Art direction, photography', 'Video-Assistenz': 'Video assistance', Assistenz: 'Assistance' };
 const kind = en ? p.kindEn : p.kind;
 const meta = [kind, en ? String(p.year).replace(' bis ', ' to ') : p.year, p.client].filter(Boolean).join(' · ');
 const text = en ? p.textEn : p.textDe;

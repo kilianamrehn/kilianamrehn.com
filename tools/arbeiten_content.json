@@ -1,70 +1,5 @@
 [
  {
-  "slug": "rock-fairyland",
-  "title": "Rock Fairyland",
-  "kind": "Freie Strecke · Editorial",
-  "kindEn": "Personal series · Editorial",
-  "year": "2021",
-  "client": "First Magazine, New Icons' Club",
-  "sections": [
-   {
-    "label": "",
-    "labelEn": "",
-    "items": [
-     "w-rock-fairyland-1",
-     "w-rock-fairyland-2",
-     "w-rock-fairyland-3",
-     "w-rock-fairyland-4",
-     "w-rock-fairyland-5",
-     "w-rock-fairyland-6",
-     "w-rock-fairyland-7",
-     "w-rock-fairyland-8",
-     "w-rock-fairyland-9",
-     "w-rock-fairyland-10"
-    ],
-    "note": null,
-    "noteEn": null
-   }
-  ],
-  "credits": [
-   [
-    "Produktion",
-    "Kilian Amrehn"
-   ],
-   [
-    "Styling",
-    "Jacqueline Tamm"
-   ],
-   [
-    "Models",
-    "Marie Wehder, Louis Joerissen"
-   ],
-   [
-    "Hair & Make-up",
-    "Kathrin Hupertz"
-   ],
-   [
-    "Veröffentlicht",
-    "First Magazine, New Icons' Club Magazine"
-   ]
-  ],
-  "textDe": "",
-  "textEn": "",
-  "top": null,
-  "color": null,
-  "edge": [
-   "FREIE STRECKE",
-   "EDITORIAL"
-  ],
-  "seed": 0,
-  "band": "#95c5b9",
-  "bandImgs": [
-   "w-rock-fairyland-1",
-   "w-rock-fairyland-4",
-   "w-rock-fairyland-2"
-  ]
- },
- {
   "slug": "scholl-iconic",
   "title": "Scholl",
   "kind": "Kampagnen",
@@ -217,6 +152,219 @@
   ]
  },
  {
+  "slug": "rock-fairyland",
+  "title": "Rock Fairyland",
+  "kind": "Freie Strecke · Editorial",
+  "kindEn": "Personal series · Editorial",
+  "year": "2021",
+  "client": "First Magazine, New Icons' Club",
+  "sections": [
+   {
+    "label": "",
+    "labelEn": "",
+    "items": [
+     "w-rock-fairyland-1",
+     "w-rock-fairyland-2",
+     "w-rock-fairyland-3",
+     "w-rock-fairyland-4",
+     "w-rock-fairyland-5",
+     "w-rock-fairyland-6",
+     "w-rock-fairyland-7",
+     "w-rock-fairyland-8",
+     "w-rock-fairyland-9",
+     "w-rock-fairyland-10"
+    ],
+    "note": null,
+    "noteEn": null
+   }
+  ],
+  "credits": [
+   [
+    "Produktion",
+    "Kilian Amrehn"
+   ],
+   [
+    "Styling",
+    "Jacqueline Tamm"
+   ],
+   [
+    "Models",
+    "Marie Wehder, Louis Joerissen"
+   ],
+   [
+    "Hair & Make-up",
+    "Kathrin Hupertz"
+   ],
+   [
+    "Veröffentlicht",
+    "First Magazine, New Icons' Club Magazine"
+   ]
+  ],
+  "textDe": "",
+  "textEn": "",
+  "top": null,
+  "color": null,
+  "edge": [
+   "FREIE STRECKE",
+   "EDITORIAL"
+  ],
+  "seed": 0,
+  "band": "#95c5b9",
+  "bandImgs": [
+   "w-rock-fairyland-1",
+   "w-rock-fairyland-4",
+   "w-rock-fairyland-2"
+  ]
+ },
+ {
+  "slug": "bundesliga",
+  "title": "Bundesliga",
+  "kind": "Sport · DFL",
+  "kindEn": "Sport · DFL",
+  "year": "2023 bis 2025",
+  "client": "DFL",
+  "sections": [
+   {
+    "label": "",
+    "labelEn": "",
+    "items": [
+     "w-bundesliga-1",
+     "w-bundesliga-2",
+     "w-bundesliga-3",
+     "w-bundesliga-4",
+     "w-bundesliga-5",
+     "w-bundesliga-6",
+     "w-bundesliga-7",
+     "w-bundesliga-8",
+     "w-bundesliga-9",
+     "w-bundesliga-10",
+     "w-bundesliga-11",
+     "w-bundesliga-12",
+     "w-bundesliga-13",
+     "w-bundesliga-14",
+     "w-bundesliga-15",
+     "w-bundesliga-16",
+     "w-bundesliga-17",
+     "w-bundesliga-18",
+     "w-bundesliga-19",
+     "w-bundesliga-20",
+     "w-bundesliga-21",
+     "w-bundesliga-22",
+     "w-bundesliga-23",
+     "w-bundesliga-24",
+     "w-bundesliga-25",
+     "w-bundesliga-26",
+     "w-bundesliga-27",
+     "w-bundesliga-28",
+     "w-bundesliga-29"
+    ],
+    "note": null,
+    "noteEn": null
+   }
+  ],
+  "credits": [
+   [
+    "Auftrag",
+    "DFL"
+   ],
+   [
+    "Foto",
+    "Kilian Amrehn"
+   ]
+  ],
+  "textDe": "Für die DFL war ich in vielen Stadien und durfte Spiele direkt vom Spielfeldrand erleben. Stadien sind beeindruckende Orte. Der Sport auch, vor allem so nah dran.",
+  "textEn": "Working for the DFL has taken me to many stadiums, where I had the chance to experience matches right from the sidelines. Stadiums are impressive places, and so is the sport itself, especially when you are that close to the action.",
+  "top": null,
+  "color": null,
+  "edge": [
+   "SPORTFOTOGRAFIE",
+   "BUNDESLIGA"
+  ],
+  "seed": 17,
+  "band": "#3a3a38",
+  "bandImgs": [
+   "w-bundesliga-13",
+   "w-bundesliga-7",
+   "w-bundesliga-18"
+  ]
+ },
+ {
+  "slug": "peek-cloppenburg-x-ellesse",
+  "title": "Peek & Cloppenburg x Ellesse",
+  "kind": "Kampagne",
+  "kindEn": "Campaign",
+  "year": "2022",
+  "client": "Feelming",
+  "sections": [
+   {
+    "label": "",
+    "labelEn": "",
+    "items": [
+     "w-peek-cloppenburg-x-ellesse-1",
+     "w-peek-cloppenburg-x-ellesse-2",
+     "w-peek-cloppenburg-x-ellesse-3",
+     "w-peek-cloppenburg-x-ellesse-4",
+     "w-peek-cloppenburg-x-ellesse-5",
+     "w-peek-cloppenburg-x-ellesse-6",
+     "w-peek-cloppenburg-x-ellesse-7"
+    ],
+    "note": null,
+    "noteEn": null
+   }
+  ],
+  "credits": [
+   [
+    "Produktion",
+    "Feelming"
+   ],
+   [
+    "Regie",
+    "Mario Bürger"
+   ],
+   [
+    "1st AD",
+    "Nico Pékar"
+   ],
+   [
+    "DOP",
+    "Pasindu Goldmann"
+   ],
+   [
+    "Styling",
+    "Peninah Amanda"
+   ],
+   [
+    "Hair & Make-up",
+    "Kristin Belger"
+   ],
+   [
+    "Movement",
+    "Tim Schmitz"
+   ],
+   [
+    "Talents",
+    "Nora Nova, Rowdy Eyez, Mecnun"
+   ],
+   [
+    "Foto",
+    "Kilian Amrehn"
+   ]
+  ],
+  "textDe": "",
+  "textEn": "",
+  "top": null,
+  "color": null,
+  "edge": [
+   "KAMPAGNENFOTOGRAFIE",
+   "MODEFOTOGRAFIE"
+  ],
+  "seed": 4,
+  "band": "#99b4bc",
+  "bandImgs": [
+   "w-peek-cloppenburg-x-ellesse-1"
+  ]
+ },
+ {
   "slug": "trish-reflections-of-identity",
   "title": "Reflections of Identity",
   "kind": "Freie Strecke · Porträt",
@@ -270,6 +418,478 @@
   "band": "#0a8389",
   "bandImgs": [
    "w-trish-reflections-of-identity-6"
+  ]
+ },
+ {
+  "slug": "copenhagen-studios",
+  "title": "Copenhagen Studios",
+  "kind": "Kampagnen",
+  "kindEn": "Campaigns",
+  "year": "2021 bis 2022",
+  "client": "The Wants Social",
+  "sections": [
+   {
+    "label": "Februar 2021",
+    "labelEn": "February 2021",
+    "items": [
+     "w-copenhagen-studios-1",
+     "w-copenhagen-studios-2",
+     "w-copenhagen-studios-3"
+    ],
+    "note": null,
+    "noteEn": null
+   },
+   {
+    "label": "Juni 2021",
+    "labelEn": "June 2021",
+    "items": [
+     "w-copenhagen-studios-4",
+     "w-copenhagen-studios-5",
+     "w-copenhagen-studios-6",
+     "w-copenhagen-studios-7"
+    ],
+    "note": null,
+    "noteEn": null
+   },
+   {
+    "label": "Oktober 2022",
+    "labelEn": "October 2022",
+    "items": [
+     "w-copenhagen-studios-8",
+     "w-copenhagen-studios-9",
+     "w-copenhagen-studios-10",
+     "w-copenhagen-studios-11",
+     "w-copenhagen-studios-12",
+     "w-copenhagen-studios-13",
+     "cph-schal-loop"
+    ],
+    "note": null,
+    "noteEn": null
+   }
+  ],
+  "credits": [
+   [
+    "Produktion",
+    "The Wants Social"
+   ],
+   [
+    "Creative Director",
+    "Karla Jenders"
+   ],
+   [
+    "Models",
+    "Margot Davy, Jason Grotjahn"
+   ],
+   [
+    "Hair & Make-up",
+    "Melanie Bulu"
+   ],
+   [
+    "Styling",
+    "Johanna Löer"
+   ],
+   [
+    "Fotoassistenz",
+    "Eno de Witt"
+   ],
+   [
+    "Foto",
+    "Kilian Amrehn"
+   ]
+  ],
+  "textDe": "",
+  "textEn": "",
+  "top": null,
+  "color": null,
+  "edge": [
+   "KAMPAGNENFOTOGRAFIE",
+   "MODEFOTOGRAFIE"
+  ],
+  "seed": 3,
+  "band": "#e8603e",
+  "bandImgs": [
+   "w-copenhagen-studios-11",
+   "vid:cph-schal-loop",
+   "w-copenhagen-studios-12"
+  ]
+ },
+ {
+  "slug": "synergy",
+  "title": "Untamed",
+  "kind": "Freie Strecke · Editorial",
+  "kindEn": "Personal series · Editorial",
+  "year": "2024",
+  "client": "",
+  "sections": [
+   {
+    "label": "",
+    "labelEn": "",
+    "items": [
+     "w-synergy-1",
+     "w-synergy-2",
+     "w-synergy-3",
+     "w-synergy-4",
+     "w-synergy-5"
+    ],
+    "note": "Kein KI-Bild. Ein Model, ein Rabe namens Hitchcock, ein Hahn namens Michelangelo und ein Studio. Genau so fotografiert.",
+    "noteEn": "Not an AI image. A model, a raven called Hitchcock, a rooster called Michelangelo and a studio. Photographed exactly like this."
+   },
+   {
+    "label": "KI-animiert aus diesen Fotos",
+    "labelEn": "AI-animated from these photos",
+    "items": [
+     "untamed-ki-1",
+     "untamed-ki-2",
+     "untamed-ki-3",
+     "untamed-ki-4"
+    ],
+    "note": null,
+    "noteEn": null
+   }
+  ],
+  "credits": [
+   [
+    "Art Direction, Foto",
+    "Kilian Amrehn"
+   ],
+   [
+    "Produktion",
+    "Pia Unterstell"
+   ],
+   [
+    "Model",
+    "Jóna Gudmundsdóttir · MIRRRS Models"
+   ],
+   [
+    "Tiertrainerin",
+    "Fränze Lüttich"
+   ],
+   [
+    "Hair & Make-up",
+    "Tini Sager"
+   ],
+   [
+    "Kollektiv",
+    "Artistpool"
+   ]
+  ],
+  "textDe": "",
+  "textEn": "",
+  "top": null,
+  "color": null,
+  "edge": [
+   "FREIE STRECKE",
+   "KEIN KI-BILD"
+  ],
+  "seed": 5,
+  "band": "#2f6f58",
+  "bandImgs": [
+   "w-synergy-1",
+   "w-synergy-2",
+   "vid:untamed-ki-1"
+  ]
+ },
+ {
+  "slug": "appelrathcuepper",
+  "title": "AppelrathCüpper",
+  "kind": "Kampagne",
+  "kindEn": "Campaign",
+  "year": "2022",
+  "client": "AppelrathCüpper",
+  "sections": [
+   {
+    "label": "",
+    "labelEn": "",
+    "items": [
+     "w-appelrathcuepper-1",
+     "w-appelrathcuepper-2",
+     "w-appelrathcuepper-3",
+     "w-appelrathcuepper-4",
+     "w-appelrathcuepper-5",
+     "w-appelrathcuepper-6",
+     "w-appelrathcuepper-7",
+     "w-appelrathcuepper-8",
+     "w-appelrathcuepper-9"
+    ],
+    "note": null,
+    "noteEn": null
+   }
+  ],
+  "credits": [
+   [
+    "Produktion",
+    "Mariann Reitz"
+   ],
+   [
+    "Creative Director",
+    "Alexandra Specht"
+   ],
+   [
+    "Fotoassistenz",
+    "Jonas Boltze"
+   ],
+   [
+    "Styling",
+    "Lisa Bräuer"
+   ],
+   [
+    "Models",
+    "Maren Thelen, Signe"
+   ],
+   [
+    "Hair & Make-up",
+    "Patricia Irsinger"
+   ],
+   [
+    "Foto",
+    "Kilian Amrehn"
+   ]
+  ],
+  "textDe": "Spiel mit Spiegeln.",
+  "textEn": "Playing with mirrors.",
+  "top": null,
+  "color": null,
+  "edge": [
+   "KAMPAGNENFOTOGRAFIE",
+   "MODEFOTOGRAFIE"
+  ],
+  "seed": 14,
+  "band": "#0d3a78",
+  "bandImgs": [
+   "w-appelrathcuepper-2"
+  ]
+ },
+ {
+  "slug": "ozean-der-stille",
+  "title": "Ozean der Stille",
+  "kind": "Freie Strecke · Mode",
+  "kindEn": "Personal series · Fashion",
+  "year": "2026",
+  "client": "",
+  "sections": [
+   {
+    "label": "",
+    "labelEn": "",
+    "items": [
+     "w-ozean-der-stille-1",
+     "w-ozean-der-stille-2",
+     "w-ozean-der-stille-3",
+     "w-ozean-der-stille-4",
+     "w-ozean-der-stille-5",
+     "w-ozean-der-stille-6",
+     "w-ozean-der-stille-7",
+     "w-ozean-der-stille-8",
+     "w-ozean-der-stille-9",
+     "w-ozean-der-stille-10",
+     "w-ozean-der-stille-11"
+    ],
+    "note": null,
+    "noteEn": null
+   }
+  ],
+  "credits": [
+   [
+    "Design",
+    "Jonas Braun · Pulpo Productions"
+   ],
+   [
+    "Foto",
+    "Kilian Amrehn"
+   ],
+   [
+    "Video",
+    "Lukas Beilenhoff"
+   ],
+   [
+    "Video-Assistenz",
+    "Dopia Films"
+   ],
+   [
+    "Assistenz",
+    "Alexandra Neufeld, Gereon Schultes, David Heinrichs"
+   ]
+  ],
+  "textDe": "",
+  "textEn": "",
+  "top": "ozean-der-stille",
+  "color": null,
+  "edge": [
+   "FREIE STRECKE",
+   "MODEFOTOGRAFIE"
+  ],
+  "seed": 1,
+  "band": "#5a1f1b",
+  "bandImgs": [
+   "w-ozean-der-stille-11"
+  ]
+ },
+ {
+  "slug": "silent-escape",
+  "title": "Silent Escape",
+  "kind": "Kampagne · JEREMIAH",
+  "kindEn": "Campaign · JEREMIAH",
+  "year": "2024",
+  "client": "JEREMIAH",
+  "sections": [
+   {
+    "label": "",
+    "labelEn": "",
+    "items": [
+     "w-silent-escape-1",
+     "w-silent-escape-2",
+     "w-silent-escape-3",
+     "w-silent-escape-4",
+     "w-silent-escape-5"
+    ],
+    "note": null,
+    "noteEn": null
+   },
+   {
+    "label": "KI-animiert aus diesen Fotos",
+    "labelEn": "AI-animated from these photos",
+    "items": [
+     "jeremiah-ki-1",
+     "jeremiah-ki-2",
+     "jeremiah-ki-3"
+    ],
+    "note": null,
+    "noteEn": null
+   },
+   {
+    "label": "Behind the Scenes",
+    "labelEn": "Behind the scenes",
+    "items": [
+     "silent-escape-bts"
+    ],
+    "note": null,
+    "noteEn": null
+   }
+  ],
+  "credits": [
+   [
+    "Design",
+    "JEREMIAH"
+   ],
+   [
+    "Produktion",
+    "Kilian Amrehn"
+   ],
+   [
+    "Models",
+    "Marie Lange, Ricardo Alverez"
+   ],
+   [
+    "Hair & Make-up",
+    "Natalie Arslan"
+   ]
+  ],
+  "textDe": "Eine Wüste unter vollem Mond, zwei Menschen stehen still. Sie trägt die Erwartungen der anderen, er die Unsichtbarkeit. Für einen Moment sind beide nicht mehr gefangen. Sie stehen still, und sind doch längst unterwegs.",
+  "textEn": "A desert under a full moon, two people standing still. She carries the expectations of others, he carries invisibility. For a moment, neither of them is trapped. They stand still, yet their spirits are already running free.",
+  "top": null,
+  "color": null,
+  "edge": [
+   "SCHMUCKFOTOGRAFIE",
+   "KAMPAGNE"
+  ],
+  "seed": 6,
+  "band": "#2e4f56",
+  "bandImgs": [
+   "w-silent-escape-5",
+   "w-silent-escape-1",
+   "vid:jeremiah-ki-2"
+  ]
+ },
+ {
+  "slug": "new-icons-club-magazine",
+  "title": "New Icons' Club Magazine",
+  "kind": "Editorial · Magazin",
+  "kindEn": "Editorial · Magazine",
+  "year": "2023 bis 2024",
+  "client": "New Icons' Club",
+  "sections": [
+   {
+    "label": "Ausgabe 1 · 2023",
+    "labelEn": "Issue 1 · 2023",
+    "items": [
+     "w-new-icons-club-magazine-1",
+     "w-new-icons-club-magazine-2",
+     "w-new-icons-club-magazine-3",
+     "w-new-icons-club-magazine-5",
+     "w-new-icons-club-magazine-6",
+     "w-new-icons-club-magazine-7",
+     "w-new-icons-club-magazine-8",
+     "w-new-icons-club-magazine-9",
+     "w-new-icons-club-magazine-10",
+     "w-new-icons-club-magazine-11",
+     "w-new-icons-club-magazine-12",
+     "w-new-icons-club-magazine-13"
+    ],
+    "note": null,
+    "noteEn": null
+   },
+   {
+    "label": "2nd Hand · 2024",
+    "labelEn": "2nd Hand · 2024",
+    "items": [
+     "w-new-icons-club-magazine-2-1",
+     "w-new-icons-club-magazine-2-2",
+     "w-new-icons-club-magazine-2-3",
+     "w-new-icons-club-magazine-2-4",
+     "w-new-icons-club-magazine-2-5",
+     "w-new-icons-club-magazine-2-6",
+     "w-new-icons-club-magazine-2-7",
+     "w-new-icons-club-magazine-2-8",
+     "w-new-icons-club-magazine-2-9",
+     "w-new-icons-club-magazine-2-10"
+    ],
+    "note": null,
+    "noteEn": null
+   }
+  ],
+  "credits": [
+   [
+    "Second Hand",
+    "Kleiderei, MatchYourStyle"
+   ],
+   [
+    "Produktion",
+    "Kilian Amrehn"
+   ],
+   [
+    "Creative Director",
+    "Ann-Kathrin Templin"
+   ],
+   [
+    "Styling",
+    "Jacqueline Tamm"
+   ],
+   [
+    "Hair & Make-up",
+    "Serife Maria Rosewood, Hanna Fuchs"
+   ],
+   [
+    "Models",
+    "Marie, Louis, Lia, Paulus, Elisabeth, Linda, Nika, Lasse"
+   ],
+   [
+    "Fotoassistenz",
+    "Fabian Podzuweit"
+   ]
+  ],
+  "textDe": "",
+  "textEn": "",
+  "top": null,
+  "color": null,
+  "edge": [
+   "EDITORIAL",
+   "MAGAZIN"
+  ],
+  "seed": 12,
+  "band": "#c8182e",
+  "bandImgs": [
+   "w-new-icons-club-magazine-12",
+   "w-new-icons-club-magazine-9",
+   "w-new-icons-club-magazine-2-9"
   ]
  },
  {
@@ -505,146 +1125,6 @@
   ]
  },
  {
-  "slug": "peek-cloppenburg-x-ellesse",
-  "title": "Peek & Cloppenburg x Ellesse",
-  "kind": "Kampagne",
-  "kindEn": "Campaign",
-  "year": "2022",
-  "client": "Feelming",
-  "sections": [
-   {
-    "label": "",
-    "labelEn": "",
-    "items": [
-     "w-peek-cloppenburg-x-ellesse-1",
-     "w-peek-cloppenburg-x-ellesse-2",
-     "w-peek-cloppenburg-x-ellesse-3",
-     "w-peek-cloppenburg-x-ellesse-4",
-     "w-peek-cloppenburg-x-ellesse-5",
-     "w-peek-cloppenburg-x-ellesse-6",
-     "w-peek-cloppenburg-x-ellesse-7"
-    ],
-    "note": null,
-    "noteEn": null
-   }
-  ],
-  "credits": [
-   [
-    "Produktion",
-    "Feelming"
-   ],
-   [
-    "Regie",
-    "Mario Bürger"
-   ],
-   [
-    "1st AD",
-    "Nico Pékar"
-   ],
-   [
-    "DOP",
-    "Pasindu Goldmann"
-   ],
-   [
-    "Styling",
-    "Peninah Amanda"
-   ],
-   [
-    "Hair & Make-up",
-    "Kristin Belger"
-   ],
-   [
-    "Movement",
-    "Tim Schmitz"
-   ],
-   [
-    "Talents",
-    "Nora Nova, Rowdy Eyez, Mecnun"
-   ],
-   [
-    "Foto",
-    "Kilian Amrehn"
-   ]
-  ],
-  "textDe": "",
-  "textEn": "",
-  "top": null,
-  "color": null,
-  "edge": [
-   "KAMPAGNENFOTOGRAFIE",
-   "MODEFOTOGRAFIE"
-  ],
-  "seed": 4,
-  "band": "#99b4bc",
-  "bandImgs": [
-   "w-peek-cloppenburg-x-ellesse-1"
-  ]
- },
- {
-  "slug": "ozean-der-stille",
-  "title": "Ozean der Stille",
-  "kind": "Freie Strecke · Mode",
-  "kindEn": "Personal series · Fashion",
-  "year": "2026",
-  "client": "",
-  "sections": [
-   {
-    "label": "",
-    "labelEn": "",
-    "items": [
-     "w-ozean-der-stille-1",
-     "w-ozean-der-stille-2",
-     "w-ozean-der-stille-3",
-     "w-ozean-der-stille-4",
-     "w-ozean-der-stille-5",
-     "w-ozean-der-stille-6",
-     "w-ozean-der-stille-7",
-     "w-ozean-der-stille-8",
-     "w-ozean-der-stille-9",
-     "w-ozean-der-stille-10",
-     "w-ozean-der-stille-11"
-    ],
-    "note": null,
-    "noteEn": null
-   }
-  ],
-  "credits": [
-   [
-    "Design",
-    "Jonas Braun · Pulpo Productions"
-   ],
-   [
-    "Foto",
-    "Kilian Amrehn"
-   ],
-   [
-    "Video",
-    "Lukas Beilenhoff"
-   ],
-   [
-    "Video-Assistenz",
-    "Dopia Films"
-   ],
-   [
-    "Assistenz",
-    "Alexandra Neufeld, Gereon Schultes, David Heinrichs"
-   ]
-  ],
-  "textDe": "",
-  "textEn": "",
-  "top": "ozean-der-stille",
-  "color": null,
-  "edge": [
-   "FREIE STRECKE",
-   "MODEFOTOGRAFIE"
-  ],
-  "seed": 1,
-  "band": "#5a1f1b",
-  "bandImgs": [
-   "w-ozean-der-stille-11"
-  ]
- },
- {
   "slug": "monano-schmuck",
   "title": "Monano Schmuckmanufaktur",
   "kind": "Kampagne",
@@ -701,363 +1181,6 @@
   "band": "#9eccd4",
   "bandImgs": [
    "w-monano-schmuck-5"
-  ]
- },
- {
-  "slug": "niewiederleise",
-  "title": "#niewiederleise",
-  "kind": "Kampagne",
-  "kindEn": "Campaign",
-  "year": "2024",
-  "client": "",
-  "sections": [
-   {
-    "label": "",
-    "labelEn": "",
-    "items": [
-     "w-niewiederleise-1",
-     "w-niewiederleise-2",
-     "w-niewiederleise-3",
-     "w-niewiederleise-4",
-     "w-niewiederleise-5",
-     "w-niewiederleise-6",
-     "w-niewiederleise-7",
-     "w-niewiederleise-8",
-     "w-niewiederleise-9"
-    ],
-    "note": null,
-    "noteEn": null
-   }
-  ],
-  "credits": [
-   [
-    "Foto",
-    "Kilian Amrehn"
-   ]
-  ],
-  "textDe": "",
-  "textEn": "",
-  "top": "niewiederleise-kampagne",
-  "color": null,
-  "edge": [
-   "KAMPAGNE",
-   "#NIEWIEDERLEISE"
-  ],
-  "seed": 8,
-  "band": "#6f6f41",
-  "bandImgs": [
-   "vid:niewiederleise-kampagne"
-  ]
- },
- {
-  "slug": "silent-escape",
-  "title": "Silent Escape",
-  "kind": "Kampagne · JEREMIAH",
-  "kindEn": "Campaign · JEREMIAH",
-  "year": "2024",
-  "client": "JEREMIAH",
-  "sections": [
-   {
-    "label": "",
-    "labelEn": "",
-    "items": [
-     "w-silent-escape-1",
-     "w-silent-escape-2",
-     "w-silent-escape-3",
-     "w-silent-escape-4",
-     "w-silent-escape-5"
-    ],
-    "note": null,
-    "noteEn": null
-   },
-   {
-    "label": "KI-animiert aus diesen Fotos",
-    "labelEn": "AI-animated from these photos",
-    "items": [
-     "jeremiah-ki-1",
-     "jeremiah-ki-2",
-     "jeremiah-ki-3"
-    ],
-    "note": null,
-    "noteEn": null
-   },
-   {
-    "label": "Behind the Scenes",
-    "labelEn": "Behind the scenes",
-    "items": [
-     "silent-escape-bts"
-    ],
-    "note": null,
-    "noteEn": null
-   }
-  ],
-  "credits": [
-   [
-    "Design",
-    "JEREMIAH"
-   ],
-   [
-    "Produktion",
-    "Kilian Amrehn"
-   ],
-   [
-    "Models",
-    "Marie Lange, Ricardo Alverez"
-   ],
-   [
-    "Hair & Make-up",
-    "Natalie Arslan"
-   ]
-  ],
-  "textDe": "Eine Wüste unter vollem Mond, zwei Menschen stehen still. Sie trägt die Erwartungen der anderen, er die Unsichtbarkeit. Für einen Moment sind beide nicht mehr gefangen. Sie stehen still, und sind doch längst unterwegs.",
-  "textEn": "A desert under a full moon, two people standing still. She carries the expectations of others, he carries invisibility. For a moment, neither of them is trapped. They stand still, yet their spirits are already running free.",
-  "top": null,
-  "color": null,
-  "edge": [
-   "SCHMUCKFOTOGRAFIE",
-   "KAMPAGNE"
-  ],
-  "seed": 6,
-  "band": "#2e4f56",
-  "bandImgs": [
-   "w-silent-escape-5",
-   "w-silent-escape-1",
-   "vid:jeremiah-ki-2"
-  ]
- },
- {
-  "slug": "copenhagen-studios",
-  "title": "Copenhagen Studios",
-  "kind": "Kampagnen",
-  "kindEn": "Campaigns",
-  "year": "2021 bis 2022",
-  "client": "The Wants Social",
-  "sections": [
-   {
-    "label": "Februar 2021",
-    "labelEn": "February 2021",
-    "items": [
-     "w-copenhagen-studios-1",
-     "w-copenhagen-studios-2",
-     "w-copenhagen-studios-3"
-    ],
-    "note": null,
-    "noteEn": null
-   },
-   {
-    "label": "Juni 2021",
-    "labelEn": "June 2021",
-    "items": [
-     "w-copenhagen-studios-4",
-     "w-copenhagen-studios-5",
-     "w-copenhagen-studios-6",
-     "w-copenhagen-studios-7"
-    ],
-    "note": null,
-    "noteEn": null
-   },
-   {
-    "label": "Oktober 2022",
-    "labelEn": "October 2022",
-    "items": [
-     "w-copenhagen-studios-8",
-     "w-copenhagen-studios-9",
-     "w-copenhagen-studios-10",
-     "w-copenhagen-studios-11",
-     "w-copenhagen-studios-12",
-     "w-copenhagen-studios-13",
-     "cph-schal-loop"
-    ],
-    "note": null,
-    "noteEn": null
-   }
-  ],
-  "credits": [
-   [
-    "Produktion",
-    "The Wants Social"
-   ],
-   [
-    "Creative Director",
-    "Karla Jenders"
-   ],
-   [
-    "Models",
-    "Margot Davy, Jason Grotjahn"
-   ],
-   [
-    "Hair & Make-up",
-    "Melanie Bulu"
-   ],
-   [
-    "Styling",
-    "Johanna Löer"
-   ],
-   [
-    "Fotoassistenz",
-    "Eno de Witt"
-   ],
-   [
-    "Foto",
-    "Kilian Amrehn"
-   ]
-  ],
-  "textDe": "",
-  "textEn": "",
-  "top": null,
-  "color": null,
-  "edge": [
-   "KAMPAGNENFOTOGRAFIE",
-   "MODEFOTOGRAFIE"
-  ],
-  "seed": 3,
-  "band": "#e8603e",
-  "bandImgs": [
-   "w-copenhagen-studios-11",
-   "vid:cph-schal-loop",
-   "w-copenhagen-studios-12"
-  ]
- },
- {
-  "slug": "bundesliga",
-  "title": "Bundesliga",
-  "kind": "Sport · DFL",
-  "kindEn": "Sport · DFL",
-  "year": "2023 bis 2025",
-  "client": "DFL",
-  "sections": [
-   {
-    "label": "",
-    "labelEn": "",
-    "items": [
-     "w-bundesliga-1",
-     "w-bundesliga-2",
-     "w-bundesliga-3",
-     "w-bundesliga-4",
-     "w-bundesliga-5",
-     "w-bundesliga-6",
-     "w-bundesliga-7",
-     "w-bundesliga-8",
-     "w-bundesliga-9",
-     "w-bundesliga-10",
-     "w-bundesliga-11",
-     "w-bundesliga-12",
-     "w-bundesliga-13",
-     "w-bundesliga-14",
-     "w-bundesliga-15",
-     "w-bundesliga-16",
-     "w-bundesliga-17",
-     "w-bundesliga-18",
-     "w-bundesliga-19",
-     "w-bundesliga-20",
-     "w-bundesliga-21",
-     "w-bundesliga-22",
-     "w-bundesliga-23",
-     "w-bundesliga-24",
-     "w-bundesliga-25",
-     "w-bundesliga-26",
-     "w-bundesliga-27",
-     "w-bundesliga-28",
-     "w-bundesliga-29"
-    ],
-    "note": null,
-    "noteEn": null
-   }
-  ],
-  "credits": [
-   [
-    "Auftrag",
-    "DFL"
-   ],
-   [
-    "Foto",
-    "Kilian Amrehn"
-   ]
-  ],
-  "textDe": "Für die DFL war ich in vielen Stadien und durfte Spiele direkt vom Spielfeldrand erleben. Stadien sind beeindruckende Orte. Der Sport auch, vor allem so nah dran.",
-  "textEn": "Working for the DFL has taken me to many stadiums, where I had the chance to experience matches right from the sidelines. Stadiums are impressive places, and so is the sport itself, especially when you are that close to the action.",
-  "top": null,
-  "color": null,
-  "edge": [
-   "SPORTFOTOGRAFIE",
-   "BUNDESLIGA"
-  ],
-  "seed": 17,
-  "band": "#3a3a38",
-  "bandImgs": [
-   "w-bundesliga-13",
-   "w-bundesliga-7",
-   "w-bundesliga-18"
-  ]
- },
- {
-  "slug": "appelrathcuepper",
-  "title": "AppelrathCüpper",
-  "kind": "Kampagne",
-  "kindEn": "Campaign",
-  "year": "2022",
-  "client": "AppelrathCüpper",
-  "sections": [
-   {
-    "label": "",
-    "labelEn": "",
-    "items": [
-     "w-appelrathcuepper-1",
-     "w-appelrathcuepper-2",
-     "w-appelrathcuepper-3",
-     "w-appelrathcuepper-4",
-     "w-appelrathcuepper-5",
-     "w-appelrathcuepper-6",
-     "w-appelrathcuepper-7",
-     "w-appelrathcuepper-8",
-     "w-appelrathcuepper-9"
-    ],
-    "note": null,
-    "noteEn": null
-   }
-  ],
-  "credits": [
-   [
-    "Produktion",
-    "Mariann Reitz"
-   ],
-   [
-    "Creative Director",
-    "Alexandra Specht"
-   ],
-   [
-    "Fotoassistenz",
-    "Jonas Boltze"
-   ],
-   [
-    "Styling",
-    "Lisa Bräuer"
-   ],
-   [
-    "Models",
-    "Maren Thelen, Signe"
-   ],
-   [
-    "Hair & Make-up",
-    "Patricia Irsinger"
-   ],
-   [
-    "Foto",
-    "Kilian Amrehn"
-   ]
-  ],
-  "textDe": "Spiel mit Spiegeln.",
-  "textEn": "Playing with mirrors.",
-  "top": null,
-  "color": null,
-  "edge": [
-   "KAMPAGNENFOTOGRAFIE",
-   "MODEFOTOGRAFIE"
-  ],
-  "seed": 14,
-  "band": "#0d3a78",
-  "bandImgs": [
-   "w-appelrathcuepper-2"
   ]
  },
  {
@@ -1123,10 +1246,10 @@
   ]
  },
  {
-  "slug": "synergy",
-  "title": "Untamed",
-  "kind": "Freie Strecke · Editorial",
-  "kindEn": "Personal series · Editorial",
+  "slug": "niewiederleise",
+  "title": "#niewiederleise",
+  "kind": "Kampagne",
+  "kindEn": "Campaign",
   "year": "2024",
   "client": "",
   "sections": [
@@ -1134,23 +1257,15 @@
     "label": "",
     "labelEn": "",
     "items": [
-     "w-synergy-1",
-     "w-synergy-2",
-     "w-synergy-3",
-     "w-synergy-4",
-     "w-synergy-5"
-    ],
-    "note": "Kein KI-Bild. Ein Model, ein Rabe namens Hitchcock, ein Hahn namens Michelangelo und ein Studio. Genau so fotografiert.",
-    "noteEn": "Not an AI image. A model, a raven called Hitchcock, a rooster called Michelangelo and a studio. Photographed exactly like this."
-   },
-   {
-    "label": "KI-animiert aus diesen Fotos",
-    "labelEn": "AI-animated from these photos",
-    "items": [
-     "untamed-ki-1",
-     "untamed-ki-2",
-     "untamed-ki-3",
-     "untamed-ki-4"
+     "w-niewiederleise-1",
+     "w-niewiederleise-2",
+     "w-niewiederleise-3",
+     "w-niewiederleise-4",
+     "w-niewiederleise-5",
+     "w-niewiederleise-6",
+     "w-niewiederleise-7",
+     "w-niewiederleise-8",
+     "w-niewiederleise-9"
     ],
     "note": null,
     "noteEn": null
@@ -1158,137 +1273,22 @@
   ],
   "credits": [
    [
-    "Art Direction, Foto",
+    "Foto",
     "Kilian Amrehn"
-   ],
-   [
-    "Produktion",
-    "Pia Unterstell"
-   ],
-   [
-    "Model",
-    "Jóna Gudmundsdóttir · MIRRRS Models"
-   ],
-   [
-    "Tiertrainerin",
-    "Fränze Lüttich"
-   ],
-   [
-    "Hair & Make-up",
-    "Tini Sager"
-   ],
-   [
-    "Kollektiv",
-    "Artistpool"
    ]
   ],
   "textDe": "",
   "textEn": "",
-  "top": null,
+  "top": "niewiederleise-kampagne",
   "color": null,
   "edge": [
-   "FREIE STRECKE",
-   "KEIN KI-BILD"
+   "KAMPAGNE",
+   "#NIEWIEDERLEISE"
   ],
-  "seed": 5,
-  "band": "#2f6f58",
+  "seed": 8,
+  "band": "#6f6f41",
   "bandImgs": [
-   "w-synergy-1",
-   "w-synergy-2",
-   "vid:untamed-ki-1"
-  ]
- },
- {
-  "slug": "new-icons-club-magazine",
-  "title": "New Icons' Club Magazine",
-  "kind": "Editorial · Magazin",
-  "kindEn": "Editorial · Magazine",
-  "year": "2023 bis 2024",
-  "client": "New Icons' Club",
-  "sections": [
-   {
-    "label": "Ausgabe 1 · 2023",
-    "labelEn": "Issue 1 · 2023",
-    "items": [
-     "w-new-icons-club-magazine-1",
-     "w-new-icons-club-magazine-2",
-     "w-new-icons-club-magazine-3",
-     "w-new-icons-club-magazine-5",
-     "w-new-icons-club-magazine-6",
-     "w-new-icons-club-magazine-7",
-     "w-new-icons-club-magazine-8",
-     "w-new-icons-club-magazine-9",
-     "w-new-icons-club-magazine-10",
-     "w-new-icons-club-magazine-11",
-     "w-new-icons-club-magazine-12",
-     "w-new-icons-club-magazine-13"
-    ],
-    "note": null,
-    "noteEn": null
-   },
-   {
-    "label": "2nd Hand · 2024",
-    "labelEn": "2nd Hand · 2024",
-    "items": [
-     "w-new-icons-club-magazine-2-1",
-     "w-new-icons-club-magazine-2-2",
-     "w-new-icons-club-magazine-2-3",
-     "w-new-icons-club-magazine-2-4",
-     "w-new-icons-club-magazine-2-5",
-     "w-new-icons-club-magazine-2-6",
-     "w-new-icons-club-magazine-2-7",
-     "w-new-icons-club-magazine-2-8",
-     "w-new-icons-club-magazine-2-9",
-     "w-new-icons-club-magazine-2-10"
-    ],
-    "note": null,
-    "noteEn": null
-   }
-  ],
-  "credits": [
-   [
-    "Second Hand",
-    "Kleiderei, MatchYourStyle"
-   ],
-   [
-    "Produktion",
-    "Kilian Amrehn"
-   ],
-   [
-    "Creative Director",
-    "Ann-Kathrin Templin"
-   ],
-   [
-    "Styling",
-    "Jacqueline Tamm"
-   ],
-   [
-    "Hair & Make-up",
-    "Serife Maria Rosewood, Hanna Fuchs"
-   ],
-   [
-    "Models",
-    "Marie, Louis, Lia, Paulus, Elisabeth, Linda, Nika, Lasse"
-   ],
-   [
-    "Fotoassistenz",
-    "Fabian Podzuweit"
-   ]
-  ],
-  "textDe": "",
-  "textEn": "",
-  "top": null,
-  "color": null,
-  "edge": [
-   "EDITORIAL",
-   "MAGAZIN"
-  ],
-  "seed": 12,
-  "band": "#c8182e",
-  "bandImgs": [
-   "w-new-icons-club-magazine-12",
-   "w-new-icons-club-magazine-9",
-   "w-new-icons-club-magazine-2-9"
+   "vid:niewiederleise-kampagne"
   ]
  }
 ]

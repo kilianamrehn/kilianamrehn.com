@@ -134,6 +134,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
       <Img src={l.src} alt={l.alt} widths={[960, 1440, 1920, 2880]} sizes="(max-width: 700px) 100vw, min(100vw, 150svh)" quality={84} class="cover lit" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : 'auto'} />
     </div>
   ))}
+  <div class="glow" aria-hidden="true"></div>
   <div class="shade"></div>
   <div class="tap-hint" aria-hidden="true"><svg viewBox="0 0 30 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle class="ring" cx="13" cy="7" r="6" /><path d="M13 8v13l-3-3a2 2 0 0 0-3 3l5 6c1.5 2 3 3 6 3h2a6 6 0 0 0 6-6v-6a2 2 0 0 0-4 0v-1a2 2 0 0 0-4 0v-1a2 2 0 0 0-4 0V8a1.5 1.5 0 0 0-3 0" /></svg><span>{lang === 'de' ? 'Mit dem Finger Licht malen' : 'Paint light with your finger'}</span></div>
   </div>
@@ -215,6 +216,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
   .look :global(img) { width: 100%; height: 100%; object-fit: cover; }
   .look[hidden] { display: none; }
   .hero :global(.base) { position: absolute; inset: 0; opacity: .07; }
+  .glow { position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen; z-index: 1; }
   .hero :global(.lit) { position: absolute; inset: 0; -webkit-mask-image: var(--mask); mask-image: var(--mask); }
   .hero { --mask: radial-gradient(circle 125px at 56% 40%, #000 0%, #000 35%, transparent 100%); }
   .shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(34,16,15,.6) 0%, rgba(34,16,15,0) 26%, rgba(34,16,15,0) 55%, rgba(34,16,15,.9) 100%); }
@@ -355,15 +357,27 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
   }));
   const hero = document.querySelector<HTMLElement>('[data-hero]');
   if (hero) {
-    const start = [{ x: 50, y: 34 }, { x: 53, y: 37 }, { x: 56, y: 40 }];
-    let pts = start.slice();
-    const draw = () => {
-      const n = pts.length;
-      const k = matchMedia('(max-width: 700px)').matches ? 0.45 : 1;
-      hero.style.setProperty('--mask', pts.map((p, i) => `radial-gradient(circle ${Math.round((30 + 95 * ((i + 1) / n)) * k)}px at ${p.x}% ${p.y}%, #000 0%, #000 35%, transparent 100%)`).join(', '));
-    };
-    draw();
+    // Licht: Spur glimmt nach und verblasst in gut 3 Sekunden, um den Finger bzw. die Maus ein weicher Hof
+    type P = { x: number; y: number; t: number | null };
+    const LIFE = 3200;
+    const start: P[] = [{ x: 47, y: 33, t: null }, { x: 50, y: 35, t: null }, { x: 53, y: 37, t: null }, { x: 56, y: 40, t: null }];
+    let pts: P[] = start.slice(), cur: P = { x: 56, y: 40, t: null };
+    const glow = hero.querySelector<HTMLElement>('.glow');
     let raf = 0;
+    const draw = (now: number) => {
+      const fr = (hero.querySelector('.frame') as HTMLElement) || hero;
+      const R = Math.min(fr.clientWidth, fr.clientHeight);
+      pts = pts.filter((p) => p.t === null || now - p.t < LIFE);
+      const layers = pts.map((p) => { const a = p.t === null ? 1 : 1 - (now - p.t) / LIFE; const r = Math.round(R * (0.08 + 0.1 * a)); return `radial-gradient(circle ${r}px at ${p.x}% ${p.y}%, rgba(0,0,0,${a.toFixed(3)}) 0%, rgba(0,0,0,${a.toFixed(3)}) 35%, transparent 100%)`; });
+      const age = cur.t === null ? 0 : Math.min(1, (now - cur.t) / LIFE);
+      const ca = 1 - age * 0.6;
+      layers.push(`radial-gradient(circle ${Math.round(R * 0.17)}px at ${cur.x}% ${cur.y}%, rgba(0,0,0,${ca.toFixed(3)}) 0%, rgba(0,0,0,${ca.toFixed(3)}) 35%, transparent 100%)`);
+      hero.style.setProperty('--mask', layers.join(', '));
+      if (glow) glow.style.background = `radial-gradient(circle ${Math.round(R * 0.38)}px at ${cur.x}% ${cur.y}%, rgba(255,250,240,${(0.16 * (1 - age * 0.7)).toFixed(3)}), rgba(255,250,240,0))`;
+      if (pts.some((p) => p.t !== null) || age < 1) raf = requestAnimationFrame(draw); else raf = 0;
+    };
+    const kick = () => { if (!raf) raf = requestAnimationFrame(draw); };
+    requestAnimationFrame(draw);
     // Handy: auf dem Bild direkt mit dem Finger Licht malen; gescrollt wird unter dem Bild
     let painting = false;
     const frameEl = (hero.querySelector('.frame') as HTMLElement) || hero;
@@ -383,10 +397,12 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
       const r = frameEl.getBoundingClientRect();
       const x = Math.round(((e.clientX - r.left) / r.width) * 1000) / 10;
       const y = Math.round(((e.clientY - r.top) / r.height) * 1000) / 10;
+      const now = performance.now();
+      if (pts.length && pts[0].t === null) pts = pts.map((p, i) => ({ ...p, t: now - (pts.length - i) * 60 }));
       const last = pts[pts.length - 1];
-      if (last && Math.abs(last.x - x) + Math.abs(last.y - y) < 1.5) return;
-      pts = pts.concat([{ x, y }]).slice(e.pointerType === 'touch' ? -60 : -28);
-      cancelAnimationFrame(raf); raf = requestAnimationFrame(draw);
+      cur = { x, y, t: now };
+      if (!last || Math.abs(last.x - x) + Math.abs(last.y - y) >= 1.2) pts = pts.concat([{ x, y, t: now }]).slice(-90);
+      kick();
     });
     const cap = hero.querySelector<HTMLElement>('[data-caption-out]');
     hero.querySelectorAll<HTMLButtonElement>('[data-pick]').forEach((b) => {
@@ -398,7 +414,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
           if (on) { hero.style.backgroundColor = l.dataset.bg || ''; if (cap) cap.textContent = l.dataset.caption || ''; }
         });
         hero.querySelectorAll('[data-pick]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-        pts = start.slice(); draw();
+        pts = start.slice(); cur = { x: 56, y: 40, t: null }; kick();
       });
     });
   }

@@ -68,7 +68,7 @@ for (const s of sheets) for (const i of s.d.imgs) {
 const pslug = (i: I) => (i.named ? i.nm.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') : undefined);
 const SEOLINK: Record<string, string> = {
   'Porträtfotografie Köln': 'portraitfotografie/', 'Musikporträts für Musikerinnen, Musiker und Bands': 'musikfotografie-koeln/', 'Pressefotos': 'musikfotografie-koeln/',
-  'Schauspielporträts': 'schauspielfotografie-koeln/', 'Moderationsporträts': 'moderationsfotografie-koeln/',
+  'Schauspielporträts': 'schauspielfotografie-koeln/', 'Moderationsporträts': 'moderationsfotografie-koeln/', 'Künstlerinnenporträts': 'portraets-kunst-literatur-koeln/', 'Porträts für Websites': 'personal-branding-fotografie-koeln/',
 };
 const num = (s: string, re: RegExp) => Number((s.match(re) || [])[1] || 0);
 const sizes = (d: string, m: string) => {
@@ -83,7 +83,7 @@ const gallery = {
 const pdf = base + 'media/kilian-amrehn-buch-preise-portraet.pdf';
 const vid = base + 'media/portraits/himoya-band-video.mp4';
 ---
-<Base lang={lang} alternate={routes.artists[en ? 'de' : 'en']} title={t.title} description={t.description} schema={[gallery]}>
+<Base lang={lang} alternate={routes.artists[en ? 'de' : 'en']} title={t.title} description={t.description} image="/media/og/portraets.jpg" schema={[gallery]}>
 <section class="wrap p-head">
   <div class="p-kicker">{t.kicker}</div>
   <h1 class="p-hl"><span>{t.h1}</span><span class="p-hl2">{t.h2}</span></h1>

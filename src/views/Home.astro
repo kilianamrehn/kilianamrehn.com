@@ -126,7 +126,7 @@ const eyes = EYES.map(([f, name, id]) => {
 const ink = (hex: string) => { const n = parseInt(hex.slice(1), 16); const l = (0.299 * (n >> 16) + 0.587 * ((n >> 8) & 255) + 0.114 * (n & 255)) / 255; return l > 0.6; };
 const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).map((n) => { const v = n.startsWith('vid:') ? n.slice(4) : ''; const m = v ? (vmeta as any)[v] : (meta as any)[n]; return { n, v, ar: m[0] / m[1] }; }); return { n: k.title, c: k.band, light: ink(k.band), ims, ar: ims.reduce((a, i) => a + i.ar, 0), href: campaignPath(k.slug, lang) }; });
 ---
-<Base lang={lang} alternate={routes.home[lang === 'de' ? 'en' : 'de']} title={t.title} description={t.description} headerOverlay>
+<Base lang={lang} alternate={routes.home[lang === 'de' ? 'en' : 'de']} title={t.title} description={t.description} image="/media/og/start.jpg" headerOverlay>
 <section class="hero" data-hero style={`background:${looks[0].bg}`}>
   <div class="frame">
   {looks.map((l, i) => (

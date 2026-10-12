@@ -62,7 +62,8 @@
    "w-rock-fairyland-1",
    "w-rock-fairyland-4",
    "w-rock-fairyland-2"
-  ]
+  ],
+  "overviewExtra": []
  },
  {
   "slug": "copenhagen-studios",
@@ -155,7 +156,8 @@
    "w-copenhagen-studios-11",
    "vid:cph-schal-loop",
    "w-copenhagen-studios-12"
-  ]
+  ],
+  "overviewExtra": []
  },
  {
   "slug": "peek-cloppenburg-x-ellesse",
@@ -231,6 +233,9 @@
   "band": "#99b4bc",
   "bandImgs": [
    "w-peek-cloppenburg-x-ellesse-1"
+  ],
+  "overviewExtra": [
+   "w-peek-cloppenburg-x-ellesse-4"
   ]
  },
  {
@@ -287,6 +292,9 @@
   "band": "#0a8389",
   "bandImgs": [
    "w-trish-reflections-of-identity-6"
+  ],
+  "overviewExtra": [
+   "w-trish-reflections-of-identity-1"
   ]
  },
  {
@@ -351,6 +359,10 @@
   "band": "#5a1f1b",
   "bandImgs": [
    "w-ozean-der-stille-11"
+  ],
+  "overviewExtra": [
+   "w-ozean-der-stille-4",
+   "w-ozean-der-stille-1"
   ]
  },
  {
@@ -427,7 +439,8 @@
    "w-synergy-1",
    "w-synergy-2",
    "vid:untamed-ki-1"
-  ]
+  ],
+  "overviewExtra": []
  },
  {
   "slug": "appelrathcuepper",
@@ -497,6 +510,9 @@
   "band": "#0d3a78",
   "bandImgs": [
    "w-appelrathcuepper-2"
+  ],
+  "overviewExtra": [
+   "w-appelrathcuepper-8"
   ]
  },
  {
@@ -543,6 +559,9 @@
   "band": "#6f6f41",
   "bandImgs": [
    "vid:niewiederleise-kampagne"
+  ],
+  "overviewExtra": [
+   "w-niewiederleise-9"
   ]
  },
  {
@@ -636,7 +655,8 @@
    "w-new-icons-club-magazine-12",
    "w-new-icons-club-magazine-9",
    "w-new-icons-club-magazine-2-9"
-  ]
+  ],
+  "overviewExtra": []
  },
  {
   "slug": "silent-escape",
@@ -712,7 +732,8 @@
    "w-silent-escape-5",
    "w-silent-escape-1",
    "vid:jeremiah-ki-2"
-  ]
+  ],
+  "overviewExtra": []
  },
  {
   "slug": "phiala",
@@ -780,7 +801,8 @@
    "w-phiala-8",
    "w-phiala-4",
    "w-phiala-2"
-  ]
+  ],
+  "overviewExtra": []
  },
  {
   "slug": "scholl-iconic",
@@ -932,7 +954,8 @@
    "w-scholl-3",
    "w-scholl-5",
    "w-scholl-9"
-  ]
+  ],
+  "overviewExtra": []
  },
  {
   "slug": "pnts",
@@ -1023,7 +1046,8 @@
    "w-pnts-3",
    "w-pnts-10",
    "w-pnts-4"
-  ]
+  ],
+  "overviewExtra": []
  },
  {
   "slug": "the-wants",
@@ -1096,7 +1120,8 @@
    "w-the-wants-3",
    "w-the-wants-5",
    "w-the-wants-8"
-  ]
+  ],
+  "overviewExtra": []
  },
  {
   "slug": "monano-schmuck",
@@ -1155,6 +1180,9 @@
   "band": "#9eccd4",
   "bandImgs": [
    "w-monano-schmuck-5"
+  ],
+  "overviewExtra": [
+   "w-monano-schmuck-1"
   ]
  },
  {
@@ -1227,6 +1255,9 @@
    "w-bundesliga-13",
    "w-bundesliga-7",
    "w-bundesliga-18"
+  ],
+  "overviewExtra": [
+   "w-bundesliga-20"
   ]
  },
  {
@@ -1289,6 +1320,7 @@
   "band": "#9a5530",
   "bandImgs": [
    "w-marie-dahmen-5"
-  ]
+  ],
+  "overviewExtra": []
  }
 ]

@@ -95,5 +95,11 @@ for slug,col,ims in BAND:
     x=byslug[slug]; x['band']=col
     x['bandImgs']=[(i if isinstance(i,str) and i.startswith('vid:') else 'w-'+i if isinstance(i,str) else f'w-{slug}-{i}') for i in ims]
     P.append(x)
+
+# Zusätzlich auf der Arbeiten-Übersicht (nach der Bandwahl, Kilian 12.10.)
+EXTRA={'peek-cloppenburg-x-ellesse':['w-peek-cloppenburg-x-ellesse-4'],'trish-reflections-of-identity':['w-trish-reflections-of-identity-1'],
+ 'ozean-der-stille':['w-ozean-der-stille-4','w-ozean-der-stille-1'],'appelrathcuepper':['w-appelrathcuepper-8'],'niewiederleise':['w-niewiederleise-9'],
+ 'monano-schmuck':['w-monano-schmuck-1'],'bundesliga':['w-bundesliga-20']}
+for x in P: x['overviewExtra']=EXTRA.get(x['slug'],[])
 json.dump(P,open(os.path.join(H,'arbeiten_content.json'),'w'),ensure_ascii=False,indent=1)
 print(len(P))

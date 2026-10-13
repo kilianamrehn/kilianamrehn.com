@@ -59,14 +59,14 @@ const all = [...imgs, ...vids];
       maxY = Math.max(maxY, yy + fh / 2);
     };
     while (i < order.length) {
-      const band = U(460, 620) * S * K;
+      const band = U(460, 620) * S * (mob ? K : 1.45);
       let parts: [number, number][] = [[(mob ? 10 : 30) * S, W - (mob ? 10 : 30) * S]];
-      if (!mob && R() < 0.3) { const sp = U(620, 820); parts = [[30, sp], [sp, 1410]]; }
+      if (!mob && R() < 0.55) { const sp = U(600, 840); parts = [[30, sp], [sp, 1410]]; }
       for (const [x0, x1] of parts) {
         const Wd = x1 - x0, cx = (x0 + x1) / 2, yc = y + band / 2;
         const g = Wd > 900 * S ? pick(['heap', 'diag', 'row', 'arc', 'ring', 'single']) : pick(['heap', 'heap', 'diag', 'single', 'ring']);
         let n = ({ heap: 3 + Math.floor(R() * 4), diag: 3 + Math.floor(R() * 4), row: 4 + Math.floor(R() * 3), arc: 5 + Math.floor(R() * 2), ring: 5 + Math.floor(R() * 3), single: Wd > 900 * S ? 2 : 1 } as any)[g];
-        n = Math.max(1, Math.round(n / K)); if (mob) n = Math.min(n, 4);
+        if (mob) { n = Math.max(1, Math.round(n / K)); n = Math.min(n, 4); } else n = Math.max(1, Math.round(n / 1.5));
         const ms = order.slice(i, i + n); i += ms.length;
         ms.forEach((m, j) => {
           const t = (j + 0.5) / ms.length;
@@ -78,7 +78,7 @@ const all = [...imgs, ...vids];
           else put(m, U(360, 460), ms.length > 1 ? x0 + t * Wd : cx + U(-Wd * 0.25, Wd * 0.25), yc + U(-40, 40) * S);
         });
       }
-      y += band * (mob ? U(0.6, 0.7) : U(0.7, 0.82));
+      y += band * (mob ? U(0.6, 0.7) : U(0.72, 0.84));
     }
     board.style.height = `${(maxY + 80) * u}px`;
   }

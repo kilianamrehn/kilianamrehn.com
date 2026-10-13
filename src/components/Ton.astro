@@ -1,0 +1,38 @@
+---
+// Ton-Knopf für Videos mit Ton. Startet stumm, Klick schaltet Ton an/aus.
+// Steuert das erste <video> im selben Elternelement. Nur ein Video spielt mit Ton.
+import type { Lang } from '../data/site';
+interface Props { lang: Lang }
+const en = Astro.props.lang === 'en';
+const on = en ? 'Sound on' : 'Ton an';
+const off = en ? 'Sound off' : 'Ton aus';
+---
+<button type="button" class="ton" data-ton data-on={on} data-off={off} aria-pressed="false">{on}</button>
+<script>
+  const label = (b: HTMLButtonElement, v: HTMLVideoElement) => {
+    b.textContent = v.muted ? b.dataset.on! : b.dataset.off!;
+    b.setAttribute('aria-pressed', String(!v.muted));
+  };
+  const vid = (b: HTMLElement) => b.parentElement?.querySelector<HTMLVideoElement>('video') ?? null;
+  const sync = () => document.querySelectorAll<HTMLButtonElement>('[data-ton]').forEach((b) => { const v = vid(b); if (v) label(b, v); });
+  (window as any).__tonSync = sync;
+  document.addEventListener('click', (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-ton]');
+    if (!b) return;
+    e.stopPropagation(); e.preventDefault();
+    const v = vid(b); if (!v) return;
+    const turnOn = v.muted;
+    if (turnOn) document.querySelectorAll('video').forEach((o) => { if (o !== v) o.muted = true; });
+    if (!v.getAttribute('src') && v.dataset.src) v.src = v.dataset.src;
+    v.muted = !turnOn;
+    if (turnOn) v.play().catch(() => {});
+    sync();
+  }, true);
+  document.addEventListener('keydown', (e) => {
+    if ((e.target as HTMLElement).closest?.('[data-ton]') && (e.key === 'Enter' || e.key === ' ')) e.stopPropagation();
+  }, true);
+</script>
+<style>
+  .ton { position: absolute; left: 10px; bottom: 10px; z-index: 3; font: 500 10px/1 var(--f-mono); letter-spacing: .18em; text-transform: uppercase; color: #fff; background: rgba(0,0,0,.5); border: 1px solid rgba(255,255,255,.35); padding: 7px 9px; cursor: pointer; }
+  .ton:hover, .ton[aria-pressed="true"] { background: rgba(0,0,0,.75); border-color: #fff; }
+</style>

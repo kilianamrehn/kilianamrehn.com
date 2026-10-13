@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Img from '../components/Img.astro';
 import Mail from '../components/Mail.astro';
+import Ton from '../components/Ton.astro';
 import portraitSheets from '../data/portraits.json';
 import works from '../data/arbeiten.json';
 import imgmeta from '../data/imgmeta.json';
@@ -82,7 +83,10 @@ const t = T[lang];
 </section>
 <section class="wrap trio">
   <figure>
-    <video src={base + 'media/making-of.mp4'} poster={base + 'media/making-of-poster.jpg'} autoplay muted loop playsinline preload="metadata" aria-label={t.video}></video>
+    <div class="vbox">
+      <video src={base + 'media/making-of.mp4'} poster={base + 'media/making-of-poster.jpg'} autoplay muted loop playsinline preload="metadata" aria-label={t.video}></video>
+      <Ton lang={lang} />
+    </div>
     <figcaption class="mono mute">{t.videoCap}</figcaption>
   </figure>
   <figure>
@@ -123,7 +127,8 @@ const t = T[lang];
   .claim :global(span) { color: var(--mute); }
   .trio { display: grid; grid-template-columns: 380px 380px 1fr; gap: 24px; align-items: start; padding-bottom: 140px; }
   figure { display: flex; flex-direction: column; gap: 12px; }
-  video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #111; }
+  .vbox { position: relative; }
+  video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #111; }
   .trio :global(picture) { display: block; }
   .trio :global(.me) { width: 100%; height: auto; display: block; }
   .bio { display: flex; flex-direction: column; gap: 18px; font-size: 18px; line-height: 1.65; color: var(--mute2); padding-top: 8px; }

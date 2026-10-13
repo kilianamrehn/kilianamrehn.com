@@ -2,6 +2,8 @@
 // Bögen mit Bildern in Rahmen (Daten aus tools/tisch.py). Desktop- und Handy-Ebene, Umschalten bei 700px.
 // Bilder lassen sich groß ansehen (Vollansicht), Videos starten erst, wenn sie im Bild sind.
 import Pic from './Pic.astro';
+import Ton from './Ton.astro';
+const TON = new Set(['silent-escape-bts']); // Videos mit Ton
 import meta from '../data/imgmeta.json';
 import type { Lang } from '../data/site';
 interface Item { name: string; video: boolean; lt: number; is: string; wrap: string; e: string[] | null; fnum: number | null; sp: string | null; spt?: number; s1?: string; s2?: string; ki: boolean }
@@ -50,7 +52,7 @@ let k = 0;
             const vw = num(i.is);
             const sizes = L === 'd' ? `(max-width: 699px) 1px, ${Math.ceil(vw)}px` : `(max-width: 699px) ${Math.ceil((vw / 390) * 100)}vw, 1px`;
             return (
-              <div class="ph" style={cv(`top:${i.lt}px;` + i.wrap)} data-full={i.video ? undefined : full(i.name)} data-video={i.video ? `${base}media/video/${i.name}.mp4` : undefined} data-alt={a} data-cap={caption} role="button" tabindex="0">
+              <div class="ph" style={cv(`top:${i.lt}px;` + i.wrap)} data-full={i.video ? undefined : full(i.name)} data-video={i.video ? `${base}media/video/${i.name}.mp4` : undefined} data-alt={a} data-cap={caption} data-ton-lb={i.video && TON.has(i.name) && !s.href ? '' : undefined} role="button" tabindex="0">
                 {i.sp && <div style={cv(i.sp + `top:${i.spt}px`)}></div>}
                 {i.e && <div style={cv(i.s1 ?? '')}>{edge(i, 0)}</div>}
                 {i.video
@@ -58,6 +60,7 @@ let k = 0;
                   : <Pic name={i.name} alt={a} style={cv(i.is) + 'object-fit:cover;'} sizes={sizes} loading={first && k < 3 ? 'eager' : 'lazy'} />}
                 {i.e && <div style={cv(i.s2 ?? '')}>{edge(i, 1)}</div>}
                 {i.sp && <div style={cv(i.sp + `bottom:${i.spt}px`)}></div>}
+                {i.video && TON.has(i.name) && !s.href && <Ton lang={lang} />}
                 {i.ki && <span class="ki">{en ? 'AI VIDEO' : 'KI-VIDEO'}</span>}
               </div>
             );

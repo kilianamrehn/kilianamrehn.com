@@ -7,7 +7,7 @@ const { lang, noZoom = false } = Astro.props;
 const en = lang === 'en';
 ---
 {!noZoom && (
-<div class="lb" data-lb hidden>
+<div class="lb" data-lb hidden data-on={en ? 'Sound on' : 'Ton an'} data-off={en ? 'Sound off' : 'Ton aus'}>
   <div class="lb-stage" data-lb-stage></div>
   <button type="button" class="lb-prev" data-lb-prev aria-label={en ? 'Previous image' : 'Vorheriges Bild'}>‹</button>
   <button type="button" class="lb-next" data-lb-next aria-label={en ? 'Next image' : 'Nächstes Bild'}>›</button>
@@ -40,10 +40,17 @@ const en = lang === 'en';
       cur = (k + list.length) % list.length; const el = list[cur]; stage.innerHTML = '';
       if (el.dataset.video) { const v = document.createElement('video'); v.src = el.dataset.video; v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true; v.setAttribute('aria-label', el.dataset.alt || ''); stage.appendChild(v); }
       else { const im = document.createElement('img'); im.src = el.dataset.full || ''; im.alt = el.dataset.alt || ''; stage.appendChild(im); }
+      lb.querySelector('.lb-ton')?.remove();
+      if (el.dataset.video && el.dataset.tonLb !== undefined) {
+        document.querySelectorAll<HTMLVideoElement>('video').forEach((o) => { o.muted = true; });
+        const b = document.createElement('button'); b.type = 'button'; b.className = 'lb-ton'; b.setAttribute('data-ton', '');
+        b.dataset.on = lb.dataset.on; b.dataset.off = lb.dataset.off; b.textContent = b.dataset.on; b.setAttribute('aria-pressed', 'false');
+        lb.appendChild(b); (window as any).__tonSync?.();
+      }
       cap.textContent = el.dataset.cap || ''; numEl.textContent = `${cur + 1} / ${list.length}`;
     };
     const open = (el: HTMLElement) => { collect(); lb.hidden = false; document.documentElement.style.overflow = 'hidden'; show(Math.max(0, list.indexOf(el))); };
-    const close = () => { lb.hidden = true; stage.innerHTML = ''; document.documentElement.style.overflow = ''; };
+    const close = () => { lb.hidden = true; stage.innerHTML = ''; lb.querySelector('.lb-ton')?.remove(); (window as any).__tonSync?.(); document.documentElement.style.overflow = ''; };
     document.addEventListener('click', (e) => { const el = (e.target as HTMLElement).closest<HTMLElement>('.tisch .ph'); if (!el) return; const sec = el.closest<HTMLElement>('[data-href]'); if (sec?.dataset.href) { location.href = sec.dataset.href; return; } open(el); });
     document.addEventListener('keydown', (e) => {
       const el = (e.target as HTMLElement).closest?.<HTMLElement>('.tisch .ph');
@@ -71,5 +78,7 @@ const en = lang === 'en';
   .lb-prev { left: clamp(4px, 2vw, 28px); } .lb-next { right: clamp(4px, 2vw, 28px); }
   .lb-close { right: clamp(8px, 2vw, 28px); top: clamp(8px, 2vw, 24px); font-size: 30px; }
   .lb-cap { position: absolute; left: clamp(16px, 3vw, 40px); bottom: clamp(14px, 3vw, 30px); right: 80px; display: flex; gap: 18px; align-items: baseline; color: var(--mute); font: 500 12px/1 var(--f-mono); letter-spacing: 0.18em; text-transform: uppercase; }
+  .lb .lb-ton { left: clamp(8px, 2vw, 28px); top: clamp(12px, 2.4vw, 28px); font: 500 11px/1 var(--f-mono); letter-spacing: .18em; text-transform: uppercase; border: 1px solid rgba(255,255,255,.4); padding: 8px 10px; z-index: 2; }
+  .lb .lb-ton[aria-pressed="true"] { border-color: #fff; }
   .lb-cap span:first-child { color: var(--white); }
 </style>

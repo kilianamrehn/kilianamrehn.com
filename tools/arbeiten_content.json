@@ -1269,13 +1269,13 @@
     "items": [
      "w-marie-dahmen-1",
      "w-marie-dahmen-2",
-     "w-marie-dahmen-3",
      "w-marie-dahmen-4",
      "w-marie-dahmen-5",
      "w-marie-dahmen-6",
      "w-marie-dahmen-7",
      "w-marie-dahmen-8",
-     "w-marie-dahmen-9"
+     "w-marie-dahmen-9",
+     "w-marie-dahmen-10"
     ],
     "note": null,
     "noteEn": null
@@ -1314,7 +1314,8 @@
   "seed": 15,
   "band": "#9a5530",
   "bandImgs": [
-   "w-marie-dahmen-5"
+   "w-marie-dahmen-5",
+   "w-marie-dahmen-10"
   ],
   "overviewExtra": []
  }

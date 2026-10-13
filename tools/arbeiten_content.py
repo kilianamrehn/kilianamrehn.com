@@ -59,7 +59,7 @@ p('pnts','PNTS','Kampagne','Campaign','2022 bis 2023','The Wants Social',
 p('appelrathcuepper','AppelrathCüpper','Kampagne','Campaign','2022','AppelrathCüpper',[S('','',r('appelrathcuepper',1,9))],
   [('Produktion','Mariann Reitz'),('Creative Direction','Alexandra Specht'),('Fotoassistenz','Jonas Boltze'),('Styling','Lisa Bräuer'),('Models','Maren Thelen, Signe'),('Hair & Make-up','Patricia Irsinger'),('Foto','Kilian Amrehn')],
   'Spiel mit Spiegeln.','Playing with mirrors.')
-p('marie-dahmen','Marie','Freie Strecke · Porträt','Personal series · Portrait','2022','',[S('','',r('marie-dahmen',1,9))],
+p('marie-dahmen','Marie','Freie Strecke · Porträt','Personal series · Portrait','2022','',[S('','',[x for x in r('marie-dahmen',1,10) if x!='w-marie-dahmen-3'])],
   [('Produktion','Kilian Amrehn'),('Model','Marie Dahmen'),('Styling','Jacqueline Tamm'),('Hair & Make-up','Ilknur Gelme'),('Fotoassistenz','Fabian Podzuweit')],edge=('FREIE STRECKE','ANALOG UND DIGITAL'))
 p('the-wants','The Wants','Kampagne','Campaign','2020','The Wants Social',[S('','',r('the-wants',1,10))],
   [('Agentur','The Wants Social'),('Produktion','Anna Siepenkötter'),('Creative Direction','Karla Jenders'),('Model','Mona Lillian'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Fabian Podzuweit'),('Foto','Kilian Amrehn')])
@@ -86,7 +86,7 @@ BAND=[('rock-fairyland','#95c5b9',[1,4,2]),
  ('the-wants','#af7a56',[3,5,8]),
  ('monano-schmuck','#9eccd4',[5]),
  ('bundesliga','#3a3a38',[13,7,18]),
- ('marie-dahmen','#9a5530',[5])]
+ ('marie-dahmen','#9a5530',[5,10])]
 for i,x in enumerate(P): x['seed']=[0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17][i]  # alte Position, damit die Bögen gleich bleiben
 byslug={x['slug']:x for x in P}
 assert len(BAND)==len(P), (len(BAND),len(P))

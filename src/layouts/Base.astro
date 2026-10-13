@@ -31,7 +31,7 @@ const business = {
   name: 'Kilian Amrehn Fotografie',
   description: 'Porträts für Artists, Musikfotos, Schauspielporträts und Kampagnen aus Köln.',
   url: site.url,
-  email: `${site.mailUser}@${site.mailDomain}`,
+  contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', url: site.url + '/ueber/#kontakt', availableLanguage: ['de', 'en'] },
   address: { '@type': 'PostalAddress', addressLocality: 'Köln', addressRegion: 'NRW', addressCountry: 'DE' },
   areaServed: ['Köln', 'Düsseldorf', 'Berlin', 'Deutschland', 'Europa'],
   founder: { '@id': site.url + '/#person' },

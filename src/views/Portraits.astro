@@ -155,7 +155,7 @@ const vid = base + 'media/portraits/himoya-band-video.mp4';
   <p class="p-seo">{t.seo.split(' · ').map((w, k) => { const h = SEOLINK[w]; return <>{k > 0 && ' · '}{h && !en ? <a href={base + h}>{w}</a> : w}</>; })}</p>
   <div class="p-btns">
     <a class="p-btn p-btn-a" href={pdf} target="_blank" rel="noopener">{t.book} <span>↗</span></a>
-    <button type="button" class="p-btn p-btn-b" data-mail={`${site.mailUser}|${site.mailDomain}`.split('').reverse().join('')}>{t.write} <span>→</span></button>
+    <button type="button" class="p-btn p-btn-b" data-keep data-m={[...`${site.mailUser}|${site.mailDomain}`].map((c) => String.fromCharCode(c.charCodeAt(0) + 3)).reverse().join('')}>{t.write} <span>→</span></button>
   </div>
   <p class="p-home">{t.home}</p>
 </section>

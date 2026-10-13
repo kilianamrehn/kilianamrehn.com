@@ -1,14 +1,23 @@
 ---
+// E-Mail-Adresse gegen Sammel-Bots: Im HTML steht sie nur verschlüsselt (Zeichen verschoben, rückwärts).
+// Sichtbar wird sie erst per Skript direkt nach dem Laden. fallback: Klartext-Ersatz für Browser ohne JS (Impressum).
 import { site, type Lang } from '../data/site';
-interface Props { class?: string; lang?: Lang }
-const { class: cls = 'mail', lang = 'de' } = Astro.props;
+interface Props { class?: string; lang?: Lang; fallback?: boolean }
+const { class: cls = 'mail', lang = 'de', fallback = false } = Astro.props;
+const enc = [...`${site.mailUser}|${site.mailDomain}`].map((c) => String.fromCharCode(c.charCodeAt(0) + 3)).reverse().join('');
 ---
-<button type="button" class={cls} data-mail={`${site.mailUser}|${site.mailDomain}`.split('').reverse().join('')} aria-label={lang === 'en' ? 'Write an email' : 'E-Mail schreiben'}>{site.mailUser}<span>[at]</span>{site.mailDomain.replace('.com', '')}<span>.</span>com</button>
-<script>
-  document.querySelectorAll<HTMLButtonElement>('[data-mail]').forEach((b) => {
-    b.addEventListener('click', () => {
-      const [u, d] = (b.dataset.mail || '').split('').reverse().join('').split('|');
-      window.location.href = 'mailto:' + u + '@' + d;
-    });
-  });
+<button type="button" class={cls} data-m={enc} aria-label={lang === 'en' ? 'Write an email' : 'E-Mail schreiben'}>{lang === 'en' ? 'Email' : 'E-Mail'}</button>{fallback && <noscript> hello (at) kilianamrehn (punkt) com</noscript>}
+<script is:inline>
+(function () {
+  var bs = document.querySelectorAll('button[data-m]:not([data-ok])');
+  for (var i = 0; i < bs.length; i++) (function (b) {
+    var s = b.getAttribute('data-m').split('').reverse().map(function (c) { return String.fromCharCode(c.charCodeAt(0) - 3); }).join('').split('|');
+    var d = s[1].split('.');
+    if (!b.hasAttribute('data-keep')) { b.textContent = '';
+    var add = function (t, acc) { var e = acc ? document.createElement('span') : document.createTextNode(t); if (acc) e.textContent = t; b.appendChild(e); };
+    add(s[0]); add('[at]', 1); add(d[0]); add('.', 1); add(d.slice(1).join('.')); }
+    b.setAttribute('data-ok', '1');
+    b.addEventListener('click', function () { window.location.href = 'mai' + 'lto:' + s[0] + '@' + s[1]; });
+  })(bs[i]);
+})();
 </script>

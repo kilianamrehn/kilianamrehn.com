@@ -39,6 +39,7 @@ p('copenhagen-studios','Copenhagen Studios','Kampagne','Campaign','2021 bis 2022
   [('Agentur','The Wants Social'),('Foto','Kilian Amrehn')])
 CH['copenhagen-studios']=[
   C('Februar 2021','February 2021',[('Model','Djerra'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Fabian Podzuweit')]),
+  C('Juni 2021','June 2021',[('Produktion','Karla Jenders'),('Co-Produktion','Gina Walser'),('Styling','Henrike Schaefer, Vicky Krampen'),('Model','Linde Torenvlied'),('Hair & Make-up','Melanie Bulu'),('BTS','Vicky Krampen')]),
   C('Oktober 2022','October 2022',[('Creative Direction','Karla Jenders'),('Models','Margot Davy, Jason Grotjahn'),('Hair & Make-up','Melanie Bulu'),('Styling','Johanna Löer'),('Fotoassistenz','Eno de Witt')])]
 p('peek-cloppenburg-x-ellesse','Peek & Cloppenburg x Ellesse','Kampagne','Campaign','2022','Feelming',
   [S('','',r('peek-cloppenburg-x-ellesse',1,7))],

@@ -11,8 +11,8 @@ const { lang } = Astro.props;
 const en = lang === 'en';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const T = en
-  ? { title: 'Work · Campaign, Fashion & Editorial Photography Cologne', desc: "Campaigns and personal series by Kilian Amrehn, Cologne: Scholl, Copenhagen Studios, P&C x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club.", h1: 'Work', sub: 'Campaigns & personal series', view: 'View →' }
-  : { title: 'Arbeiten · Kampagnen, Mode & Editorial aus Köln', desc: "Kampagnen und freie Strecken von Kilian Amrehn, Köln: Scholl, Copenhagen Studios, P&C x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club.", h1: 'Arbeiten', sub: 'Kampagnen & freie Strecken', view: 'Ansehen →' };
+  ? { title: 'Work · Campaign, Fashion & Editorial Photography Cologne', desc: "Campaigns and personal series by Kilian Amrehn, Cologne: Scholl, Copenhagen Studios, P&C x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club.", h1: 'Work', sub: 'Campaigns & personal series', view: 'View →', book: 'My campaign book' }
+  : { title: 'Arbeiten · Kampagnen, Mode & Editorial aus Köln', desc: "Kampagnen und freie Strecken von Kilian Amrehn, Köln: Scholl, Copenhagen Studios, P&C x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club.", h1: 'Arbeiten', sub: 'Kampagnen & freie Strecken', view: 'Ansehen →', book: 'Mein Kampagnenbuch' };
 const list = idx as any[];
 const isLight = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };
 const lightOf = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };
@@ -38,6 +38,7 @@ const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,
     <Tisch sheets={[{ bg: k.bg, d: k.d, m: k.m, href: base + campaignPath(k.slug, lang) }]} lang={lang} alt={(n, i) => altText(n, en, `${k.title}, ${en ? k.kindEn : k.kind}, ${en ? 'photographed by' : 'fotografiert von'} Kilian Amrehn`)} />
   </article>
 ))}
+<div class="wrap ar-book"><a class="ar-btn" href={base + 'media/kilian-amrehn-buch-kampagnen.pdf'} target="_blank" rel="noopener">{T.book} <span>↗</span></a></div>
 {!en && <p class="wrap mono ar-seo"><a href={base + 'kampagnenfotografie-koeln/'}>Kampagnenfotografie Köln →</a></p>}
 <Lightbox lang={lang} />
 </Base>
@@ -58,6 +59,9 @@ const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,
   .ar-cta { margin-left: auto; padding: 8px 14px; border: 1px solid var(--tx2, rgba(240,228,218,.6)); border-radius: 999px; font-size: 12px; }
   .ar :global(.sheet .band) { top: 0 !important; box-shadow: none !important; transform: none !important; }
   .ar :global(.ph) { cursor: pointer; }
+  .ar-book { padding-top: clamp(56px, 8vw, 96px); }
+  .ar-btn { display: inline-flex; align-items: center; gap: 14px; padding: clamp(14px, 3vw, 22px) clamp(20px, 4vw, 30px); border-radius: 999px; font-family: var(--f-display); font-weight: 500; font-size: clamp(18px, 4.6vw, 26px); letter-spacing: -0.02em; text-decoration: none; line-height: 1.1; background: var(--accent); color: var(--ink); }
+  .ar-btn:hover { color: var(--ink); filter: brightness(1.06); }
   .ar-seo { padding-top: 48px; padding-bottom: 8px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; }
   .ar-seo a { color: var(--mute); }
 </style>

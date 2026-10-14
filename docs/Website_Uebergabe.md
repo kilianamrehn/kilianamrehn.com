@@ -34,6 +34,7 @@ Lies zuerst diese Datei, dann Website_Handbuch.md (Textfassung des PDFs, aktuell
 - Jede Arbeit hat den Abspann in einer Kinoleinwand 21:9. Passt er nicht hinein, rollt er von unten nach oben (Schleife, nur sichtbar), man kann selbst scrollen, dann pausiert er kurz.
 - Zusammengelegte Arbeiten (Scholl, Copenhagen, PNTS, NI'C): oben was für alle gilt, darunter ein Kapitel je Shooting mit dem Bogen-Titel. Nur belegte Credits (alte Seite, Instagram). Ohne Beleg kein Kapitel.
 - Scholl und Copenhagen komplett aus Callsheets (14.10.). Neue Kapitel in `CH[...]` in tools/arbeiten_content.py, dann tisch.py.
+- PDFs (14.10.): Porträt-Buch mit Preisen `public/media/kilian-amrehn-buch-preise-portraet.pdf` (Knopf auf Porträts, FAQ-Links), Kampagnenbuch `public/media/kilian-amrehn-buch-kampagnen.pdf` (Knopf „Mein Kampagnenbuch“ unten auf Arbeiten). Quelle Drive `_Portfolio und Book/Book/`. Beide ohne Mail im Klartext.
 - Keine Jahreszahlen bei Arbeiten (Kopf, Übersicht, Bögen, Abspann, Seitenbeschreibung, Alt-Texte) und auf Über (Kilian 14.10.). Bleiben bei Was bleibt und Porträts. Bögen heißen nach Ort, Anlass oder Models (Scholl: Weihnachten, Ägypten, Belinda und Anna, Julie und Emma, Alua und Linde, Fuerteventura; Copenhagen: Margot und Jason, Linde, Djerra; PNTS: Noordwijk, Studio; NI'C: 2nd Hand, Ausgabe 1). Feld `year` in arbeiten_content.py bleibt nur intern.
 - Mehrere Shootings in einer Arbeit: immer neu nach alt von oben nach unten, Bögen und Abspann-Kapitel gleich (Kilian 14.10.). Scholl ohne Sizilien.
 - Styling Fuerteventura: Johanna Löer und Henni Schaefer (beide, Kilian). @modiandbloss = Serife Cigdem Güney.
@@ -50,7 +51,6 @@ Lies zuerst diese Datei, dann Website_Handbuch.md (Textfassung des PDFs, aktuell
 - Ozean der Stille: Models in den Credits.
 - Kairo: vier Originale fehlen (DSC02485, DSC03132, DSC03185, DSC03302).
 - Poetische Zeilen bei den Porträts.
-- Preisliste-PDF enthält die Mail im Klartext, Kilian exportiert neu.
 - SSL (Let's Encrypt) für kilianamrehn.de und kilianphotography.com (Kilian, all-inkl → SSL-Schutz).
 - Google Search Console und Google-Unternehmensprofil einrichten.
 - Optional: eigene Alias-Adresse für die Website.

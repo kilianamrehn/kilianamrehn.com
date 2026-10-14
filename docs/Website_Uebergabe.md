@@ -42,7 +42,7 @@ Lies zuerst diese Datei, dann Website_Handbuch.md (Textfassung des PDFs, aktuell
 - SEO-Werkstatt (Artifact): https://claude.ai/artifact/HJ2XWHk4WFc6TmARjkQf2q
 
 ## Offen
-- Abspann: Credits für Scholl Oktober 2021, Februar 2023, Sizilien 2023, Weihnachten 2023 und Copenhagen Juni 2021 fehlen (Kilian sucht). Eintragen als Kapitel in `CH[...]` in tools/arbeiten_content.py, dann tisch.py.
+- Abspann: Credits für Copenhagen Juni 2021 fehlen (Kilian sucht). Scholl komplett aus Callsheets (14.10.). Eintragen als Kapitel in `CH[...]` in tools/arbeiten_content.py, dann tisch.py.
 - Bilder auf den einzelnen Projektseiten durchgehen.
 - Alle Arbeiten in einem Rutsch prüfen (Randschrift, Rahmen, Texte).
 - Ozean der Stille: Models in den Credits.

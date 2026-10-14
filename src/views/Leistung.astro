@@ -30,7 +30,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
   <p class="lead">{lead}</p>
 </section>
 <section class="wrap split">
-  {img.pic ? <Pic name={img.src} alt={img.alt} sizes="(max-width: 900px) 100vw, 45vw" class="pic" /> : <Img src={img.src} alt={img.alt} sizes="(max-width: 900px) 100vw, 45vw" class="pic" />}
+  {img.pic ? <Pic name={img.src} alt={img.alt} sizes="(max-width: 900px) 100vw, 45vw" class="pic" loading="eager" fetchpriority="high" /> : <Img src={img.src} alt={img.alt} sizes="(max-width: 900px) 100vw, 45vw" class="pic" loading="eager" fetchpriority="high" />}
   <div class="text">
     {text.map((t) => <p>{t}</p>)}
     <p class="cta"><a class="u" href={base + L.contact}>{L.cta}</a></p>

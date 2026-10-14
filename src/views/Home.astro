@@ -407,7 +407,8 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
         cx.fillStyle = g; cx.fillRect(0, 0, cw, ch);
         cx.globalCompositeOperation = 'source-over';
       } else { cx.clearRect(0, 0, cw, ch); }
-      if (pts.some((p) => p.t !== null) || age < 1) raf = requestAnimationFrame(draw); else raf = 0;
+      // Nur weiterzeichnen, solange sich etwas bewegt oder verblasst; im Ruhezustand steht das Bild (spart Rechenzeit)
+      if (pts.some((p) => p.t !== null) || (cur.t !== null && age < 1)) raf = requestAnimationFrame(draw); else raf = 0;
     };
     hero.querySelectorAll('img.lit, .lit img').forEach((i) => i.addEventListener('load', () => kick()));
     const kick = () => { if (!raf) raf = requestAnimationFrame(draw); };

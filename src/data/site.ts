@@ -9,6 +9,13 @@ export const site = {
   mailDomain: 'kilianamrehn.com',
   instagram: 'https://www.instagram.com/casual_kilian/',
   linkedin: 'https://www.linkedin.com/in/kilianamrehn/',
+  // Profile, die Google dem Unternehmen zuordnen soll (Schema sameAs)
+  profiles: ['https://www.behance.net/kilianamrehn', 'https://www.malt.de/profile/kilianamrehn'],
+  // Anschrift und Telefon wie im Impressum; muss mit dem Google-Unternehmensprofil übereinstimmen
+  street: 'Jülicher Str. 24',
+  zip: '50674',
+  phone: '+4917689000605',
+  geo: { lat: 50.9368, lng: 6.9352 },
   // Name der Zeitungs-Rubrik (noch offen). Adresse bleibt /reportage/ wegen SEO.
   newsTitle: 'Was bleibt',
   newsTitleEn: 'What Remains',

@@ -1,8 +1,8 @@
 ---
 // Bild aus public/img (vorgerechnete WebP-Größen, siehe tools/). name ohne Endung.
 import meta from '../data/imgmeta.json';
-interface Props { name: string; alt: string; sizes?: string; style?: string; class?: string; loading?: 'lazy' | 'eager' }
-const { name, alt, sizes = '100vw', style, class: cls, loading = 'lazy' } = Astro.props;
+interface Props { name: string; alt: string; sizes?: string; style?: string; class?: string; loading?: 'lazy' | 'eager'; fetchpriority?: 'high' | 'low' | 'auto' }
+const { name, alt, sizes = '100vw', style, class: cls, loading = 'lazy', fetchpriority } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const m = (meta as Record<string, [number, number, number[]]>)[name];
 if (!m) throw new Error('Bild fehlt: ' + name);
@@ -12,4 +12,4 @@ const realW = (w: number) => (name.startsWith('f-') ? Math.min(W, Math.round((W 
 const srcset = ws.map((w) => `${base}img/${name}-${w}.webp ${realW(w)}w`).join(', ');
 const src = `${base}img/${name}-${ws[Math.min(1, ws.length - 1)]}.webp`;
 ---
-<img src={src} srcset={srcset} sizes={sizes} alt={alt} width={W} height={H} loading={loading} decoding="async" style={style} class={cls} />
+<img src={src} srcset={srcset} sizes={sizes} alt={alt} width={W} height={H} loading={loading} fetchpriority={fetchpriority} decoding={loading === 'eager' ? undefined : 'async'} style={style} class={cls} />

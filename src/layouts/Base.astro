@@ -29,24 +29,30 @@ const business = {
   '@type': ['LocalBusiness', 'ProfessionalService'],
   '@id': site.url + '/#business',
   name: 'Kilian Amrehn Fotografie',
-  description: 'Porträts für Artists, Musikfotos, Schauspielporträts und Kampagnen aus Köln.',
+  description: en
+    ? 'Portraits for artists, music and actor portraits, presenter photography, personal branding and campaigns from Cologne.'
+    : 'Porträts für Artists, Musik- und Schauspielporträts, Moderationsfotografie, Personal Branding und Kampagnen aus Köln.',
   url: site.url,
-  contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', url: site.url + '/ueber/#kontakt', availableLanguage: ['de', 'en'] },
-  address: { '@type': 'PostalAddress', addressLocality: 'Köln', addressRegion: 'NRW', addressCountry: 'DE' },
-  areaServed: ['Köln', 'Düsseldorf', 'Berlin', 'Deutschland', 'Europa'],
+  image: site.url + '/media/og-kilian-amrehn.jpg',
+  logo: site.url + '/media/kilian-logo.png',
+  telephone: site.phone,
+  contactPoint: { '@type': 'ContactPoint', contactType: 'customer service', telephone: site.phone, url: site.url + (en ? '/en/about/#contact' : '/ueber/#kontakt'), availableLanguage: ['de', 'en'] },
+  address: { '@type': 'PostalAddress', streetAddress: site.street, postalCode: site.zip, addressLocality: 'Köln', addressRegion: 'NRW', addressCountry: 'DE' },
+  geo: { '@type': 'GeoCoordinates', latitude: site.geo.lat, longitude: site.geo.lng },
+  areaServed: ['Köln', 'Düsseldorf', 'Bonn', 'Berlin', 'Deutschland', 'Europa'],
   founder: { '@id': site.url + '/#person' },
-  sameAs: [site.instagram].filter(Boolean),
+  sameAs: [site.instagram, site.linkedin, ...site.profiles].filter(Boolean),
 };
 const person = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   '@id': site.url + '/#person',
   name: site.name,
-  jobTitle: ['Fotograf', 'App-Entwickler'],
-  knowsAbout: ['Porträts für Artists', 'Musikfotografie', 'Schauspielporträts', 'Kampagnenfotografie', 'Reportage', 'App-Entwicklung'],
+  jobTitle: en ? ['Photographer', 'App developer'] : ['Fotograf', 'App-Entwickler'],
+  knowsAbout: en ? ['Portraits for artists', 'Music photography', 'Actor portraits', 'Personal branding', 'Campaign photography', 'Reportage', 'App development'] : ['Porträts für Artists', 'Musikfotografie', 'Schauspielporträts', 'Personal Branding', 'Kampagnenfotografie', 'Reportage', 'App-Entwicklung'],
   address: { '@type': 'PostalAddress', addressLocality: 'Köln', addressCountry: 'DE' },
   url: site.url,
-  sameAs: [site.instagram, site.linkedin].filter(Boolean),
+  sameAs: [site.instagram, site.linkedin, ...site.profiles].filter(Boolean),
 };
 const ld = [business, person, ...schema];
 ---

@@ -34,6 +34,6 @@ export default defineConfig({
   base,
   trailingSlash: 'always',
   redirects: Object.fromEntries(Object.entries(redirects).map(([k, v]) => [k, (base.replace(/\/$/, '') + v)])),
-  integrations: [sitemap({ filter: (p) => !p.includes('/impressum') && !p.includes('/datenschutz') })],
+  integrations: [sitemap({ filter: (p) => !/\/(impressum|datenschutz|legal-notice|privacy)\//.test(p), lastmod: new Date() })],
   image: { responsiveStyles: false },
 });

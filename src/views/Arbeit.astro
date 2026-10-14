@@ -26,10 +26,15 @@ const desc = ((en ? (p.textEn || '') : (p.textDe || '')).split('. ')[0].replace(
   ? `${p.title}, ${kindT}${p.client && p.client !== p.title ? ' for ' + p.client : ''}. Photographed by Kilian Amrehn, Cologne.`
   : `${p.title}, ${kindT}${p.client && p.client !== p.title ? ' für ' + p.client : ''}. Fotografiert von Kilian Amrehn, Köln.`)).slice(0, 300);
 const top = p.top ? (vm as any)[p.top] : null;
+const crumbs = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+  { '@type': 'ListItem', position: 1, name: 'Kilian Amrehn', item: 'https://kilianamrehn.com/' + routes.home[lang] },
+  { '@type': 'ListItem', position: 2, name: en ? 'Work' : 'Arbeiten', item: 'https://kilianamrehn.com/' + routes.campaigns[lang] },
+  { '@type': 'ListItem', position: 3, name: p.title, item: 'https://kilianamrehn.com/' + campaignPath(p.slug, lang) },
+] };
 const lightOf = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };
 const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,14,.72);--tx3:rgba(22,17,14,.5)' : '';
 ---
-<Base lang={lang} image={`/media/og/${p.slug}.jpg`} alternate={campaignPath(p.slug, en ? 'de' : 'en')} title={`${p.title} · ${kindT} · ${T.suffix}`} description={desc}>
+<Base lang={lang} schema={[crumbs]} image={`/media/og/${p.slug}.jpg`} alternate={campaignPath(p.slug, en ? 'de' : 'en')} title={`${p.title} · ${kindT} · ${T.suffix}`} description={desc}>
 <section class="a-head" style={`background:${p.color}${inkVars(p.color)}`}>
   <div class="wrap a-in">
     <span class="mono kick">{meta}</span>

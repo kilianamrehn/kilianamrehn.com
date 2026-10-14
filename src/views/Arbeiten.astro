@@ -31,7 +31,7 @@ const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,
     <a class="ar-top" href={base + campaignPath(k.slug, lang)} style={`background:${k.bg}${inkVars(k.bg)}`}>
       <span class="wrap ar-t">
         <span class="display ar-name">{k.title}</span>
-        <span class="mono ar-meta">{en ? k.kindEn : k.kind} · {k.year}</span>
+        <span class="mono ar-meta">{en ? k.kindEn : k.kind}</span>
         <span class="mono ar-cta">{T.view}</span>
       </span>
     </a>

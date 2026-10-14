@@ -12,7 +12,7 @@ const en = lang === 'en';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const roleEn: Record<string, string> = { Produktion: 'Production', Regie: 'Director', Fotoassistenz: 'Photo assistance', Foto: 'Photography', 'Veröffentlicht': 'Published in', Agentur: 'Agency', Auftrag: 'Client', Tiertrainerin: 'Animal trainer', Kollektiv: 'Collective', 'Art Direction, Foto': 'Art direction, photography', 'Video-Assistenz': 'Video assistance', Assistenz: 'Assistance', Stills: 'Stills', Produktionsassistenz: 'Production assistance', 'Co-Produktion': 'Co-production', Ort: 'Location', 'Creative Direction Video': 'Creative direction, video', 'Creative Direction Stills': 'Creative direction, stills' };
 const kind = en ? p.kindEn : p.kind;
-const meta = [kind, en ? String(p.year).replace(' bis ', ' to ') : p.year, p.client].filter(Boolean).join(' · ');
+const meta = [kind, p.client].filter(Boolean).join(' · ');
 const text = en ? p.textEn : p.textDe;
 const T = en
   ? { suffix: 'Kilian Amrehn', by: 'photographed by Kilian Amrehn', credits: 'Credits', prev: '← Previous', all: 'All work', next: 'Next →', more: 'More work', film: 'Film' }
@@ -22,10 +22,9 @@ const alt = (n: string, i: number) => isKi(n)
   ? `${p.title}, ${en ? 'AI-animated video from the photos' : 'KI-animiertes Video aus den Fotos'}`
   : n === 'silent-escape-bts' ? `${p.title}, Behind the Scenes` : altText(n, en, `${p.title}, ${kind}, ${T.by}, ${en ? 'image' : 'Bild'} ${i + 1}`);
 const kindT = kind.split(' · ').filter((x: string) => x !== p.title).join(' · ');
-const yr = en ? String(p.year).replace(' bis ', ' to ') : p.year;
 const desc = ((en ? (p.textEn || '') : (p.textDe || '')).split('. ')[0].replace(/\.$/, '') + (text ? '. ' : '') + (en
-  ? `${p.title}, ${kindT}${p.client && p.client !== p.title ? ' for ' + p.client : ''}, ${yr}. Photographed by Kilian Amrehn, Cologne.`
-  : `${p.title}, ${kindT}${p.client && p.client !== p.title ? ' für ' + p.client : ''}, ${yr}. Fotografiert von Kilian Amrehn, Köln.`)).slice(0, 300);
+  ? `${p.title}, ${kindT}${p.client && p.client !== p.title ? ' for ' + p.client : ''}. Photographed by Kilian Amrehn, Cologne.`
+  : `${p.title}, ${kindT}${p.client && p.client !== p.title ? ' für ' + p.client : ''}. Fotografiert von Kilian Amrehn, Köln.`)).slice(0, 300);
 const top = p.top ? (vm as any)[p.top] : null;
 const lightOf = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };
 const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,14,.72);--tx3:rgba(22,17,14,.5)' : '';

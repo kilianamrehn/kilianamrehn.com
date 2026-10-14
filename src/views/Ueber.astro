@@ -12,7 +12,7 @@ const { lang } = Astro.props;
 const en = lang === 'en';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 // Halt es an: alle Bilder der Seite (Porträts, Arbeiten, Was bleibt), ohne Flashes
-const RN: Record<string, [string, string]> = { moldau: ['Moldau 2022', 'Moldova 2022'], myanmar: ['Myanmar 2017', 'Myanmar 2017'], thailand: ['Thailand 2017', 'Thailand 2017'], malaysia: ['Malaysia 2017', 'Malaysia 2017'], hambi: ['Hambacher Forst 2018', 'Hambach Forest 2018'], gatzweiler: ['Garzweiler 2019', 'Garzweiler 2019'], blm: ['Black Lives Matter Köln', 'Black Lives Matter Cologne'], kairo: ['Ägypten 2023', 'Egypt 2023'] };
+const RN: Record<string, [string, string]> = { moldau: ['Moldau', 'Moldova'], myanmar: ['Myanmar', 'Myanmar'], thailand: ['Thailand', 'Thailand'], malaysia: ['Malaysia', 'Malaysia'], hambi: ['Hambacher Forst', 'Hambach Forest'], gatzweiler: ['Garzweiler', 'Garzweiler'], blm: ['Black Lives Matter Köln', 'Black Lives Matter Cologne'], kairo: ['Ägypten', 'Egypt'] };
 const fl: [string, string][] = [];
 const seenFl = new Set<string>();
 const addFl = (n: string, name: string) => { if (!seenFl.has(n)) { seenFl.add(n); fl.push([n, name]); } };
@@ -27,7 +27,7 @@ const T = {
     h1: 'Über · Fotograf und App-Entwickler in Köln',
     claim: 'Ich baue Licht <span>und warte, bis jemand hineinschaut.</span>',
     video: 'Making-of eines Shootings',
-    videoCap: 'Making-of, 2025',
+    videoCap: 'Making-of',
     meAlt: 'Kilian Amrehn, Fotograf in Köln, auf einem rosa Stuhl',
     bio: [
       'Ich bin Kilian. Ich fotografiere Menschen, die auf Bühnen stehen oder vor Kameras: Musik, Schauspiel, Kunst, Moderation. Mit gerichtetem Licht, manchmal farbig, manchmal ganz hell.',
@@ -53,7 +53,7 @@ const T = {
     h1: 'About · Photographer and app developer in Cologne',
     claim: 'I build light <span>and wait for someone to look into it.</span>',
     video: 'Behind the scenes of a shoot',
-    videoCap: 'Behind the scenes, 2025',
+    videoCap: 'Behind the scenes',
     meAlt: 'Kilian Amrehn, photographer in Cologne, on a pink chair',
     bio: [
       'I’m Kilian. I photograph people who stand on stages or in front of cameras: music, acting, art, presenting. With directed light, sometimes coloured, sometimes bright.',

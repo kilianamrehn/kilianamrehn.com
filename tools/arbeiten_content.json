@@ -75,8 +75,8 @@
   "client": "The Wants Social",
   "sections": [
    {
-    "label": "Oktober 2022",
-    "labelEn": "October 2022",
+    "label": "Margot und Jason",
+    "labelEn": "Margot and Jason",
     "items": [
      "w-copenhagen-studios-8",
      "w-copenhagen-studios-9",
@@ -90,8 +90,8 @@
     "noteEn": null
    },
    {
-    "label": "Juni 2021",
-    "labelEn": "June 2021",
+    "label": "Linde",
+    "labelEn": "Linde",
     "items": [
      "w-copenhagen-studios-4",
      "w-copenhagen-studios-5",
@@ -102,8 +102,8 @@
     "noteEn": null
    },
    {
-    "label": "Februar 2021",
-    "labelEn": "February 2021",
+    "label": "Djerra",
+    "labelEn": "Djerra",
     "items": [
      "w-copenhagen-studios-1",
      "w-copenhagen-studios-2",
@@ -141,8 +141,8 @@
   "overviewExtra": [],
   "chapters": [
    {
-    "t": "Oktober 2022",
-    "tEn": "October 2022",
+    "t": "Margot und Jason",
+    "tEn": "Margot and Jason",
     "rows": [
      [
       "Creative Direction",
@@ -167,8 +167,8 @@
     ]
    },
    {
-    "t": "Juni 2021",
-    "tEn": "June 2021",
+    "t": "Linde",
+    "tEn": "Linde",
     "rows": [
      [
       "Produktion",
@@ -197,8 +197,8 @@
     ]
    },
    {
-    "t": "Februar 2021",
-    "tEn": "February 2021",
+    "t": "Djerra",
+    "tEn": "Djerra",
     "rows": [
      [
       "Model",
@@ -634,8 +634,8 @@
   "client": "New Icons' Club",
   "sections": [
    {
-    "label": "2nd Hand · 2024",
-    "labelEn": "2nd Hand · 2024",
+    "label": "2nd Hand",
+    "labelEn": "2nd Hand",
     "items": [
      "w-new-icons-club-magazine-2-1",
      "w-new-icons-club-magazine-2-2",
@@ -652,8 +652,8 @@
     "noteEn": null
    },
    {
-    "label": "Ausgabe 1 · 2023",
-    "labelEn": "Issue 1 · 2023",
+    "label": "Ausgabe 1",
+    "labelEn": "Issue 1",
     "items": [
      "w-new-icons-club-magazine-1",
      "w-new-icons-club-magazine-3",
@@ -715,8 +715,8 @@
   "overviewExtra": [],
   "chapters": [
    {
-    "t": "2nd Hand · 2024",
-    "tEn": "2nd Hand · 2024",
+    "t": "2nd Hand",
+    "tEn": "2nd Hand",
     "rows": [
      [
       "Hair & Make-up",
@@ -729,8 +729,8 @@
     ]
    },
    {
-    "t": "Ausgabe 1 · 2023",
-    "tEn": "Issue 1 · 2023",
+    "t": "Ausgabe 1",
+    "tEn": "Issue 1",
     "rows": [
      [
       "Hair & Make-up",
@@ -900,8 +900,8 @@
   "client": "The Wants Social",
   "sections": [
    {
-    "label": "Scholl Comfort · Weihnachten 2023",
-    "labelEn": "Scholl Comfort · Christmas 2023",
+    "label": "Scholl Comfort · Weihnachten",
+    "labelEn": "Scholl Comfort · Christmas",
     "items": [
      "w-scholl-33",
      "w-scholl-34",
@@ -911,8 +911,8 @@
     "noteEn": null
    },
    {
-    "label": "Scholl Comfort · Ägypten 2023",
-    "labelEn": "Scholl Comfort · Egypt 2023",
+    "label": "Scholl Comfort · Ägypten",
+    "labelEn": "Scholl Comfort · Egypt",
     "items": [
      "w-scholl-21",
      "w-scholl-22",
@@ -927,8 +927,8 @@
     "noteEn": null
    },
    {
-    "label": "Scholl iconic · Februar 2023",
-    "labelEn": "Scholl iconic · February 2023",
+    "label": "Scholl iconic · Belinda und Anna",
+    "labelEn": "Scholl iconic · Belinda and Anna",
     "items": [
      "w-scholl-36",
      "w-scholl-37",
@@ -941,8 +941,8 @@
     "noteEn": null
    },
    {
-    "label": "Scholl Comfort · Studio, Juli 2022",
-    "labelEn": "Scholl Comfort · Studio, July 2022",
+    "label": "Scholl Comfort · Julie und Emma",
+    "labelEn": "Scholl Comfort · Julie and Emma",
     "items": [
      "w-scholl-12",
      "w-scholl-13",
@@ -958,8 +958,8 @@
     "noteEn": null
    },
    {
-    "label": "Scholl iconic · Oktober 2021",
-    "labelEn": "Scholl iconic · October 2021",
+    "label": "Scholl iconic · Alua und Linde",
+    "labelEn": "Scholl iconic · Alua and Linde",
     "items": [
      "w-scholl-7",
      "w-scholl-8",
@@ -971,8 +971,8 @@
     "noteEn": null
    },
    {
-    "label": "Scholl iconic · Fuerteventura 2021",
-    "labelEn": "Scholl iconic · Fuerteventura 2021",
+    "label": "Scholl iconic · Fuerteventura",
+    "labelEn": "Scholl iconic · Fuerteventura",
     "items": [
      "w-scholl-1",
      "w-scholl-2",
@@ -1013,8 +1013,8 @@
   "overviewExtra": [],
   "chapters": [
    {
-    "t": "Scholl Comfort · Weihnachten 2023",
-    "tEn": "Scholl Comfort · Christmas 2023",
+    "t": "Scholl Comfort · Weihnachten",
+    "tEn": "Scholl Comfort · Christmas",
     "rows": [
      [
       "Produktion",
@@ -1043,8 +1043,8 @@
     ]
    },
    {
-    "t": "Scholl Comfort · Ägypten 2023",
-    "tEn": "Scholl Comfort · Egypt 2023",
+    "t": "Scholl Comfort · Ägypten",
+    "tEn": "Scholl Comfort · Egypt",
     "rows": [
      [
       "Creative Direction",
@@ -1077,8 +1077,8 @@
     ]
    },
    {
-    "t": "Scholl iconic · Februar 2023",
-    "tEn": "Scholl iconic · February 2023",
+    "t": "Scholl iconic · Belinda und Anna",
+    "tEn": "Scholl iconic · Belinda and Anna",
     "rows": [
      [
       "Produktion",
@@ -1111,8 +1111,8 @@
     ]
    },
    {
-    "t": "Scholl Comfort · Studio, Juli 2022",
-    "tEn": "Scholl Comfort · Studio, July 2022",
+    "t": "Scholl Comfort · Julie und Emma",
+    "tEn": "Scholl Comfort · Julie and Emma",
     "rows": [
      [
       "Produktion",
@@ -1141,8 +1141,8 @@
     ]
    },
    {
-    "t": "Scholl iconic · Oktober 2021",
-    "tEn": "Scholl iconic · October 2021",
+    "t": "Scholl iconic · Alua und Linde",
+    "tEn": "Scholl iconic · Alua and Linde",
     "rows": [
      [
       "Produktion",
@@ -1179,8 +1179,8 @@
     ]
    },
    {
-    "t": "Scholl iconic · Fuerteventura 2021",
-    "tEn": "Scholl iconic · Fuerteventura 2021",
+    "t": "Scholl iconic · Fuerteventura",
+    "tEn": "Scholl iconic · Fuerteventura",
     "rows": [
      [
       "Creative Direction",
@@ -1215,8 +1215,8 @@
   "client": "The Wants Social",
   "sections": [
    {
-    "label": "Noordwijk 2023",
-    "labelEn": "Noordwijk 2023",
+    "label": "Noordwijk",
+    "labelEn": "Noordwijk",
     "items": [
      "w-pnts-8",
      "w-pnts-9",
@@ -1232,8 +1232,8 @@
     "noteEn": null
    },
    {
-    "label": "2022",
-    "labelEn": "2022",
+    "label": "Studio",
+    "labelEn": "Studio",
     "items": [
      "w-pnts-1",
      "w-pnts-2",
@@ -1283,8 +1283,8 @@
   "overviewExtra": [],
   "chapters": [
    {
-    "t": "Noordwijk 2023",
-    "tEn": "Noordwijk 2023",
+    "t": "Noordwijk",
+    "tEn": "Noordwijk",
     "rows": [
      [
       "Creative Direction",
@@ -1305,8 +1305,8 @@
     ]
    },
    {
-    "t": "2022",
-    "tEn": "2022",
+    "t": "Studio",
+    "tEn": "Studio",
     "rows": [
      [
       "Creative Direction",

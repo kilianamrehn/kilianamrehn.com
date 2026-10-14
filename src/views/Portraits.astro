@@ -16,7 +16,7 @@ const all = import.meta.glob<{ default: ImageMetadata }>('/src/assets/img/*.jpg'
 
 const T = {
   de: {
-    title: 'Porträtfotografie Köln · Musik, Schauspiel, Kunst · Kilian Amrehn',
+    title: 'Porträts für Artists · Musik, Schauspiel, Kunst · Köln',
     description: 'Porträtfotografie aus Köln: Musikporträts, DJ-Porträts, Pressefotos für Bands, Album- und Plattencover, Schauspielporträts und Porträts für Artists von Kilian Amrehn.',
     kicker: 'Porträts · Musik · Schauspiel · Kunst · Moderation',
     h1: 'Gesichter, die ich nicht vergesse.', h2: 'Momente, die nicht vergehen.',
@@ -26,7 +26,7 @@ const T = {
     prev: 'Vorheriges Bild', next: 'Nächstes Bild', close: 'Schließen', by: 'fotografiert von Kilian Amrehn, Köln', anon: 'Porträtfotografie Kilian Amrehn, Köln',
   },
   en: {
-    title: 'Portrait Photography Cologne · Music, Acting, Art · Kilian Amrehn',
+    title: 'Portraits for Artists · Music, Acting, Art · Cologne',
     description: 'Portrait photography from Cologne: music portraits, DJ portraits, band press photos, album and record covers, actor portraits and artist portraits by Kilian Amrehn.',
     kicker: 'Portraits · Music · Acting · Art · Presenting',
     h1: 'Faces I never forget.', h2: 'Moments that never pass.',
@@ -86,8 +86,8 @@ const vid = base + 'media/portraits/himoya-band-video.mp4';
 ---
 <Base lang={lang} alternate={routes.artists[en ? 'de' : 'en']} title={t.title} description={t.description} image="/media/og/portraets.jpg" schema={[gallery]}>
 <section class="wrap p-head">
-  <div class="p-kicker">{t.kicker}</div>
-  <h1 class="p-hl"><span>{t.h1}</span><span class="p-hl2">{t.h2}</span></h1>
+  <h1 class="p-kicker">{t.kicker}</h1>
+  <p class="p-hl"><span>{t.h1}</span><span class="p-hl2">{t.h2}</span></p>
   <button type="button" class="p-shuffle" data-shuffle>{t.shuffle}</button>
 </section>
 

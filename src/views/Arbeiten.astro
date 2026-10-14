@@ -11,8 +11,8 @@ const { lang } = Astro.props;
 const en = lang === 'en';
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const T = en
-  ? { title: 'Campaign, Fashion & Editorial Photography Cologne · Work · Kilian Amrehn', desc: "Campaigns and personal series by Kilian Amrehn, Cologne: Scholl, Copenhagen Studios, P&C x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club.", h1: 'Work', sub: 'Campaigns & personal series', view: 'View →' }
-  : { title: 'Kampagnen-, Mode- und Editorial-Fotografie Köln · Arbeiten · Kilian Amrehn', desc: "Kampagnen und freie Strecken von Kilian Amrehn, Köln: Scholl, Copenhagen Studios, P&C x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club.", h1: 'Arbeiten', sub: 'Kampagnen & freie Strecken', view: 'Ansehen →' };
+  ? { title: 'Work · Campaign, Fashion & Editorial Photography Cologne', desc: "Campaigns and personal series by Kilian Amrehn, Cologne: Scholl, Copenhagen Studios, P&C x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club.", h1: 'Work', sub: 'Campaigns & personal series', view: 'View →' }
+  : { title: 'Arbeiten · Kampagnen, Mode & Editorial aus Köln', desc: "Kampagnen und freie Strecken von Kilian Amrehn, Köln: Scholl, Copenhagen Studios, P&C x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club.", h1: 'Arbeiten', sub: 'Kampagnen & freie Strecken', view: 'Ansehen →' };
 const list = idx as any[];
 const isLight = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };
 const lightOf = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };

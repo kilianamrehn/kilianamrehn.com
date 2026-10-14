@@ -8,7 +8,9 @@ import Mail from '../components/Mail.astro';
 
 // alternate: Pfad derselben Seite in der anderen Sprache (ohne Base, z. B. 'en/artists/'). Fehlt er, gibt es die Seite nur auf Deutsch.
 interface Props { title: string; description: string; image?: string; lang?: Lang; headerOverlay?: boolean; bodyClass?: string; schema?: object[]; alternate?: string }
-const { title, description, image, lang = 'de', headerOverlay = false, bodyClass = '', schema = [], alternate } = Astro.props;
+const { title: rawTitle, description, image, lang = 'de', headerOverlay = false, bodyClass = '', schema = [], alternate } = Astro.props;
+// Lange Titel verlieren den Namenszusatz (Google zeigt den Namen ohnehin darüber), Ziel max. 60 Zeichen
+const title = rawTitle.length > 60 && rawTitle.endsWith(' · Kilian Amrehn') ? rawTitle.slice(0, -' · Kilian Amrehn'.length) : rawTitle;
 const base = import.meta.env.BASE_URL.replace(/\/?$/, '/');
 const u = (p: string) => base + p.replace(/^\//, '');
 const canonical = new URL(Astro.url.pathname, site.url).href.replace(/^(https:\/\/[^/]+)\/kilianamrehn\.com/, '$1');

@@ -34,7 +34,7 @@ const crumbs = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', it
 const lightOf = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };
 const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,14,.72);--tx3:rgba(22,17,14,.5)' : '';
 ---
-<Base lang={lang} schema={[crumbs]} image={`/media/og/${p.slug}.jpg`} alternate={campaignPath(p.slug, en ? 'de' : 'en')} title={`${p.title} · ${kindT} · ${T.suffix}`} description={desc}>
+<Base lang={lang} schema={[crumbs]} image={`/media/og/${p.slug}.jpg`} alternate={campaignPath(p.slug, en ? 'de' : 'en')} title={en && p.slug === 'bundesliga' ? 'Bundesliga · Sports photography · Kilian Amrehn' : `${p.title} · ${kindT} · ${T.suffix}`} description={desc}>
 <section class="a-head" style={`background:${p.color}${inkVars(p.color)}`}>
   <div class="wrap a-in">
     <span class="mono kick">{meta}</span>

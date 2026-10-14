@@ -6,6 +6,10 @@ P=[]
 def p(slug,title,kind,kindEn,year,client,sections,credits=(),textDe='',textEn='',top=None,color=None,edge=('KAMPAGNENFOTOGRAFIE','MODEFOTOGRAFIE')):
     P.append(dict(slug=slug,title=title,kind=kind,kindEn=kindEn,year=year,client=client,sections=sections,credits=list(credits),textDe=textDe,textEn=textEn,top=top,color=color,edge=list(edge)))
 def S(label,labelEn,items,note=None,noteEn=None): return dict(label=label,labelEn=labelEn,items=items,note=note,noteEn=noteEn)
+# Abspann in Kapiteln, wenn eine Arbeit mehrere Shootings zusammenfasst (Titel wie der Bogen auf der Seite).
+# credits = was für alle gilt, CH[slug] = je Shooting nur, was belegt ist (alte Seite, Instagram). Ohne Belege kein Kapitel.
+CH={}
+def C(t,tEn,rows): return dict(t=t,tEn=tEn,rows=rows)
 r=lambda s,a,b: [f'w-{s}-{i}' for i in range(a,b+1)]
 p('rock-fairyland','Rock Fairyland','Freie Strecke · Editorial','Personal series · Editorial','2021',"First Magazine, New Icons' Club",
   [S('','',r('rock-fairyland',1,10))],
@@ -21,10 +25,17 @@ p('scholl-iconic','Scholl','Kampagne','Campaign','2021 bis 2023','The Wants Soci
    S('Scholl iconic · Februar 2023','Scholl iconic · February 2023',r('scholl',36,41)),
    S('Scholl iconic · Sizilien 2023','Scholl iconic · Sicily 2023',r('scholl',29,32)),
    S('Scholl Comfort · Weihnachten 2023','Scholl Comfort · Christmas 2023',r('scholl',33,35))],
-  [('Produktion','The Wants Social'),('Creative Direction','Anna Siepenkötter, Wiebke Hennig'),('Styling','Johanna Löer, Stella Lukaschewski, Catarina Brockhoff-Lingke'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Fabian Podzuweit, Eno de Witt'),('Film','YOVEGO'),('Foto','Kilian Amrehn')])
+  [('Agentur','The Wants Social'),('Foto','Kilian Amrehn')])
+CH['scholl-iconic']=[
+  C('Scholl iconic · Fuerteventura 2021','Scholl iconic · Fuerteventura 2021',[('Creative Direction','Anna Siepenkötter, Wiebke Hennig'),('Styling','Johanna Löer, Henni Schaefer'),('Models','Amy Gambini, Sanne'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Fabian Podzuweit')]),
+  C('Scholl Comfort · Studio, Juli 2022','Scholl Comfort · Studio, July 2022',[('Produktion','Anna Siepenkötter'),('Creative Direction','Wiebke Hennig'),('Styling','Henni Schaefer, Johanna Löer, Stella Lukaschewski'),('Models','Julie March, Emma Loughran'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Eno de Witt')]),
+  C('Scholl Comfort · Ägypten 2023','Scholl Comfort · Egypt 2023',[('Creative Direction','Wiebke Horst, Anna Siepenkötter'),('Film','YOVEGO'),('Styling','Stella Lukaschewski, Catarina Brockhoff-Lingke'),('Hair & Make-up','Melanie Bulu'),('Stills','Eno de Witt'),('Fotoassistenz','Fabian Podzuweit'),('Talents','Cristina, Salwa, Alexandra, Mathilde')])]
 p('copenhagen-studios','Copenhagen Studios','Kampagne','Campaign','2021 bis 2022','The Wants Social',
   [S('Februar 2021','February 2021',r('copenhagen-studios',1,3)),S('Juni 2021','June 2021',r('copenhagen-studios',4,7)),S('Oktober 2022','October 2022',r('copenhagen-studios',8,13)+['cph-schal-loop'])],
-  [('Produktion','The Wants Social'),('Creative Direction','Karla Jenders'),('Models','Margot Davy, Jason Grotjahn'),('Hair & Make-up','Melanie Bulu'),('Styling','Johanna Löer'),('Fotoassistenz','Eno de Witt'),('Foto','Kilian Amrehn')])
+  [('Agentur','The Wants Social'),('Foto','Kilian Amrehn')])
+CH['copenhagen-studios']=[
+  C('Februar 2021','February 2021',[('Model','Djerra'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Fabian Podzuweit')]),
+  C('Oktober 2022','October 2022',[('Creative Direction','Karla Jenders'),('Models','Margot Davy, Jason Grotjahn'),('Hair & Make-up','Melanie Bulu'),('Styling','Johanna Löer'),('Fotoassistenz','Eno de Witt')])]
 p('peek-cloppenburg-x-ellesse','Peek & Cloppenburg x Ellesse','Kampagne','Campaign','2022','Feelming',
   [S('','',r('peek-cloppenburg-x-ellesse',1,7))],
   [('Produktion','Feelming'),('Regie','Mario Bürger'),('1st AD','Nico Pékar'),('DOP','Pasindu Goldmann'),('Styling','Peninah Amanda'),('Hair & Make-up','Kristin Belger'),('Movement','Tim Schmitz'),('Talents','Nora Nova, Rowdy Eyez, Mecnun'),('Foto','Kilian Amrehn')])
@@ -52,10 +63,16 @@ p('monano-schmuck','Monano Schmuckmanufaktur','Kampagne','Campaign','2024','Mona
   [('Produktion','Kilian Amrehn'),('Styling','Jacqueline Tamm'),('Hair & Make-up','Hanna Fuchs'),('Models','Ronja Stevens, Hella Kornatzki'),('Fotoassistenz','Eno de Witt')],edge=('SCHMUCKFOTOGRAFIE','KAMPAGNE'))
 p('new-icons-club-magazine',"New Icons' Club Magazine",'Editorial · Magazin','Editorial · Magazine','2023 bis 2024',"New Icons' Club",
   [S('Ausgabe 1 · 2023','Issue 1 · 2023',[x for x in r('new-icons-club-magazine',1,13) if x not in ('w-new-icons-club-magazine-4','w-new-icons-club-magazine-2')]),S('2nd Hand · 2024','2nd Hand · 2024',r('new-icons-club-magazine-2',1,10))],
-  [('Produktion','Kilian Amrehn'),('Creative Direction','Ann-Kathrin Templin'),('Styling','Jacqueline Tamm'),('Hair & Make-up','Serife Maria Rosewood, Hanna Fuchs'),('Models','Marie, Louis, Lia, Paulus, Elisabeth, Linda, Nika, Lasse'),('Fotoassistenz','Fabian Podzuweit'),('Second Hand','Kleiderei, MatchYourStyle')],edge=('EDITORIAL','MAGAZIN'))
+  [('Produktion','Kilian Amrehn'),('Creative Direction','Ann-Kathrin Templin'),('Styling','Jacqueline Tamm'),('Fotoassistenz','Fabian Podzuweit'),('Second Hand','Kleiderei, MatchYourStyle'),('Foto','Kilian Amrehn')],edge=('EDITORIAL','MAGAZIN'))
+CH['new-icons-club-magazine']=[
+  C('Ausgabe 1 · 2023','Issue 1 · 2023',[('Hair & Make-up','Serife Cigdem Güney'),('Models','Marie, Louis, Lia, Paulus, Elisabeth')]),
+  C('2nd Hand · 2024','2nd Hand · 2024',[('Hair & Make-up','Hanna Fuchs'),('Models','Linda, Nika, Lasse')])]
 p('pnts','PNTS','Kampagne','Campaign','2022 bis 2023','The Wants Social',
   [S('2022','2022',r('pnts',1,7)),S('Noordwijk 2023','Noordwijk 2023',r('pnts',8,16))],
-  [('Produktion','The Wants Social'),('Creative Direction','Wiebke Hennig, Anna Siepenkötter, Vera Evers'),('Styling','Johanna Löer, Catarina Brockhoff-Lingke, Ricarda Saemann'),('Hair & Make-up','Melanie Bulu'),('DOP','Christian Hülsmeyer, Paul Mess'),('Fotoassistenz','Eno de Witt'),('Talents','Chelsey Weimar, Aline Gomes, Amelie Fiebach'),('Foto','Kilian Amrehn')],color='#1c1b1a')
+  [('Agentur','The Wants Social'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Eno de Witt'),('Foto','Kilian Amrehn')],color='#1c1b1a')
+CH['pnts']=[
+  C('2022','2022',[('Creative Direction','Wiebke Hennig, Anna Siepenkötter'),('Styling','Johanna Löer, Catarina Brockhoff-Lingke'),('BTS & Social','Vera Evers, Marvin Schmidt'),('Talents','Chelsey Weimar, Aline Gomes')]),
+  C('Noordwijk 2023','Noordwijk 2023',[('Creative Direction','Wiebke Hennig, Vera Evers'),('Styling','Catarina Brockhoff-Lingke, Ricarda Saemann'),('DOP','Christian Hülsmeyer, Paul Mess'),('Talents','Chelsey Weimar, Amelie Fiebach')])]
 p('appelrathcuepper','AppelrathCüpper','Kampagne','Campaign','2022','AppelrathCüpper',[S('','',r('appelrathcuepper',1,9))],
   [('Produktion','Mariann Reitz'),('Creative Direction','Alexandra Specht'),('Fotoassistenz','Jonas Boltze'),('Styling','Lisa Bräuer'),('Models','Maren Thelen, Signe'),('Hair & Make-up','Patricia Irsinger'),('Foto','Kilian Amrehn')],
   'Spiel mit Spiegeln.','Playing with mirrors.')
@@ -100,6 +117,6 @@ for slug,col,ims in BAND:
 EXTRA={'peek-cloppenburg-x-ellesse':['w-peek-cloppenburg-x-ellesse-4'],'trish-reflections-of-identity':['w-trish-reflections-of-identity-1'],
  'ozean-der-stille':['w-ozean-der-stille-4','w-ozean-der-stille-1'],'appelrathcuepper':['w-appelrathcuepper-8'],'niewiederleise':['w-niewiederleise-9'],
  'monano-schmuck':['w-monano-schmuck-1'],'bundesliga':['w-bundesliga-20']}
-for x in P: x['overviewExtra']=EXTRA.get(x['slug'],[])
+for x in P: x['overviewExtra']=EXTRA.get(x['slug'],[]); x['chapters']=CH.get(x['slug'],[])
 json.dump(P,open(os.path.join(H,'arbeiten_content.json'),'w'),ensure_ascii=False,indent=1)
 print(len(P))

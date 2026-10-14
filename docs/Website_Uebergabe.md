@@ -30,6 +30,11 @@ Lies zuerst diese Datei, dann Website_Handbuch.md (Textfassung des PDFs, aktuell
 - **Flashes**: größer (Handy 1,5x, Rechner 1,75x), Dichte am Rechner nachjustiert, f-080 bis f-103 sind Dänemark.
 - **Arbeiten**: Art-Labels "Kampagne" statt "Kampagnen", Silent Escape Kampagne/Modefotografie mit KI-Video des Mannes, Phiala Dessousfotografie, Bundesliga "Sport · Bundesliga" mit neuem Text, Untamed ohne KI-Videos Hahn und Rabe, NI'C-Duplikat raus, Marie mit neuem Schwarzweißbild (DSC02915) und ohne Kopfüber-Augenbild.
 
+## Abspann (14.10.)
+- Jede Arbeit hat den Abspann in einer Kinoleinwand 21:9. Passt er nicht hinein, rollt er von unten nach oben (Schleife, nur sichtbar), man kann selbst scrollen, dann pausiert er kurz.
+- Zusammengelegte Arbeiten (Scholl, Copenhagen, PNTS, NI'C): oben was für alle gilt, darunter ein Kapitel je Shooting mit dem Bogen-Titel. Nur belegte Credits (alte Seite, Instagram). Ohne Beleg kein Kapitel.
+- Styling Fuerteventura: Johanna Löer und Henni Schaefer (beide, Kilian). @modiandbloss = Serife Cigdem Güney.
+
 ## Technik-Notizen
 - Arbeiten: erst `tools/arbeiten_content.py`, dann `tools/tisch.py`.
 - Neue w-Bilder brauchen WebP (640, 1200, max) in public/img, Eintrag in imgmeta.json und imgcolor.json.
@@ -37,6 +42,7 @@ Lies zuerst diese Datei, dann Website_Handbuch.md (Textfassung des PDFs, aktuell
 - SEO-Werkstatt (Artifact): https://claude.ai/artifact/HJ2XWHk4WFc6TmARjkQf2q
 
 ## Offen
+- Abspann: Credits für Scholl Oktober 2021, Februar 2023, Sizilien 2023, Weihnachten 2023 und Copenhagen Juni 2021 fehlen (Kilian sucht). Eintragen als Kapitel in `CH[...]` in tools/arbeiten_content.py, dann tisch.py.
 - Bilder auf den einzelnen Projektseiten durchgehen.
 - Alle Arbeiten in einem Rutsch prüfen (Randschrift, Rahmen, Texte).
 - Ozean der Stille: Models in den Credits.

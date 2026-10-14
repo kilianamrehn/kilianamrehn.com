@@ -63,7 +63,8 @@
    "w-rock-fairyland-4",
    "w-rock-fairyland-2"
   ],
-  "overviewExtra": []
+  "overviewExtra": [],
+  "chapters": []
  },
  {
   "slug": "copenhagen-studios",
@@ -114,28 +115,8 @@
   ],
   "credits": [
    [
-    "Produktion",
+    "Agentur",
     "The Wants Social"
-   ],
-   [
-    "Creative Direction",
-    "Karla Jenders"
-   ],
-   [
-    "Models",
-    "Margot Davy, Jason Grotjahn"
-   ],
-   [
-    "Hair & Make-up",
-    "Melanie Bulu"
-   ],
-   [
-    "Styling",
-    "Johanna Löer"
-   ],
-   [
-    "Fotoassistenz",
-    "Eno de Witt"
    ],
    [
     "Foto",
@@ -157,7 +138,53 @@
    "vid:cph-schal-loop",
    "w-copenhagen-studios-12"
   ],
-  "overviewExtra": []
+  "overviewExtra": [],
+  "chapters": [
+   {
+    "t": "Februar 2021",
+    "tEn": "February 2021",
+    "rows": [
+     [
+      "Model",
+      "Djerra"
+     ],
+     [
+      "Hair & Make-up",
+      "Melanie Bulu"
+     ],
+     [
+      "Fotoassistenz",
+      "Fabian Podzuweit"
+     ]
+    ]
+   },
+   {
+    "t": "Oktober 2022",
+    "tEn": "October 2022",
+    "rows": [
+     [
+      "Creative Direction",
+      "Karla Jenders"
+     ],
+     [
+      "Models",
+      "Margot Davy, Jason Grotjahn"
+     ],
+     [
+      "Hair & Make-up",
+      "Melanie Bulu"
+     ],
+     [
+      "Styling",
+      "Johanna Löer"
+     ],
+     [
+      "Fotoassistenz",
+      "Eno de Witt"
+     ]
+    ]
+   }
+  ]
  },
  {
   "slug": "peek-cloppenburg-x-ellesse",
@@ -236,7 +263,8 @@
   ],
   "overviewExtra": [
    "w-peek-cloppenburg-x-ellesse-4"
-  ]
+  ],
+  "chapters": []
  },
  {
   "slug": "trish-reflections-of-identity",
@@ -295,7 +323,8 @@
   ],
   "overviewExtra": [
    "w-trish-reflections-of-identity-1"
-  ]
+  ],
+  "chapters": []
  },
  {
   "slug": "ozean-der-stille",
@@ -363,7 +392,8 @@
   "overviewExtra": [
    "w-ozean-der-stille-4",
    "w-ozean-der-stille-1"
-  ]
+  ],
+  "chapters": []
  },
  {
   "slug": "synergy",
@@ -438,7 +468,8 @@
    "w-synergy-2",
    "vid:untamed-ki-1"
   ],
-  "overviewExtra": []
+  "overviewExtra": [],
+  "chapters": []
  },
  {
   "slug": "appelrathcuepper",
@@ -511,7 +542,8 @@
   ],
   "overviewExtra": [
    "w-appelrathcuepper-8"
-  ]
+  ],
+  "chapters": []
  },
  {
   "slug": "niewiederleise",
@@ -560,7 +592,8 @@
   ],
   "overviewExtra": [
    "w-niewiederleise-9"
-  ]
+  ],
+  "chapters": []
  },
  {
   "slug": "new-icons-club-magazine",
@@ -622,20 +655,16 @@
     "Jacqueline Tamm"
    ],
    [
-    "Hair & Make-up",
-    "Serife Maria Rosewood, Hanna Fuchs"
-   ],
-   [
-    "Models",
-    "Marie, Louis, Lia, Paulus, Elisabeth, Linda, Nika, Lasse"
-   ],
-   [
     "Fotoassistenz",
     "Fabian Podzuweit"
    ],
    [
     "Second Hand",
     "Kleiderei, MatchYourStyle"
+   ],
+   [
+    "Foto",
+    "Kilian Amrehn"
    ]
   ],
   "textDe": "",
@@ -653,7 +682,37 @@
    "w-new-icons-club-magazine-9",
    "w-new-icons-club-magazine-2-9"
   ],
-  "overviewExtra": []
+  "overviewExtra": [],
+  "chapters": [
+   {
+    "t": "Ausgabe 1 · 2023",
+    "tEn": "Issue 1 · 2023",
+    "rows": [
+     [
+      "Hair & Make-up",
+      "Serife Cigdem Güney"
+     ],
+     [
+      "Models",
+      "Marie, Louis, Lia, Paulus, Elisabeth"
+     ]
+    ]
+   },
+   {
+    "t": "2nd Hand · 2024",
+    "tEn": "2nd Hand · 2024",
+    "rows": [
+     [
+      "Hair & Make-up",
+      "Hanna Fuchs"
+     ],
+     [
+      "Models",
+      "Linda, Nika, Lasse"
+     ]
+    ]
+   }
+  ]
  },
  {
   "slug": "silent-escape",
@@ -729,7 +788,8 @@
    "w-silent-escape-1",
    "vid:jeremiah-ki-3"
   ],
-  "overviewExtra": []
+  "overviewExtra": [],
+  "chapters": []
  },
  {
   "slug": "phiala",
@@ -798,7 +858,8 @@
    "w-phiala-4",
    "w-phiala-2"
   ],
-  "overviewExtra": []
+  "overviewExtra": [],
+  "chapters": []
  },
  {
   "slug": "scholl-iconic",
@@ -908,28 +969,8 @@
   ],
   "credits": [
    [
-    "Produktion",
+    "Agentur",
     "The Wants Social"
-   ],
-   [
-    "Creative Direction",
-    "Anna Siepenkötter, Wiebke Hennig"
-   ],
-   [
-    "Styling",
-    "Johanna Löer, Stella Lukaschewski, Catarina Brockhoff-Lingke"
-   ],
-   [
-    "Hair & Make-up",
-    "Melanie Bulu"
-   ],
-   [
-    "Fotoassistenz",
-    "Fabian Podzuweit, Eno de Witt"
-   ],
-   [
-    "Film",
-    "YOVEGO"
    ],
    [
     "Foto",
@@ -951,7 +992,99 @@
    "w-scholl-5",
    "w-scholl-9"
   ],
-  "overviewExtra": []
+  "overviewExtra": [],
+  "chapters": [
+   {
+    "t": "Scholl iconic · Fuerteventura 2021",
+    "tEn": "Scholl iconic · Fuerteventura 2021",
+    "rows": [
+     [
+      "Creative Direction",
+      "Anna Siepenkötter, Wiebke Hennig"
+     ],
+     [
+      "Styling",
+      "Johanna Löer, Henni Schaefer"
+     ],
+     [
+      "Models",
+      "Amy Gambini, Sanne"
+     ],
+     [
+      "Hair & Make-up",
+      "Melanie Bulu"
+     ],
+     [
+      "Fotoassistenz",
+      "Fabian Podzuweit"
+     ]
+    ]
+   },
+   {
+    "t": "Scholl Comfort · Studio, Juli 2022",
+    "tEn": "Scholl Comfort · Studio, July 2022",
+    "rows": [
+     [
+      "Produktion",
+      "Anna Siepenkötter"
+     ],
+     [
+      "Creative Direction",
+      "Wiebke Hennig"
+     ],
+     [
+      "Styling",
+      "Henni Schaefer, Johanna Löer, Stella Lukaschewski"
+     ],
+     [
+      "Models",
+      "Julie March, Emma Loughran"
+     ],
+     [
+      "Hair & Make-up",
+      "Melanie Bulu"
+     ],
+     [
+      "Fotoassistenz",
+      "Eno de Witt"
+     ]
+    ]
+   },
+   {
+    "t": "Scholl Comfort · Ägypten 2023",
+    "tEn": "Scholl Comfort · Egypt 2023",
+    "rows": [
+     [
+      "Creative Direction",
+      "Wiebke Horst, Anna Siepenkötter"
+     ],
+     [
+      "Film",
+      "YOVEGO"
+     ],
+     [
+      "Styling",
+      "Stella Lukaschewski, Catarina Brockhoff-Lingke"
+     ],
+     [
+      "Hair & Make-up",
+      "Melanie Bulu"
+     ],
+     [
+      "Stills",
+      "Eno de Witt"
+     ],
+     [
+      "Fotoassistenz",
+      "Fabian Podzuweit"
+     ],
+     [
+      "Talents",
+      "Cristina, Salwa, Alexandra, Mathilde"
+     ]
+    ]
+   }
+  ]
  },
  {
   "slug": "pnts",
@@ -996,32 +1129,16 @@
   ],
   "credits": [
    [
-    "Produktion",
+    "Agentur",
     "The Wants Social"
-   ],
-   [
-    "Creative Direction",
-    "Wiebke Hennig, Anna Siepenkötter, Vera Evers"
-   ],
-   [
-    "Styling",
-    "Johanna Löer, Catarina Brockhoff-Lingke, Ricarda Saemann"
    ],
    [
     "Hair & Make-up",
     "Melanie Bulu"
    ],
    [
-    "DOP",
-    "Christian Hülsmeyer, Paul Mess"
-   ],
-   [
     "Fotoassistenz",
     "Eno de Witt"
-   ],
-   [
-    "Talents",
-    "Chelsey Weimar, Aline Gomes, Amelie Fiebach"
    ],
    [
     "Foto",
@@ -1043,7 +1160,53 @@
    "w-pnts-10",
    "w-pnts-4"
   ],
-  "overviewExtra": []
+  "overviewExtra": [],
+  "chapters": [
+   {
+    "t": "2022",
+    "tEn": "2022",
+    "rows": [
+     [
+      "Creative Direction",
+      "Wiebke Hennig, Anna Siepenkötter"
+     ],
+     [
+      "Styling",
+      "Johanna Löer, Catarina Brockhoff-Lingke"
+     ],
+     [
+      "BTS & Social",
+      "Vera Evers, Marvin Schmidt"
+     ],
+     [
+      "Talents",
+      "Chelsey Weimar, Aline Gomes"
+     ]
+    ]
+   },
+   {
+    "t": "Noordwijk 2023",
+    "tEn": "Noordwijk 2023",
+    "rows": [
+     [
+      "Creative Direction",
+      "Wiebke Hennig, Vera Evers"
+     ],
+     [
+      "Styling",
+      "Catarina Brockhoff-Lingke, Ricarda Saemann"
+     ],
+     [
+      "DOP",
+      "Christian Hülsmeyer, Paul Mess"
+     ],
+     [
+      "Talents",
+      "Chelsey Weimar, Amelie Fiebach"
+     ]
+    ]
+   }
+  ]
  },
  {
   "slug": "the-wants",
@@ -1117,7 +1280,8 @@
    "w-the-wants-5",
    "w-the-wants-8"
   ],
-  "overviewExtra": []
+  "overviewExtra": [],
+  "chapters": []
  },
  {
   "slug": "monano-schmuck",
@@ -1179,7 +1343,8 @@
   ],
   "overviewExtra": [
    "w-monano-schmuck-1"
-  ]
+  ],
+  "chapters": []
  },
  {
   "slug": "bundesliga",
@@ -1253,7 +1418,8 @@
   ],
   "overviewExtra": [
    "w-bundesliga-20"
-  ]
+  ],
+  "chapters": []
  },
  {
   "slug": "marie-dahmen",
@@ -1317,6 +1483,7 @@
    "w-marie-dahmen-5",
    "w-marie-dahmen-10"
   ],
-  "overviewExtra": []
+  "overviewExtra": [],
+  "chapters": []
  }
 ]

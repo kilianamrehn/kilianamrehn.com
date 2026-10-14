@@ -34,6 +34,7 @@ Lies zuerst diese Datei, dann Website_Handbuch.md (Textfassung des PDFs, aktuell
 - Jede Arbeit hat den Abspann in einer Kinoleinwand 21:9. Passt er nicht hinein, rollt er von unten nach oben (Schleife, nur sichtbar), man kann selbst scrollen, dann pausiert er kurz.
 - Zusammengelegte Arbeiten (Scholl, Copenhagen, PNTS, NI'C): oben was für alle gilt, darunter ein Kapitel je Shooting mit dem Bogen-Titel. Nur belegte Credits (alte Seite, Instagram). Ohne Beleg kein Kapitel.
 - Scholl und Copenhagen komplett aus Callsheets (14.10.). Neue Kapitel in `CH[...]` in tools/arbeiten_content.py, dann tisch.py.
+- Mehrere Shootings in einer Arbeit: immer neu nach alt von oben nach unten, Bögen und Abspann-Kapitel gleich (Kilian 14.10.). Scholl ohne Sizilien.
 - Styling Fuerteventura: Johanna Löer und Henni Schaefer (beide, Kilian). @modiandbloss = Serife Cigdem Güney.
 
 ## Technik-Notizen

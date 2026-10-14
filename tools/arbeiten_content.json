@@ -75,12 +75,16 @@
   "client": "The Wants Social",
   "sections": [
    {
-    "label": "Februar 2021",
-    "labelEn": "February 2021",
+    "label": "Oktober 2022",
+    "labelEn": "October 2022",
     "items": [
-     "w-copenhagen-studios-1",
-     "w-copenhagen-studios-2",
-     "w-copenhagen-studios-3"
+     "w-copenhagen-studios-8",
+     "w-copenhagen-studios-9",
+     "w-copenhagen-studios-10",
+     "w-copenhagen-studios-11",
+     "w-copenhagen-studios-12",
+     "w-copenhagen-studios-13",
+     "cph-schal-loop"
     ],
     "note": null,
     "noteEn": null
@@ -98,16 +102,12 @@
     "noteEn": null
    },
    {
-    "label": "Oktober 2022",
-    "labelEn": "October 2022",
+    "label": "Februar 2021",
+    "labelEn": "February 2021",
     "items": [
-     "w-copenhagen-studios-8",
-     "w-copenhagen-studios-9",
-     "w-copenhagen-studios-10",
-     "w-copenhagen-studios-11",
-     "w-copenhagen-studios-12",
-     "w-copenhagen-studios-13",
-     "cph-schal-loop"
+     "w-copenhagen-studios-1",
+     "w-copenhagen-studios-2",
+     "w-copenhagen-studios-3"
     ],
     "note": null,
     "noteEn": null
@@ -141,20 +141,28 @@
   "overviewExtra": [],
   "chapters": [
    {
-    "t": "Februar 2021",
-    "tEn": "February 2021",
+    "t": "Oktober 2022",
+    "tEn": "October 2022",
     "rows": [
      [
-      "Model",
-      "Djerra"
+      "Creative Direction",
+      "Karla Jenders"
+     ],
+     [
+      "Models",
+      "Margot Davy, Jason Grotjahn"
      ],
      [
       "Hair & Make-up",
       "Melanie Bulu"
      ],
      [
+      "Styling",
+      "Johanna Löer"
+     ],
+     [
       "Fotoassistenz",
-      "Fabian Podzuweit"
+      "Eno de Witt"
      ]
     ]
    },
@@ -189,28 +197,20 @@
     ]
    },
    {
-    "t": "Oktober 2022",
-    "tEn": "October 2022",
+    "t": "Februar 2021",
+    "tEn": "February 2021",
     "rows": [
      [
-      "Creative Direction",
-      "Karla Jenders"
-     ],
-     [
-      "Models",
-      "Margot Davy, Jason Grotjahn"
+      "Model",
+      "Djerra"
      ],
      [
       "Hair & Make-up",
       "Melanie Bulu"
      ],
      [
-      "Styling",
-      "Johanna Löer"
-     ],
-     [
       "Fotoassistenz",
-      "Eno de Witt"
+      "Fabian Podzuweit"
      ]
     ]
    }
@@ -634,6 +634,24 @@
   "client": "New Icons' Club",
   "sections": [
    {
+    "label": "2nd Hand · 2024",
+    "labelEn": "2nd Hand · 2024",
+    "items": [
+     "w-new-icons-club-magazine-2-1",
+     "w-new-icons-club-magazine-2-2",
+     "w-new-icons-club-magazine-2-3",
+     "w-new-icons-club-magazine-2-4",
+     "w-new-icons-club-magazine-2-5",
+     "w-new-icons-club-magazine-2-6",
+     "w-new-icons-club-magazine-2-7",
+     "w-new-icons-club-magazine-2-8",
+     "w-new-icons-club-magazine-2-9",
+     "w-new-icons-club-magazine-2-10"
+    ],
+    "note": null,
+    "noteEn": null
+   },
+   {
     "label": "Ausgabe 1 · 2023",
     "labelEn": "Issue 1 · 2023",
     "items": [
@@ -648,24 +666,6 @@
      "w-new-icons-club-magazine-11",
      "w-new-icons-club-magazine-12",
      "w-new-icons-club-magazine-13"
-    ],
-    "note": null,
-    "noteEn": null
-   },
-   {
-    "label": "2nd Hand · 2024",
-    "labelEn": "2nd Hand · 2024",
-    "items": [
-     "w-new-icons-club-magazine-2-1",
-     "w-new-icons-club-magazine-2-2",
-     "w-new-icons-club-magazine-2-3",
-     "w-new-icons-club-magazine-2-4",
-     "w-new-icons-club-magazine-2-5",
-     "w-new-icons-club-magazine-2-6",
-     "w-new-icons-club-magazine-2-7",
-     "w-new-icons-club-magazine-2-8",
-     "w-new-icons-club-magazine-2-9",
-     "w-new-icons-club-magazine-2-10"
     ],
     "note": null,
     "noteEn": null
@@ -715,20 +715,6 @@
   "overviewExtra": [],
   "chapters": [
    {
-    "t": "Ausgabe 1 · 2023",
-    "tEn": "Issue 1 · 2023",
-    "rows": [
-     [
-      "Hair & Make-up",
-      "Serife Cigdem Güney"
-     ],
-     [
-      "Models",
-      "Marie, Louis, Lia, Paulus, Elisabeth"
-     ]
-    ]
-   },
-   {
     "t": "2nd Hand · 2024",
     "tEn": "2nd Hand · 2024",
     "rows": [
@@ -739,6 +725,20 @@
      [
       "Models",
       "Linda, Nika, Lasse"
+     ]
+    ]
+   },
+   {
+    "t": "Ausgabe 1 · 2023",
+    "tEn": "Issue 1 · 2023",
+    "rows": [
+     [
+      "Hair & Make-up",
+      "Serife Cigdem Güney"
+     ],
+     [
+      "Models",
+      "Marie, Louis, Lia, Paulus, Elisabeth"
      ]
     ]
    }
@@ -900,45 +900,12 @@
   "client": "The Wants Social",
   "sections": [
    {
-    "label": "Scholl iconic · Fuerteventura 2021",
-    "labelEn": "Scholl iconic · Fuerteventura 2021",
+    "label": "Scholl Comfort · Weihnachten 2023",
+    "labelEn": "Scholl Comfort · Christmas 2023",
     "items": [
-     "w-scholl-1",
-     "w-scholl-2",
-     "w-scholl-3",
-     "w-scholl-4",
-     "w-scholl-5",
-     "w-scholl-6"
-    ],
-    "note": null,
-    "noteEn": null
-   },
-   {
-    "label": "Scholl iconic · Oktober 2021",
-    "labelEn": "Scholl iconic · October 2021",
-    "items": [
-     "w-scholl-7",
-     "w-scholl-8",
-     "w-scholl-9",
-     "w-scholl-10",
-     "w-scholl-11"
-    ],
-    "note": null,
-    "noteEn": null
-   },
-   {
-    "label": "Scholl Comfort · Studio, Juli 2022",
-    "labelEn": "Scholl Comfort · Studio, July 2022",
-    "items": [
-     "w-scholl-12",
-     "w-scholl-13",
-     "w-scholl-14",
-     "w-scholl-15",
-     "w-scholl-16",
-     "w-scholl-17",
-     "w-scholl-18",
-     "w-scholl-19",
-     "w-scholl-20"
+     "w-scholl-33",
+     "w-scholl-34",
+     "w-scholl-35"
     ],
     "note": null,
     "noteEn": null
@@ -974,24 +941,45 @@
     "noteEn": null
    },
    {
-    "label": "Scholl iconic · Sizilien 2023",
-    "labelEn": "Scholl iconic · Sicily 2023",
+    "label": "Scholl Comfort · Studio, Juli 2022",
+    "labelEn": "Scholl Comfort · Studio, July 2022",
     "items": [
-     "w-scholl-29",
-     "w-scholl-30",
-     "w-scholl-31",
-     "w-scholl-32"
+     "w-scholl-12",
+     "w-scholl-13",
+     "w-scholl-14",
+     "w-scholl-15",
+     "w-scholl-16",
+     "w-scholl-17",
+     "w-scholl-18",
+     "w-scholl-19",
+     "w-scholl-20"
     ],
     "note": null,
     "noteEn": null
    },
    {
-    "label": "Scholl Comfort · Weihnachten 2023",
-    "labelEn": "Scholl Comfort · Christmas 2023",
+    "label": "Scholl iconic · Oktober 2021",
+    "labelEn": "Scholl iconic · October 2021",
     "items": [
-     "w-scholl-33",
-     "w-scholl-34",
-     "w-scholl-35"
+     "w-scholl-7",
+     "w-scholl-8",
+     "w-scholl-9",
+     "w-scholl-10",
+     "w-scholl-11"
+    ],
+    "note": null,
+    "noteEn": null
+   },
+   {
+    "label": "Scholl iconic · Fuerteventura 2021",
+    "labelEn": "Scholl iconic · Fuerteventura 2021",
+    "items": [
+     "w-scholl-1",
+     "w-scholl-2",
+     "w-scholl-3",
+     "w-scholl-4",
+     "w-scholl-5",
+     "w-scholl-6"
     ],
     "note": null,
     "noteEn": null
@@ -1025,92 +1013,28 @@
   "overviewExtra": [],
   "chapters": [
    {
-    "t": "Scholl iconic · Fuerteventura 2021",
-    "tEn": "Scholl iconic · Fuerteventura 2021",
-    "rows": [
-     [
-      "Creative Direction",
-      "Anna Siepenkötter, Wiebke Hennig"
-     ],
-     [
-      "Styling",
-      "Johanna Löer, Henni Schaefer"
-     ],
-     [
-      "Models",
-      "Amy Gambini, Sanne"
-     ],
-     [
-      "Hair & Make-up",
-      "Melanie Bulu"
-     ],
-     [
-      "Fotoassistenz",
-      "Fabian Podzuweit"
-     ]
-    ]
-   },
-   {
-    "t": "Scholl iconic · Oktober 2021",
-    "tEn": "Scholl iconic · October 2021",
-    "rows": [
-     [
-      "Produktion",
-      "Anna Siepenkötter, Wiebke Hennig"
-     ],
-     [
-      "Styling",
-      "Henrike Schaefer, Alexa Drepper"
-     ],
-     [
-      "Models",
-      "Alua, Linde Derickx"
-     ],
-     [
-      "Hair & Make-up",
-      "Nadine Thoma"
-     ],
-     [
-      "Video",
-      "Nico Pékar, Kevin Bressler"
-     ],
-     [
-      "Reels",
-      "Cata Lingke, Johanna Löer"
-     ],
-     [
-      "BTS",
-      "Kathrin Giblian"
-     ],
-     [
-      "Fotoassistenz",
-      "Fabian Podzuweit"
-     ]
-    ]
-   },
-   {
-    "t": "Scholl Comfort · Studio, Juli 2022",
-    "tEn": "Scholl Comfort · Studio, July 2022",
+    "t": "Scholl Comfort · Weihnachten 2023",
+    "tEn": "Scholl Comfort · Christmas 2023",
     "rows": [
      [
       "Produktion",
       "Anna Siepenkötter"
      ],
      [
-      "Creative Direction",
-      "Wiebke Hennig"
+      "Produktionsassistenz",
+      "Nataliya Kaiser"
      ],
      [
       "Styling",
-      "Henni Schaefer, Johanna Löer, Stella Lukaschewski"
+      "Stella Lukaschewski"
      ],
      [
-      "Models",
-      "Julie March, Emma Loughran"
+      "Model",
+      "Mona M."
      ],
      [
       "Hair & Make-up",
-      "Melanie Bulu"
+      "Hanna Fuchs"
      ],
      [
       "Fotoassistenz",
@@ -1187,70 +1111,96 @@
     ]
    },
    {
-    "t": "Scholl iconic · Sizilien 2023",
-    "tEn": "Scholl iconic · Sicily 2023",
-    "rows": [
-     [
-      "Creative Lead",
-      "Anna Siepenkötter"
-     ],
-     [
-      "Creative Direction Video",
-      "Wiebke Hennig"
-     ],
-     [
-      "Creative Direction Stills",
-      "Lara Hartmann"
-     ],
-     [
-      "Styling",
-      "Jelena Hasken, Ricarda Saemann"
-     ],
-     [
-      "Models",
-      "Robin, Manon"
-     ],
-     [
-      "Hair & Make-up",
-      "Melanie Bulu"
-     ],
-     [
-      "Video",
-      "Christian Hülsmeyer"
-     ],
-     [
-      "Stills",
-      "Eno de Witt"
-     ]
-    ]
-   },
-   {
-    "t": "Scholl Comfort · Weihnachten 2023",
-    "tEn": "Scholl Comfort · Christmas 2023",
+    "t": "Scholl Comfort · Studio, Juli 2022",
+    "tEn": "Scholl Comfort · Studio, July 2022",
     "rows": [
      [
       "Produktion",
       "Anna Siepenkötter"
      ],
      [
-      "Produktionsassistenz",
-      "Nataliya Kaiser"
+      "Creative Direction",
+      "Wiebke Hennig"
      ],
      [
       "Styling",
-      "Stella Lukaschewski"
+      "Henni Schaefer, Johanna Löer, Stella Lukaschewski"
      ],
      [
-      "Model",
-      "Mona M."
+      "Models",
+      "Julie March, Emma Loughran"
      ],
      [
       "Hair & Make-up",
-      "Hanna Fuchs"
+      "Melanie Bulu"
      ],
      [
       "Fotoassistenz",
       "Eno de Witt"
+     ]
+    ]
+   },
+   {
+    "t": "Scholl iconic · Oktober 2021",
+    "tEn": "Scholl iconic · October 2021",
+    "rows": [
+     [
+      "Produktion",
+      "Anna Siepenkötter, Wiebke Hennig"
+     ],
+     [
+      "Styling",
+      "Henrike Schaefer, Alexa Drepper"
+     ],
+     [
+      "Models",
+      "Alua, Linde Derickx"
+     ],
+     [
+      "Hair & Make-up",
+      "Nadine Thoma"
+     ],
+     [
+      "Video",
+      "Nico Pékar, Kevin Bressler"
+     ],
+     [
+      "Reels",
+      "Cata Lingke, Johanna Löer"
+     ],
+     [
+      "BTS",
+      "Kathrin Giblian"
+     ],
+     [
+      "Fotoassistenz",
+      "Fabian Podzuweit"
+     ]
+    ]
+   },
+   {
+    "t": "Scholl iconic · Fuerteventura 2021",
+    "tEn": "Scholl iconic · Fuerteventura 2021",
+    "rows": [
+     [
+      "Creative Direction",
+      "Anna Siepenkötter, Wiebke Hennig"
+     ],
+     [
+      "Styling",
+      "Johanna Löer, Henni Schaefer"
+     ],
+     [
+      "Models",
+      "Amy Gambini, Sanne"
+     ],
+     [
+      "Hair & Make-up",
+      "Melanie Bulu"
+     ],
+     [
+      "Fotoassistenz",
+      "Fabian Podzuweit"
      ]
     ]
    }
@@ -1265,21 +1215,6 @@
   "client": "The Wants Social",
   "sections": [
    {
-    "label": "2022",
-    "labelEn": "2022",
-    "items": [
-     "w-pnts-1",
-     "w-pnts-2",
-     "w-pnts-3",
-     "w-pnts-4",
-     "w-pnts-5",
-     "w-pnts-6",
-     "w-pnts-7"
-    ],
-    "note": null,
-    "noteEn": null
-   },
-   {
     "label": "Noordwijk 2023",
     "labelEn": "Noordwijk 2023",
     "items": [
@@ -1292,6 +1227,21 @@
      "w-pnts-14",
      "w-pnts-15",
      "w-pnts-16"
+    ],
+    "note": null,
+    "noteEn": null
+   },
+   {
+    "label": "2022",
+    "labelEn": "2022",
+    "items": [
+     "w-pnts-1",
+     "w-pnts-2",
+     "w-pnts-3",
+     "w-pnts-4",
+     "w-pnts-5",
+     "w-pnts-6",
+     "w-pnts-7"
     ],
     "note": null,
     "noteEn": null
@@ -1333,28 +1283,6 @@
   "overviewExtra": [],
   "chapters": [
    {
-    "t": "2022",
-    "tEn": "2022",
-    "rows": [
-     [
-      "Creative Direction",
-      "Wiebke Hennig, Anna Siepenkötter"
-     ],
-     [
-      "Styling",
-      "Johanna Löer, Catarina Brockhoff-Lingke"
-     ],
-     [
-      "BTS & Social",
-      "Vera Evers, Marvin Schmidt"
-     ],
-     [
-      "Talents",
-      "Chelsey Weimar, Aline Gomes"
-     ]
-    ]
-   },
-   {
     "t": "Noordwijk 2023",
     "tEn": "Noordwijk 2023",
     "rows": [
@@ -1373,6 +1301,28 @@
      [
       "Talents",
       "Chelsey Weimar, Amelie Fiebach"
+     ]
+    ]
+   },
+   {
+    "t": "2022",
+    "tEn": "2022",
+    "rows": [
+     [
+      "Creative Direction",
+      "Wiebke Hennig, Anna Siepenkötter"
+     ],
+     [
+      "Styling",
+      "Johanna Löer, Catarina Brockhoff-Lingke"
+     ],
+     [
+      "BTS & Social",
+      "Vera Evers, Marvin Schmidt"
+     ],
+     [
+      "Talents",
+      "Chelsey Weimar, Aline Gomes"
      ]
     ]
    }

@@ -18,29 +18,27 @@ p('rock-fairyland','Rock Fairyland','Freie Strecke · Editorial','Personal serie
 p('ozean-der-stille','Ozean der Stille','Freie Strecke · Mode','Personal series · Fashion','2026','',
   [S('','',r('ozean-der-stille',1,11))],[('Design','Jonas Braun · Pulpo Productions'),('Foto','Kilian Amrehn'),('Video','Lukas Beilenhoff'),('Video-Assistenz','Dopia Films'),('Assistenz','Alexandra Neufeld, Gereon Schultes, David Heinrichs')],top='ozean-der-stille',edge=('FREIE STRECKE','MODEFOTOGRAFIE'))
 p('scholl-iconic','Scholl','Kampagne','Campaign','2021 bis 2023','The Wants Social',
-  [S('Scholl iconic · Fuerteventura 2021','Scholl iconic · Fuerteventura 2021',r('scholl',1,6)),
-   S('Scholl iconic · Oktober 2021','Scholl iconic · October 2021',r('scholl',7,11)),
-   S('Scholl Comfort · Studio, Juli 2022','Scholl Comfort · Studio, July 2022',r('scholl',12,20)),
+  [S('Scholl Comfort · Weihnachten 2023','Scholl Comfort · Christmas 2023',r('scholl',33,35)),
    S('Scholl Comfort · Ägypten 2023','Scholl Comfort · Egypt 2023',r('scholl',21,28)),
    S('Scholl iconic · Februar 2023','Scholl iconic · February 2023',r('scholl',36,41)),
-   S('Scholl iconic · Sizilien 2023','Scholl iconic · Sicily 2023',r('scholl',29,32)),
-   S('Scholl Comfort · Weihnachten 2023','Scholl Comfort · Christmas 2023',r('scholl',33,35))],
+   S('Scholl Comfort · Studio, Juli 2022','Scholl Comfort · Studio, July 2022',r('scholl',12,20)),
+   S('Scholl iconic · Oktober 2021','Scholl iconic · October 2021',r('scholl',7,11)),
+   S('Scholl iconic · Fuerteventura 2021','Scholl iconic · Fuerteventura 2021',r('scholl',1,6))],
   [('Agentur','The Wants Social'),('Foto','Kilian Amrehn')])
 CH['scholl-iconic']=[
-  C('Scholl iconic · Fuerteventura 2021','Scholl iconic · Fuerteventura 2021',[('Creative Direction','Anna Siepenkötter, Wiebke Hennig'),('Styling','Johanna Löer, Henni Schaefer'),('Models','Amy Gambini, Sanne'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Fabian Podzuweit')]),
-  C('Scholl iconic · Oktober 2021','Scholl iconic · October 2021',[('Produktion','Anna Siepenkötter, Wiebke Hennig'),('Styling','Henrike Schaefer, Alexa Drepper'),('Models','Alua, Linde Derickx'),('Hair & Make-up','Nadine Thoma'),('Video','Nico Pékar, Kevin Bressler'),('Reels','Cata Lingke, Johanna Löer'),('BTS','Kathrin Giblian'),('Fotoassistenz','Fabian Podzuweit')]),
-  C('Scholl Comfort · Studio, Juli 2022','Scholl Comfort · Studio, July 2022',[('Produktion','Anna Siepenkötter'),('Creative Direction','Wiebke Hennig'),('Styling','Henni Schaefer, Johanna Löer, Stella Lukaschewski'),('Models','Julie March, Emma Loughran'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Eno de Witt')]),
+  C('Scholl Comfort · Weihnachten 2023','Scholl Comfort · Christmas 2023',[('Produktion','Anna Siepenkötter'),('Produktionsassistenz','Nataliya Kaiser'),('Styling','Stella Lukaschewski'),('Model','Mona M.'),('Hair & Make-up','Hanna Fuchs'),('Fotoassistenz','Eno de Witt')]),
   C('Scholl Comfort · Ägypten 2023','Scholl Comfort · Egypt 2023',[('Creative Direction','Wiebke Horst, Anna Siepenkötter'),('Film','YOVEGO'),('Styling','Stella Lukaschewski, Catarina Brockhoff-Lingke'),('Hair & Make-up','Melanie Bulu'),('Stills','Eno de Witt'),('Fotoassistenz','Fabian Podzuweit'),('Talents','Cristina, Salwa, Alexandra, Mathilde')]),
   C('Scholl iconic · Februar 2023','Scholl iconic · February 2023',[('Produktion','Anna Siepenkötter'),('Styling','Stella Lukaschewski, Johanna Löer'),('Models','Belinda, Anna'),('Hair & Make-up','Nadine Thoma'),('Video','Norman Keutgen'),('Video, BTS, Reels','Wiebke Horst, Wiebke Hennig, Lara Hartmann'),('Stills','Nina Schörner')]),
-  C('Scholl iconic · Sizilien 2023','Scholl iconic · Sicily 2023',[('Creative Lead','Anna Siepenkötter'),('Creative Direction Video','Wiebke Hennig'),('Creative Direction Stills','Lara Hartmann'),('Styling','Jelena Hasken, Ricarda Saemann'),('Models','Robin, Manon'),('Hair & Make-up','Melanie Bulu'),('Video','Christian Hülsmeyer'),('Stills','Eno de Witt')]),
-  C('Scholl Comfort · Weihnachten 2023','Scholl Comfort · Christmas 2023',[('Produktion','Anna Siepenkötter'),('Produktionsassistenz','Nataliya Kaiser'),('Styling','Stella Lukaschewski'),('Model','Mona M.'),('Hair & Make-up','Hanna Fuchs'),('Fotoassistenz','Eno de Witt')])]
+  C('Scholl Comfort · Studio, Juli 2022','Scholl Comfort · Studio, July 2022',[('Produktion','Anna Siepenkötter'),('Creative Direction','Wiebke Hennig'),('Styling','Henni Schaefer, Johanna Löer, Stella Lukaschewski'),('Models','Julie March, Emma Loughran'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Eno de Witt')]),
+  C('Scholl iconic · Oktober 2021','Scholl iconic · October 2021',[('Produktion','Anna Siepenkötter, Wiebke Hennig'),('Styling','Henrike Schaefer, Alexa Drepper'),('Models','Alua, Linde Derickx'),('Hair & Make-up','Nadine Thoma'),('Video','Nico Pékar, Kevin Bressler'),('Reels','Cata Lingke, Johanna Löer'),('BTS','Kathrin Giblian'),('Fotoassistenz','Fabian Podzuweit')]),
+  C('Scholl iconic · Fuerteventura 2021','Scholl iconic · Fuerteventura 2021',[('Creative Direction','Anna Siepenkötter, Wiebke Hennig'),('Styling','Johanna Löer, Henni Schaefer'),('Models','Amy Gambini, Sanne'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Fabian Podzuweit')])]
 p('copenhagen-studios','Copenhagen Studios','Kampagne','Campaign','2021 bis 2022','The Wants Social',
-  [S('Februar 2021','February 2021',r('copenhagen-studios',1,3)),S('Juni 2021','June 2021',r('copenhagen-studios',4,7)),S('Oktober 2022','October 2022',r('copenhagen-studios',8,13)+['cph-schal-loop'])],
+  [S('Oktober 2022','October 2022',r('copenhagen-studios',8,13)+['cph-schal-loop']),S('Juni 2021','June 2021',r('copenhagen-studios',4,7)),S('Februar 2021','February 2021',r('copenhagen-studios',1,3))],
   [('Agentur','The Wants Social'),('Foto','Kilian Amrehn')])
 CH['copenhagen-studios']=[
-  C('Februar 2021','February 2021',[('Model','Djerra'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Fabian Podzuweit')]),
+  C('Oktober 2022','October 2022',[('Creative Direction','Karla Jenders'),('Models','Margot Davy, Jason Grotjahn'),('Hair & Make-up','Melanie Bulu'),('Styling','Johanna Löer'),('Fotoassistenz','Eno de Witt')]),
   C('Juni 2021','June 2021',[('Produktion','Karla Jenders'),('Co-Produktion','Gina Walser'),('Styling','Henrike Schaefer, Vicky Krampen'),('Model','Linde Torenvlied'),('Hair & Make-up','Melanie Bulu'),('BTS','Vicky Krampen')]),
-  C('Oktober 2022','October 2022',[('Creative Direction','Karla Jenders'),('Models','Margot Davy, Jason Grotjahn'),('Hair & Make-up','Melanie Bulu'),('Styling','Johanna Löer'),('Fotoassistenz','Eno de Witt')])]
+  C('Februar 2021','February 2021',[('Model','Djerra'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Fabian Podzuweit')])]
 p('peek-cloppenburg-x-ellesse','Peek & Cloppenburg x Ellesse','Kampagne','Campaign','2022','Feelming',
   [S('','',r('peek-cloppenburg-x-ellesse',1,7))],
   [('Produktion','Feelming'),('Regie','Mario Bürger'),('1st AD','Nico Pékar'),('DOP','Pasindu Goldmann'),('Styling','Peninah Amanda'),('Hair & Make-up','Kristin Belger'),('Movement','Tim Schmitz'),('Talents','Nora Nova, Rowdy Eyez, Mecnun'),('Foto','Kilian Amrehn')])
@@ -67,17 +65,17 @@ p('phiala','Phiala','Kampagne','Campaign','2024','Phiala',[S('','',r('phiala',1,
 p('monano-schmuck','Monano Schmuckmanufaktur','Kampagne','Campaign','2024','Monano',[S('','',r('monano-schmuck',1,6))],
   [('Produktion','Kilian Amrehn'),('Styling','Jacqueline Tamm'),('Hair & Make-up','Hanna Fuchs'),('Models','Ronja Stevens, Hella Kornatzki'),('Fotoassistenz','Eno de Witt')],edge=('SCHMUCKFOTOGRAFIE','KAMPAGNE'))
 p('new-icons-club-magazine',"New Icons' Club Magazine",'Editorial · Magazin','Editorial · Magazine','2023 bis 2024',"New Icons' Club",
-  [S('Ausgabe 1 · 2023','Issue 1 · 2023',[x for x in r('new-icons-club-magazine',1,13) if x not in ('w-new-icons-club-magazine-4','w-new-icons-club-magazine-2')]),S('2nd Hand · 2024','2nd Hand · 2024',r('new-icons-club-magazine-2',1,10))],
+  [S('2nd Hand · 2024','2nd Hand · 2024',r('new-icons-club-magazine-2',1,10)),S('Ausgabe 1 · 2023','Issue 1 · 2023',[x for x in r('new-icons-club-magazine',1,13) if x not in ('w-new-icons-club-magazine-4','w-new-icons-club-magazine-2')])],
   [('Produktion','Kilian Amrehn'),('Creative Direction','Ann-Kathrin Templin'),('Styling','Jacqueline Tamm'),('Fotoassistenz','Fabian Podzuweit'),('Second Hand','Kleiderei, MatchYourStyle'),('Foto','Kilian Amrehn')],edge=('EDITORIAL','MAGAZIN'))
 CH['new-icons-club-magazine']=[
-  C('Ausgabe 1 · 2023','Issue 1 · 2023',[('Hair & Make-up','Serife Cigdem Güney'),('Models','Marie, Louis, Lia, Paulus, Elisabeth')]),
-  C('2nd Hand · 2024','2nd Hand · 2024',[('Hair & Make-up','Hanna Fuchs'),('Models','Linda, Nika, Lasse')])]
+  C('2nd Hand · 2024','2nd Hand · 2024',[('Hair & Make-up','Hanna Fuchs'),('Models','Linda, Nika, Lasse')]),
+  C('Ausgabe 1 · 2023','Issue 1 · 2023',[('Hair & Make-up','Serife Cigdem Güney'),('Models','Marie, Louis, Lia, Paulus, Elisabeth')])]
 p('pnts','PNTS','Kampagne','Campaign','2022 bis 2023','The Wants Social',
-  [S('2022','2022',r('pnts',1,7)),S('Noordwijk 2023','Noordwijk 2023',r('pnts',8,16))],
+  [S('Noordwijk 2023','Noordwijk 2023',r('pnts',8,16)),S('2022','2022',r('pnts',1,7))],
   [('Agentur','The Wants Social'),('Hair & Make-up','Melanie Bulu'),('Fotoassistenz','Eno de Witt'),('Foto','Kilian Amrehn')],color='#1c1b1a')
 CH['pnts']=[
-  C('2022','2022',[('Creative Direction','Wiebke Hennig, Anna Siepenkötter'),('Styling','Johanna Löer, Catarina Brockhoff-Lingke'),('BTS & Social','Vera Evers, Marvin Schmidt'),('Talents','Chelsey Weimar, Aline Gomes')]),
-  C('Noordwijk 2023','Noordwijk 2023',[('Creative Direction','Wiebke Hennig, Vera Evers'),('Styling','Catarina Brockhoff-Lingke, Ricarda Saemann'),('DOP','Christian Hülsmeyer, Paul Mess'),('Talents','Chelsey Weimar, Amelie Fiebach')])]
+  C('Noordwijk 2023','Noordwijk 2023',[('Creative Direction','Wiebke Hennig, Vera Evers'),('Styling','Catarina Brockhoff-Lingke, Ricarda Saemann'),('DOP','Christian Hülsmeyer, Paul Mess'),('Talents','Chelsey Weimar, Amelie Fiebach')]),
+  C('2022','2022',[('Creative Direction','Wiebke Hennig, Anna Siepenkötter'),('Styling','Johanna Löer, Catarina Brockhoff-Lingke'),('BTS & Social','Vera Evers, Marvin Schmidt'),('Talents','Chelsey Weimar, Aline Gomes')])]
 p('appelrathcuepper','AppelrathCüpper','Kampagne','Campaign','2022','AppelrathCüpper',[S('','',r('appelrathcuepper',1,9))],
   [('Produktion','Mariann Reitz'),('Creative Direction','Alexandra Specht'),('Fotoassistenz','Jonas Boltze'),('Styling','Lisa Bräuer'),('Models','Maren Thelen, Signe'),('Hair & Make-up','Patricia Irsinger'),('Foto','Kilian Amrehn')],
   'Spiel mit Spiegeln.','Playing with mirrors.')

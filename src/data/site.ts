@@ -53,7 +53,7 @@ export const nav: Record<Lang, { label: string; href: string }[]> = {
 
 export const clients = [
   ['VW', 1], ['Coca-Cola', 1], ['TikTok', 1], ['Bundesliga', 1], ['Peek & Cloppenburg', 1], ['Ellesse', 0], ['Copenhagen Studios', 0], ['Eres', 0], ['Scholl', 0], ['AppelrathCüpper', 0],
-  ['JBL', 1], ['25hours Hotels', 1], ['Kaufland', 1], ['Hitschler', 0], ['LINDBERG', 0], ['Waterdrop', 0], ['YPS', 0], ['KCA London', 0], ['Imperial', 0], ['IMP Deluxe', 0], ['PNTS', 0],
-  ['The Wants', 0], ['Please', 0], ['First Magazine', 0], ["New Icons' Club", 0], ['Morley', 0], ['Bianca Berding', 0],
+  ['25hours Hotels', 1], ['Kaufland', 1], ['Hitschler', 0], ['LINDBERG', 0], ['Waterdrop', 0], ['YPS', 0], ['KCA London', 0], ['Imperial', 0], ['IMP Deluxe', 0], ['PNTS', 0],
+  ['Please', 0], ['First Magazine', 0], ["New Icons' Club", 0], ['Morley', 0], ['Bianca Berding', 0], ['Slavko Popadic', 0],
   ['Bündnis Entwicklung Hilft', 0], ['Kindernothilfe', 0], ['Tagesspiegel', 1],
 ] as const;

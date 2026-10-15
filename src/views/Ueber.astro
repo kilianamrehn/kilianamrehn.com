@@ -148,11 +148,17 @@ const t = T[lang];
   .stop { width: clamp(110px, 10vw, 150px); aspect-ratio: 1; border-radius: 999px; border: 0; background: var(--white); color: var(--ink); font-size: 22px; letter-spacing: -.02em; cursor: pointer; }
   .clients { padding-top: 140px; padding-bottom: 100px; }
   .cl { color: var(--mute); }
+  /* Hervorgehobene Namen leuchten erst auf, wenn man darüber scrollt (wie auf der Startseite) */
+  .cl b { color: var(--mute); transition: color 1.2s ease; }
+  .cl b.lit { color: var(--accent); }
+  @media (prefers-reduced-motion: reduce) { .cl b { color: var(--accent); } }
   .clients h2, .kontakt h2 { font-weight: 400; margin-bottom: 24px; }
   .kontakt { padding-bottom: 140px; display: flex; flex-direction: column; gap: 12px; scroll-margin-top: 40px; }
   .kontakt :global(.mail) { font-size: clamp(36px, 6.6vw, 96px); }
 </style>
 <script>
+  const ioCl = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('lit'); ioCl.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px', threshold: 1 });
+  document.querySelectorAll('.cl b').forEach((el) => ioCl.observe(el));
   // 12 Bilder pro Sekunde aus allen Bildern der Seite, zufällig gemischt; vorgeladen, damit nichts ruckelt
   const box = document.querySelector<HTMLElement>('[data-flick]');
   const btn = box?.querySelector<HTMLButtonElement>('[data-toggle]');

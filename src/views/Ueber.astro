@@ -95,7 +95,7 @@ const t = T[lang];
   </figure>
   <div class="bio">
     {t.bio.map((p) => <p>{p}</p>)}
-    <p>{t.apps} <a class="u" href={base + routes.reportage[lang]}>{t.appsLink}</a>.</p>
+    <p>{t.apps.split('Verge')[0]}<a class="u" href="https://playverge.app" target="_blank" rel="noopener">Verge</a>{t.apps.split('Verge').slice(1).join('Verge')} <a class="u" href={base + routes.reportage[lang]}>{t.appsLink}</a>.</p>
   </div>
 </section>
 

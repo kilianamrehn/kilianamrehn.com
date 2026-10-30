@@ -20,7 +20,7 @@ const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,
 ---
 <Base lang={lang} image="/media/og/arbeiten.jpg" alternate={routes.campaigns[en ? 'de' : 'en']} title={T.title} description={T.desc}>
 <section class="wrap ar-head">
-  <h1 class="display big">{T.h1}</h1>
+  <h1 class="mono kick">{T.h1}</h1>
   <span class="mono sub">{T.sub}</span>
 </section>
 <nav class="bar mono" aria-label={T.h1}>
@@ -44,7 +44,7 @@ const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,
 </Base>
 <style>
   .ar-head { padding-top: 32px; padding-bottom: 32px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 32px; }
-  .big { font-size: clamp(72px, 11.7vw, 168px); line-height: .86; margin: 0; }
+  .kick { font: 500 12px/1 var(--f-mono); letter-spacing: .24em; text-transform: uppercase; color: var(--paper); margin: 0; }
   .sub { color: var(--mute); letter-spacing: .16em; text-transform: uppercase; font-size: 12px; }
   /* alle Felder gleich breit, Reihen möglichst gleich voll (17 Arbeiten: 9 + 8 oder 6 + 6 + 5) */
   .bar { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); position: sticky; top: 0; z-index: 60; }

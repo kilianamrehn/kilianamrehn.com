@@ -88,25 +88,28 @@ p('bundesliga','Bundesliga','Sport · Bundesliga','Sport · Bundesliga','2023 bi
   'For the DFL in the stadiums, right on the touchline. Impressive places. And the football even more so, this close up.',
   edge=('SPORTFOTOGRAFIE','BUNDESLIGA'))
 
-# Farbe des Bands (mit Farbpipette aus den Bildern der Arbeit genommen) und Bild(er) beim Aufklappen.
+# Farbe des Bands und Bild(er) beim Aufklappen. Farbton per Pipette aus den Bildern,
+# dann wie die Porträt-Papiere vereinheitlicht: OKLCH Helligkeit 0.30, Chroma 0.045 (Bundesliga grau 0.008).
+# Pipette vorher: rock #95c5b9, cph #e8603e, p&c #99b4bc, trish #0a8389, ozean #5a1f1b, synergy #2f6f58, appelrath #0d3a78,
+# niewiederleise #6f6f41, nic #c8182e, silent #2e4f56, phiala #ceb57d, scholl #d0592b, pnts #2f5878, wants #af7a56, monano #9eccd4, bundesliga #3a3a38, marie #9a5530
 # Reihenfolge so, dass nie zwei ähnliche Farben nebeneinander stehen.
-BAND=[('rock-fairyland','#95c5b9',[1,4,2]),
- ('copenhagen-studios','#e8603e',[11,'vid:cph-schal-loop',12]),
- ('peek-cloppenburg-x-ellesse','#99b4bc',[1]),
- ('trish-reflections-of-identity','#0a8389',[6]),
- ('ozean-der-stille','#5a1f1b',[11]),
- ('synergy','#2f6f58',[1,2,'vid:untamed-ki-1']),
- ('appelrathcuepper','#0d3a78',[2]),
- ('niewiederleise','#6f6f41',['vid:niewiederleise-kampagne']),
- ('new-icons-club-magazine','#c8182e',['new-icons-club-magazine-12','new-icons-club-magazine-9','new-icons-club-magazine-2-9']),
- ('silent-escape','#2e4f56',[5,1,'vid:jeremiah-ki-3']),
- ('phiala','#ceb57d',[8,4,2]),
- ('scholl-iconic','#d0592b',['scholl-3','scholl-5','scholl-9']),
- ('pnts','#2f5878',[3,10,4]),
- ('the-wants','#af7a56',[3,5,8]),
- ('monano-schmuck','#9eccd4',[5]),
- ('bundesliga','#3a3a38',[13,7,18]),
- ('marie-dahmen','#9a5530',[5,10])]
+BAND=[('rock-fairyland','#0f352e',[1,4,2]),
+ ('copenhagen-studios','#41251e',[11,'vid:cph-schal-loop',12]),
+ ('peek-cloppenburg-x-ellesse','#0d333d',[1]),
+ ('trish-reflections-of-identity','#0a3437',[6]),
+ ('ozean-der-stille','#422521',[11]),
+ ('synergy','#143529',[1,2,'vid:untamed-ki-1']),
+ ('appelrathcuepper','#1f2e44',[2]),
+ ('niewiederleise','#303013',['vid:niewiederleise-kampagne']),
+ ('new-icons-club-magazine','#422423',['new-icons-club-magazine-12','new-icons-club-magazine-9','new-icons-club-magazine-2-9']),
+ ('silent-escape','#0c343b',[5,1,'vid:jeremiah-ki-3']),
+ ('phiala','#382c11',[8,4,2]),
+ ('scholl-iconic','#41261c',['scholl-3','scholl-5','scholl-9']),
+ ('pnts','#193043',[3,10,4]),
+ ('the-wants','#3f2717',[3,5,8]),
+ ('monano-schmuck','#0b343a',[5]),
+ ('bundesliga','#2e2e2a',[13,7,18]),
+ ('marie-dahmen','#402719',[5,10])]
 for i,x in enumerate(P): x['seed']=[0,1,2,3,4,5,6,7,8,9,10,12,13,14,15,16,17][i]  # alte Position, damit die Bögen gleich bleiben
 byslug={x['slug']:x for x in P}
 assert len(BAND)==len(P), (len(BAND),len(P))

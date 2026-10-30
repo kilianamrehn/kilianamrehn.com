@@ -45,10 +45,10 @@ h1, h2, h3, p, figure, blockquote { margin: 0; }
 /* Rote Dunkelkammer-Lampe: hängt von oben, führt zu Flashes */
 .lamp { position: relative; align-self: flex-start; margin-top: -28px; width: 30px; height: 92px; display: block; }
 .lamp svg { width: 100%; height: 100%; overflow: visible; }
-.lamp line { stroke: #6b4a44; stroke-width: 1.5; }
-.lamp rect { fill: #3a2725; }
-.lamp .bulb { fill: rgba(90,40,36,.55); stroke: #7a5552; stroke-width: 1.2; transition: fill .3s, filter .3s; }
-.lamp .fil { fill: none; stroke: #9a6a5a; stroke-width: 1.2; }
+.lamp line { stroke: #4d5e63; stroke-width: 1.5; }
+.lamp rect { fill: #2b3c42; }
+.lamp .bulb { fill: rgba(90,40,36,.55); stroke: #5d6e72; stroke-width: 1.2; transition: fill .3s, filter .3s; }
+.lamp .fil { fill: none; stroke: #8a8f7a; stroke-width: 1.2; }
 .lamp:hover .bulb { fill: rgba(200,40,30,.55); }
 .lamp.on .bulb { fill: #ff2b1c; stroke: #ff7a5c; filter: drop-shadow(0 0 10px #ff2b1c) drop-shadow(0 0 28px rgba(255,43,28,.7)); }
 .lamp.on .fil { stroke: #ffd2a0; }

@@ -1,13 +1,13 @@
 :root {
-  --ink: #22100f;
-  --paper: #f0e4da;
-  --white: #fbf3ea;
-  --mute: #a88e86;
-  --mute2: #d2bfb6;
-  --num: #7a5552;
-  --accent: #e0a85a;
-  --dim: #4a2a2a;
-  --line: #3a1e1e;
+  --ink: #122228;
+  --paper: #ebd3a2;
+  --white: #f1e2bf;
+  --mute: #b6ab8c;
+  --mute2: #d6c8a6;
+  --num: #6b7140;
+  --accent: #bb7125;
+  --dim: #34454c;
+  --line: #24363c;
   --news-paper: #efeae1;
   --news-ink: #141210;
   --news-red: #b3261e;
@@ -88,7 +88,7 @@ h1, h2, h3, p, figure, blockquote { margin: 0; }
 .burger { display: none; }
 /* Handy: schmale Leiste oben, bleibt beim Scrollen stehen: KILIAN, Lampe, Menü */
 @media (max-width: 700px) {
-  .site-header.site-header { position: sticky !important; top: 0; left: auto; right: auto; z-index: 900; flex-wrap: nowrap; justify-content: flex-start; gap: 14px; padding: 12px 16px; background: var(--ink); box-shadow: 0 1px 0 rgba(240,228,218,.08); }
+  .site-header.site-header { position: sticky !important; top: 0; left: auto; right: auto; z-index: 900; flex-wrap: nowrap; justify-content: flex-start; gap: 14px; padding: 12px 16px; background: var(--ink); box-shadow: 0 1px 0 rgba(235,211,162,.08); }
   .site-header .brand img { height: 26px; }
   .lamp { margin-top: -12px; margin-left: auto; width: 18px; height: 50px; }
   .burger { display: flex; flex-direction: column; justify-content: center; gap: 5px; margin-left: 0; width: 40px; height: 34px; padding: 6px 8px; background: none; border: 0; cursor: pointer; }

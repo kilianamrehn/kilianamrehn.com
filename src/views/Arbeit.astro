@@ -32,7 +32,7 @@ const crumbs = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', it
   { '@type': 'ListItem', position: 3, name: p.title, item: 'https://kilianamrehn.com/' + campaignPath(p.slug, lang) },
 ] };
 const lightOf = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };
-const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,14,.72);--tx3:rgba(22,17,14,.5)' : '';
+const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#122228;--tx2:rgba(18,34,40,.72);--tx3:rgba(18,34,40,.5)' : '';
 ---
 <Base lang={lang} schema={[crumbs]} image={`/media/og/${p.slug}.jpg`} alternate={campaignPath(p.slug, en ? 'de' : 'en')} title={en && p.slug === 'bundesliga' ? 'Bundesliga · Sports photography · Kilian Amrehn' : `${p.title} · ${kindT} · ${T.suffix}`} description={desc}>
 <section class="a-head" style={`background:${p.color}${inkVars(p.color)}`}>
@@ -80,14 +80,14 @@ const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,
 <style>
   .a-head { position: relative; padding: clamp(56px, 8vw, 110px) 0 clamp(40px, 5vw, 70px); }
   .a-in { display: flex; flex-direction: column; gap: 22px; }
-  .kick { color: var(--tx2, rgba(240,228,218,.75)); letter-spacing: .16em; text-transform: uppercase; font-size: 12px; }
+  .kick { color: var(--tx2, rgba(235,211,162,.75)); letter-spacing: .16em; text-transform: uppercase; font-size: 12px; }
   .a-title { font-size: clamp(52px, 9vw, 140px); line-height: .88; color: var(--tx, var(--white)); margin: 0; text-wrap: balance; }
-  .a-text { max-width: 60ch; margin: 0; color: var(--tx, rgba(240,228,218,.9)); font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; }
+  .a-text { max-width: 60ch; margin: 0; color: var(--tx, rgba(235,211,162,.9)); font-size: clamp(16px, 1.4vw, 19px); line-height: 1.6; }
   .film { margin-top: clamp(32px, 5vw, 64px); }
   .film video { width: 100%; height: auto; display: block; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
   .abspann { color: var(--tx, var(--white)); }
   .ab-in { max-width: 1240px; margin: 0 auto; padding: clamp(56px, 8vw, 110px) var(--pad); display: flex; flex-direction: column; gap: 22px; }
-  .ab-title { text-align: center; letter-spacing: .3em; text-transform: uppercase; color: var(--tx2, rgba(240,228,218,.75)); }
+  .ab-title { text-align: center; letter-spacing: .3em; text-transform: uppercase; color: var(--tx2, rgba(235,211,162,.75)); }
   /* Kinoleinwand 21:9. Passt der Abspann nicht hinein, rollt er wie im Film; man kann selbst scrollen. */
   .screen { position: relative; aspect-ratio: 21 / 9; background: #0b0908; color: #f4ece4; box-shadow: 0 30px 80px rgba(0,0,0,.45), inset 0 0 0 1px rgba(255,255,255,.04); overflow: hidden; }
   .roll { position: absolute; inset: 0; overflow-y: auto; scrollbar-width: none; overscroll-behavior: contain; outline: none;

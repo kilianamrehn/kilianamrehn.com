@@ -184,7 +184,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
   <div class="door">
     <a class="door-label" href={u(r('campaigns'))}><span class="display">{t.doorCampaigns[0]}</span><span class="mono mute"><Fragment set:html={t.doorCampaigns[1]} /> <b class="arr">→</b></span></a>
     <div class="stack mono">{bands.map((b) => (
-      <a class={`reveal band${b.light ? ' light' : ''}`} href={u(b.href)} style={`background:${b.c};--ar:${b.ar.toFixed(4)}`}>
+      <a class="reveal band" href={u(b.href)} style={`--ar:${b.ar.toFixed(4)}`}>
         <span class="band-imgs">{b.ims.map((i) => <span style={`flex:${i.ar.toFixed(4)}`}>{i.v ? <video class="band-vid" data-src={`${base}media/video/${i.v}.mp4`} poster={`${base}img/v-${i.v}.webp`} muted loop playsinline preload="none" aria-label={b.n}></video> : <Pic name={i.n} alt={altText(i.n, lang === 'en', b.n)} sizes={`(max-width: 900px) ${Math.round(100 * i.ar / b.ar)}vw, ${Math.round(50 * i.ar / b.ar)}vw`} />}</span>)}</span>
         <span class="band-name">{b.n} <b class="arr">→</b></span>
       </a>
@@ -221,7 +221,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
   .litc { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
   .hero :global(.lit) { opacity: 0; position: absolute; inset: 0; -webkit-mask-image: var(--mask); mask-image: var(--mask); }
   .hero { --mask: radial-gradient(circle 125px at 56% 40%, #000 0%, #000 35%, transparent 100%); }
-  .shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(34,16,15,.6) 0%, rgba(34,16,15,0) 26%, rgba(34,16,15,0) 55%, rgba(34,16,15,.9) 100%); }
+  .shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(18,34,40,.6) 0%, rgba(18,34,40,0) 26%, rgba(18,34,40,0) 55%, rgba(18,34,40,.9) 100%); }
   .hero-text { position: absolute; left: 0; right: 0; bottom: clamp(28px, 5vw, 52px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 28px; pointer-events: none; }
   .hero h1 { font-weight: 400; color: var(--mute2); margin-bottom: 18px; }
   .claim { font-size: clamp(64px, 10.4vw, 150px); line-height: .86; color: var(--white); }
@@ -248,7 +248,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
     .hero { height: auto; overflow: visible; }
     .frame { position: relative; left: 0; transform: none; width: 100%; }
     .hero-text { position: relative; bottom: auto; padding-top: 22px; padding-bottom: 8px; }
-    .shade { background: linear-gradient(180deg, rgba(34,16,15,.55) 0%, rgba(34,16,15,0) 35%); }
+    .shade { background: linear-gradient(180deg, rgba(18,34,40,.55) 0%, rgba(18,34,40,0) 35%); }
     .claim { font-size: clamp(54px, 16vw, 80px); }
     .hero-text { flex-direction: column; align-items: stretch; flex-wrap: nowrap; padding-top: 16px; gap: 34px; }
     .chips-box { order: -1; align-items: flex-start; gap: 12px; } .chips { flex-wrap: nowrap; justify-content: space-between; width: 100%; gap: 8px; } .chips button { width: 40px; height: 40px; flex: 0 0 auto; }
@@ -284,8 +284,8 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
   .eye.open { height: calc(100cqw / var(--ar)); }
   .eye.open .eye-full { opacity: 1; }
   .rv-name { z-index: 2; }
-  .band { color: var(--white); }
-  .band.light { color: #16110e; }
+  .band { color: var(--paper); background: var(--dim); }
+  .band.light { color: #122228; }
   .band.light .band-name { text-shadow: none; transition: top .5s cubic-bezier(.2,.7,.2,1), color .3s; }
   .band.light.open .band-name { color: var(--white); text-shadow: 0 1px 12px rgba(0,0,0,.5); }
   .band :global(img) { transform: none !important; }

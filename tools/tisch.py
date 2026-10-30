@@ -15,6 +15,8 @@ FR = {'polaroid': (18, 18, 74), 'border': (12, 12, 12), 'negative': (16, 40, 40)
 SHADOW = "box-shadow:0 1px 1px rgba(0,0,0,0.28),0 4px 8px rgba(0,0,0,0.16),0 18px 34px -12px rgba(0,0,0,0.45);"
 PAPERS = [(15, '#3b1515'), (35, '#4a2514'), (55, '#4a3a17'), (90, '#30351a'), (160, '#17321f'), (190, '#123333'), (215, '#14293b'), (260, '#181d3a'), (340, '#301930'), (361, '#3b1515')]
 CHAR = '#1f1d1b'
+MARK_PAL = ['#bb7125', '#ebd3a2', '#6b7140', '#34454c']
+CUR = ['']
 KI = {'untamed-ki-1', 'untamed-ki-2', 'untamed-ki-3', 'untamed-ki-4', 'jeremiah-ki-1', 'jeremiah-ki-2', 'jeremiah-ki-3'}
 
 def hsl(h, s, l):
@@ -115,6 +117,8 @@ def add_marks(back, rects_px, hues, rnd, mobile, marks, cnt):
         key = marks.take(); mw, mh, kind = MM[key]
         h0 = rnd.choice(hues)
         paint = hsl(h0 + (0.5 if rnd.random() < 0.45 else rnd.uniform(-0.04, 0.04)), rnd.uniform(0.55, 0.78), rnd.uniform(0.46, 0.6))
+        # seit 30.10.2026 nur Farben aus Wada 243, nie die Farbe des eigenen Bogens (Zufallsfolge bleibt gleich, Layout unverändert)
+        cand = [c for c in MARK_PAL if c != CUR[0]]; paint = cand[int(paint[1:], 16) % len(cand)]
         x, y, fw, fh = rnd.choice(rects_px); SC = 0.42 if mobile else 1.0; op = rnd.uniform(0.82, 0.97); fl = ' scaleX(-1)' if rnd.random() < 0.5 else ''
         if kind in ('ring', 'arc'):
             d = (rnd.uniform(0.75, 1.15) * min(fw, fh) + 60 * SC) * (1.15 if kind == 'arc' else 1)
@@ -131,6 +135,7 @@ def add_marks(back, rects_px, hues, rnd, mobile, marks, cnt):
             back.append(mask(key + '.png', paint, lx, ly, lw, lh, 4, f'opacity:{op:.2f};transform:rotate({rnd.uniform(-4, 4):.1f}deg){fl};'))
 
 def sheet(names, paper, rnd_seed, mobile, marks, edge, label=False, cnt=None, allow_torn=False, maxh=None, tight=False):
+    CUR[0] = (paper or '').lower()
     rnd = random.Random(rnd_seed)
     kinds = [pick_kind(n, rnd, allow_torn) for n in names]
     top0 = ((60 if mobile else 110) if not tight else (24 if mobile else 40)) + ((40 if mobile else 50) if label else 0)
@@ -192,7 +197,7 @@ def flashes(mobile):
         kd = pick_kind(n, r, allow_torn=True); fs = 0.55 if mobile else 1.0
         px, pt, pb = [round(v * fs) for v in FR[kd]]; fw, fh = w + 2 * px, ih + pt + pb
         cx = min(max(x, fw / 2 - 6), W - fw / 2 + 6)
-        it = frame_item(n, kd, cx - fw / 2, yy - fh / 2, w, ih, r, '#3a1414', ['FLASHES', 'KÖLN'], r.randint(2, 35), rot=0 if kd == 'negative' else r.uniform(-8, 8), z=z, fs=fs)
+        it = frame_item(n, kd, cx - fw / 2, yy - fh / 2, w, ih, r, '#34454c', ['FLASHES', 'KÖLN'], r.randint(2, 35), rot=0 if kd == 'negative' else r.uniform(-8, 8), z=z, fs=fs)
         z += 1; out.append(it)
     while i < len(names):
         band = r.uniform(460, 620) * S

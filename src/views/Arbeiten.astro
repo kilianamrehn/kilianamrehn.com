@@ -14,18 +14,18 @@ const T = en
   ? { title: 'Work · Campaign, Fashion & Editorial Photography Cologne', desc: "Campaigns and personal series by Kilian Amrehn, Cologne: Scholl, Copenhagen Studios, P&C x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club.", h1: 'Work', sub: 'Campaigns & personal series', view: 'View →', book: 'My campaign book' }
   : { title: 'Arbeiten · Kampagnen, Mode & Editorial aus Köln', desc: "Kampagnen und freie Strecken von Kilian Amrehn, Köln: Scholl, Copenhagen Studios, P&C x Ellesse, PNTS, AppelrathCüpper, Bundesliga, New Icons' Club.", h1: 'Arbeiten', sub: 'Kampagnen & freie Strecken', view: 'Ansehen →', book: 'Mein Kampagnenbuch' };
 const list = idx as any[];
-const isLight = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };
 const lightOf = (hex: string) => { const n = parseInt(hex.slice(1), 16); return (0.299 * Math.floor(n / 65536) + 0.587 * (Math.floor(n / 256) % 256) + 0.114 * (n % 256)) / 255 > 0.6; };
-const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,14,.72);--tx3:rgba(22,17,14,.5)' : '';
+const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#122228;--tx2:rgba(18,34,40,.72);--tx3:rgba(18,34,40,.5)' : '';
 ---
 <Base lang={lang} image="/media/og/arbeiten.jpg" alternate={routes.campaigns[en ? 'de' : 'en']} title={T.title} description={T.desc}>
 <section class="wrap ar-head">
   <h1 class="mono kick">{T.h1}</h1>
   <span class="mono sub">{T.sub}</span>
 </section>
-<nav class="bar mono" aria-label={T.h1}>
-  {list.map((k) => <a href={`#${k.slug}`} style={`background:${k.band};color:${isLight(k.band) ? '#16110e' : 'var(--white)'}`}>{k.title}</a>)}
+<nav id="index" class="wrap toc mono" aria-label={T.h1}>
+  {list.map((k) => <a href={`#${k.slug}`}>{k.title}</a>)}
 </nav>
+<a class="ar-idx mono" href="#index" hidden>Index ↑</a>
 {list.map((k) => (
   <article id={k.slug} class="ar">
     <a class="ar-top" href={base + campaignPath(k.slug, lang)} style={`background:${k.bg}${inkVars(k.bg)}`}>
@@ -41,22 +41,30 @@ const inkVars = (hex: string) => lightOf(hex) ? ';--tx:#16110e;--tx2:rgba(22,17,
 <div class="wrap ar-book"><a class="ar-btn" href={base + 'media/kilian-amrehn-buch-kampagnen.pdf'} target="_blank" rel="noopener">{T.book} <span>↗</span></a></div>
 {!en && <p class="wrap mono ar-seo"><a href={base + 'kampagnenfotografie-koeln/'}>Kampagnenfotografie Köln →</a></p>}
 <Lightbox lang={lang} />
+<script>
+  const toc = document.getElementById('index');
+  const btn = document.querySelector<HTMLElement>('.ar-idx');
+  if (toc && btn) new IntersectionObserver(([e]) => { btn.hidden = e.isIntersecting || e.boundingClientRect.top > 0; }).observe(toc);
+</script>
 </Base>
 <style>
   .ar-head { padding-top: 32px; padding-bottom: 32px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 32px; }
   .kick { font: 500 12px/1 var(--f-mono); letter-spacing: .24em; text-transform: uppercase; color: var(--paper); margin: 0; }
   .sub { color: var(--mute); letter-spacing: .16em; text-transform: uppercase; font-size: 12px; }
-  /* alle Felder gleich breit, Reihen möglichst gleich voll (17 Arbeiten: 9 + 8 oder 6 + 6 + 5) */
-  .bar { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); position: sticky; top: 0; z-index: 60; }
-  .bar > * { min-height: 52px; display: flex; align-items: center; padding: 0 16px; color: var(--white); font-size: 12px; }
-  @media (max-width: 1600px) { .bar { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
-  @media (max-width: 720px) { .bar { display: flex; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; } .bar > * { flex: 0 0 auto; } }
-  .ar { scroll-margin-top: 52px; position: relative; }
+  /* Inhaltsverzeichnis: ruhige Textliste, eine Farbe */
+  .toc { columns: 3; column-gap: 32px; padding-top: 18px; padding-bottom: 18px; border-top: 1px solid var(--num); border-bottom: 1px solid var(--num); margin-bottom: 8px; }
+  .toc a { display: block; padding: 9px 0; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--paper); text-decoration: none; break-inside: avoid; }
+  .toc a:hover, .toc a:focus-visible { color: var(--accent); }
+  @media (max-width: 900px) { .toc { columns: 2; } }
+  @media (max-width: 420px) { .toc { columns: 1; } }
+  .ar-idx { position: fixed; right: calc(var(--pad) + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 800; padding: 10px 14px; border-radius: 999px; background: var(--ink); color: var(--paper); border: 1px solid var(--num); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
+  .ar-idx:hover, .ar-idx:focus-visible { border-color: var(--paper); }
+  .ar { scroll-margin-top: 64px; position: relative; }
   .ar-top { display: block; position: relative; z-index: 50; color: var(--tx, var(--white)); text-decoration: none; }
   .ar-t { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px 28px; padding-top: 44px; padding-bottom: 8px; }
   .ar-name { font-size: clamp(40px, 6vw, 96px); line-height: .9; }
-  .ar-meta { color: var(--tx2, rgba(240,228,218,.75)); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; }
-  .ar-cta { margin-left: auto; padding: 8px 14px; border: 1px solid var(--tx2, rgba(240,228,218,.6)); border-radius: 999px; font-size: 12px; }
+  .ar-meta { color: var(--tx2, rgba(235,211,162,.75)); letter-spacing: .14em; text-transform: uppercase; font-size: 12px; }
+  .ar-cta { margin-left: auto; padding: 8px 14px; border: 1px solid var(--tx2, rgba(235,211,162,.6)); border-radius: 999px; font-size: 12px; }
   .ar :global(.sheet .band) { top: 0 !important; box-shadow: none !important; transform: none !important; }
   .ar :global(.ph) { cursor: pointer; }
   .ar-book { padding-top: clamp(56px, 8vw, 96px); }

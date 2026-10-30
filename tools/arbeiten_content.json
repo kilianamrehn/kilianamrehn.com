@@ -51,13 +51,13 @@
   "textDe": "",
   "textEn": "",
   "top": null,
-  "color": "#0f352e",
+  "color": "#34454c",
   "edge": [
    "FREIE STRECKE",
    "EDITORIAL"
   ],
   "seed": 0,
-  "band": "#0f352e",
+  "band": "#34454c",
   "bandImgs": [
    "w-rock-fairyland-1",
    "w-rock-fairyland-4",
@@ -126,13 +126,13 @@
   "textDe": "",
   "textEn": "",
   "top": null,
-  "color": "#41251e",
+  "color": "#6b7140",
   "edge": [
    "KAMPAGNENFOTOGRAFIE",
    "MODEFOTOGRAFIE"
   ],
   "seed": 3,
-  "band": "#41251e",
+  "band": "#6b7140",
   "bandImgs": [
    "w-copenhagen-studios-11",
    "vid:cph-schal-loop",
@@ -281,13 +281,13 @@
   "textDe": "",
   "textEn": "",
   "top": null,
-  "color": "#0d333d",
+  "color": "#ebd3a2",
   "edge": [
    "KAMPAGNENFOTOGRAFIE",
    "MODEFOTOGRAFIE"
   ],
   "seed": 4,
-  "band": "#0d333d",
+  "band": "#ebd3a2",
   "bandImgs": [
    "w-peek-cloppenburg-x-ellesse-1"
   ],
@@ -341,13 +341,13 @@
   "textDe": "Vier Szenen, eine Person. Stark in der Mode, weich in der Beauty, fremd vor einem offenen Kühlschrank, nackt im Schwarzweiß.",
   "textEn": "Four scenes, one person. Strong in fashion, soft in beauty, out of place in front of an open fridge, bare in black and white.",
   "top": null,
-  "color": "#0a3437",
+  "color": "#34454c",
   "edge": [
    "FREIE STRECKE",
    "GERICHTETES LICHT"
   ],
   "seed": 7,
-  "band": "#0a3437",
+  "band": "#34454c",
   "bandImgs": [
    "w-trish-reflections-of-identity-6"
   ],
@@ -409,13 +409,13 @@
   "textDe": "",
   "textEn": "",
   "top": "ozean-der-stille",
-  "color": "#422521",
+  "color": "#6b7140",
   "edge": [
    "FREIE STRECKE",
    "MODEFOTOGRAFIE"
   ],
   "seed": 1,
-  "band": "#422521",
+  "band": "#6b7140",
   "bandImgs": [
    "w-ozean-der-stille-11"
   ],
@@ -486,13 +486,13 @@
   "textDe": "",
   "textEn": "",
   "top": null,
-  "color": "#143529",
+  "color": "#ebd3a2",
   "edge": [
    "FREIE STRECKE",
    "EDITORIAL"
   ],
   "seed": 5,
-  "band": "#143529",
+  "band": "#ebd3a2",
   "bandImgs": [
    "w-synergy-1",
    "w-synergy-2",
@@ -560,13 +560,13 @@
   "textDe": "Spiel mit Spiegeln.",
   "textEn": "Playing with mirrors.",
   "top": null,
-  "color": "#1f2e44",
+  "color": "#34454c",
   "edge": [
    "KAMPAGNENFOTOGRAFIE",
    "MODEFOTOGRAFIE"
   ],
   "seed": 14,
-  "band": "#1f2e44",
+  "band": "#34454c",
   "bandImgs": [
    "w-appelrathcuepper-2"
   ],
@@ -610,13 +610,13 @@
   "textDe": "",
   "textEn": "",
   "top": "niewiederleise-kampagne",
-  "color": "#303013",
+  "color": "#6b7140",
   "edge": [
    "KAMPAGNE",
    "#NIEWIEDERLEISE"
   ],
   "seed": 8,
-  "band": "#303013",
+  "band": "#6b7140",
   "bandImgs": [
    "vid:niewiederleise-kampagne"
   ],
@@ -700,13 +700,13 @@
   "textDe": "",
   "textEn": "",
   "top": null,
-  "color": "#422423",
+  "color": "#ebd3a2",
   "edge": [
    "EDITORIAL",
    "MAGAZIN"
   ],
   "seed": 12,
-  "band": "#422423",
+  "band": "#ebd3a2",
   "bandImgs": [
    "w-new-icons-club-magazine-12",
    "w-new-icons-club-magazine-9",
@@ -806,13 +806,13 @@
   "textDe": "Eine Wüste unter vollem Mond, zwei Menschen stehen still. Sie trägt die Erwartungen der anderen, er die Unsichtbarkeit. Für einen Moment sind beide nicht mehr gefangen. Sie stehen still und sind doch längst unterwegs.",
   "textEn": "A desert under a full moon, two people standing still. She carries other people’s expectations, he carries being unseen. For a moment, neither of them is trapped. They stand still, and yet they are already on their way.",
   "top": null,
-  "color": "#0c343b",
+  "color": "#34454c",
   "edge": [
    "KAMPAGNE",
    "MODEFOTOGRAFIE"
   ],
   "seed": 6,
-  "band": "#0c343b",
+  "band": "#34454c",
   "bandImgs": [
    "w-silent-escape-5",
    "w-silent-escape-1",
@@ -876,13 +876,13 @@
   "textDe": "",
   "textEn": "",
   "top": null,
-  "color": "#382c11",
+  "color": "#6b7140",
   "edge": [
    "KAMPAGNE",
    "DESSOUSFOTOGRAFIE"
   ],
   "seed": 9,
-  "band": "#382c11",
+  "band": "#6b7140",
   "bandImgs": [
    "w-phiala-8",
    "w-phiala-4",
@@ -998,13 +998,13 @@
   "textDe": "",
   "textEn": "",
   "top": null,
-  "color": "#41261c",
+  "color": "#ebd3a2",
   "edge": [
    "KAMPAGNENFOTOGRAFIE",
    "MODEFOTOGRAFIE"
   ],
   "seed": 2,
-  "band": "#41261c",
+  "band": "#ebd3a2",
   "bandImgs": [
    "w-scholl-3",
    "w-scholl-5",
@@ -1268,13 +1268,13 @@
   "textDe": "",
   "textEn": "",
   "top": null,
-  "color": "#193043",
+  "color": "#34454c",
   "edge": [
    "KAMPAGNENFOTOGRAFIE",
    "MODEFOTOGRAFIE"
   ],
   "seed": 13,
-  "band": "#193043",
+  "band": "#34454c",
   "bandImgs": [
    "w-pnts-3",
    "w-pnts-10",
@@ -1388,13 +1388,13 @@
   "textDe": "",
   "textEn": "",
   "top": null,
-  "color": "#3f2717",
+  "color": "#6b7140",
   "edge": [
    "KAMPAGNENFOTOGRAFIE",
    "MODEFOTOGRAFIE"
   ],
   "seed": 16,
-  "band": "#3f2717",
+  "band": "#6b7140",
   "bandImgs": [
    "w-the-wants-3",
    "w-the-wants-5",
@@ -1451,13 +1451,13 @@
   "textDe": "",
   "textEn": "",
   "top": null,
-  "color": "#0b343a",
+  "color": "#ebd3a2",
   "edge": [
    "SCHMUCKFOTOGRAFIE",
    "KAMPAGNE"
   ],
   "seed": 10,
-  "band": "#0b343a",
+  "band": "#ebd3a2",
   "bandImgs": [
    "w-monano-schmuck-5"
   ],
@@ -1524,13 +1524,13 @@
   "textDe": "Für die DFL in den Stadien, direkt am Spielfeldrand. Beeindruckende Orte. Und der Sport erst, so nah dran.",
   "textEn": "For the DFL in the stadiums, right on the touchline. Impressive places. And the football even more so, this close up.",
   "top": null,
-  "color": "#2e2e2a",
+  "color": "#34454c",
   "edge": [
    "SPORTFOTOGRAFIE",
    "BUNDESLIGA"
   ],
   "seed": 17,
-  "band": "#2e2e2a",
+  "band": "#34454c",
   "bandImgs": [
    "w-bundesliga-13",
    "w-bundesliga-7",
@@ -1592,13 +1592,13 @@
   "textDe": "",
   "textEn": "",
   "top": null,
-  "color": "#402719",
+  "color": "#6b7140",
   "edge": [
    "FREIE STRECKE",
    "ANALOG UND DIGITAL"
   ],
   "seed": 15,
-  "band": "#402719",
+  "band": "#6b7140",
   "bandImgs": [
    "w-marie-dahmen-5",
    "w-marie-dahmen-10"

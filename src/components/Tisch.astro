@@ -34,7 +34,7 @@ let k = 0;
 ---
 <div class="tisch">
 {sheets.map((s) => (
-  <section class="sheet" id={s.id} data-href={s.href} style={`--bg:${s.bg};--paper:url(${base}media/marks/paper.png)`}>
+  <section class="sheet" id={s.id} data-href={s.href} data-light={/^#eb/i.test(s.bg) ? '1' : undefined} style={`--bg:${s.bg};--paper:url(${base}media/marks/paper.png)`}>
     <div class="band"></div>
     {(s.label || s.note) && (
       <div class="sh-head">
@@ -80,8 +80,9 @@ let k = 0;
   .sheet:nth-child(3n) .band { transform: rotate(0.12deg); }
   .band { position: absolute; left: -2%; width: 104%; top: 0; bottom: 0; background-color: var(--bg); background-image: var(--paper); background-size: 512px 512px; background-blend-mode: soft-light; }
   .sh-head { position: absolute; z-index: 40; top: calc(48 * var(--u)); left: calc(44 * var(--u)); right: calc(44 * var(--u)); display: flex; flex-wrap: wrap; gap: 10px 32px; align-items: baseline; pointer-events: none; }
-  .sh-label { margin: 0; font: 500 12px/1.2 var(--f-mono); letter-spacing: .22em; text-transform: uppercase; color: rgba(235,211,162,.78); }
-  .sh-note { margin: 0; max-width: 60ch; font: 400 15px/1.5 var(--f-text); color: rgba(235,211,162,.9); }
+  .sh-label { margin: 0; font: 500 12px/1.2 var(--f-mono); letter-spacing: .22em; text-transform: uppercase; color: var(--white); }
+  .sheet[data-light] .sh-label, .sheet[data-light] .sh-note { color: var(--ink); }
+  .sh-note { margin: 0; max-width: 60ch; font: 400 15px/1.5 var(--f-text); color: var(--white); }
   .lay { position: relative; margin: 0 auto; }
   .lay.d { --u: min(1px, calc(100vw / 1440)); width: calc(1440 * var(--u)); }
   .lay.m { --u: calc(100vw / 390); width: calc(390 * var(--u)); display: none; }

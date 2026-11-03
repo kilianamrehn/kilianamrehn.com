@@ -138,7 +138,7 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
   ))}
   <canvas class="litc" aria-hidden="true"></canvas>
   <div class="shade"></div>
-  <div class="tap-hint" aria-hidden="true"><svg viewBox="0 0 30 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 8v13l-3-3a2 2 0 0 0-3 3l5 6c1.5 2 3 3 6 3h2a6 6 0 0 0 6-6v-6a2 2 0 0 0-4 0v-1a2 2 0 0 0-4 0v-1a2 2 0 0 0-4 0V8a1.5 1.5 0 0 0-3 0" /></svg></div>
+  <div class="tap-hint" aria-hidden="true"><svg viewBox="0 0 30 34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle class="ring" cx="13" cy="7" r="6" /><path d="M13 8v13l-3-3a2 2 0 0 0-3 3l5 6c1.5 2 3 3 6 3h2a6 6 0 0 0 6-6v-6a2 2 0 0 0-4 0v-1a2 2 0 0 0-4 0v-1a2 2 0 0 0-4 0V8a1.5 1.5 0 0 0-3 0" /></svg></div>
   </div>
   <div class="hero-text wrap">
     <div>
@@ -234,14 +234,16 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
   @media (hover: none) { .hero { cursor: default; } }
   .tap-hint { display: none; }
   @media (hover: none) {
-    .tap-hint { display: block; position: absolute; left: 22%; top: 42%; width: 40px; height: 45px; margin: -9px 0 0 -17px; z-index: 3; pointer-events: none; color: var(--white); opacity: 0; transition: opacity .35s; filter: drop-shadow(0 1px 6px rgba(0,0,0,.7)); }
-    .tap-hint svg { display: block; width: 100%; height: 100%; }
-    .tap-hint.on { opacity: 1; }
-    .hero.painted .tap-hint { opacity: 0; }
+    .tap-hint { display: flex; align-items: center; gap: 10px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none; color: var(--white); font: 500 11px/1 var(--f-mono); letter-spacing: .16em; text-transform: uppercase; text-shadow: 0 1px 10px rgba(0,0,0,.7); transition: opacity .4s; white-space: nowrap; }
+    .tap-hint svg { width: 34px; height: 34px; animation: tap 1.6s ease-in-out infinite; }
+    .tap-hint .ring { animation: ring 1.6s ease-out infinite; transform-origin: 13px 7px; }
+    .hero.painted .tap-hint, .hero.hint-off .tap-hint { opacity: 0; }
     .hero .frame { touch-action: none; }
     .hero, .hero * { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
     :global(html:has(.hero.painting)) { -webkit-user-select: none; user-select: none; }
   }
+  @keyframes tap { 0%, 100% { transform: translateY(0); } 15% { transform: translateY(3px); } 30% { transform: translateY(0); } 45% { transform: translateY(3px); } 60% { transform: translateY(0); } }
+  @keyframes ring { 0%, 10% { opacity: 0; transform: scale(.4); } 20% { opacity: .9; } 60%, 100% { opacity: 0; transform: scale(1.6); } }
   @media (max-width: 700px) {
     .hero { height: auto; overflow: visible; }
     .frame { position: relative; left: 0; transform: none; width: 100%; }
@@ -420,27 +422,8 @@ const bands = (idx as any[]).map((k) => { const ims = (k.bandImgs as string[]).m
       // auch ein einzelnes Tippen macht sofort Licht an der Stelle
       frameEl.dispatchEvent(new PointerEvent('pointermove', { clientX: e.clientX, clientY: e.clientY, pointerType: 'touch', bubbles: true }));
     });
-    // Handy: Finger wischt zweimal von links nach rechts, beim ersten Mal zieht er Licht mit; danach verschwindet der Hinweis für immer
-    const hint = hero.querySelector<HTMLElement>('.tap-hint');
-    if (hint && matchMedia('(hover: none)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const D = 1300, GAP = 450;
-      const path = (k: number) => [22 + 56 * k, 42 - 12 * Math.sin(k * Math.PI)];
-      const pass = (n: number) => {
-        if (hero.classList.contains('painted')) { hint.classList.remove('on'); return; }
-        const r = frameEl.getBoundingClientRect(); const t0 = performance.now();
-        const step = (now: number) => {
-          if (hero.classList.contains('painted')) { hint.classList.remove('on'); return; }
-          const k = Math.min(1, (now - t0) / D), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2, [x, y] = path(e);
-          hint.style.left = x + '%'; hint.style.top = y + '%';
-          if (n === 0) hero.dispatchEvent(new PointerEvent('pointermove', { clientX: r.left + r.width * x / 100, clientY: r.top + r.height * y / 100, pointerType: 'mouse', bubbles: true }));
-          if (k < 1) requestAnimationFrame(step);
-          else if (n === 0) { hint.classList.remove('on'); setTimeout(() => { if (hero.classList.contains('painted')) return; const [x0, y0] = path(0); hint.style.left = x0 + '%'; hint.style.top = y0 + '%'; hint.classList.add('on'); setTimeout(() => pass(1), 350); }, GAP); }
-          else { hint.classList.remove('on'); setTimeout(() => hint.remove(), 400); }
-        };
-        requestAnimationFrame(step);
-      };
-      setTimeout(() => { const r = frameEl.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight || hero.classList.contains('painted')) { hint.remove(); return; } hint.classList.add('on'); setTimeout(() => pass(0), 350); }, 1000);
-    } else hint?.remove();
+    // Handy: Tipp-Hinweis nur kurz zeigen, dann ausblenden
+    setTimeout(() => hero.classList.add('hint-off'), 3400);
     const stop = () => { painting = false; hero.classList.remove('painting'); };
     frameEl.addEventListener('pointerup', stop);
     frameEl.addEventListener('pointercancel', stop);
